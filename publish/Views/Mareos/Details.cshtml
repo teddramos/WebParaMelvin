@@ -1,0 +1,154 @@
+﻿@model WebParaMelvin.Models.Mareo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mareo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pulso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pulso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Frecuencia_Cardiaca_Maxima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Frecuencia_Cardiaca_Maxima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tension_Arterial1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tension_Arterial1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tension_Arterial2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tension_Arterial2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C65__Frecuencia_Cartdiaca_Maxima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C65__Frecuencia_Cartdiaca_Maxima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Primera_Carga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Primera_Carga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Segund_Carga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Segund_Carga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tercera_Carga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tercera_Carga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cuarta_Carga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cuarta_Carga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quinta_Carga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quinta_Carga)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VO2Max)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VO2Max)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Factor_Correccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Factor_Correccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resultado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resultado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resultado2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resultado2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Mareo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

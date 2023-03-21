@@ -1,0 +1,55 @@
+﻿@model WebParaMelvin.Models.Usuario
+
+@{
+    ViewBag.Title = "Login";
+    
+}
+
+<h2>Área de Usuarios</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Entrar al Sistema</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-10">
+        @{ string error = "";
+            if (ViewBag.Error != null)
+            { error = ViewBag.Error; }
+
+        }
+            @Html.Label(error, htmlAttributes: new { @class = "text-danger" })
+    </div>
+        <div class="form-group">
+
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Entrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+
+    
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

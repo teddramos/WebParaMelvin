@@ -1,0 +1,162 @@
+﻿@model WebParaMelvin.Models.Consentimiento_Informado
+
+@{
+    ViewBag.Title = "Edit";
+    WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+    var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var info = db.Info_general.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+}
+<h2>Editar</h2>
+
+<style>
+    input {
+        margin: 0px 0px 0px 0px
+    }
+
+    select {
+        margin: 4px
+    }
+
+    label {
+        margin-left: 5px
+    }
+
+    input[type="checkbox"] {
+        margin-left: 20px;
+        margin-top: 0px;
+        line-height: normal;
+    }
+
+    tr td {
+        font: bold;
+        font-weight: bold;
+    }
+</style>
+
+<table style="width:100%;">
+    <tr>
+        <td colspan="5">&nbsp;</td>
+        <td><strong>expediente No.</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@fso.Id_Formulario_S_O</td>
+    </tr>
+    <tr>
+        <td><strong>Empresa:</strong></td>
+        <td class="form-control" colspan="4">@fso.Empresa.Nombre</td>
+        <td><strong>Fecha:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Fecha</td>
+    </tr>
+    <tr>
+        <td><strong>Departamento:</strong></td>
+        <td class="form-control">&nbsp;@info.Departamento</td>
+        <td><strong>Posicion:</strong></td>
+        <td class="form-control" colspan="4">&nbsp;&nbsp;@info.Posicion</td>
+    </tr>
+    <tr>
+        <td><strong>Tipo evaluacion:</strong></td>
+        <td class="form-control" colspan="6">&nbsp;&nbsp;@info.Tipo_de_evaluacion</td>
+    </tr>
+    <tr>
+        <td colspan="7">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="7"><h3>Datos Generales</h3><hr /></td>
+    </tr>
+    <tr>
+        <td><strong>Nombre:</strong></td>
+        <td class="form-control" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido&nbsp;&nbsp;@info.Apellido</td>
+        <td><strong>Sexo:</strong></td>
+        <td class="form-control">@info.Sexo</td>
+        <td><strong>Cedula:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Cedula</td>
+    </tr>
+    <tr>
+        <td><strong>Fecha de Nacimiento:</strong></td>
+        <td class="form-control">@info.Fecha_de_nacimiento</td>
+        <td><strong>Edad:</strong></td>
+        <td class="form-control">@info.Edad</td>
+        <td><strong>Id Empleado:</strong></td>
+        <td class="form-control" colspan="2">@info.Id_Empleado</td>
+    </tr>
+</table>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id_Consentimiento_Informado)
+    @Html.HiddenFor(model => model.Id_Formulario_S_O)
+    @Html.HiddenFor(model => model.Firma)
+    @Html.HiddenFor(model => model.Huella)
+ 
+    <div class="form-horizontal">
+        <h4>Consentimiento_Informado</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <p>
+            Certifico que he sido informado(a) acerca de la naturaleza y propósito de los exámenes ocupacionales y pruebas complementarias que me serán realizadas por CENTRO INTEGRAL DE SALUD MAIMON – CISAM DE CONFORMIDAD CON LO ESTABLECIDO EN LA LEY GENERAL DE SALUD (42-01) EN SUS ARTÍCULOS 28 Y 29.
+        </p>
+        <p>
+            Igualmente autorizo expresamente al CENTRO INTEGRAL DE SALUD MAIMON – CISAM, para que informe al departamento de Salud Ocupacional o de Recursos Humanos de la Empresa, sobre las condiciones de mi estado de salud y remita a esta última, una copia de la evaluación médica ocupacional y/o los exámenes paraclínicos que me serán realizados descritos debajo:
+        </p>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.TextBoxFor(model => model.DataFirma, htmlAttributes: new { @class = "form-control", @type = "file" })
+            @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+
+            @{
+                try
+                {
+                    var base64 = Convert.ToBase64String(Model.Firma);
+                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                    <img src="@imgSrc" />
+                }
+                catch
+                {
+
+                }
+            }
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Huella, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            @Html.TextBoxFor(model => model.DataHuella, htmlAttributes: new { @class = "form-control", @type = "file" })
+            @Html.ValidationMessageFor(model => model.Huella, "", new { @class = "text-danger" })
+
+            Dedo &iacute;ndice Derecho
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Huella:", htmlAttributes: new { @class = "control-label" })
+
+            @{
+                try
+                {
+                    var base64 = Convert.ToBase64String(Model.Huella);
+                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                    <img src="@imgSrc" />
+                }
+                catch
+                {
+
+                }
+            }
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
+</div>

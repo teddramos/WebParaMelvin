@@ -1,0 +1,1248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ceisamco_form_s_oModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actividades">
+    <Key>
+      <PropertyRef Name="Id_Actividad" />
+    </Key>
+    <Property Name="Id_Actividad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Usuario" Type="int" />
+    <Property Name="Fecha_modificacion" Type="datetime" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="160" />
+  </EntityType>
+  <EntityType Name="ArchivosExtras">
+    <Key>
+      <PropertyRef Name="Id_ArchivoExtra" />
+    </Key>
+    <Property Name="Id_ArchivoExtra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
+    <Property Name="link" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Audiometria">
+    <Key>
+      <PropertyRef Name="Id_AudioMetria" />
+    </Key>
+    <Property Name="Id_AudioMetria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="trabaja_trabajado_en_areas_ruidosas" Type="bit" Nullable="false" />
+    <Property Name="tipo_de_proteccion_auditiva" Type="bit" Nullable="false" />
+    <Property Name="Ha_tenido_infecciones_en_los_oidos" Type="bit" Nullable="false" />
+    <Property Name="Ha_tenido_zumbido_en_los_oidos" Type="bit" Nullable="false" />
+    <Property Name="Ha_estado_en_la_milicia_o_el_ejercito_no" Type="bit" />
+    <Property Name="trabaja_trabajado_en_areas_ruidosas_no" Type="bit" />
+    <Property Name="tipo_de_proteccion_auditiva_no" Type="bit" />
+    <Property Name="Ha_tenido_infecciones_en_los_oidos_no" Type="bit" />
+    <Property Name="Ha_tenido_zumbido_en_los_oidos_no" Type="bit" />
+    <Property Name="Ha_estado_en_la_milicia_o_el_ejercito" Type="bit" Nullable="false" />
+    <Property Name="Escucha_musica_alta_o_usa_audifonos" Type="nvarchar" MaxLength="50" />
+    <Property Name="Horas_desde_la_ultima_exposicion" Type="nvarchar" MaxLength="10" />
+    <Property Name="Exposicion" Type="nvarchar" MaxLength="10" />
+    <Property Name="Entrenamiento_recibido" Type="nvarchar" MaxLength="10" />
+    <Property Name="Autoevaluacion_de_su_audicion_" Type="nvarchar" MaxLength="10" />
+    <Property Name="Otoscopia_Izquierda" Type="nvarchar" MaxLength="50" />
+    <Property Name="Otoscopia_Derecha" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comentarios" Type="nvarchar(max)" />
+    <Property Name="Oiz_500" Type="int" />
+    <Property Name="Oiz_1K" Type="int" />
+    <Property Name="Oiz_2K" Type="int" />
+    <Property Name="Oiz_3K" Type="int" />
+    <Property Name="Oiz_4K" Type="int" />
+    <Property Name="Oiz_6K" Type="int" />
+    <Property Name="Oiz_8K" Type="int" />
+    <Property Name="Oiz_5002" Type="int" />
+    <Property Name="Oiz_1K2" Type="int" />
+    <Property Name="Oiz_2K2" Type="int" />
+    <Property Name="Oiz_3K2" Type="int" />
+    <Property Name="Oiz_4K2" Type="int" />
+    <Property Name="Oiz_6K2" Type="int" />
+    <Property Name="Oiz_8K2" Type="int" />
+    <Property Name="Ode_500" Type="int" />
+    <Property Name="Ode_1K" Type="int" />
+    <Property Name="Ode_2K" Type="int" />
+    <Property Name="Ode_3K" Type="int" />
+    <Property Name="Ode_4K" Type="int" />
+    <Property Name="Ode_6K" Type="int" />
+    <Property Name="Ode_8K" Type="int" />
+    <Property Name="Ode_5002" Type="int" />
+    <Property Name="Ode_1K2" Type="int" />
+    <Property Name="Ode_2K2" Type="int" />
+    <Property Name="Ode_3K2" Type="int" />
+    <Property Name="Ode_4K2" Type="int" />
+    <Property Name="Ode_6K2" Type="int" />
+    <Property Name="Ode_8K2" Type="int" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="Resultado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Consentimiento_Informado">
+    <Key>
+      <PropertyRef Name="Id_Consentimiento_Informado" />
+    </Key>
+    <Property Name="Id_Consentimiento_Informado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="Huella" Type="image" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="CSO">
+    <Key>
+      <PropertyRef Name="Id_CSO" />
+    </Key>
+    <Property Name="Id_CSO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Antiguedad_en_el_puesto" Type="nvarchar" MaxLength="20" />
+    <Property Name="Tiempo_en_la_empresa" Type="nvarchar" MaxLength="20" />
+    <Property Name="Área de Trabajo" Type="nvarchar" MaxLength="20" />
+    <Property Name="Anamnesis_ocupacional_ex_fisico" Type="datetime" />
+    <Property Name="Hemograma_completo" Type="bit" Nullable="false" />
+    <Property Name="Audiometria_tonal" Type="bit" Nullable="false" />
+    <Property Name="Gicemia" Type="bit" Nullable="false" />
+    <Property Name="Espirometria" Type="bit" Nullable="false" />
+    <Property Name="Urea_creatinina" Type="bit" Nullable="false" />
+    <Property Name="Panel_de_drogas_minimo_coc_thc_mtd_met" Type="bit" Nullable="false" />
+    <Property Name="Tuberculosis" Type="bit" Nullable="false" />
+    <Property Name="capacidad_fisica_test_manero" Type="bit" Nullable="false" />
+    <Property Name="Examen_de_orina" Type="bit" Nullable="false" />
+    <Property Name="Agudez_visual_agudeza_campo_profundidad_cromatismo" Type="bit" Nullable="false" />
+    <Property Name="Perfil_Lipidico" Type="bit" Nullable="false" />
+    <Property Name="Electrocardiograma_en_reposo" Type="bit" Nullable="false" />
+    <Property Name="TGO_TGP" Type="bit" Nullable="false" />
+    <Property Name="Radiografia_De_Torax_PA_Radiografia_lumbo_sacra" Type="bit" Nullable="false" />
+    <Property Name="HBSAG_Hepatitis_C" Type="bit" Nullable="false" />
+    <Property Name="Otros" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apto" Type="bit" Nullable="false" />
+    <Property Name="Apto_con_restriccion" Type="bit" Nullable="false" />
+    <Property Name="No_Apto" Type="bit" Nullable="false" />
+    <Property Name="Aplazado" Type="bit" Nullable="false" />
+    <Property Name="Recomendaciones_observaciones" Type="nvarchar(max)" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="EKG">
+    <Key>
+      <PropertyRef Name="Id_EKG" />
+    </Key>
+    <Property Name="Id_EKG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Archivo" Type="image" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="Id_Empresa" />
+    </Key>
+    <Property Name="Id_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="RNC" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono " Type="nchar" MaxLength="30" />
+    <Property Name="Dirección" Type="nvarchar(max)" />
+    <Property Name="Persona Contacto" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sitio Web" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Usuario" Type="int" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Espirometria">
+    <Key>
+      <PropertyRef Name="Id_Espirometria" />
+    </Key>
+    <Property Name="Id_Espirometria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Archivo" Type="varbinary(max)" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Resultado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Examen_Visual">
+    <Key>
+      <PropertyRef Name="Id_Examen_Visual" />
+    </Key>
+    <Property Name="Id_Examen_Visual" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sin_corr_OD" Type="int" />
+    <Property Name="Sin_corr_OS" Type="int" />
+    <Property Name="Sin_corr_AO" Type="int" />
+    <Property Name="Con_corr_OD" Type="int" />
+    <Property Name="Con_corr_OS" Type="int" />
+    <Property Name="Con_corr_AO" Type="int" />
+    <Property Name="AVC_Ambos_ojos" Type="nvarchar" MaxLength="50" />
+    <Property Name="Panorama_Normal_1" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_2" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_3" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_4" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_5" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_6" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_7" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_8" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_9" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_10" Type="nchar" MaxLength="10" />
+    <Property Name="Panorama_Normal_11" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_1" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_2" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_3" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_4" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_5" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_6" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_7" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_8" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_9" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_10" Type="nchar" MaxLength="10" />
+    <Property Name="Deficiencias_Rojo_y_Verde_11" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_1" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_2" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_3" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_4" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_5" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_6" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_7" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_8" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_9" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_10" Type="nchar" MaxLength="10" />
+    <Property Name="Ceguera_total_o_deilidad_cromatica_11" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto1" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto2" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto3" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto4" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto5" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto6" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto7" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto8" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto9" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto10" Type="nchar" MaxLength="10" />
+    <Property Name="Respuesta_del_sujeto11" Type="nchar" MaxLength="10" />
+    <Property Name="Ojo_derecho_TS" Type="nchar" MaxLength="10" />
+    <Property Name="Ojo_derecho_NS" Type="nchar" MaxLength="10" />
+    <Property Name="Ojo_derecho_TI" Type="nchar" MaxLength="10" />
+    <Property Name="Ojo_derecho_NI" Type="nchar" MaxLength="10" />
+    <Property Name="Ojo_izquierdo_TS" Type="nchar" MaxLength="10" />
+    <Property Name="Ojo_izquierdo_NS" Type="nchar" MaxLength="10" />
+    <Property Name="Ojo_izquierdo_TI" Type="nchar" MaxLength="10" />
+    <Property Name="Ojo_izquierdo_NI" Type="nchar" MaxLength="10" />
+    <Property Name="Persona_normal_12" Type="int" />
+    <Property Name="Deficiencia_rojo_y_verde_LEVE_12" Type="int" />
+    <Property Name="Protanopia_y_protanomalia_12" Type="int" />
+    <Property Name="Deuteranopia_y_deuteronomalia_12" Type="int" />
+    <Property Name="Respuesta_del_sujeto_12" Type="int" />
+    <Property Name="Persona_normal_13" Type="int" />
+    <Property Name="Deficiencia_rojo_y_verde_LEVE_13" Type="int" />
+    <Property Name="Protanopia_y_protanomalia_13" Type="int" />
+    <Property Name="Deuteranopia_y_deuteronomalia_13" Type="int" />
+    <Property Name="Respuesta_del_sujeto_13" Type="int" />
+    <Property Name="Respuesta_del_sujeto_14" Type="nvarchar(max)" />
+    <Property Name="Comentarios_" Type="nvarchar(max)" />
+    <Property Name="Agudeza_Visual_" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vision_cromatica" Type="nvarchar" MaxLength="50" />
+    <Property Name="Campos_Visuales_OD" Type="nvarchar" MaxLength="50" />
+    <Property Name="Campos_visuales_OS" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="Resultado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Formulario_S_O">
+    <Key>
+      <PropertyRef Name="Id_Formulario_S_O" />
+    </Key>
+    <Property Name="Id_Formulario_S_O" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Usuario" Type="int" />
+    <Property Name="Id_Empresa" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Hemograma">
+    <Key>
+      <PropertyRef Name="Id_Hemograma" />
+    </Key>
+    <Property Name="Id_Hemograma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Archivo" Type="image" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Historia_Clinica">
+    <Key>
+      <PropertyRef Name="Id_Historia_Clinica" />
+    </Key>
+    <Property Name="Id_Historia_Clinica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estado_civil" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nivel_educacional" Type="nvarchar" MaxLength="50" />
+    <Property Name="No_de_Hijos" Type="int" />
+    <Property Name="No_dependienteds" Type="int" />
+    <Property Name="Vivienda" Type="nvarchar" MaxLength="50" />
+    <Property Name="Estatura" Type="nvarchar" MaxLength="50" />
+    <Property Name="Calle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Numero_casa" Type="int" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sector" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="perosona_emergencia" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_empresa" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Posicion" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Dede_Hasta" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ex_Fisicos" Type="bit" Nullable="false" />
+    <Property Name="Ex_quimicos" Type="bit" Nullable="false" />
+    <Property Name="Ex_Hergonomico" Type="bit" Nullable="false" />
+    <Property Name="Ex_Psicosocial" Type="bit" Nullable="false" />
+    <Property Name="Ex_mecanico" Type="bit" Nullable="false" />
+    <Property Name="Ex_Electrico" Type="bit" Nullable="false" />
+    <Property Name="Ex_Biologico" Type="bit" Nullable="false" />
+    <Property Name="Ex_Locativo" Type="bit" Nullable="false" />
+    <Property Name="Epp" Type="nchar" MaxLength="10" />
+    <Property Name="H_empresa1" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Posicion1" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Dede_Hasta1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ex_Fisicos1" Type="bit" Nullable="false" />
+    <Property Name="Ex_quimicos1" Type="bit" Nullable="false" />
+    <Property Name="Ex_Hergonomico1" Type="bit" Nullable="false" />
+    <Property Name="Ex_Psicosocial1" Type="bit" Nullable="false" />
+    <Property Name="Ex_mecanico1" Type="bit" Nullable="false" />
+    <Property Name="Ex_Electrico1" Type="bit" Nullable="false" />
+    <Property Name="Ex_Biologico1" Type="bit" Nullable="false" />
+    <Property Name="Ex_Locativo1" Type="bit" Nullable="false" />
+    <Property Name="Epp1" Type="nchar" MaxLength="10" />
+    <Property Name="H_empresa2" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Posicion2" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Dede_Hasta2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ex_Fisicos2" Type="bit" Nullable="false" />
+    <Property Name="Ex_quimicos2" Type="bit" Nullable="false" />
+    <Property Name="Ex_Hergonomico2" Type="bit" Nullable="false" />
+    <Property Name="Ex_Psicosocial2" Type="bit" Nullable="false" />
+    <Property Name="Ex_mecanico2" Type="bit" Nullable="false" />
+    <Property Name="Ex_Biologico2" Type="bit" Nullable="false" />
+    <Property Name="Ex_Electrico2" Type="bit" Nullable="false" />
+    <Property Name="Ex_Locativo2" Type="bit" Nullable="false" />
+    <Property Name="Epp2" Type="nchar" MaxLength="10" />
+    <Property Name="H_empresa3" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Posicion3" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Dede_Hasta3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ex_Fisicos3" Type="bit" Nullable="false" />
+    <Property Name="Ex_quimicos3" Type="bit" Nullable="false" />
+    <Property Name="Ex_Hergonomico3" Type="bit" Nullable="false" />
+    <Property Name="Ex_Psicosocial3" Type="bit" Nullable="false" />
+    <Property Name="Ex_mecanico3" Type="bit" Nullable="false" />
+    <Property Name="Ex_Electrico3" Type="bit" Nullable="false" />
+    <Property Name="Ex_Biologico3" Type="bit" Nullable="false" />
+    <Property Name="Ex_Locativo3" Type="bit" Nullable="false" />
+    <Property Name="Epp3" Type="nchar" MaxLength="10" />
+    <Property Name="H_empresa4" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Posicion4" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Dede_Hasta4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ex_Fisicos4" Type="bit" Nullable="false" />
+    <Property Name="Ex_quimicos4" Type="bit" Nullable="false" />
+    <Property Name="Ex_Hergonomico4" Type="bit" Nullable="false" />
+    <Property Name="Ex_Psicosocial4" Type="bit" Nullable="false" />
+    <Property Name="Ex_mecanico4" Type="bit" Nullable="false" />
+    <Property Name="Ex_Electrico4" Type="bit" Nullable="false" />
+    <Property Name="Ex_Biologico4" Type="bit" Nullable="false" />
+    <Property Name="Ex_Locativo4" Type="bit" Nullable="false" />
+    <Property Name="Epp4" Type="nchar" MaxLength="10" />
+    <Property Name="H_empresa5" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Posicion5" Type="nvarchar" MaxLength="50" />
+    <Property Name="H_Dede_Hasta5" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ex_Fisicos5" Type="bit" Nullable="false" />
+    <Property Name="Ex_quimicos5" Type="bit" Nullable="false" />
+    <Property Name="Ex_Hergonomico5" Type="bit" Nullable="false" />
+    <Property Name="Ex_Psicosocial5" Type="bit" Nullable="false" />
+    <Property Name="Ex_mecanico5" Type="bit" Nullable="false" />
+    <Property Name="Ex_Electrico5" Type="bit" Nullable="false" />
+    <Property Name="Ex_Biologico5" Type="bit" Nullable="false" />
+    <Property Name="Ex_Locativo5" Type="bit" Nullable="false" />
+    <Property Name="Epp5" Type="nchar" MaxLength="10" />
+    <Property Name="Tipo_ocupacional" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dignostico_ocupacional" Type="nvarchar" MaxLength="50" />
+    <Property Name="Empresa_ocupacional" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fecha_aporte_ARL" Type="datetime" />
+    <Property Name="Tipo_ocupacional1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dignostico_ocupacional1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Empresa_ocupacional1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fecha_aporte_ARL1" Type="datetime" />
+    <Property Name="Tipo_ocupacional2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dignostico_ocupacional2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Empresa_ocupacional2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fecha_aporte_ARL2" Type="datetime" />
+    <Property Name="Tipo_ocupacional3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dignostico_ocupacional3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Empresa_ocupacional3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fecha_aporte_ARL3" Type="datetime" />
+    <Property Name="Tipo_ocupacional4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dignostico_ocupacional4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Empresa_ocupacional4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fecha_aporte_ARL4" Type="datetime" />
+    <Property Name="Tipo_ocupacional5" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dignostico_ocupacional5" Type="nvarchar" MaxLength="50" />
+    <Property Name="Empresa_ocupacional5" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fecha_aporte_ARL5" Type="datetime" />
+    <Property Name="ACV" Type="bit" Nullable="false" />
+    <Property Name="Asma" Type="bit" Nullable="false" />
+    <Property Name="Cancer" Type="bit" Nullable="false" />
+    <Property Name="Cervicalgia" Type="bit" Nullable="false" />
+    <Property Name="Chikungunya" Type="bit" Nullable="false" />
+    <Property Name="Dengue" Type="bit" Nullable="false" />
+    <Property Name="Diabetes" Type="bit" Nullable="false" />
+    <Property Name="ETS" Type="bit" Nullable="false" />
+    <Property Name="Enf_Auditiva" Type="bit" Nullable="false" />
+    <Property Name="Enf_Autoinmune" Type="bit" Nullable="false" />
+    <Property Name="Enf_Cardiaca" Type="bit" Nullable="false" />
+    <Property Name="Enf_Congenita" Type="bit" Nullable="false" />
+    <Property Name="Enf__Gastrica" Type="bit" Nullable="false" />
+    <Property Name="Enf_Mental" Type="bit" Nullable="false" />
+    <Property Name="Enf_Neurlogica" Type="bit" Nullable="false" />
+    <Property Name="Enf_Osteomuscular" Type="bit" Nullable="false" />
+    <Property Name="Enf_Renal" Type="bit" Nullable="false" />
+    <Property Name="Enf_Respiratoria" Type="bit" Nullable="false" />
+    <Property Name="Enf_Visual" Type="bit" Nullable="false" />
+    <Property Name="Epilepsia" Type="bit" Nullable="false" />
+    <Property Name="Gastritis" Type="bit" Nullable="false" />
+    <Property Name="Hepatitis" Type="bit" Nullable="false" />
+    <Property Name="Hernia_Abd_" Type="bit" Nullable="false" />
+    <Property Name="Hernia_discal" Type="bit" Nullable="false" />
+    <Property Name="Hipertencion" Type="bit" Nullable="false" />
+    <Property Name="Infarto_Cartdiaco" Type="bit" Nullable="false" />
+    <Property Name="Intoxicaciones" Type="bit" Nullable="false" />
+    <Property Name="Leptospirosis" Type="bit" Nullable="false" />
+    <Property Name="Lumbalgia" Type="bit" Nullable="false" />
+    <Property Name="Malaria" Type="bit" Nullable="false" />
+    <Property Name="Neumonia" Type="bit" Nullable="false" />
+    <Property Name="Tifoidea" Type="bit" Nullable="false" />
+    <Property Name="Tuberculosis" Type="bit" Nullable="false" />
+    <Property Name="Ulcera" Type="bit" Nullable="false" />
+    <Property Name="Vertigo" Type="bit" Nullable="false" />
+    <Property Name="Zika" Type="bit" Nullable="false" />
+    <Property Name="Detalle_Antecedentes" Type="nvarchar(max)" />
+    <Property Name="Antecendentes_Quirurgicos" Type="nvarchar(max)" />
+    <Property Name="Antecendentes_Traumaticos_" Type="nvarchar(max)" />
+    <Property Name="Antecendentes_Hospitalarios" Type="nvarchar(max)" />
+    <Property Name="Antecendentes_Transfucionales" Type="nvarchar(max)" />
+    <Property Name="Antecedentes_ginecologicos" Type="nvarchar" MaxLength="50" />
+    <Property Name="FUM" Type="nchar" MaxLength="10" />
+    <Property Name="G" Type="nchar" MaxLength="10" />
+    <Property Name="P" Type="nchar" MaxLength="10" />
+    <Property Name="C" Type="nchar" MaxLength="10" />
+    <Property Name="A" Type="nchar" MaxLength="10" />
+    <Property Name="Hepatitis_A" Type="nchar" MaxLength="10" />
+    <Property Name="Fecha_Dosis_inm_HepaA" Type="datetime" />
+    <Property Name="Hepatitis_B" Type="nchar" MaxLength="10" />
+    <Property Name="Fecha_Dosis_Inm_HepaB" Type="datetime" />
+    <Property Name="Influenza" Type="nchar" MaxLength="10" />
+    <Property Name="Fecha_Dosis_Inm_Influenza" Type="datetime" />
+    <Property Name="Tetanos" Type="nchar" MaxLength="10" />
+    <Property Name="Fecha_Dosis_Imn_Tetanos" Type="datetime" />
+    <Property Name="Alcohol" Type="nvarchar" MaxLength="50" />
+    <Property Name="cantidad" Type="int" />
+    <Property Name="Medida" Type="nchar" MaxLength="10" />
+    <Property Name="frecuencia" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tabaco" Type="nvarchar" MaxLength="50" />
+    <Property Name="cantidad_ta" Type="int" />
+    <Property Name="Medida_ta" Type="nchar" MaxLength="10" />
+    <Property Name="frecuencia_ta" Type="nvarchar" MaxLength="50" />
+    <Property Name="Infuciones" Type="nvarchar" MaxLength="50" />
+    <Property Name="cantidad_In" Type="int" />
+    <Property Name="Medida_In" Type="nchar" MaxLength="10" />
+    <Property Name="frecuencia_In" Type="nvarchar" MaxLength="50" />
+    <Property Name="Drogas" Type="nvarchar" MaxLength="50" />
+    <Property Name="cantidad_dr" Type="int" />
+    <Property Name="Medida_dr" Type="nchar" MaxLength="10" />
+    <Property Name="frecuencia_dr" Type="nvarchar" MaxLength="50" />
+    <Property Name="medicamentos" Type="nvarchar(max)" />
+    <Property Name="Padre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Abuelo" Type="nvarchar" MaxLength="50" />
+    <Property Name="AbueloM" Type="nvarchar" MaxLength="50" />
+    <Property Name="Hermano" Type="nvarchar" MaxLength="50" />
+    <Property Name="Madre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Abuela" Type="nvarchar" MaxLength="50" />
+    <Property Name="AbuelaM" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tio" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sintomas_Generales" Type="nvarchar(max)" />
+    <Property Name="Sistema_Respirtatorio" Type="nvarchar(max)" />
+    <Property Name="Sistema_Cardiovascular" Type="nvarchar(max)" />
+    <Property Name="Sistema_GastroIntestinal" Type="nvarchar(max)" />
+    <Property Name="Sistema_GenitoUrinario" Type="nvarchar(max)" />
+    <Property Name="Sistema_Neurolgogico" Type="nvarchar(max)" />
+    <Property Name="Inspeccion" Type="nvarchar(max)" />
+    <Property Name="Tension_arterial" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Tension_arterial2" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Pulso" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Respiracion" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Peso_Lbs" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Peso_Kgs" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Talla_Pulg" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Talla_Cms" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Lateralidad_Dominante" Type="nchar" MaxLength="10" />
+    <Property Name="IMC" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="IMC_Resul" Type="nvarchar" MaxLength="50" />
+    <Property Name="Riesgo_Cardiovascular" Type="nvarchar" MaxLength="50" />
+    <Property Name="Piel" Type="bit" Nullable="false" />
+    <Property Name="PielA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_Piel" Type="nvarchar(max)" />
+    <Property Name="Cabello" Type="bit" Nullable="false" />
+    <Property Name="CabelloA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_Cabellos" Type="nvarchar(max)" />
+    <Property Name="Ojos" Type="bit" Nullable="false" />
+    <Property Name="OjosA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_ojos" Type="nvarchar(max)" />
+    <Property Name="Oidos" Type="bit" Nullable="false" />
+    <Property Name="OidosA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_oidos" Type="nvarchar(max)" />
+    <Property Name="Nariz" Type="bit" Nullable="false" />
+    <Property Name="NarizA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_nariz" Type="nvarchar(max)" />
+    <Property Name="Boca" Type="bit" Nullable="false" />
+    <Property Name="BocaA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_boca" Type="nvarchar(max)" />
+    <Property Name="Faringe" Type="bit" Nullable="false" />
+    <Property Name="FaringeA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_faringe" Type="nvarchar(max)" />
+    <Property Name="Cuello" Type="bit" Nullable="false" />
+    <Property Name="CuelloA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_cuello" Type="nvarchar(max)" />
+    <Property Name="Pulmon" Type="bit" Nullable="false" />
+    <Property Name="PulmonA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_pulmon" Type="nvarchar(max)" />
+    <Property Name="Corzaon" Type="bit" Nullable="false" />
+    <Property Name="CorzaonA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_Corazon" Type="nvarchar(max)" />
+    <Property Name="Abdomen" Type="bit" Nullable="false" />
+    <Property Name="AbdomenA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_abdomen" Type="nvarchar(max)" />
+    <Property Name="Genitales" Type="bit" Nullable="false" />
+    <Property Name="GenitalesA" Type="bit" Nullable="false" />
+    <Property Name="descripcion_Genitales" Type="nvarchar(max)" />
+    <Property Name="Aparato_Locomotor" Type="bit" Nullable="false" />
+    <Property Name="Aparato_LocomotorA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_aparato_Locomotor" Type="nvarchar(max)" />
+    <Property Name="Marcha" Type="bit" Nullable="false" />
+    <Property Name="MarchaA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_Marcha" Type="nvarchar(max)" />
+    <Property Name="Columna" Type="bit" Nullable="false" />
+    <Property Name="ColumnaA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_Columna" Type="nvarchar(max)" />
+    <Property Name="Miembros_superiores" Type="bit" Nullable="false" />
+    <Property Name="Miembros_superioresA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_Miembros_superiores" Type="nvarchar(max)" />
+    <Property Name="Miembros_inferiores" Type="bit" Nullable="false" />
+    <Property Name="Miembros_inferioresA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_Miembros_Inferiores" Type="nvarchar(max)" />
+    <Property Name="Sistema_Nervioso" Type="bit" Nullable="false" />
+    <Property Name="Sistema_NerviosoA" Type="bit" Nullable="false" />
+    <Property Name="Descripcion_Sistema_Nervioso" Type="nvarchar(max)" />
+    <Property Name="Comentarios" Type="nvarchar(max)" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="Celular" Type="nvarchar" MaxLength="30" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="30" />
+    <Property Name="telefono_emergencia" Type="nvarchar" MaxLength="30" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Info_general">
+    <Key>
+      <PropertyRef Name="Id_Info_General" />
+    </Key>
+    <Property Name="Id_Info_General" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Empresa" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Departamento" Type="nvarchar" MaxLength="50" />
+    <Property Name="Posicion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tipo_de_evaluacion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sexo" Type="nvarchar" MaxLength="10" />
+    <Property Name="Cedula" Type="nvarchar" MaxLength="30" />
+    <Property Name="Fecha_de_nacimiento" Type="datetime" />
+    <Property Name="Edad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Empleado" Type="int" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Pre_espirometria" Type="bit" />
+    <Property Name="Espirometria" Type="bit" />
+    <Property Name="Audiometria" Type="bit" />
+    <Property Name="Capacidad_fisica" Type="bit" />
+    <Property Name="Laboratorio" Type="bit" />
+    <Property Name="Radiografia" Type="bit" />
+    <Property Name="Hemografia" Type="bit" />
+    <Property Name="EKG" Type="bit" />
+    <Property Name="Examen_visual" Type="bit" />
+    <Property Name="Bateria_de_un_mes" Type="bit" />
+    <Property Name="Bateria_Completa" Type="bit" />
+    <Property Name="Historia_clinica_y_examen_fisico" Type="bit" />
+  </EntityType>
+  <EntityType Name="Laboratorio">
+    <Key>
+      <PropertyRef Name="Id_Laboratorio" />
+    </Key>
+    <Property Name="Id_Laboratorio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="Olor" Type="nvarchar" MaxLength="50" />
+    <Property Name="Aspecto" Type="nvarchar" MaxLength="50" />
+    <Property Name="PH" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Densidad" Type="int" />
+    <Property Name="Nitritos" Type="nvarchar" MaxLength="50" />
+    <Property Name="Glucosa" Type="nvarchar" MaxLength="50" />
+    <Property Name="Albumina" Type="nvarchar" MaxLength="50" />
+    <Property Name="Acetona" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bilirrubina" Type="nvarchar" MaxLength="50" />
+    <Property Name="Urobilinógeno" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pigmentos biliares" Type="nvarchar" MaxLength="50" />
+    <Property Name="Hemoglobina" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sangre oculta" Type="nvarchar" MaxLength="50" />
+    <Property Name="Examen Microscópico" Type="nvarchar" MaxLength="50" />
+    <Property Name="Células renales" Type="nvarchar" MaxLength="50" />
+    <Property Name="Leucocitos" Type="nvarchar" MaxLength="50" />
+    <Property Name="Hematíes" Type="nvarchar" MaxLength="50" />
+    <Property Name="Células epiteliales" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bacterias" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fibras mucosas" Type="nvarchar" MaxLength="50" />
+    <Property Name="Levaduras" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cristales" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cilindros" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parásitos" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="firma" Type="image" />
+    <Property Name="Glicemia_alarma" Type="nvarchar" MaxLength="50" />
+    <Property Name="Glicemia_Resultado" Type="int" />
+    <Property Name="Colesterol total alarma" Type="nvarchar" MaxLength="50" />
+    <Property Name="Colesterol total resultado" Type="int" />
+    <Property Name="C_HDL alarma" Type="nvarchar" MaxLength="50" />
+    <Property Name="C_HDL resultado" Type="int" />
+    <Property Name="SGPT_ALT alarma" Type="nvarchar" MaxLength="50" />
+    <Property Name="SGPT_ALT resultado" Type="int" />
+    <Property Name="SGOT_ALT alarma" Type="nvarchar" MaxLength="50" />
+    <Property Name="SGOT_ALT resultado" Type="int" />
+    <Property Name="C_LDL alarma" Type="nvarchar" MaxLength="50" />
+    <Property Name="C_LDL resultado" Type="int" />
+    <Property Name="Creatinina alarma" Type="nvarchar" MaxLength="50" />
+    <Property Name="Creatinina resultado" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="VDRL" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bacilo de Koch" Type="nvarchar" MaxLength="50" />
+    <Property Name="HBsAg" Type="nvarchar" MaxLength="50" />
+    <Property Name="HCV" Type="nvarchar" MaxLength="50" />
+    <Property Name="Eritrosedimentacion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cocaina" Type="nvarchar" MaxLength="50" />
+    <Property Name="Anfetaminas" Type="nvarchar" MaxLength="50" />
+    <Property Name="Opiaceos" Type="nvarchar" MaxLength="50" />
+    <Property Name="Marihuana" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma1" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado1" Type="int" />
+    <Property Name="Unidad1" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 11" Type="int" />
+    <Property Name="Valor de Referencia 12" Type="int" />
+    <Property Name="Metodo1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma2" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado2" Type="int" />
+    <Property Name="Unidad2" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 21" Type="int" />
+    <Property Name="Valor de Referencia 22" Type="int" />
+    <Property Name="Metodo2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma3" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado3" Type="int" />
+    <Property Name="Unidad3" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 31" Type="int" />
+    <Property Name="Valor de Referencia 32" Type="int" />
+    <Property Name="Metodo3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma4" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado4" Type="int" />
+    <Property Name="Unidad4" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 41" Type="int" />
+    <Property Name="Valor de Referencia 42" Type="int" />
+    <Property Name="Metodo4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion5" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma5" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado5" Type="int" />
+    <Property Name="Unidad5" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 51" Type="int" />
+    <Property Name="Valor de Referencia 52" Type="int" />
+    <Property Name="Metodo5" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion6" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma6" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado6" Type="int" />
+    <Property Name="Unidad6" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 61" Type="int" />
+    <Property Name="Valor de Referencia 62" Type="int" />
+    <Property Name="Metodo6" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion7" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma7" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado7" Type="int" />
+    <Property Name="Unidad7" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 71" Type="int" />
+    <Property Name="Valor de Referencia 72" Type="int" />
+    <Property Name="Metodo7" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion8" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma8" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado8" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="Unidad8" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 81" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="Valor de Referencia 82" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="Metodo8" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion9" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma9" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado9" Type="int" />
+    <Property Name="Unidad9" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 91" Type="int" />
+    <Property Name="Valor de Referencia 92" Type="int" />
+    <Property Name="Metodo9" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion10" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma10" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado10" Type="int" />
+    <Property Name="Unidad10" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 101" Type="int" />
+    <Property Name="Valor de Referencia 102" Type="int" />
+    <Property Name="Metodo10" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion11" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma11" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado11" Type="int" />
+    <Property Name="Unidad11" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 111" Type="int" />
+    <Property Name="Valor de Referencia 112" Type="int" />
+    <Property Name="Metodo11" Type="nvarchar" MaxLength="50" />
+    <Property Name="Determinacion12" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alarma12" Type="nvarchar" MaxLength="30" />
+    <Property Name="Resultado12" Type="int" />
+    <Property Name="Unidad12" Type="nvarchar" MaxLength="30" />
+    <Property Name="Valor de Referencia 121" Type="int" />
+    <Property Name="Valor de Referencia 122" Type="int" />
+    <Property Name="Metodo12" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_condicion_1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_resultado_1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_metodo_1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_condicion_2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_resultado_2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_metodo_2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_condicion_3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_resultado_3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_metodo_3" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_condicion_4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_resultado_4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Serologia_metodo_4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Firma1" Type="image" />
+    <Property Name="Trigliceridos_alarma" Type="nvarchar" MaxLength="50" />
+    <Property Name="Trigliceridos_reultado" Type="int" />
+    <Property Name="Notas" Type="nvarchar(max)" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Mareo">
+    <Key>
+      <PropertyRef Name="Id_Mareo" />
+    </Key>
+    <Property Name="Id_Mareo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Peso" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Pulso" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Frecuencia_Cardiaca_Maxima" Type="int" />
+    <Property Name="Tension_Arterial1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Tension_Arterial2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="C65__Frecuencia_Cartdiaca_Maxima" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Primera_Carga" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Segund_Carga" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Tercera_Carga" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Cuarta_Carga" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Quinta_Carga" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="VO2Max" Type="nchar" MaxLength="10" />
+    <Property Name="Factor_Correccion" Type="nchar" MaxLength="10" />
+    <Property Name="Resultado" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Resultado2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Comentario" Type="nvarchar(max)" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Pre_espirometria">
+    <Key>
+      <PropertyRef Name="Id_Pre_espirometria" />
+    </Key>
+    <Property Name="Id_Pre_espirometria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pulmon_torax_abdomen" Type="bit" Nullable="false" />
+    <Property Name="infarto_al_corazon" Type="bit" Nullable="false" />
+    <Property Name="retina_cirugia" Type="bit" Nullable="false" />
+    <Property Name="problema_corazon" Type="bit" Nullable="false" />
+    <Property Name="medicamento_tuberculosis" Type="bit" Nullable="false" />
+    <Property Name="Esta_embarazada" Type="char" MaxLength="10" />
+    <Property Name="Presion_arterial" Type="bit" Nullable="false" />
+    <Property Name="infeccion_respirtatoria" Type="bit" Nullable="false" />
+    <Property Name="medicamento_respiracion" Type="bit" Nullable="false" />
+    <Property Name="cigarro_puro_pipa" Type="bit" Nullable="false" />
+    <Property Name="ejercicio_fuerte" Type="bit" Nullable="false" />
+    <Property Name="comida_completa" Type="bit" Nullable="false" />
+    <Property Name="Comentarios" Type="nvarchar(max)" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="pulmon_torax_abdomenA" Type="bit" Nullable="false" />
+    <Property Name="infarto_al_corazonA" Type="bit" Nullable="false" />
+    <Property Name="retina_cirugiaA" Type="bit" Nullable="false" />
+    <Property Name="problema_corazonA" Type="bit" Nullable="false" />
+    <Property Name="medicamento_tuberculosisA" Type="bit" Nullable="false" />
+    <Property Name="Presion_arterialA" Type="bit" Nullable="false" />
+    <Property Name="infeccion_respirtatoriaA" Type="bit" Nullable="false" />
+    <Property Name="medicamento_respiracionA" Type="bit" Nullable="false" />
+    <Property Name="cigarro_puro_pipaA" Type="bit" Nullable="false" />
+    <Property Name="ejercicio_fuerteA" Type="bit" Nullable="false" />
+    <Property Name="comida_completaA" Type="bit" Nullable="false" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="RayosX">
+    <Key>
+      <PropertyRef Name="Id_rayos_X" />
+    </Key>
+    <Property Name="Id_rayos_X" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tecnica" Type="nvarchar" MaxLength="50" />
+    <Property Name="Hallasgos" Type="nvarchar(max)" />
+    <Property Name="Impresion_diagnostica" Type="nvarchar(max)" />
+    <Property Name="tecnica2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Hallasgos2" Type="nvarchar(max)" />
+    <Property Name="Impresion_diagnostica2" Type="nvarchar(max)" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="Firma2" Type="image" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Id_rol" />
+    </Key>
+    <Property Name="Id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id_usuario" />
+    </Key>
+    <Property Name="Id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="id_rol" Type="int" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'cisam_form_s_o.dbo.Usuario_Empresa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Usuario_Empresa">
+    <Key>
+      <PropertyRef Name="Id_Usuario_Empresa" />
+    </Key>
+    <Property Name="Id_Usuario_Empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Usuario" Type="int" />
+    <Property Name="Id_empresa" Type="int" />
+  </EntityType>
+  <EntityType Name="Usuario_Rol">
+    <Key>
+      <PropertyRef Name="Id_usuario_rol" />
+    </Key>
+    <Property Name="Id_usuario_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Rol" Type="int" />
+    <Property Name="Id_Usuario" Type="int" />
+  </EntityType>
+  <Association Name="FK_Actividades_1_Usuarios_1">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Actividades" Type="Self.Actividades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Actividades">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArchivosExtras_ToFormulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1" />
+    <End Role="ArchivosExtras" Type="Self.ArchivosExtras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="ArchivosExtras">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Audiometria_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Audiometria" Type="Self.Audiometria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Audiometria">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Consentimiento_Informado_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Consentimiento_Informado" Type="Self.Consentimiento_Informado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Consentimiento_Informado">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CSO_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CSO" Type="Self.CSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="CSO">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EKG_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EKG" Type="Self.EKG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="EKG">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Empresa_ToUsuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Empresa">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Espirometria_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Espirometria" Type="Self.Espirometria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Espirometria">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examen_Visual_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Examen_Visual" Type="Self.Examen_Visual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Examen_Visual">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Formulario_S_O_ToTable">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id_Empresa" />
+      </Principal>
+      <Dependent Role="Formulario_S_O">
+        <PropertyRef Name="Id_Empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hemograma_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Hemograma" Type="Self.Hemograma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Hemograma">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Historia_clinica_To_Formulario_S_O_x">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Historia_Clinica" Type="Self.Historia_Clinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Historia_Clinica">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Info_general_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Info_general" Type="Self.Info_general" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Info_general">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Laboratorio_ToFormularioSO">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Laboratorio" Type="Self.Laboratorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Laboratorio">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mareo_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Mareo" Type="Self.Mareo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Mareo">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pre_espirometria_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Pre_espirometria" Type="Self.Pre_espirometria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Pre_espirometria">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RayosX_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RayosX" Type="Self.RayosX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="RayosX">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Empresa_ToEmpresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="Usuario_Empresa" Type="Self.Usuario_Empresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="Id_Empresa" />
+      </Principal>
+      <Dependent Role="Usuario_Empresa">
+        <PropertyRef Name="Id_empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Empresa_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Usuario_Empresa" Type="Self.Usuario_Empresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Usuario_Empresa">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol_ToRol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Usuario_Rol" Type="Self.Usuario_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Id_rol" />
+      </Principal>
+      <Dependent Role="Usuario_Rol">
+        <PropertyRef Name="Id_Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Usuario_Rol" Type="Self.Usuario_Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Usuario_Rol">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ceisamco_form_s_oModelStoreContainer">
+    <EntitySet Name="Actividades" EntityType="Self.Actividades" Schema="cisam_ceisamco_cisam" store:Type="Tables" />
+    <EntitySet Name="ArchivosExtras" EntityType="Self.ArchivosExtras" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Audiometria" EntityType="Self.Audiometria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Consentimiento_Informado" EntityType="Self.Consentimiento_Informado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CSO" EntityType="Self.CSO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EKG" EntityType="Self.EKG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Espirometria" EntityType="Self.Espirometria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Examen_Visual" EntityType="Self.Examen_Visual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Formulario_S_O" EntityType="Self.Formulario_S_O" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hemograma" EntityType="Self.Hemograma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Historia_Clinica" EntityType="Self.Historia_Clinica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Info_general" EntityType="Self.Info_general" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Laboratorio" EntityType="Self.Laboratorio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mareo" EntityType="Self.Mareo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pre_espirometria" EntityType="Self.Pre_espirometria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RayosX" EntityType="Self.RayosX" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario_Rol" EntityType="Self.Usuario_Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario_Empresa" EntityType="Self.Usuario_Empresa" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Usuario_Empresa].[Id_Usuario_Empresa] AS [Id_Usuario_Empresa], 
+    [Usuario_Empresa].[Id_Usuario] AS [Id_Usuario], 
+    [Usuario_Empresa].[Id_empresa] AS [Id_empresa]
+    FROM [dbo].[Usuario_Empresa] AS [Usuario_Empresa]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Actividades_1_Usuarios_1" Association="Self.FK_Actividades_1_Usuarios_1">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Actividades" EntitySet="Actividades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArchivosExtras_ToFormulario_S_O" Association="Self.FK_ArchivosExtras_ToFormulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="ArchivosExtras" EntitySet="ArchivosExtras" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Audiometria_To_Formulario_S_O" Association="Self.FK_Audiometria_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Audiometria" EntitySet="Audiometria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Consentimiento_Informado_To_Formulario_S_O" Association="Self.FK_Consentimiento_Informado_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Consentimiento_Informado" EntitySet="Consentimiento_Informado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CSO_To_Formulario_S_O" Association="Self.FK_CSO_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="CSO" EntitySet="CSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EKG_To_Formulario_S_O" Association="Self.FK_EKG_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="EKG" EntitySet="EKG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Empresa_ToUsuario" Association="Self.FK_Empresa_ToUsuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Empresa" EntitySet="Empresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Espirometria_To_Formulario_S_O" Association="Self.FK_Espirometria_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Espirometria" EntitySet="Espirometria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examen_Visual_Formulario_S_O" Association="Self.FK_Examen_Visual_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Examen_Visual" EntitySet="Examen_Visual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Formulario_S_O_ToTable" Association="Self.FK_Formulario_S_O_ToTable">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hemograma_To_Formulario_S_O" Association="Self.FK_Hemograma_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Hemograma" EntitySet="Hemograma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Historia_clinica_To_Formulario_S_O_x" Association="Self.FK_Historia_clinica_To_Formulario_S_O_x">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Historia_Clinica" EntitySet="Historia_Clinica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Info_general_To_Formulario_S_O" Association="Self.FK_Info_general_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Info_general" EntitySet="Info_general" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Laboratorio_ToFormularioSO" Association="Self.FK_Laboratorio_ToFormularioSO">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Laboratorio" EntitySet="Laboratorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mareo_To_Formulario_S_O" Association="Self.FK_Mareo_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Mareo" EntitySet="Mareo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pre_espirometria_To_Formulario_S_O" Association="Self.FK_Pre_espirometria_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Pre_espirometria" EntitySet="Pre_espirometria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RayosX_To_Formulario_S_O" Association="Self.FK_RayosX_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="RayosX" EntitySet="RayosX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Empresa_ToEmpresa" Association="Self.FK_Usuario_Empresa_ToEmpresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Usuario_Empresa" EntitySet="Usuario_Empresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Empresa_Usuario" Association="Self.FK_Usuario_Empresa_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Usuario_Empresa" EntitySet="Usuario_Empresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol_ToRol" Association="Self.FK_Usuario_Rol_ToRol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario_Rol" EntitySet="Usuario_Rol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol_Usuario" Association="Self.FK_Usuario_Rol_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Usuario_Rol" EntitySet="Usuario_Rol" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

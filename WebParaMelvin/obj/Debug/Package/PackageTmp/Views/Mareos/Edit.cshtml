@@ -1,0 +1,493 @@
+﻿@model WebParaMelvin.Models.Mareo
+
+@{
+    ViewBag.Title = "Editar";
+    WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+    var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var info = db.Info_general.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var histo = db.Historia_Clinica.FirstOrDefault(h => h.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+}
+
+<h2>Editar</h2>
+
+<style>
+    input {
+        margin: 0px 0px 0px 0px
+    }
+
+    select {
+        margin: 4px
+    }
+
+    label {
+        margin-left: 5px
+    }
+
+    input[type="checkbox"] {
+        margin-left: 20px;
+        margin-top: 0px;
+        line-height: normal;
+    }
+
+    tr td {
+        font: bold;
+        font-weight: bold;
+    }
+</style>
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+            return false;
+        return true;
+    }
+</script>
+
+<table style="width:100%;">
+    <tr>
+        <td colspan="5">&nbsp;</td>
+        <td><strong>expediente No.</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@fso.Id_Formulario_S_O</td>
+    </tr>
+    <tr>
+        <td><strong>Empresa:</strong></td>
+        <td class="form-control" colspan="4">@fso.Empresa.Nombre</td>
+        <td><strong>Fecha:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Fecha</td>
+    </tr>
+    <tr>
+        <td><strong>Departamento:</strong></td>
+        <td class="form-control">&nbsp;@info.Departamento</td>
+        <td><strong>Posicion:</strong></td>
+        <td class="form-control" colspan="4">&nbsp;&nbsp;@info.Posicion</td>
+    </tr>
+    <tr>
+        <td><strong>Tipo evaluacion:</strong></td>
+        <td class="form-control" colspan="6">&nbsp;&nbsp;@info.Tipo_de_evaluacion</td>
+    </tr>
+    <tr>
+        <td colspan="7">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="7"><h3>Datos Generales</h3><hr /></td>
+    </tr>
+    <tr>
+        <td><strong>Nombre:</strong></td>
+        <td class="form-control" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+        <td><strong>Sexo:</strong></td>
+        <td class="form-control">@info.Sexo</td>
+        <td><strong>Cedula:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Cedula</td>
+    </tr>
+    <tr>
+        <td><strong>Fecha de Nacimiento:</strong></td>
+        <td class="form-control">@info.Fecha_de_nacimiento</td>
+        <td><strong>Edad:</strong></td>
+        <td class="form-control">@info.Edad</td>
+        <td><strong>Id Empleado:</strong></td>
+        <td class="form-control" colspan="2">@info.Id_Empleado</td>
+    </tr>
+</table>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id_Mareo)
+    @Html.HiddenFor(model => model.Id_Formulario_S_O)
+    @Html.HiddenFor(model => model.Firma)
+
+    <div class="form-horizontal">
+        <h4>Manero</h4>
+        <hr />
+
+        <table style="width:100%;">
+            <tr>
+                <td>Peso:</td>
+                <td class="form-control">@histo.Peso_Kgs</td>
+                <td>Kg.</td>
+                <td>Pulso</td>
+                <td colspan="2" class="form-control"> @histo.Pulso</td>
+                <td>L/min</td>
+                <td>Frecuencia Cardiaca Maxima</td>
+                <td>
+
+                    @Html.TextBoxFor(model => model.Frecuencia_Cardiaca_Maxima, htmlAttributes: new { @size = "10", @class = "form-control", @readonly = "" })
+                </td>
+                <td>L/min.</td>
+            </tr>
+            <tr>
+                <td colspan="2">Tension Arterial:</td>
+                <td class="form-control">@histo.Tension_arterial &nbsp;</td>
+                <td>/</td>
+                <td class="form-control">&nbsp;@histo.Tension_arterial2</td>
+                <td>mmHg</td>
+                <td>65% Frecuencia Cardiaca Maxima</td>
+                <td>
+                    @Html.TextBoxFor(model => model.C65__Frecuencia_Cartdiaca_Maxima, htmlAttributes: new { @size = "10", @class = "form-control", @readonly = "" })
+                </td>
+                <td>L/min.</td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr>
+                <td style="border:1px solid;" align="center">Primera Carga</td>
+                <td style="border:1px solid;" align="center">Segunda Carga</td>
+                <td style="border:1px solid;" align="center">Tercera Carga</td>
+                <td style="border:1px solid;" align="center">Cuarta Carga</td>
+                <td style="border:1px solid;" align="center">Quinta Carga</td>
+            </tr>
+            <tr>
+                <td>12 ciclos o 48 BPM por 3 minutos</td>
+                <td>17 ciclos o 68 BPM por 3 minutos</td>
+                <td>26 ciclos o 104 BPM por 3 minutos</td>
+                <td>34 ciclos o 136 BPM por 3 minutos</td>
+                <td>34 ciclos o 136 BPM por 5 minutos</td>
+            </tr>
+            <tr>
+                <td> @Html.EditorFor(model => model.Primera_Carga, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return isNumberKey(event)", @onkeyup = "formatCArga(this)" } })</td>
+                <td> @Html.EditorFor(model => model.Segund_Carga, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return isNumberKey(event)", @onkeyup = "formatCArga(this)" } })</td>
+                <td> @Html.EditorFor(model => model.Tercera_Carga, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return isNumberKey(event)", @onkeyup = "formatCArga(this)" } })</td>
+                <td> @Html.EditorFor(model => model.Cuarta_Carga, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return isNumberKey(event)", @onkeyup = "formatCArga(this)" } })</td>
+                <td> @Html.EditorFor(model => model.Quinta_Carga, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return isNumberKey(event)", @onkeyup = "formatCArga(this)" } })</td>
+            </tr>
+            <tr>
+                <td style="border:1px solid;" align="center">L/Minuto</td>
+                <td style="border:1px solid;" align="center">L/Minuto</td>
+                <td style="border:1px solid;" align="center">L/Minuto</td>
+                <td style="border:1px solid;" align="center">L/Minuto</td>
+                <td style="border:1px solid;" align="center">L/Minuto</td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr>
+                <td>VO2Max</td>
+                <td>Factor de corrección</td>
+                <td rowspan="2">Resultado</td>
+                <td rowspan="2"> @Html.EditorFor(model => model.Resultado, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                <td rowspan="2">L/Min</td>
+                <td rowspan="2">O</td>
+                <td rowspan="2"> @Html.EditorFor(model => model.Resultado2, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                <td rowspan="2">mL/Kg/Mi</td>
+            </tr>
+            <tr>
+                <td> @Html.EditorFor(model => model.VO2Max, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularFC()", @onkeypress = "return isNumberKey(event)" } })</td>
+                <td> @Html.EditorFor(model => model.Factor_Correccion, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+            </tr>
+        </table>
+        <script>
+            var vo2 = document.getElementById('VO2Max').value;
+            if (eval(vo2) == NaN) {
+
+            }
+        </script>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comentario, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Comentario, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Comentario, "", new { @class = "text-danger", @readonly = "" })
+            </div>
+        </div>
+        <table style="width:100%; border:1px solid" cellspacing="0">
+            <tr>
+                <td colspan="5" style="border:1px solid;">La capacidad física para el trabajo en: Hombres Sanos: 16 Kcal./min - (3.2L/min) - (42.76 mL/Kg/Min) Mujeres Sanas: 12 Kcal./min - (2.4L/min) - (32.07 mL/Kg/Min)</td>
+                <td colspan="5" style="border:1px solid;">El porcentaje de capacidad física para el trabajo disminuye con la edad (después de los 20 años) El porcentaje máximo de capacidad física que debe ser utilizado en un trabajo es de un 33%</td>
+            </tr>
+            <tr>
+                <td colspan="10">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="10" align="center" style="border:1px solid;">Valores Normales</td>
+            </tr>
+            <tr>
+                <td colspan="10">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="8" align="center" style="border:1px solid;">Hombres (Valores en mL/Kg/Min)</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">Edad</td>
+                <td style="border:1px solid;" align="center">Muy pobre</td>
+                <td style="border:1px solid;" align="center">Pobre</td>
+                <td colspan="2" style="border:1px solid;" align="center">Regular</td>
+                <td style="border:1px solid;" align="center">Bueno</td>
+                <td style="border:1px solid;" align="center">Excelente</td>
+                <td style="border:1px solid;" align="center">Superior</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">13-19</td>
+                <td style="border:1px solid;" align="center">&lt;35.0</td>
+                <td style="border:1px solid;" align="center">35.0-38.3</td>
+                <td colspan="2" style="border:1px solid;" align="center">38.4-45.1</td>
+                <td style="border:1px solid;" align="center">45.2-50.9</td>
+                <td style="border:1px solid;" align="center">51.0-55.9</td>
+                <td style="border:1px solid;" align="center">&gt;55.9</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">20-29</td>
+                <td style="border:1px solid;" align="center">&lt;33.0</td>
+                <td style="border:1px solid;" align="center">33.0-36.4</td>
+                <td colspan="2" style="border:1px solid;" align="center">36.5-42.4</td>
+                <td style="border:1px solid;" align="center">42.5-46.4</td>
+                <td style="border:1px solid;" align="center">46.5-52.4</td>
+                <td style="border:1px solid;" align="center">&gt;52.4</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">30-39</td>
+                <td style="border:1px solid;" align="center">&lt;31.5</td>
+                <td style="border:1px solid;" align="center">31.5-35.4</td>
+                <td colspan="2" style="border:1px solid;" align="center">35.5-40.9</td>
+                <td style="border:1px solid;" align="center">41.0-44.9</td>
+                <td style="border:1px solid;" align="center">45.0-49.4</td>
+                <td style="border:1px solid;" align="center">&gt;49.4</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">40-49</td>
+                <td style="border:1px solid;" align="center">&lt;30.2</td>
+                <td style="border:1px solid;" align="center">30.2-33.5</td>
+                <td colspan="2" style="border:1px solid;" align="center">33.6-38.9</td>
+                <td style="border:1px solid;" align="center">39.0-43.7</td>
+                <td style="border:1px solid;" align="center">43.8-48.0</td>
+                <td style="border:1px solid;" align="center">&gt;48.0</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">50-59</td>
+                <td style="border:1px solid;" align="center">&lt;26.1</td>
+                <td style="border:1px solid;" align="center">26.1-30.9</td>
+                <td colspan="2" style="border:1px solid;" align="center">31.0-35.7</td>
+                <td style="border:1px solid;" align="center">35.8-40.90</td>
+                <td style="border:1px solid;" align="center">41.0-45.3</td>
+                <td style="border:1px solid;" align="center">&gt;45.3</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">60+</td>
+                <td style="border:1px solid;" align="center">&lt;20.5</td>
+                <td style="border:1px solid;" align="center">20.5-26.0</td>
+                <td colspan="2" style="border:1px solid;" align="center">26.1-32.2</td>
+                <td style="border:1px solid;" align="center">32.3-36.4</td>
+                <td style="border:1px solid;" align="center">36.5-44.2</td>
+                <td style="border:1px solid;" align="center">&gt;44.2</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="8">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td colspan="8" align="center" style="border:1px solid;">Mujeres (Valores en mL/Kg/Min)</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">Edad</td>
+                <td style="border:1px solid;" align="center">Muy pobre</td>
+                <td style="border:1px solid;" align="center">Pobre</td>
+                <td colspan="2" style="border:1px solid;" align="center">Regular</td>
+                <td style="border:1px solid;" align="center">Bueno</td>
+                <td style="border:1px solid;" align="center">Excelente</td>
+                <td style="border:1px solid;" align="center">Superior</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">13-19</td>
+                <td style="border:1px solid;" align="center">&lt;25.0</td>
+                <td style="border:1px solid;" align="center">25.0-30.9</td>
+                <td colspan="2" style="border:1px solid;" align="center">31.0-34.9</td>
+                <td style="border:1px solid;" align="center">35.0-38.9</td>
+                <td style="border:1px solid;" align="center">39.0-41.9</td>
+                <td style="border:1px solid;" align="center">&gt;41.9</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">20-29</td>
+                <td style="border:1px solid;" align="center">&lt;23.6</td>
+                <td style="border:1px solid;" align="center">23.6-28.9</td>
+                <td colspan="2" style="border:1px solid;" align="center">29.0-32.9</td>
+                <td style="border:1px solid;" align="center">33.0-36.9</td>
+                <td style="border:1px solid;" align="center">37.0-41.0</td>
+                <td style="border:1px solid;" align="center">&gt;41.0</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">30-39</td>
+                <td style="border:1px solid;" align="center">&lt;22.8</td>
+                <td style="border:1px solid;" align="center">22.8-26.9</td>
+                <td colspan="2" style="border:1px solid;" align="center">27.0-31.4</td>
+                <td style="border:1px solid;" align="center">31.5-35.6`</td>
+                <td style="border:1px solid;" align="center">35.7-40.0</td>
+                <td style="border:1px solid;" align="center">&gt;40.0</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">40-49</td>
+                <td style="border:1px solid;" align="center">&lt;21.0</td>
+                <td style="border:1px solid;" align="center">21.0-24.4</td>
+                <td colspan="2" style="border:1px solid;" align="center">24.5-28.9</td>
+                <td style="border:1px solid;" align="center">29.0-32.8</td>
+                <td style="border:1px solid;" align="center">32.9-36.9</td>
+                <td style="border:1px solid;" align="center">&gt;36.9</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">50-59</td>
+                <td style="border:1px solid;" align="center">&lt;20.2</td>
+                <td style="border:1px solid;" align="center">20.2-22.7</td>
+                <td colspan="2" style="border:1px solid;" align="center">22.8-26.9</td>
+                <td style="border:1px solid;" align="center">27.0-31.4</td>
+                <td style="border:1px solid;" align="center">31.5-35.7</td>
+                <td style="border:1px solid;" align="center">&gt;35.7</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="border:1px solid;" align="center">60+</td>
+                <td style="border:1px solid;" align="center">&lt;17.5</td>
+                <td style="border:1px solid;" align="center">17.5-20.1</td>
+                <td colspan="2" style="border:1px solid;" align="center">20.2-24.4</td>
+                <td style="border:1px solid;" align="center">24.5-30.2</td>
+                <td style="border:1px solid;" align="center">30.3-31.4</td>
+                <td style="border:1px solid;" align="center">&gt;31.4</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="10" style="border:1px solid;">Table Reference: The Physical Fitness Specialist Certification Manual, The Cooper Institute for Aerobics Research, Dallas TX, revised 1997 printed in Advance Fitness Assessment &amp; Exercise Prescription, 3rd Edition, Vivian H. Heyward, 1998.p48</td>
+            </tr>
+        </table>
+
+        <br />
+
+        <div class="form-group">
+            @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+
+            @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
+            @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+
+            @{
+                try
+                {
+                    var base64 = Convert.ToBase64String(Model.Firma);
+                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                    <img src="@imgSrc" />
+                }
+                catch
+                {
+
+                }
+            }
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<input type="hidden" onload="" />
+<div>
+    @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
+</div>
+<script>
+    //cacular Factor Correccion...
+    edad = eval(@info.Edad);
+    if (edad < 31) {
+        document.getElementById('Factor_Correccion').value = 1.00;
+    }
+    else if (edad >= 31 && edad < 36) {
+        document.getElementById('Factor_Correccion').value = 0.99;
+    }
+    else if (edad >= 36 && edad < 41) {
+        document.getElementById('Factor_Correccion').value = 0.94;
+    }
+    else if (edad >= 41 && edad < 46) {
+        document.getElementById('Factor_Correccion').value = 0.89;
+    }
+    else if (edad >= 46 && edad < 51) {
+        document.getElementById('Factor_Correccion').value = 0.85;
+    }
+    else if (edad >= 51 && edad < 56) {
+        document.getElementById('Factor_Correccion').value = 0.80;
+    }
+    else if (edad >= 56 && edad < 61) {
+        document.getElementById('Factor_Correccion').value = 0.76;
+    }
+    else if (edad >= 61 && edad < 66) {
+        document.getElementById('Factor_Correccion').value = 0.71;
+    }
+    else if (edad >= 66 && edad < 71) {
+        document.getElementById('Factor_Correccion').value = 0.67;
+    }
+    else if (edad >= 71 && edad < 76) {
+        document.getElementById('Factor_Correccion').value = 0.62;
+    }
+    else if (edad >= 76 && edad < 81) {
+        document.getElementById('Factor_Correccion').value = 0.58;
+    } else {
+
+        document.getElementById('Factor_Correccion').value = 'FALSO';
+    }
+    //fecuencias cardiacas
+    document.getElementById('Frecuencia_Cardiaca_Maxima').value = eval(220 - edad);
+    document.getElementById('C65__Frecuencia_Cartdiaca_Maxima').value = eval(eval(220 - edad) * 0.65);
+    //resulatdo1
+
+
+    function calcularFC() {
+        vomax = document.getElementById('VO2Max').value;
+        if (vomax.trim() != "") {
+            fco = document.getElementById('Factor_Correccion').value;
+            re1 = (eval(vomax) * eval(fco));
+            document.getElementById('Resultado').value = Math.round(re1 * Math.pow(10, 2)) / Math.pow(10, 2);
+            re2 = (eval(re1) / eval(@histo.Peso_Kgs)) * 1000;
+            document.getElementById('Resultado2').value = Math.round(re2 * Math.pow(10, 2)) / Math.pow(10, 2);
+        } else {
+            document.getElementById('VO2Max').value = "0";
+        }
+    }
+    function formatCArga(textbox) {
+        carga = textbox.value;
+        fm = document.getElementById('C65__Frecuencia_Cartdiaca_Maxima').value;
+        if (eval(carga) > eval(fm)) {
+            textbox.setAttribute('style', 'background-color:pink');
+        }
+        else if(eval(carga) <= eval(fm)){
+            textbox.setAttribute('style', 'background-color:lightgreen');
+        }
+    }
+    function formatCargaTodo() {
+        formatCArga(document.getElementById('Primera_Carga'));
+        formatCArga(document.getElementById('Segund_Carga'));
+
+        formatCArga(document.getElementById('Tercera_Carga'));
+        formatCArga(document.getElementById('Cuarta_Carga'));
+        formatCArga(document.getElementById('Quinta_Carga'));
+    }
+    formatCargaTodo();
+    calcularFC();
+</script>

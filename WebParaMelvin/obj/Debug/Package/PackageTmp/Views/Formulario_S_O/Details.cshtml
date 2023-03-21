@@ -1,0 +1,138 @@
+﻿@model WebParaMelvin.Models.Formulario_S_O
+@{
+    // Layout = null;
+    WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+    var fso = db.Formulario_S_O.Find(Model.Id_Formulario_S_O);
+    var info = db.Info_general.FirstOrDefault(i => i.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+
+    var empresa = db.Empresas.Find(fso.Id_Empresa);
+    var historia = db.Historia_Clinica.FirstOrDefault(h => h.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var cso = db.CSOes.FirstOrDefault(h => h.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var pre_esp = db.Pre_espirometria.FirstOrDefault(p => p.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var audio = db.Audiometrias.FirstOrDefault(a => a.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var visual = db.Examen_Visual.FirstOrDefault(v => v.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var manero = db.Mareos.FirstOrDefault(m => m.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var hemo = db.Hemogramas.FirstOrDefault(h => h.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var lab = db.Laboratorios.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var espiro = db.Espirometrias.FirstOrDefault(e => e.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var rayx = db.RayosXes.FirstOrDefault(r => r.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var conc = db.Consentimiento_Informado.FirstOrDefault(c => c.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var ekg = db.EKGs.FirstOrDefault(g => g.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var user = Session["User"] as WebParaMelvin.Models.Usuario;
+}
+
+
+@{
+    ViewBag.Title = "Detalles de Expediente";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Formulario de Salud Ocupacional</h4>
+    <hr />
+    <dl class="form-group">
+        <dt>
+            Expediente:  @Html.DisplayFor(model => model.Id_Formulario_S_O)
+        </dt>
+
+        <dd>
+            <h3>@info.Nombre @info.Apellido </h3>
+        </dd>
+        <dt>
+            @Html.ActionLink("Información General", "Edit", "Info_general", new { id = info.Id_Info_General }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Certificado de Salud Ocupacional", "Edit", "CSOes", new { id = cso.Id_CSO }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Pre-Espirometría", "Edit", "Pre_espirometria", new { id = pre_esp.Id_Pre_espirometria }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Audiometría", "Edit", "Audiometrias", new { id = audio.Id_AudioMetria }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Manero", "Edit", "Mareos", new { id = manero.Id_Mareo }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Hemogramas", "Edit", "Hemogramas", new { id = hemo.Id_Hemograma }, htmlAttributes: new { })
+        </dt>
+
+        <dt>
+            @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
+        </dt>
+        <dt>
+            @Html.ActionLink("Electrocardiograma", "Edit", "EKGs", new { id = ekg.Id_EKG }, htmlAttributes: new { })
+        </dt>
+
+    </dl>
+</div>
+<div>
+    <div id="guardarExpedientes">
+        <h2>Archivos Anexos</h2>
+
+        
+            <h4>Seleccione otros archivos que desee agregar al expediente</h4>
+            <hr />
+
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="data1" id="data1" value="@Model.Id_Formulario_S_O" />
+
+                <table width="100%">
+
+                    <tr>
+                        <td><strong>Archivo:</strong></td>
+                        <td><input type="file" name="Archivo" class="form-control-file" /></td>
+                        <td><strong>Descripcion:</strong></td>
+                        <td><input type="text" name="data" id="data" class="form-control" /></td>
+                        <td><input type="submit" value="Subir" class="btn btn-default" /></td>
+
+                    </tr>
+                </table>
+            }
+        <br />
+            @{ var archivos = db.ArchivosExtras.Where(a => a.Id_Formulario_S_O == Model.Id_Formulario_S_O).ToList().OrderBy(b => b.Descripcion); }
+            <table class="table">
+                <tr>
+                    <th width="750">Descripción</th>
+                    <th>Mostrar</th>
+                    <th>Eliminar</th>
+                </tr>
+                
+                    @foreach (var archivo in archivos)
+                    {
+                    <tr>
+                        <td>@archivo.Descripcion</td>
+                        <td><a href="@archivo.link" class="btn btn-default" target="_blank">Mostrar</a></td>
+                        <td>@Html.ActionLink("Eliminar...", "Delete", "ArchivosExtras", new { id = archivo.Id_ArchivoExtra }, htmlAttributes: new { @class = "btn btn-default" })</td>
+                    </tr>
+                        } 
+            </table>
+
+        </div>
+        <p>
+            @{if (user.id_rol == 1 || user.id_rol == 4)
+                {@Html.ActionLink("Editar", "Edit", new { id = Model.Id_Formulario_S_O }) } }|
+
+
+            @Html.ActionLink("Ver Todos", "Index")
+
+        </p>
+    </div>

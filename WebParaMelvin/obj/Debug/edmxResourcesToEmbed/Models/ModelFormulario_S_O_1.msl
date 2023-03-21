@@ -1,0 +1,878 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ceisamco_form_s_oModelStoreContainer" CdmEntityContainer="ceisamco_form_s_oEntities">
+    <EntitySetMapping Name="CSOes">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.CSO">
+        <MappingFragment StoreEntitySet="CSO">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Id_CSO" ColumnName="Id_CSO" />
+          <ScalarProperty Name="Antiguedad_en_el_puesto" ColumnName="Antiguedad_en_el_puesto" />
+          <ScalarProperty Name="Tiempo_en_la_empresa" ColumnName="Tiempo_en_la_empresa" />
+          <ScalarProperty Name="Área_de_Trabajo" ColumnName="Área de Trabajo" />
+          <ScalarProperty Name="Anamnesis_ocupacional_ex_fisico" ColumnName="Anamnesis_ocupacional_ex_fisico" />
+          <ScalarProperty Name="Hemograma_completo" ColumnName="Hemograma_completo" />
+          <ScalarProperty Name="Audiometria_tonal" ColumnName="Audiometria_tonal" />
+          <ScalarProperty Name="Gicemia" ColumnName="Gicemia" />
+          <ScalarProperty Name="Espirometria" ColumnName="Espirometria" />
+          <ScalarProperty Name="Urea_creatinina" ColumnName="Urea_creatinina" />
+          <ScalarProperty Name="Panel_de_drogas_minimo_coc_thc_mtd_met" ColumnName="Panel_de_drogas_minimo_coc_thc_mtd_met" />
+          <ScalarProperty Name="Tuberculosis" ColumnName="Tuberculosis" />
+          <ScalarProperty Name="capacidad_fisica_test_manero" ColumnName="capacidad_fisica_test_manero" />
+          <ScalarProperty Name="Examen_de_orina" ColumnName="Examen_de_orina" />
+          <ScalarProperty Name="Agudez_visual_agudeza_campo_profundidad_cromatismo" ColumnName="Agudez_visual_agudeza_campo_profundidad_cromatismo" />
+          <ScalarProperty Name="Perfil_Lipidico" ColumnName="Perfil_Lipidico" />
+          <ScalarProperty Name="Electrocardiograma_en_reposo" ColumnName="Electrocardiograma_en_reposo" />
+          <ScalarProperty Name="TGO_TGP" ColumnName="TGO_TGP" />
+          <ScalarProperty Name="Radiografia_De_Torax_PA_Radiografia_lumbo_sacra" ColumnName="Radiografia_De_Torax_PA_Radiografia_lumbo_sacra" />
+          <ScalarProperty Name="HBSAG_Hepatitis_C" ColumnName="HBSAG_Hepatitis_C" />
+          <ScalarProperty Name="Otros" ColumnName="Otros" />
+          <ScalarProperty Name="Apto" ColumnName="Apto" />
+          <ScalarProperty Name="Apto_con_restriccion" ColumnName="Apto_con_restriccion" />
+          <ScalarProperty Name="No_Apto" ColumnName="No_Apto" />
+          <ScalarProperty Name="Aplazado" ColumnName="Aplazado" />
+          <ScalarProperty Name="Recomendaciones_observaciones" ColumnName="Recomendaciones_observaciones" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="RNC" ColumnName="RNC" />
+          <ScalarProperty Name="Telefono_" ColumnName="Telefono " />
+          <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+          <ScalarProperty Name="Persona_Contacto" ColumnName="Persona Contacto" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sitio_Web" ColumnName="Sitio Web" />
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Formulario_S_O">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Formulario_S_O">
+        <MappingFragment StoreEntitySet="Formulario_S_O">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="Id_Empresa" ColumnName="Id_Empresa" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="Id_rol" ColumnName="Id_rol" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Id_usuario" ColumnName="Id_usuario" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario_Rol">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Usuario_Rol">
+        <MappingFragment StoreEntitySet="Usuario_Rol">
+          <ScalarProperty Name="Id_usuario_rol" ColumnName="Id_usuario_rol" />
+          <ScalarProperty Name="Id_Rol" ColumnName="Id_Rol" />
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario_Empresa">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Usuario_Empresa">
+        <MappingFragment StoreEntitySet="Usuario_Empresa">
+          <ScalarProperty Name="Id_Usuario_Empresa" ColumnName="Id_Usuario_Empresa" />
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="Id_empresa" ColumnName="Id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchivosExtras">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.ArchivosExtra">
+        <MappingFragment StoreEntitySet="ArchivosExtras">
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Id_ArchivoExtra" ColumnName="Id_ArchivoExtra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audiometrias">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Audiometria">
+        <MappingFragment StoreEntitySet="Audiometria">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Ode_8K2" ColumnName="Ode_8K2" />
+          <ScalarProperty Name="Ode_6K2" ColumnName="Ode_6K2" />
+          <ScalarProperty Name="Ode_4K2" ColumnName="Ode_4K2" />
+          <ScalarProperty Name="Ode_3K2" ColumnName="Ode_3K2" />
+          <ScalarProperty Name="Ode_2K2" ColumnName="Ode_2K2" />
+          <ScalarProperty Name="Ode_1K2" ColumnName="Ode_1K2" />
+          <ScalarProperty Name="Ode_5002" ColumnName="Ode_5002" />
+          <ScalarProperty Name="Ode_8K" ColumnName="Ode_8K" />
+          <ScalarProperty Name="Ode_6K" ColumnName="Ode_6K" />
+          <ScalarProperty Name="Ode_4K" ColumnName="Ode_4K" />
+          <ScalarProperty Name="Ode_3K" ColumnName="Ode_3K" />
+          <ScalarProperty Name="Ode_2K" ColumnName="Ode_2K" />
+          <ScalarProperty Name="Ode_1K" ColumnName="Ode_1K" />
+          <ScalarProperty Name="Ode_500" ColumnName="Ode_500" />
+          <ScalarProperty Name="Oiz_8K2" ColumnName="Oiz_8K2" />
+          <ScalarProperty Name="Oiz_6K2" ColumnName="Oiz_6K2" />
+          <ScalarProperty Name="Oiz_4K2" ColumnName="Oiz_4K2" />
+          <ScalarProperty Name="Oiz_3K2" ColumnName="Oiz_3K2" />
+          <ScalarProperty Name="Oiz_2K2" ColumnName="Oiz_2K2" />
+          <ScalarProperty Name="Oiz_1K2" ColumnName="Oiz_1K2" />
+          <ScalarProperty Name="Oiz_5002" ColumnName="Oiz_5002" />
+          <ScalarProperty Name="Oiz_8K" ColumnName="Oiz_8K" />
+          <ScalarProperty Name="Oiz_6K" ColumnName="Oiz_6K" />
+          <ScalarProperty Name="Oiz_4K" ColumnName="Oiz_4K" />
+          <ScalarProperty Name="Oiz_3K" ColumnName="Oiz_3K" />
+          <ScalarProperty Name="Oiz_2K" ColumnName="Oiz_2K" />
+          <ScalarProperty Name="Oiz_1K" ColumnName="Oiz_1K" />
+          <ScalarProperty Name="Oiz_500" ColumnName="Oiz_500" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="Otoscopia_Derecha" ColumnName="Otoscopia_Derecha" />
+          <ScalarProperty Name="Otoscopia_Izquierda" ColumnName="Otoscopia_Izquierda" />
+          <ScalarProperty Name="Autoevaluacion_de_su_audicion_" ColumnName="Autoevaluacion_de_su_audicion_" />
+          <ScalarProperty Name="Entrenamiento_recibido" ColumnName="Entrenamiento_recibido" />
+          <ScalarProperty Name="Exposicion" ColumnName="Exposicion" />
+          <ScalarProperty Name="Horas_desde_la_ultima_exposicion" ColumnName="Horas_desde_la_ultima_exposicion" />
+          <ScalarProperty Name="Escucha_musica_alta_o_usa_audifonos" ColumnName="Escucha_musica_alta_o_usa_audifonos" />
+          <ScalarProperty Name="Ha_estado_en_la_milicia_o_el_ejercito" ColumnName="Ha_estado_en_la_milicia_o_el_ejercito" />
+          <ScalarProperty Name="Ha_tenido_zumbido_en_los_oidos_no" ColumnName="Ha_tenido_zumbido_en_los_oidos_no" />
+          <ScalarProperty Name="Ha_tenido_infecciones_en_los_oidos_no" ColumnName="Ha_tenido_infecciones_en_los_oidos_no" />
+          <ScalarProperty Name="tipo_de_proteccion_auditiva_no" ColumnName="tipo_de_proteccion_auditiva_no" />
+          <ScalarProperty Name="trabaja_trabajado_en_areas_ruidosas_no" ColumnName="trabaja_trabajado_en_areas_ruidosas_no" />
+          <ScalarProperty Name="Ha_estado_en_la_milicia_o_el_ejercito_no" ColumnName="Ha_estado_en_la_milicia_o_el_ejercito_no" />
+          <ScalarProperty Name="Ha_tenido_zumbido_en_los_oidos" ColumnName="Ha_tenido_zumbido_en_los_oidos" />
+          <ScalarProperty Name="Ha_tenido_infecciones_en_los_oidos" ColumnName="Ha_tenido_infecciones_en_los_oidos" />
+          <ScalarProperty Name="tipo_de_proteccion_auditiva" ColumnName="tipo_de_proteccion_auditiva" />
+          <ScalarProperty Name="trabaja_trabajado_en_areas_ruidosas" ColumnName="trabaja_trabajado_en_areas_ruidosas" />
+          <ScalarProperty Name="Id_AudioMetria" ColumnName="Id_AudioMetria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consentimiento_Informado">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Consentimiento_Informado">
+        <MappingFragment StoreEntitySet="Consentimiento_Informado">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Huella" ColumnName="Huella" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Id_Consentimiento_Informado" ColumnName="Id_Consentimiento_Informado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EKGs">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.EKG">
+        <MappingFragment StoreEntitySet="EKG">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Id_EKG" ColumnName="Id_EKG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Espirometrias">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Espirometria">
+        <MappingFragment StoreEntitySet="Espirometria">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Id_Espirometria" ColumnName="Id_Espirometria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examen_Visual">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Examen_Visual">
+        <MappingFragment StoreEntitySet="Examen_Visual">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Campos_visuales_OS" ColumnName="Campos_visuales_OS" />
+          <ScalarProperty Name="Campos_Visuales_OD" ColumnName="Campos_Visuales_OD" />
+          <ScalarProperty Name="Vision_cromatica" ColumnName="Vision_cromatica" />
+          <ScalarProperty Name="Agudeza_Visual_" ColumnName="Agudeza_Visual_" />
+          <ScalarProperty Name="Comentarios_" ColumnName="Comentarios_" />
+          <ScalarProperty Name="Respuesta_del_sujeto_14" ColumnName="Respuesta_del_sujeto_14" />
+          <ScalarProperty Name="Respuesta_del_sujeto_13" ColumnName="Respuesta_del_sujeto_13" />
+          <ScalarProperty Name="Deuteranopia_y_deuteronomalia_13" ColumnName="Deuteranopia_y_deuteronomalia_13" />
+          <ScalarProperty Name="Protanopia_y_protanomalia_13" ColumnName="Protanopia_y_protanomalia_13" />
+          <ScalarProperty Name="Deficiencia_rojo_y_verde_LEVE_13" ColumnName="Deficiencia_rojo_y_verde_LEVE_13" />
+          <ScalarProperty Name="Persona_normal_13" ColumnName="Persona_normal_13" />
+          <ScalarProperty Name="Respuesta_del_sujeto_12" ColumnName="Respuesta_del_sujeto_12" />
+          <ScalarProperty Name="Deuteranopia_y_deuteronomalia_12" ColumnName="Deuteranopia_y_deuteronomalia_12" />
+          <ScalarProperty Name="Protanopia_y_protanomalia_12" ColumnName="Protanopia_y_protanomalia_12" />
+          <ScalarProperty Name="Deficiencia_rojo_y_verde_LEVE_12" ColumnName="Deficiencia_rojo_y_verde_LEVE_12" />
+          <ScalarProperty Name="Persona_normal_12" ColumnName="Persona_normal_12" />
+          <ScalarProperty Name="Ojo_izquierdo_NI" ColumnName="Ojo_izquierdo_NI" />
+          <ScalarProperty Name="Ojo_izquierdo_TI" ColumnName="Ojo_izquierdo_TI" />
+          <ScalarProperty Name="Ojo_izquierdo_NS" ColumnName="Ojo_izquierdo_NS" />
+          <ScalarProperty Name="Ojo_izquierdo_TS" ColumnName="Ojo_izquierdo_TS" />
+          <ScalarProperty Name="Ojo_derecho_NI" ColumnName="Ojo_derecho_NI" />
+          <ScalarProperty Name="Ojo_derecho_TI" ColumnName="Ojo_derecho_TI" />
+          <ScalarProperty Name="Ojo_derecho_NS" ColumnName="Ojo_derecho_NS" />
+          <ScalarProperty Name="Ojo_derecho_TS" ColumnName="Ojo_derecho_TS" />
+          <ScalarProperty Name="Respuesta_del_sujeto11" ColumnName="Respuesta_del_sujeto11" />
+          <ScalarProperty Name="Respuesta_del_sujeto10" ColumnName="Respuesta_del_sujeto10" />
+          <ScalarProperty Name="Respuesta_del_sujeto9" ColumnName="Respuesta_del_sujeto9" />
+          <ScalarProperty Name="Respuesta_del_sujeto8" ColumnName="Respuesta_del_sujeto8" />
+          <ScalarProperty Name="Respuesta_del_sujeto7" ColumnName="Respuesta_del_sujeto7" />
+          <ScalarProperty Name="Respuesta_del_sujeto6" ColumnName="Respuesta_del_sujeto6" />
+          <ScalarProperty Name="Respuesta_del_sujeto5" ColumnName="Respuesta_del_sujeto5" />
+          <ScalarProperty Name="Respuesta_del_sujeto4" ColumnName="Respuesta_del_sujeto4" />
+          <ScalarProperty Name="Respuesta_del_sujeto3" ColumnName="Respuesta_del_sujeto3" />
+          <ScalarProperty Name="Respuesta_del_sujeto2" ColumnName="Respuesta_del_sujeto2" />
+          <ScalarProperty Name="Respuesta_del_sujeto1" ColumnName="Respuesta_del_sujeto1" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_11" ColumnName="Ceguera_total_o_deilidad_cromatica_11" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_10" ColumnName="Ceguera_total_o_deilidad_cromatica_10" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_9" ColumnName="Ceguera_total_o_deilidad_cromatica_9" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_8" ColumnName="Ceguera_total_o_deilidad_cromatica_8" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_7" ColumnName="Ceguera_total_o_deilidad_cromatica_7" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_6" ColumnName="Ceguera_total_o_deilidad_cromatica_6" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_5" ColumnName="Ceguera_total_o_deilidad_cromatica_5" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_4" ColumnName="Ceguera_total_o_deilidad_cromatica_4" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_3" ColumnName="Ceguera_total_o_deilidad_cromatica_3" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_2" ColumnName="Ceguera_total_o_deilidad_cromatica_2" />
+          <ScalarProperty Name="Ceguera_total_o_deilidad_cromatica_1" ColumnName="Ceguera_total_o_deilidad_cromatica_1" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_11" ColumnName="Deficiencias_Rojo_y_Verde_11" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_10" ColumnName="Deficiencias_Rojo_y_Verde_10" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_9" ColumnName="Deficiencias_Rojo_y_Verde_9" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_8" ColumnName="Deficiencias_Rojo_y_Verde_8" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_7" ColumnName="Deficiencias_Rojo_y_Verde_7" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_6" ColumnName="Deficiencias_Rojo_y_Verde_6" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_5" ColumnName="Deficiencias_Rojo_y_Verde_5" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_4" ColumnName="Deficiencias_Rojo_y_Verde_4" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_3" ColumnName="Deficiencias_Rojo_y_Verde_3" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_2" ColumnName="Deficiencias_Rojo_y_Verde_2" />
+          <ScalarProperty Name="Deficiencias_Rojo_y_Verde_1" ColumnName="Deficiencias_Rojo_y_Verde_1" />
+          <ScalarProperty Name="Panorama_Normal_11" ColumnName="Panorama_Normal_11" />
+          <ScalarProperty Name="Panorama_Normal_10" ColumnName="Panorama_Normal_10" />
+          <ScalarProperty Name="Panorama_Normal_9" ColumnName="Panorama_Normal_9" />
+          <ScalarProperty Name="Panorama_Normal_8" ColumnName="Panorama_Normal_8" />
+          <ScalarProperty Name="Panorama_Normal_7" ColumnName="Panorama_Normal_7" />
+          <ScalarProperty Name="Panorama_Normal_6" ColumnName="Panorama_Normal_6" />
+          <ScalarProperty Name="Panorama_Normal_5" ColumnName="Panorama_Normal_5" />
+          <ScalarProperty Name="Panorama_Normal_4" ColumnName="Panorama_Normal_4" />
+          <ScalarProperty Name="Panorama_Normal_3" ColumnName="Panorama_Normal_3" />
+          <ScalarProperty Name="Panorama_Normal_2" ColumnName="Panorama_Normal_2" />
+          <ScalarProperty Name="Panorama_Normal_1" ColumnName="Panorama_Normal_1" />
+          <ScalarProperty Name="AVC_Ambos_ojos" ColumnName="AVC_Ambos_ojos" />
+          <ScalarProperty Name="Con_corr_AO" ColumnName="Con_corr_AO" />
+          <ScalarProperty Name="Con_corr_OS" ColumnName="Con_corr_OS" />
+          <ScalarProperty Name="Con_corr_OD" ColumnName="Con_corr_OD" />
+          <ScalarProperty Name="Sin_corr_AO" ColumnName="Sin_corr_AO" />
+          <ScalarProperty Name="Sin_corr_OS" ColumnName="Sin_corr_OS" />
+          <ScalarProperty Name="Sin_corr_OD" ColumnName="Sin_corr_OD" />
+          <ScalarProperty Name="Id_Examen_Visual" ColumnName="Id_Examen_Visual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hemogramas">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Hemograma">
+        <MappingFragment StoreEntitySet="Hemograma">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Id_Hemograma" ColumnName="Id_Hemograma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Historia_Clinica">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Historia_Clinica">
+        <MappingFragment StoreEntitySet="Historia_Clinica">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="telefono_emergencia" ColumnName="telefono_emergencia" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="Descripcion_Sistema_Nervioso" ColumnName="Descripcion_Sistema_Nervioso" />
+          <ScalarProperty Name="Sistema_NerviosoA" ColumnName="Sistema_NerviosoA" />
+          <ScalarProperty Name="Sistema_Nervioso" ColumnName="Sistema_Nervioso" />
+          <ScalarProperty Name="Descripcion_Miembros_Inferiores" ColumnName="Descripcion_Miembros_Inferiores" />
+          <ScalarProperty Name="Miembros_inferioresA" ColumnName="Miembros_inferioresA" />
+          <ScalarProperty Name="Miembros_inferiores" ColumnName="Miembros_inferiores" />
+          <ScalarProperty Name="Descripcion_Miembros_superiores" ColumnName="Descripcion_Miembros_superiores" />
+          <ScalarProperty Name="Miembros_superioresA" ColumnName="Miembros_superioresA" />
+          <ScalarProperty Name="Miembros_superiores" ColumnName="Miembros_superiores" />
+          <ScalarProperty Name="Descripcion_Columna" ColumnName="Descripcion_Columna" />
+          <ScalarProperty Name="ColumnaA" ColumnName="ColumnaA" />
+          <ScalarProperty Name="Columna" ColumnName="Columna" />
+          <ScalarProperty Name="Descripcion_Marcha" ColumnName="Descripcion_Marcha" />
+          <ScalarProperty Name="MarchaA" ColumnName="MarchaA" />
+          <ScalarProperty Name="Marcha" ColumnName="Marcha" />
+          <ScalarProperty Name="Descripcion_aparato_Locomotor" ColumnName="Descripcion_aparato_Locomotor" />
+          <ScalarProperty Name="Aparato_LocomotorA" ColumnName="Aparato_LocomotorA" />
+          <ScalarProperty Name="Aparato_Locomotor" ColumnName="Aparato_Locomotor" />
+          <ScalarProperty Name="descripcion_Genitales" ColumnName="descripcion_Genitales" />
+          <ScalarProperty Name="GenitalesA" ColumnName="GenitalesA" />
+          <ScalarProperty Name="Genitales" ColumnName="Genitales" />
+          <ScalarProperty Name="Descripcion_abdomen" ColumnName="Descripcion_abdomen" />
+          <ScalarProperty Name="AbdomenA" ColumnName="AbdomenA" />
+          <ScalarProperty Name="Abdomen" ColumnName="Abdomen" />
+          <ScalarProperty Name="Descripcion_Corazon" ColumnName="Descripcion_Corazon" />
+          <ScalarProperty Name="CorzaonA" ColumnName="CorzaonA" />
+          <ScalarProperty Name="Corzaon" ColumnName="Corzaon" />
+          <ScalarProperty Name="Descripcion_pulmon" ColumnName="Descripcion_pulmon" />
+          <ScalarProperty Name="PulmonA" ColumnName="PulmonA" />
+          <ScalarProperty Name="Pulmon" ColumnName="Pulmon" />
+          <ScalarProperty Name="Descripcion_cuello" ColumnName="Descripcion_cuello" />
+          <ScalarProperty Name="CuelloA" ColumnName="CuelloA" />
+          <ScalarProperty Name="Cuello" ColumnName="Cuello" />
+          <ScalarProperty Name="Descripcion_faringe" ColumnName="Descripcion_faringe" />
+          <ScalarProperty Name="FaringeA" ColumnName="FaringeA" />
+          <ScalarProperty Name="Faringe" ColumnName="Faringe" />
+          <ScalarProperty Name="Descripcion_boca" ColumnName="Descripcion_boca" />
+          <ScalarProperty Name="BocaA" ColumnName="BocaA" />
+          <ScalarProperty Name="Boca" ColumnName="Boca" />
+          <ScalarProperty Name="Descripcion_nariz" ColumnName="Descripcion_nariz" />
+          <ScalarProperty Name="NarizA" ColumnName="NarizA" />
+          <ScalarProperty Name="Nariz" ColumnName="Nariz" />
+          <ScalarProperty Name="Descripcion_oidos" ColumnName="Descripcion_oidos" />
+          <ScalarProperty Name="OidosA" ColumnName="OidosA" />
+          <ScalarProperty Name="Oidos" ColumnName="Oidos" />
+          <ScalarProperty Name="Descripcion_ojos" ColumnName="Descripcion_ojos" />
+          <ScalarProperty Name="OjosA" ColumnName="OjosA" />
+          <ScalarProperty Name="Ojos" ColumnName="Ojos" />
+          <ScalarProperty Name="Descripcion_Cabellos" ColumnName="Descripcion_Cabellos" />
+          <ScalarProperty Name="CabelloA" ColumnName="CabelloA" />
+          <ScalarProperty Name="Cabello" ColumnName="Cabello" />
+          <ScalarProperty Name="Descripcion_Piel" ColumnName="Descripcion_Piel" />
+          <ScalarProperty Name="PielA" ColumnName="PielA" />
+          <ScalarProperty Name="Piel" ColumnName="Piel" />
+          <ScalarProperty Name="Riesgo_Cardiovascular" ColumnName="Riesgo_Cardiovascular" />
+          <ScalarProperty Name="IMC_Resul" ColumnName="IMC_Resul" />
+          <ScalarProperty Name="IMC" ColumnName="IMC" />
+          <ScalarProperty Name="Lateralidad_Dominante" ColumnName="Lateralidad_Dominante" />
+          <ScalarProperty Name="Talla_Cms" ColumnName="Talla_Cms" />
+          <ScalarProperty Name="Talla_Pulg" ColumnName="Talla_Pulg" />
+          <ScalarProperty Name="Peso_Kgs" ColumnName="Peso_Kgs" />
+          <ScalarProperty Name="Peso_Lbs" ColumnName="Peso_Lbs" />
+          <ScalarProperty Name="Respiracion" ColumnName="Respiracion" />
+          <ScalarProperty Name="Pulso" ColumnName="Pulso" />
+          <ScalarProperty Name="Tension_arterial2" ColumnName="Tension_arterial2" />
+          <ScalarProperty Name="Tension_arterial" ColumnName="Tension_arterial" />
+          <ScalarProperty Name="Inspeccion" ColumnName="Inspeccion" />
+          <ScalarProperty Name="Sistema_Neurolgogico" ColumnName="Sistema_Neurolgogico" />
+          <ScalarProperty Name="Sistema_GenitoUrinario" ColumnName="Sistema_GenitoUrinario" />
+          <ScalarProperty Name="Sistema_GastroIntestinal" ColumnName="Sistema_GastroIntestinal" />
+          <ScalarProperty Name="Sistema_Cardiovascular" ColumnName="Sistema_Cardiovascular" />
+          <ScalarProperty Name="Sistema_Respirtatorio" ColumnName="Sistema_Respirtatorio" />
+          <ScalarProperty Name="Sintomas_Generales" ColumnName="Sintomas_Generales" />
+          <ScalarProperty Name="Tio" ColumnName="Tio" />
+          <ScalarProperty Name="AbuelaM" ColumnName="AbuelaM" />
+          <ScalarProperty Name="Abuela" ColumnName="Abuela" />
+          <ScalarProperty Name="Madre" ColumnName="Madre" />
+          <ScalarProperty Name="Hermano" ColumnName="Hermano" />
+          <ScalarProperty Name="AbueloM" ColumnName="AbueloM" />
+          <ScalarProperty Name="Abuelo" ColumnName="Abuelo" />
+          <ScalarProperty Name="Padre" ColumnName="Padre" />
+          <ScalarProperty Name="medicamentos" ColumnName="medicamentos" />
+          <ScalarProperty Name="frecuencia_dr" ColumnName="frecuencia_dr" />
+          <ScalarProperty Name="Medida_dr" ColumnName="Medida_dr" />
+          <ScalarProperty Name="cantidad_dr" ColumnName="cantidad_dr" />
+          <ScalarProperty Name="Drogas" ColumnName="Drogas" />
+          <ScalarProperty Name="frecuencia_In" ColumnName="frecuencia_In" />
+          <ScalarProperty Name="Medida_In" ColumnName="Medida_In" />
+          <ScalarProperty Name="cantidad_In" ColumnName="cantidad_In" />
+          <ScalarProperty Name="Infuciones" ColumnName="Infuciones" />
+          <ScalarProperty Name="frecuencia_ta" ColumnName="frecuencia_ta" />
+          <ScalarProperty Name="Medida_ta" ColumnName="Medida_ta" />
+          <ScalarProperty Name="cantidad_ta" ColumnName="cantidad_ta" />
+          <ScalarProperty Name="Tabaco" ColumnName="Tabaco" />
+          <ScalarProperty Name="frecuencia" ColumnName="frecuencia" />
+          <ScalarProperty Name="Medida" ColumnName="Medida" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="Alcohol" ColumnName="Alcohol" />
+          <ScalarProperty Name="Fecha_Dosis_Imn_Tetanos" ColumnName="Fecha_Dosis_Imn_Tetanos" />
+          <ScalarProperty Name="Tetanos" ColumnName="Tetanos" />
+          <ScalarProperty Name="Fecha_Dosis_Inm_Influenza" ColumnName="Fecha_Dosis_Inm_Influenza" />
+          <ScalarProperty Name="Influenza" ColumnName="Influenza" />
+          <ScalarProperty Name="Fecha_Dosis_Inm_HepaB" ColumnName="Fecha_Dosis_Inm_HepaB" />
+          <ScalarProperty Name="Hepatitis_B" ColumnName="Hepatitis_B" />
+          <ScalarProperty Name="Fecha_Dosis_inm_HepaA" ColumnName="Fecha_Dosis_inm_HepaA" />
+          <ScalarProperty Name="Hepatitis_A" ColumnName="Hepatitis_A" />
+          <ScalarProperty Name="A" ColumnName="A" />
+          <ScalarProperty Name="C" ColumnName="C" />
+          <ScalarProperty Name="P" ColumnName="P" />
+          <ScalarProperty Name="G" ColumnName="G" />
+          <ScalarProperty Name="FUM" ColumnName="FUM" />
+          <ScalarProperty Name="Antecedentes_ginecologicos" ColumnName="Antecedentes_ginecologicos" />
+          <ScalarProperty Name="Antecendentes_Transfucionales" ColumnName="Antecendentes_Transfucionales" />
+          <ScalarProperty Name="Antecendentes_Hospitalarios" ColumnName="Antecendentes_Hospitalarios" />
+          <ScalarProperty Name="Antecendentes_Traumaticos_" ColumnName="Antecendentes_Traumaticos_" />
+          <ScalarProperty Name="Antecendentes_Quirurgicos" ColumnName="Antecendentes_Quirurgicos" />
+          <ScalarProperty Name="Detalle_Antecedentes" ColumnName="Detalle_Antecedentes" />
+          <ScalarProperty Name="Zika" ColumnName="Zika" />
+          <ScalarProperty Name="Vertigo" ColumnName="Vertigo" />
+          <ScalarProperty Name="Ulcera" ColumnName="Ulcera" />
+          <ScalarProperty Name="Tuberculosis" ColumnName="Tuberculosis" />
+          <ScalarProperty Name="Tifoidea" ColumnName="Tifoidea" />
+          <ScalarProperty Name="Neumonia" ColumnName="Neumonia" />
+          <ScalarProperty Name="Malaria" ColumnName="Malaria" />
+          <ScalarProperty Name="Lumbalgia" ColumnName="Lumbalgia" />
+          <ScalarProperty Name="Leptospirosis" ColumnName="Leptospirosis" />
+          <ScalarProperty Name="Intoxicaciones" ColumnName="Intoxicaciones" />
+          <ScalarProperty Name="Infarto_Cartdiaco" ColumnName="Infarto_Cartdiaco" />
+          <ScalarProperty Name="Hipertencion" ColumnName="Hipertencion" />
+          <ScalarProperty Name="Hernia_discal" ColumnName="Hernia_discal" />
+          <ScalarProperty Name="Hernia_Abd_" ColumnName="Hernia_Abd_" />
+          <ScalarProperty Name="Hepatitis" ColumnName="Hepatitis" />
+          <ScalarProperty Name="Gastritis" ColumnName="Gastritis" />
+          <ScalarProperty Name="Epilepsia" ColumnName="Epilepsia" />
+          <ScalarProperty Name="Enf_Visual" ColumnName="Enf_Visual" />
+          <ScalarProperty Name="Enf_Respiratoria" ColumnName="Enf_Respiratoria" />
+          <ScalarProperty Name="Enf_Renal" ColumnName="Enf_Renal" />
+          <ScalarProperty Name="Enf_Osteomuscular" ColumnName="Enf_Osteomuscular" />
+          <ScalarProperty Name="Enf_Neurlogica" ColumnName="Enf_Neurlogica" />
+          <ScalarProperty Name="Enf_Mental" ColumnName="Enf_Mental" />
+          <ScalarProperty Name="Enf__Gastrica" ColumnName="Enf__Gastrica" />
+          <ScalarProperty Name="Enf_Congenita" ColumnName="Enf_Congenita" />
+          <ScalarProperty Name="Enf_Cardiaca" ColumnName="Enf_Cardiaca" />
+          <ScalarProperty Name="Enf_Autoinmune" ColumnName="Enf_Autoinmune" />
+          <ScalarProperty Name="Enf_Auditiva" ColumnName="Enf_Auditiva" />
+          <ScalarProperty Name="ETS" ColumnName="ETS" />
+          <ScalarProperty Name="Diabetes" ColumnName="Diabetes" />
+          <ScalarProperty Name="Dengue" ColumnName="Dengue" />
+          <ScalarProperty Name="Chikungunya" ColumnName="Chikungunya" />
+          <ScalarProperty Name="Cervicalgia" ColumnName="Cervicalgia" />
+          <ScalarProperty Name="Cancer" ColumnName="Cancer" />
+          <ScalarProperty Name="Asma" ColumnName="Asma" />
+          <ScalarProperty Name="ACV" ColumnName="ACV" />
+          <ScalarProperty Name="Fecha_aporte_ARL5" ColumnName="Fecha_aporte_ARL5" />
+          <ScalarProperty Name="Empresa_ocupacional5" ColumnName="Empresa_ocupacional5" />
+          <ScalarProperty Name="Dignostico_ocupacional5" ColumnName="Dignostico_ocupacional5" />
+          <ScalarProperty Name="Tipo_ocupacional5" ColumnName="Tipo_ocupacional5" />
+          <ScalarProperty Name="Fecha_aporte_ARL4" ColumnName="Fecha_aporte_ARL4" />
+          <ScalarProperty Name="Empresa_ocupacional4" ColumnName="Empresa_ocupacional4" />
+          <ScalarProperty Name="Dignostico_ocupacional4" ColumnName="Dignostico_ocupacional4" />
+          <ScalarProperty Name="Tipo_ocupacional4" ColumnName="Tipo_ocupacional4" />
+          <ScalarProperty Name="Fecha_aporte_ARL3" ColumnName="Fecha_aporte_ARL3" />
+          <ScalarProperty Name="Empresa_ocupacional3" ColumnName="Empresa_ocupacional3" />
+          <ScalarProperty Name="Dignostico_ocupacional3" ColumnName="Dignostico_ocupacional3" />
+          <ScalarProperty Name="Tipo_ocupacional3" ColumnName="Tipo_ocupacional3" />
+          <ScalarProperty Name="Fecha_aporte_ARL2" ColumnName="Fecha_aporte_ARL2" />
+          <ScalarProperty Name="Empresa_ocupacional2" ColumnName="Empresa_ocupacional2" />
+          <ScalarProperty Name="Dignostico_ocupacional2" ColumnName="Dignostico_ocupacional2" />
+          <ScalarProperty Name="Tipo_ocupacional2" ColumnName="Tipo_ocupacional2" />
+          <ScalarProperty Name="Fecha_aporte_ARL1" ColumnName="Fecha_aporte_ARL1" />
+          <ScalarProperty Name="Empresa_ocupacional1" ColumnName="Empresa_ocupacional1" />
+          <ScalarProperty Name="Dignostico_ocupacional1" ColumnName="Dignostico_ocupacional1" />
+          <ScalarProperty Name="Tipo_ocupacional1" ColumnName="Tipo_ocupacional1" />
+          <ScalarProperty Name="Fecha_aporte_ARL" ColumnName="Fecha_aporte_ARL" />
+          <ScalarProperty Name="Empresa_ocupacional" ColumnName="Empresa_ocupacional" />
+          <ScalarProperty Name="Dignostico_ocupacional" ColumnName="Dignostico_ocupacional" />
+          <ScalarProperty Name="Tipo_ocupacional" ColumnName="Tipo_ocupacional" />
+          <ScalarProperty Name="Epp5" ColumnName="Epp5" />
+          <ScalarProperty Name="Ex_Locativo5" ColumnName="Ex_Locativo5" />
+          <ScalarProperty Name="Ex_Biologico5" ColumnName="Ex_Biologico5" />
+          <ScalarProperty Name="Ex_Electrico5" ColumnName="Ex_Electrico5" />
+          <ScalarProperty Name="Ex_mecanico5" ColumnName="Ex_mecanico5" />
+          <ScalarProperty Name="Ex_Psicosocial5" ColumnName="Ex_Psicosocial5" />
+          <ScalarProperty Name="Ex_Hergonomico5" ColumnName="Ex_Hergonomico5" />
+          <ScalarProperty Name="Ex_quimicos5" ColumnName="Ex_quimicos5" />
+          <ScalarProperty Name="Ex_Fisicos5" ColumnName="Ex_Fisicos5" />
+          <ScalarProperty Name="H_Dede_Hasta5" ColumnName="H_Dede_Hasta5" />
+          <ScalarProperty Name="H_Posicion5" ColumnName="H_Posicion5" />
+          <ScalarProperty Name="H_empresa5" ColumnName="H_empresa5" />
+          <ScalarProperty Name="Epp4" ColumnName="Epp4" />
+          <ScalarProperty Name="Ex_Locativo4" ColumnName="Ex_Locativo4" />
+          <ScalarProperty Name="Ex_Biologico4" ColumnName="Ex_Biologico4" />
+          <ScalarProperty Name="Ex_Electrico4" ColumnName="Ex_Electrico4" />
+          <ScalarProperty Name="Ex_mecanico4" ColumnName="Ex_mecanico4" />
+          <ScalarProperty Name="Ex_Psicosocial4" ColumnName="Ex_Psicosocial4" />
+          <ScalarProperty Name="Ex_Hergonomico4" ColumnName="Ex_Hergonomico4" />
+          <ScalarProperty Name="Ex_quimicos4" ColumnName="Ex_quimicos4" />
+          <ScalarProperty Name="Ex_Fisicos4" ColumnName="Ex_Fisicos4" />
+          <ScalarProperty Name="H_Dede_Hasta4" ColumnName="H_Dede_Hasta4" />
+          <ScalarProperty Name="H_Posicion4" ColumnName="H_Posicion4" />
+          <ScalarProperty Name="H_empresa4" ColumnName="H_empresa4" />
+          <ScalarProperty Name="Epp3" ColumnName="Epp3" />
+          <ScalarProperty Name="Ex_Locativo3" ColumnName="Ex_Locativo3" />
+          <ScalarProperty Name="Ex_Biologico3" ColumnName="Ex_Biologico3" />
+          <ScalarProperty Name="Ex_Electrico3" ColumnName="Ex_Electrico3" />
+          <ScalarProperty Name="Ex_mecanico3" ColumnName="Ex_mecanico3" />
+          <ScalarProperty Name="Ex_Psicosocial3" ColumnName="Ex_Psicosocial3" />
+          <ScalarProperty Name="Ex_Hergonomico3" ColumnName="Ex_Hergonomico3" />
+          <ScalarProperty Name="Ex_quimicos3" ColumnName="Ex_quimicos3" />
+          <ScalarProperty Name="Ex_Fisicos3" ColumnName="Ex_Fisicos3" />
+          <ScalarProperty Name="H_Dede_Hasta3" ColumnName="H_Dede_Hasta3" />
+          <ScalarProperty Name="H_Posicion3" ColumnName="H_Posicion3" />
+          <ScalarProperty Name="H_empresa3" ColumnName="H_empresa3" />
+          <ScalarProperty Name="Epp2" ColumnName="Epp2" />
+          <ScalarProperty Name="Ex_Locativo2" ColumnName="Ex_Locativo2" />
+          <ScalarProperty Name="Ex_Electrico2" ColumnName="Ex_Electrico2" />
+          <ScalarProperty Name="Ex_Biologico2" ColumnName="Ex_Biologico2" />
+          <ScalarProperty Name="Ex_mecanico2" ColumnName="Ex_mecanico2" />
+          <ScalarProperty Name="Ex_Psicosocial2" ColumnName="Ex_Psicosocial2" />
+          <ScalarProperty Name="Ex_Hergonomico2" ColumnName="Ex_Hergonomico2" />
+          <ScalarProperty Name="Ex_quimicos2" ColumnName="Ex_quimicos2" />
+          <ScalarProperty Name="Ex_Fisicos2" ColumnName="Ex_Fisicos2" />
+          <ScalarProperty Name="H_Dede_Hasta2" ColumnName="H_Dede_Hasta2" />
+          <ScalarProperty Name="H_Posicion2" ColumnName="H_Posicion2" />
+          <ScalarProperty Name="H_empresa2" ColumnName="H_empresa2" />
+          <ScalarProperty Name="Epp1" ColumnName="Epp1" />
+          <ScalarProperty Name="Ex_Locativo1" ColumnName="Ex_Locativo1" />
+          <ScalarProperty Name="Ex_Biologico1" ColumnName="Ex_Biologico1" />
+          <ScalarProperty Name="Ex_Electrico1" ColumnName="Ex_Electrico1" />
+          <ScalarProperty Name="Ex_mecanico1" ColumnName="Ex_mecanico1" />
+          <ScalarProperty Name="Ex_Psicosocial1" ColumnName="Ex_Psicosocial1" />
+          <ScalarProperty Name="Ex_Hergonomico1" ColumnName="Ex_Hergonomico1" />
+          <ScalarProperty Name="Ex_quimicos1" ColumnName="Ex_quimicos1" />
+          <ScalarProperty Name="Ex_Fisicos1" ColumnName="Ex_Fisicos1" />
+          <ScalarProperty Name="H_Dede_Hasta1" ColumnName="H_Dede_Hasta1" />
+          <ScalarProperty Name="H_Posicion1" ColumnName="H_Posicion1" />
+          <ScalarProperty Name="H_empresa1" ColumnName="H_empresa1" />
+          <ScalarProperty Name="Epp" ColumnName="Epp" />
+          <ScalarProperty Name="Ex_Locativo" ColumnName="Ex_Locativo" />
+          <ScalarProperty Name="Ex_Biologico" ColumnName="Ex_Biologico" />
+          <ScalarProperty Name="Ex_Electrico" ColumnName="Ex_Electrico" />
+          <ScalarProperty Name="Ex_mecanico" ColumnName="Ex_mecanico" />
+          <ScalarProperty Name="Ex_Psicosocial" ColumnName="Ex_Psicosocial" />
+          <ScalarProperty Name="Ex_Hergonomico" ColumnName="Ex_Hergonomico" />
+          <ScalarProperty Name="Ex_quimicos" ColumnName="Ex_quimicos" />
+          <ScalarProperty Name="Ex_Fisicos" ColumnName="Ex_Fisicos" />
+          <ScalarProperty Name="H_Dede_Hasta" ColumnName="H_Dede_Hasta" />
+          <ScalarProperty Name="H_Posicion" ColumnName="H_Posicion" />
+          <ScalarProperty Name="H_empresa" ColumnName="H_empresa" />
+          <ScalarProperty Name="perosona_emergencia" ColumnName="perosona_emergencia" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Numero_casa" ColumnName="Numero_casa" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Estatura" ColumnName="Estatura" />
+          <ScalarProperty Name="Vivienda" ColumnName="Vivienda" />
+          <ScalarProperty Name="No_dependienteds" ColumnName="No_dependienteds" />
+          <ScalarProperty Name="No_de_Hijos" ColumnName="No_de_Hijos" />
+          <ScalarProperty Name="Nivel_educacional" ColumnName="Nivel_educacional" />
+          <ScalarProperty Name="Estado_civil" ColumnName="Estado_civil" />
+          <ScalarProperty Name="Id_Historia_Clinica" ColumnName="Id_Historia_Clinica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Laboratorios">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Laboratorio">
+        <MappingFragment StoreEntitySet="Laboratorio">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Notas" ColumnName="Notas" />
+          <ScalarProperty Name="Trigliceridos_reultado" ColumnName="Trigliceridos_reultado" />
+          <ScalarProperty Name="Trigliceridos_alarma" ColumnName="Trigliceridos_alarma" />
+          <ScalarProperty Name="Firma1" ColumnName="Firma1" />
+          <ScalarProperty Name="Serologia_metodo_4" ColumnName="Serologia_metodo_4" />
+          <ScalarProperty Name="Serologia_resultado_4" ColumnName="Serologia_resultado_4" />
+          <ScalarProperty Name="Serologia_condicion_4" ColumnName="Serologia_condicion_4" />
+          <ScalarProperty Name="Serologia_metodo_3" ColumnName="Serologia_metodo_3" />
+          <ScalarProperty Name="Serologia_resultado_3" ColumnName="Serologia_resultado_3" />
+          <ScalarProperty Name="Serologia_condicion_3" ColumnName="Serologia_condicion_3" />
+          <ScalarProperty Name="Serologia_metodo_2" ColumnName="Serologia_metodo_2" />
+          <ScalarProperty Name="Serologia_resultado_2" ColumnName="Serologia_resultado_2" />
+          <ScalarProperty Name="Serologia_condicion_2" ColumnName="Serologia_condicion_2" />
+          <ScalarProperty Name="Serologia_metodo_1" ColumnName="Serologia_metodo_1" />
+          <ScalarProperty Name="Serologia_resultado_1" ColumnName="Serologia_resultado_1" />
+          <ScalarProperty Name="Serologia_condicion_1" ColumnName="Serologia_condicion_1" />
+          <ScalarProperty Name="Metodo12" ColumnName="Metodo12" />
+          <ScalarProperty Name="Valor_de_Referencia_122" ColumnName="Valor de Referencia 122" />
+          <ScalarProperty Name="Valor_de_Referencia_121" ColumnName="Valor de Referencia 121" />
+          <ScalarProperty Name="Unidad12" ColumnName="Unidad12" />
+          <ScalarProperty Name="Resultado12" ColumnName="Resultado12" />
+          <ScalarProperty Name="Alarma12" ColumnName="Alarma12" />
+          <ScalarProperty Name="Determinacion12" ColumnName="Determinacion12" />
+          <ScalarProperty Name="Metodo11" ColumnName="Metodo11" />
+          <ScalarProperty Name="Valor_de_Referencia_112" ColumnName="Valor de Referencia 112" />
+          <ScalarProperty Name="Valor_de_Referencia_111" ColumnName="Valor de Referencia 111" />
+          <ScalarProperty Name="Unidad11" ColumnName="Unidad11" />
+          <ScalarProperty Name="Resultado11" ColumnName="Resultado11" />
+          <ScalarProperty Name="Alarma11" ColumnName="Alarma11" />
+          <ScalarProperty Name="Determinacion11" ColumnName="Determinacion11" />
+          <ScalarProperty Name="Metodo10" ColumnName="Metodo10" />
+          <ScalarProperty Name="Valor_de_Referencia_102" ColumnName="Valor de Referencia 102" />
+          <ScalarProperty Name="Valor_de_Referencia_101" ColumnName="Valor de Referencia 101" />
+          <ScalarProperty Name="Unidad10" ColumnName="Unidad10" />
+          <ScalarProperty Name="Resultado10" ColumnName="Resultado10" />
+          <ScalarProperty Name="Alarma10" ColumnName="Alarma10" />
+          <ScalarProperty Name="Determinacion10" ColumnName="Determinacion10" />
+          <ScalarProperty Name="Metodo9" ColumnName="Metodo9" />
+          <ScalarProperty Name="Valor_de_Referencia_92" ColumnName="Valor de Referencia 92" />
+          <ScalarProperty Name="Valor_de_Referencia_91" ColumnName="Valor de Referencia 91" />
+          <ScalarProperty Name="Unidad9" ColumnName="Unidad9" />
+          <ScalarProperty Name="Resultado9" ColumnName="Resultado9" />
+          <ScalarProperty Name="Alarma9" ColumnName="Alarma9" />
+          <ScalarProperty Name="Determinacion9" ColumnName="Determinacion9" />
+          <ScalarProperty Name="Metodo8" ColumnName="Metodo8" />
+          <ScalarProperty Name="Valor_de_Referencia_82" ColumnName="Valor de Referencia 82" />
+          <ScalarProperty Name="Valor_de_Referencia_81" ColumnName="Valor de Referencia 81" />
+          <ScalarProperty Name="Unidad8" ColumnName="Unidad8" />
+          <ScalarProperty Name="Resultado8" ColumnName="Resultado8" />
+          <ScalarProperty Name="Alarma8" ColumnName="Alarma8" />
+          <ScalarProperty Name="Determinacion8" ColumnName="Determinacion8" />
+          <ScalarProperty Name="Metodo7" ColumnName="Metodo7" />
+          <ScalarProperty Name="Valor_de_Referencia_72" ColumnName="Valor de Referencia 72" />
+          <ScalarProperty Name="Valor_de_Referencia_71" ColumnName="Valor de Referencia 71" />
+          <ScalarProperty Name="Unidad7" ColumnName="Unidad7" />
+          <ScalarProperty Name="Resultado7" ColumnName="Resultado7" />
+          <ScalarProperty Name="Alarma7" ColumnName="Alarma7" />
+          <ScalarProperty Name="Determinacion7" ColumnName="Determinacion7" />
+          <ScalarProperty Name="Metodo6" ColumnName="Metodo6" />
+          <ScalarProperty Name="Valor_de_Referencia_62" ColumnName="Valor de Referencia 62" />
+          <ScalarProperty Name="Valor_de_Referencia_61" ColumnName="Valor de Referencia 61" />
+          <ScalarProperty Name="Unidad6" ColumnName="Unidad6" />
+          <ScalarProperty Name="Resultado6" ColumnName="Resultado6" />
+          <ScalarProperty Name="Alarma6" ColumnName="Alarma6" />
+          <ScalarProperty Name="Determinacion6" ColumnName="Determinacion6" />
+          <ScalarProperty Name="Metodo5" ColumnName="Metodo5" />
+          <ScalarProperty Name="Valor_de_Referencia_52" ColumnName="Valor de Referencia 52" />
+          <ScalarProperty Name="Valor_de_Referencia_51" ColumnName="Valor de Referencia 51" />
+          <ScalarProperty Name="Unidad5" ColumnName="Unidad5" />
+          <ScalarProperty Name="Resultado5" ColumnName="Resultado5" />
+          <ScalarProperty Name="Alarma5" ColumnName="Alarma5" />
+          <ScalarProperty Name="Determinacion5" ColumnName="Determinacion5" />
+          <ScalarProperty Name="Metodo4" ColumnName="Metodo4" />
+          <ScalarProperty Name="Valor_de_Referencia_42" ColumnName="Valor de Referencia 42" />
+          <ScalarProperty Name="Valor_de_Referencia_41" ColumnName="Valor de Referencia 41" />
+          <ScalarProperty Name="Unidad4" ColumnName="Unidad4" />
+          <ScalarProperty Name="Resultado4" ColumnName="Resultado4" />
+          <ScalarProperty Name="Alarma4" ColumnName="Alarma4" />
+          <ScalarProperty Name="Determinacion4" ColumnName="Determinacion4" />
+          <ScalarProperty Name="Metodo3" ColumnName="Metodo3" />
+          <ScalarProperty Name="Valor_de_Referencia_32" ColumnName="Valor de Referencia 32" />
+          <ScalarProperty Name="Valor_de_Referencia_31" ColumnName="Valor de Referencia 31" />
+          <ScalarProperty Name="Unidad3" ColumnName="Unidad3" />
+          <ScalarProperty Name="Resultado3" ColumnName="Resultado3" />
+          <ScalarProperty Name="Alarma3" ColumnName="Alarma3" />
+          <ScalarProperty Name="Determinacion3" ColumnName="Determinacion3" />
+          <ScalarProperty Name="Metodo2" ColumnName="Metodo2" />
+          <ScalarProperty Name="Valor_de_Referencia_22" ColumnName="Valor de Referencia 22" />
+          <ScalarProperty Name="Valor_de_Referencia_21" ColumnName="Valor de Referencia 21" />
+          <ScalarProperty Name="Unidad2" ColumnName="Unidad2" />
+          <ScalarProperty Name="Resultado2" ColumnName="Resultado2" />
+          <ScalarProperty Name="Alarma2" ColumnName="Alarma2" />
+          <ScalarProperty Name="Determinacion2" ColumnName="Determinacion2" />
+          <ScalarProperty Name="Metodo1" ColumnName="Metodo1" />
+          <ScalarProperty Name="Valor_de_Referencia_12" ColumnName="Valor de Referencia 12" />
+          <ScalarProperty Name="Valor_de_Referencia_11" ColumnName="Valor de Referencia 11" />
+          <ScalarProperty Name="Unidad1" ColumnName="Unidad1" />
+          <ScalarProperty Name="Resultado1" ColumnName="Resultado1" />
+          <ScalarProperty Name="Alarma1" ColumnName="Alarma1" />
+          <ScalarProperty Name="Determinacion1" ColumnName="Determinacion1" />
+          <ScalarProperty Name="Marihuana" ColumnName="Marihuana" />
+          <ScalarProperty Name="Opiaceos" ColumnName="Opiaceos" />
+          <ScalarProperty Name="Anfetaminas" ColumnName="Anfetaminas" />
+          <ScalarProperty Name="Cocaina" ColumnName="Cocaina" />
+          <ScalarProperty Name="Eritrosedimentacion" ColumnName="Eritrosedimentacion" />
+          <ScalarProperty Name="HCV" ColumnName="HCV" />
+          <ScalarProperty Name="HBsAg" ColumnName="HBsAg" />
+          <ScalarProperty Name="Bacilo_de_Koch" ColumnName="Bacilo de Koch" />
+          <ScalarProperty Name="VDRL" ColumnName="VDRL" />
+          <ScalarProperty Name="Creatinina_resultado" ColumnName="Creatinina resultado" />
+          <ScalarProperty Name="Creatinina_alarma" ColumnName="Creatinina alarma" />
+          <ScalarProperty Name="C_LDL_resultado" ColumnName="C_LDL resultado" />
+          <ScalarProperty Name="C_LDL_alarma" ColumnName="C_LDL alarma" />
+          <ScalarProperty Name="SGOT_ALT_resultado" ColumnName="SGOT_ALT resultado" />
+          <ScalarProperty Name="SGOT_ALT_alarma" ColumnName="SGOT_ALT alarma" />
+          <ScalarProperty Name="SGPT_ALT_resultado" ColumnName="SGPT_ALT resultado" />
+          <ScalarProperty Name="SGPT_ALT_alarma" ColumnName="SGPT_ALT alarma" />
+          <ScalarProperty Name="C_HDL_resultado" ColumnName="C_HDL resultado" />
+          <ScalarProperty Name="C_HDL_alarma" ColumnName="C_HDL alarma" />
+          <ScalarProperty Name="Colesterol_total_resultado" ColumnName="Colesterol total resultado" />
+          <ScalarProperty Name="Colesterol_total_alarma" ColumnName="Colesterol total alarma" />
+          <ScalarProperty Name="Glicemia_Resultado" ColumnName="Glicemia_Resultado" />
+          <ScalarProperty Name="Glicemia_alarma" ColumnName="Glicemia_alarma" />
+          <ScalarProperty Name="firma" ColumnName="firma" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Parásitos" ColumnName="Parásitos" />
+          <ScalarProperty Name="Cilindros" ColumnName="Cilindros" />
+          <ScalarProperty Name="Cristales" ColumnName="Cristales" />
+          <ScalarProperty Name="Levaduras" ColumnName="Levaduras" />
+          <ScalarProperty Name="Fibras_mucosas" ColumnName="Fibras mucosas" />
+          <ScalarProperty Name="Bacterias" ColumnName="Bacterias" />
+          <ScalarProperty Name="Células_epiteliales" ColumnName="Células epiteliales" />
+          <ScalarProperty Name="Hematíes" ColumnName="Hematíes" />
+          <ScalarProperty Name="Leucocitos" ColumnName="Leucocitos" />
+          <ScalarProperty Name="Células_renales" ColumnName="Células renales" />
+          <ScalarProperty Name="Examen_Microscópico" ColumnName="Examen Microscópico" />
+          <ScalarProperty Name="Sangre_oculta" ColumnName="Sangre oculta" />
+          <ScalarProperty Name="Hemoglobina" ColumnName="Hemoglobina" />
+          <ScalarProperty Name="Pigmentos_biliares" ColumnName="Pigmentos biliares" />
+          <ScalarProperty Name="Urobilinógeno" ColumnName="Urobilinógeno" />
+          <ScalarProperty Name="Bilirrubina" ColumnName="Bilirrubina" />
+          <ScalarProperty Name="Acetona" ColumnName="Acetona" />
+          <ScalarProperty Name="Albumina" ColumnName="Albumina" />
+          <ScalarProperty Name="Glucosa" ColumnName="Glucosa" />
+          <ScalarProperty Name="Nitritos" ColumnName="Nitritos" />
+          <ScalarProperty Name="Densidad" ColumnName="Densidad" />
+          <ScalarProperty Name="PH" ColumnName="PH" />
+          <ScalarProperty Name="Aspecto" ColumnName="Aspecto" />
+          <ScalarProperty Name="Olor" ColumnName="Olor" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Id_Laboratorio" ColumnName="Id_Laboratorio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mareos">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Mareo">
+        <MappingFragment StoreEntitySet="Mareo">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="Resultado2" ColumnName="Resultado2" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Factor_Correccion" ColumnName="Factor_Correccion" />
+          <ScalarProperty Name="VO2Max" ColumnName="VO2Max" />
+          <ScalarProperty Name="Quinta_Carga" ColumnName="Quinta_Carga" />
+          <ScalarProperty Name="Cuarta_Carga" ColumnName="Cuarta_Carga" />
+          <ScalarProperty Name="Tercera_Carga" ColumnName="Tercera_Carga" />
+          <ScalarProperty Name="Segund_Carga" ColumnName="Segund_Carga" />
+          <ScalarProperty Name="Primera_Carga" ColumnName="Primera_Carga" />
+          <ScalarProperty Name="C65__Frecuencia_Cartdiaca_Maxima" ColumnName="C65__Frecuencia_Cartdiaca_Maxima" />
+          <ScalarProperty Name="Tension_Arterial2" ColumnName="Tension_Arterial2" />
+          <ScalarProperty Name="Tension_Arterial1" ColumnName="Tension_Arterial1" />
+          <ScalarProperty Name="Frecuencia_Cardiaca_Maxima" ColumnName="Frecuencia_Cardiaca_Maxima" />
+          <ScalarProperty Name="Pulso" ColumnName="Pulso" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Id_Mareo" ColumnName="Id_Mareo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pre_espirometria">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Pre_espirometria">
+        <MappingFragment StoreEntitySet="Pre_espirometria">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="comida_completaA" ColumnName="comida_completaA" />
+          <ScalarProperty Name="ejercicio_fuerteA" ColumnName="ejercicio_fuerteA" />
+          <ScalarProperty Name="cigarro_puro_pipaA" ColumnName="cigarro_puro_pipaA" />
+          <ScalarProperty Name="medicamento_respiracionA" ColumnName="medicamento_respiracionA" />
+          <ScalarProperty Name="infeccion_respirtatoriaA" ColumnName="infeccion_respirtatoriaA" />
+          <ScalarProperty Name="Presion_arterialA" ColumnName="Presion_arterialA" />
+          <ScalarProperty Name="medicamento_tuberculosisA" ColumnName="medicamento_tuberculosisA" />
+          <ScalarProperty Name="problema_corazonA" ColumnName="problema_corazonA" />
+          <ScalarProperty Name="retina_cirugiaA" ColumnName="retina_cirugiaA" />
+          <ScalarProperty Name="infarto_al_corazonA" ColumnName="infarto_al_corazonA" />
+          <ScalarProperty Name="pulmon_torax_abdomenA" ColumnName="pulmon_torax_abdomenA" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="comida_completa" ColumnName="comida_completa" />
+          <ScalarProperty Name="ejercicio_fuerte" ColumnName="ejercicio_fuerte" />
+          <ScalarProperty Name="cigarro_puro_pipa" ColumnName="cigarro_puro_pipa" />
+          <ScalarProperty Name="medicamento_respiracion" ColumnName="medicamento_respiracion" />
+          <ScalarProperty Name="infeccion_respirtatoria" ColumnName="infeccion_respirtatoria" />
+          <ScalarProperty Name="Presion_arterial" ColumnName="Presion_arterial" />
+          <ScalarProperty Name="Esta_embarazada" ColumnName="Esta_embarazada" />
+          <ScalarProperty Name="medicamento_tuberculosis" ColumnName="medicamento_tuberculosis" />
+          <ScalarProperty Name="problema_corazon" ColumnName="problema_corazon" />
+          <ScalarProperty Name="retina_cirugia" ColumnName="retina_cirugia" />
+          <ScalarProperty Name="infarto_al_corazon" ColumnName="infarto_al_corazon" />
+          <ScalarProperty Name="pulmon_torax_abdomen" ColumnName="pulmon_torax_abdomen" />
+          <ScalarProperty Name="Id_Pre_espirometria" ColumnName="Id_Pre_espirometria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RayosXes">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.RayosX">
+        <MappingFragment StoreEntitySet="RayosX">
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Firma2" ColumnName="Firma2" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Impresion_diagnostica2" ColumnName="Impresion_diagnostica2" />
+          <ScalarProperty Name="Hallasgos2" ColumnName="Hallasgos2" />
+          <ScalarProperty Name="tecnica2" ColumnName="tecnica2" />
+          <ScalarProperty Name="Impresion_diagnostica" ColumnName="Impresion_diagnostica" />
+          <ScalarProperty Name="Hallasgos" ColumnName="Hallasgos" />
+          <ScalarProperty Name="tecnica" ColumnName="tecnica" />
+          <ScalarProperty Name="Id_rayos_X" ColumnName="Id_rayos_X" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actividades">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Actividade">
+        <MappingFragment StoreEntitySet="Actividades">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="Fecha_modificacion" ColumnName="Fecha_modificacion" />
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Info_general">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Info_general">
+        <MappingFragment StoreEntitySet="Info_general">
+          <ScalarProperty Name="Historia_clinica_y_examen_fisico" ColumnName="Historia_clinica_y_examen_fisico" />
+          <ScalarProperty Name="Bateria_Completa" ColumnName="Bateria_Completa" />
+          <ScalarProperty Name="Bateria_de_un_mes" ColumnName="Bateria_de_un_mes" />
+          <ScalarProperty Name="Examen_visual" ColumnName="Examen_visual" />
+          <ScalarProperty Name="EKG" ColumnName="EKG" />
+          <ScalarProperty Name="Hemografia" ColumnName="Hemografia" />
+          <ScalarProperty Name="Radiografia" ColumnName="Radiografia" />
+          <ScalarProperty Name="Laboratorio" ColumnName="Laboratorio" />
+          <ScalarProperty Name="Capacidad_fisica" ColumnName="Capacidad_fisica" />
+          <ScalarProperty Name="Audiometria" ColumnName="Audiometria" />
+          <ScalarProperty Name="Espirometria" ColumnName="Espirometria" />
+          <ScalarProperty Name="Pre_espirometria" ColumnName="Pre_espirometria" />
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha_de_nacimiento" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo_de_evaluacion" ColumnName="Tipo_de_evaluacion" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Id_Info_General" ColumnName="Id_Info_General" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

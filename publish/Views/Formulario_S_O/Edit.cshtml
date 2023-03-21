@@ -1,0 +1,113 @@
+﻿@model WebParaMelvin.Models.Formulario_S_O
+
+@{
+    ViewBag.Title = "Edit";
+    WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+    var empresa = db.Empresas.FirstOrDefault(e => e.Id_Empresa== Model.Id_Empresa);
+    var usuario = db.Usuarios.FirstOrDefault(u => u.Id_usuario == empresa.Id_Usuario);
+}
+
+<h2>Editar</h2>
+<script>
+    function ActivarEmail(control) {
+        var sel = control.options[control.selectedIndex].text;
+        if (sel == "Visible") {
+            document.getElementById("button_mail").removeAttribute("hidden");
+        }
+        else {
+            document.getElementById("button_mail").setAttribute("hidden","hidden");
+        }
+    }
+    function sendMail() {
+        var link = "mailto:"+ "@usuario.Email"
+            + "?cc="+ "@empresa.Email"
+            + "&subject=" + escape("Expediente Listo")
+            + "&body=" + escape("El expediente "+@Model.Id_Formulario_S_O+"; Esta Listo para Revisarse e Imprimirse.\nAtt: Equipo CISAM");
+            
+
+        window.location.href = link;
+    }
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Formulario de Salud Ocupacional</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id_Formulario_S_O)
+    @Html.HiddenFor(model => model.Id_Usuario)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Id_Empresa, "Empresa:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Id_Empresa", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Id_Empresa, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Estado, "Estado del Formulario", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            <select name="Estado" id="Estado" class="form-control" onchange="ActivarEmail(this)">
+                @{
+                    if (Model.Estado != null)
+                    {
+                        switch (Model.Estado)
+                        {
+                            case "Incompleto":
+                                {
+                                    <option selected>Incompleto</option>
+                                    <option>Completo</option>
+                                    <option>Visible</option>
+
+                                }
+                                break;
+                            case "Completo":
+                                {
+                                    <option>Incompleto</option>
+                                    <option selected>Completo</option>
+                                    <option>Visible</option>
+
+                                }
+                                break;
+                            case "Visible":
+                                {
+                                    <option>Incompleto</option>
+                                    <option>Completo</option>
+                                    <option selected>Visible</option>
+
+                                }
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        <option>Incompleto</option>
+                        <option>Completo</option>
+                        <option>Visible</option>
+                    }
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+            <button onclick="sendMail(); return false" hidden="hidden" id="button_mail">Enviar Aviso</button>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Ver formularios", "Index")
+</div>
+
+@section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+}

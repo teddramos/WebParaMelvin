@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c871a40acbd6465ba2a7e61a21270137" Name="Diagram1" ZoomLevel="35">
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Audiometria" Width="1.5" PointX="6.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Consentimiento_Informado" Width="1.5" PointX="4.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.CSO" Width="1.5" PointX="2.375" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.EKG" Width="1.5" PointX="2.375" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Espirometria" Width="1.5" PointX="4.375" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Examen_Visual" Width="1.5" PointX="0.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Formulario_S_O" Width="1.5" PointX="7.125" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Hemograma" Width="1.5" PointX="2.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Info_general" Width="1.5" PointX="4.875" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Mareo" Width="1.5" PointX="6.125" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Rol" Width="1.5" PointX="8.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Usuario" Width="1.5" PointX="2.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Usuario_Rol" Width="1.5" PointX="4.75" PointY="14.125" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Audiometria_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Consentimiento_Informado_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_CSO_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_EKG_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Espirometria_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Examen_Visual_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Formulario_S_O_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Hemograma_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Info_general_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Mareo_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Usuario_Rol_ToRol" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Usuario_Rol_Usuario" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Empresa" Width="1.5" PointX="4.75" PointY="16.875" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Usuario_Empresa" Width="1.5" PointX="11" PointY="14.625" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Empresa_ToUsuario" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Usuario_Empresa_Usuario" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Formulario_S_O_ToTable1" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Laboratorio" Width="1.5" PointX="11.375" PointY="0.75" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Laboratorio_ToFormularioSO" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.RayosX" Width="1.5" PointX="7.375" PointY="16.875" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_RayosX_To_Formulario_S_O" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Historia_clinica" Width="1.5" PointX="14.875" PointY="0.5" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Historia_clinica_To_Formulario_S_O" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Usuario_Empresa_ToEmpresa" />
+        <EntityTypeShape EntityType="DatabaseRepMedModel.Pre_espirometria" Width="1.5" PointX="9.375" PointY="20.625" />
+        <AssociationConnector Association="DatabaseRepMedModel.FK_Pre_espirometria_To_Formulario_S_O" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

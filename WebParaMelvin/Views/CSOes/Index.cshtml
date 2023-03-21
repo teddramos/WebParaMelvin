@@ -1,0 +1,177 @@
+﻿@model IEnumerable<WebParaMelvin.Models.CSO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Antiguedad_en_el_puesto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tiempo_en_la_empresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Anamnesis_ocupacional_ex_fisico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hemograma_completo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Audiometria_tonal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gicemia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Espirometria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Urea_creatinina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Panel_de_drogas_minimo_coc_thc_mtd_met)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tuberculosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.capacidad_fisica_test_manero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Examen_de_orina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Agudez_visual_agudeza_campo_profundidad_cromatismo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Perfil_Lipidico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Electrocardiograma_en_reposo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TGO_TGP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Radiografia_De_Torax_PA_Radiografia_lumbo_sacra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HBSAG_Hepatitis_C)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Otros)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apto_con_restriccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.No_Apto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aplazado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Recomendaciones_observaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antiguedad_en_el_puesto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tiempo_en_la_empresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Anamnesis_ocupacional_ex_fisico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hemograma_completo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Audiometria_tonal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gicemia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Espirometria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Urea_creatinina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Panel_de_drogas_minimo_coc_thc_mtd_met)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tuberculosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.capacidad_fisica_test_manero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Examen_de_orina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Agudez_visual_agudeza_campo_profundidad_cromatismo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Perfil_Lipidico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Electrocardiograma_en_reposo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TGO_TGP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Radiografia_De_Torax_PA_Radiografia_lumbo_sacra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HBSAG_Hepatitis_C)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Otros)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apto_con_restriccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.No_Apto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aplazado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recomendaciones_observaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario_S_O.Id_Formulario_S_O)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_CSO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_CSO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_CSO })
+        </td>
+    </tr>
+}
+
+</table>

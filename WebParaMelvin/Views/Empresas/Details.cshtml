@@ -1,0 +1,76 @@
+﻿@model WebParaMelvin.Models.Empresa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Empresa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RNC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RNC)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono_)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono_)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dirección)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dirección)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Persona_Contacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Persona_Contacto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sitio_Web)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sitio_Web)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id_Empresa }) |
+    @Html.ActionLink("Ver todos", "Index")
+</p>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a86d8f4a169c45018bc27c798a79c6e6" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Consentimiento_Informado" Width="1.5" PointX="7.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.CSO" Width="1.5" PointX="7.5" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.EKG" Width="1.5" PointX="7.5" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Empresa" Width="1.5" PointX="3" PointY="71.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Formulario_S_O" Width="1.5" PointX="5.25" PointY="70.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Hemograma" Width="1.5" PointX="7.5" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Info_general" Width="1.5" PointX="7.5" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Pre_espirometria" Width="1.5" PointX="9.625" PointY="75.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.RayosX" Width="1.5" PointX="7.5" PointY="72.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Rol" Width="1.5" PointX="0.75" PointY="68.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Usuario" Width="1.5" PointX="0.75" PointY="71.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Usuario_Rol" Width="1.5" PointX="3" PointY="68.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Usuario_Empresa" Width="1.5" PointX="5.25" PointY="67.5" IsExpanded="true" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Consentimiento_Informado_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_CSO_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_EKG_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Empresa_ToUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Formulario_S_O_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Usuario_Empresa_ToEmpresa" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Hemograma_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Pre_espirometria_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_RayosX_To_Formulario_S_O" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Usuario_Rol_ToRol" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Usuario_Empresa_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Usuario_Rol_Usuario" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Laboratorio" Width="1.5" PointX="7.5" PointY="0.75" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Laboratorio_ToFormularioSO" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Historia_Clinica" Width="1.5" PointX="7.5" PointY="83.125" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Historia_clinica_To_Formulario_S_O_x" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Mareo" Width="1.5" PointX="7.5" PointY="66" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Mareo_To_Formulario_S_O" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Audiometria" Width="1.5" PointX="7.5" PointY="55" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Examen_Visual" Width="1.5" PointX="7.5" PointY="137.625" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Audiometria_To_Formulario_S_O" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Examen_Visual_Formulario_S_O" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Espirometria" Width="1.5" PointX="7.5" PointY="51.5" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Espirometria_To_Formulario_S_O" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,796 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBB4D829-716E-47C4-823D-B7844584D412}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebParaMelvin</RootNamespace>
+    <AssemblyName>WebParaMelvin</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ArchivosExtrasController.cs" />
+    <Compile Include="Controllers\AudiometriasController.cs" />
+    <Compile Include="Controllers\Consentimiento_InformadoController.cs" />
+    <Compile Include="Controllers\CSOesController.cs" />
+    <Compile Include="Controllers\EKGsController.cs" />
+    <Compile Include="Controllers\EmpresasController.cs" />
+    <Compile Include="Controllers\EspirometriasController.cs" />
+    <Compile Include="Controllers\Examen_VisualController.cs" />
+    <Compile Include="Controllers\Formulario_S_OController.cs" />
+    <Compile Include="Controllers\HemogramasController.cs" />
+    <Compile Include="Controllers\Historia_clinicaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Info_generalController.cs" />
+    <Compile Include="Controllers\LaboratoriosController.cs" />
+    <Compile Include="Controllers\MareosController.cs" />
+    <Compile Include="Controllers\Pre_espirometriaController.cs" />
+    <Compile Include="Controllers\RayosXesController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\Utility.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Actividade.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArchivosExtra.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Audiometria.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Consentimiento_Informado.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CSO.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EKG.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Empresa.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Espirometria.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Examen_Visual.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Formulario_S_O.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hemograma.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HemogramaViewModel.cs" />
+    <Compile Include="Models\Historia_Clinica.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Info_general.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Laboratorio.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Mareo.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelFormulario_S_O_1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFormulario_S_O_1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelFormulario_S_O_1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelFormulario_S_O_1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelFormulario_S_O_1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pre_espirometria.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RayosX.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rol.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario_Empresa.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario_Rol.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\vistasHTML\Template for CSO.aspx.cs">
+      <DependentUpon>Template for CSO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vistasHTML\Template for CSO.aspx.designer.cs">
+      <DependentUpon>Template for CSO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vistasHTML\template for Examen Visual.aspx.cs">
+      <DependentUpon>template for Examen Visual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vistasHTML\template for Examen Visual.aspx.designer.cs">
+      <DependentUpon>template for Examen Visual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vistasHTML\template for Historia Ocupacional.aspx.cs">
+      <DependentUpon>template for Historia Ocupacional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vistasHTML\template for Historia Ocupacional.aspx.designer.cs">
+      <DependentUpon>template for Historia Ocupacional.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vistasHTML\Template For InfoGeneral.aspx.cs">
+      <DependentUpon>Template For InfoGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vistasHTML\Template For InfoGeneral.aspx.designer.cs">
+      <DependentUpon>Template For InfoGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vistasHTML\template For Laboratorios.aspx.cs">
+      <DependentUpon>template For Laboratorios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vistasHTML\template For Laboratorios.aspx.designer.cs">
+      <DependentUpon>template For Laboratorios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vistasHTML\Template for Manero.aspx.cs">
+      <DependentUpon>Template for Manero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vistasHTML\Template for Manero.aspx.designer.cs">
+      <DependentUpon>Template for Manero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vistasHTML\Template Pre esperiometria.aspx.cs">
+      <DependentUpon>Template Pre esperiometria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vistasHTML\Template Pre esperiometria.aspx.designer.cs">
+      <DependentUpon>Template Pre esperiometria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\vistasHTML\teplate for Audiometria.aspx.cs">
+      <DependentUpon>teplate for Audiometria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\vistasHTML\teplate for Audiometria.aspx.designer.cs">
+      <DependentUpon>teplate for Audiometria.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CISAMEmpresa\about.html" />
+    <Content Include="CISAMEmpresa\contact.html" />
+    <Content Include="CISAMEmpresa\css\animate.css" />
+    <Content Include="CISAMEmpresa\css\bootstrap.min.css" />
+    <Content Include="CISAMEmpresa\css\custom.css" />
+    <Content Include="CISAMEmpresa\css\flaticon.css" />
+    <Content Include="CISAMEmpresa\css\font-awesome.min.css" />
+    <Content Include="CISAMEmpresa\css\magnific-popup.css" />
+    <Content Include="CISAMEmpresa\css\pogo-slider.min.css" />
+    <Content Include="CISAMEmpresa\css\responsive.css" />
+    <Content Include="CISAMEmpresa\css\responsiveslides.css" />
+    <Content Include="CISAMEmpresa\css\style.css" />
+    <Content Include="CISAMEmpresa\css\timeline.css" />
+    <Content Include="CISAMEmpresa\fonts\Flaticon.svg" />
+    <Content Include="CISAMEmpresa\fonts\fontawesome-webfont.svg" />
+    <Content Include="CISAMEmpresa\images\img1.png" />
+    <Content Include="CISAMEmpresa\images\img2.png" />
+    <Content Include="CISAMEmpresa\images\img3.png" />
+    <Content Include="CISAMEmpresa\images\img4.png" />
+    <Content Include="CISAMEmpresa\images\loader.gif" />
+    <Content Include="CISAMEmpresa\images\search_icon.png" />
+    <Content Include="CISAMEmpresa\images\slider-01.jpg" />
+    <Content Include="CISAMEmpresa\images\social1.png" />
+    <Content Include="CISAMEmpresa\images\social2.png" />
+    <Content Include="CISAMEmpresa\images\social3.png" />
+    <Content Include="CISAMEmpresa\img\banner-img.png" />
+    <Content Include="CISAMEmpresa\img\banner-img2.png" />
+    <Content Include="CISAMEmpresa\img\f_logo.png" />
+    <Content Include="CISAMEmpresa\img\icon-1.png" />
+    <Content Include="CISAMEmpresa\img\icon-1.svg" />
+    <Content Include="CISAMEmpresa\img\icon-2.png" />
+    <Content Include="CISAMEmpresa\img\icon-3.png" />
+    <Content Include="CISAMEmpresa\img\icon-4.png" />
+    <Content Include="CISAMEmpresa\img\icon-5.png" />
+    <Content Include="CISAMEmpresa\img\icon-6.png" />
+    <Content Include="CISAMEmpresa\img\img-2png.png" />
+    <Content Include="CISAMEmpresa\img\img-7.png" />
+    <Content Include="CISAMEmpresa\img\img-8.png" />
+    <Content Include="CISAMEmpresa\img\img-9.png" />
+    <Content Include="CISAMEmpresa\img\logo.png" />
+    <Content Include="CISAMEmpresa\img\logo1.png" />
+    <Content Include="CISAMEmpresa\img\logo2.png" />
+    <Content Include="CISAMEmpresa\index.html" />
+    <Content Include="CISAMEmpresa\js\bootstrap.min.js" />
+    <Content Include="CISAMEmpresa\js\contact-form-script.js" />
+    <Content Include="CISAMEmpresa\js\custom.js" />
+    <Content Include="CISAMEmpresa\js\form-validator.min.js" />
+    <Content Include="CISAMEmpresa\js\images-loded.min.js" />
+    <Content Include="CISAMEmpresa\js\isotope.min.js" />
+    <Content Include="CISAMEmpresa\js\jquery.magnific-popup.min.js" />
+    <Content Include="CISAMEmpresa\js\jquery.min.js" />
+    <Content Include="CISAMEmpresa\js\jquery.pogo-slider.min.js" />
+    <Content Include="CISAMEmpresa\js\popper.min.js" />
+    <Content Include="CISAMEmpresa\js\slider-index.js" />
+    <Content Include="CISAMEmpresa\js\smoothscroll.js" />
+    <Content Include="CISAMEmpresa\php\form-process.php" />
+    <Content Include="CISAMEmpresa\rd-business\about.html" />
+    <Content Include="CISAMEmpresa\rd-business\contact.html" />
+    <Content Include="CISAMEmpresa\rd-business\css\animate.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\bootstrap.min.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\custom.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\flaticon.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\font-awesome.min.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\magnific-popup.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\pogo-slider.min.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\responsive.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\responsiveslides.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\style.css" />
+    <Content Include="CISAMEmpresa\rd-business\css\timeline.css" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\Flaticon.svg" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\fontawesome-webfont.svg" />
+    <Content Include="CISAMEmpresa\rd-business\images\img1.png" />
+    <Content Include="CISAMEmpresa\rd-business\images\img2.png" />
+    <Content Include="CISAMEmpresa\rd-business\images\img3.png" />
+    <Content Include="CISAMEmpresa\rd-business\images\img4.png" />
+    <Content Include="CISAMEmpresa\rd-business\images\loader.gif" />
+    <Content Include="CISAMEmpresa\rd-business\images\search_icon.png" />
+    <Content Include="CISAMEmpresa\rd-business\images\slider-01.jpg" />
+    <Content Include="CISAMEmpresa\rd-business\images\social1.png" />
+    <Content Include="CISAMEmpresa\rd-business\images\social2.png" />
+    <Content Include="CISAMEmpresa\rd-business\images\social3.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\banner-img.jpg" />
+    <Content Include="CISAMEmpresa\rd-business\img\banner-img.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\banner-img1.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\f_logo.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\f_logo1.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\icon-1.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\icon-2.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\icon-3.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\icon-4.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\icon-5.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\icon-6.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\img-2png.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\img-7.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\img-8.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\img-9.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\logo.png" />
+    <Content Include="CISAMEmpresa\rd-business\img\logo2.png" />
+    <Content Include="CISAMEmpresa\rd-business\index.html" />
+    <Content Include="CISAMEmpresa\rd-business\js\bootstrap.min.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\contact-form-script.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\custom.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\form-validator.min.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\images-loded.min.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\isotope.min.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\jquery.magnific-popup.min.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\jquery.min.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\jquery.pogo-slider.min.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\popper.min.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\slider-index.js" />
+    <Content Include="CISAMEmpresa\rd-business\js\smoothscroll.js" />
+    <Content Include="CISAMEmpresa\rd-business\php\form-process.php" />
+    <Content Include="CISAMEmpresa\rd-business\services.html" />
+    <Content Include="CISAMEmpresa\services.html" />
+    <Content Include="CISAMEmpresa\video.html" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\logo cisam.jpg" />
+    <Content Include="Images\logo cisam2.jpeg" />
+    <Content Include="loginFiles\index.html" />
+    <Content Include="Models\ModelFormulario_S_O.edmx.sql" />
+    <Content Include="Models\ModelFormulario_S_O_1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelFormulario_S_O_1.edmx</DependentUpon>
+      <LastGenOutput>ModelFormulario_S_O_1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelFormulario_S_O_1.edmx.sql" />
+    <Content Include="Models\ModelFormulario_S_O_1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelFormulario_S_O_1.edmx</DependentUpon>
+      <LastGenOutput>ModelFormulario_S_O_1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Browsers\qt.browser" />
+    <EntityDeploy Include="Models\ModelFormulario_S_O_1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelFormulario_S_O_1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelFormulario_S_O_1.edmx.diagram">
+      <DependentUpon>ModelFormulario_S_O_1.edmx</DependentUpon>
+    </Content>
+    <Content Include="CISAMEmpresa\fonts\Flaticon.eot" />
+    <Content Include="CISAMEmpresa\fonts\Flaticon.ttf" />
+    <Content Include="CISAMEmpresa\fonts\Flaticon.woff" />
+    <Content Include="CISAMEmpresa\fonts\fontawesome-webfont.eot" />
+    <Content Include="CISAMEmpresa\fonts\fontawesome-webfont.ttf" />
+    <Content Include="CISAMEmpresa\fonts\fontawesome-webfont.woff" />
+    <Content Include="CISAMEmpresa\fonts\fontawesome-webfont.woff2" />
+    <Content Include="CISAMEmpresa\fonts\FontAwesome.otf" />
+    <Content Include="CISAMEmpresa\rd-business\debug.log" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\Flaticon.eot" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\Flaticon.ttf" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\Flaticon.woff" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\fontawesome-webfont.eot" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\fontawesome-webfont.ttf" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\fontawesome-webfont.woff" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\fontawesome-webfont.woff2" />
+    <Content Include="CISAMEmpresa\rd-business\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Formulario_S_O\logo cisam.jpg" />
+    <Content Include="loginFiles\css\main.css" />
+    <Content Include="loginFiles\css\util.css" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="loginFiles\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="loginFiles\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="loginFiles\images\bg-01.jpg" />
+    <Content Include="loginFiles\images\icons\favicon.ico" />
+    <Content Include="loginFiles\images\icons\map-marker.png" />
+    <Content Include="loginFiles\js\main.js" />
+    <Content Include="loginFiles\js\map-custom.js" />
+    <Content Include="loginFiles\vendor\animate\animate.css" />
+    <Content Include="loginFiles\vendor\animsition\css\animsition.css" />
+    <Content Include="loginFiles\vendor\animsition\css\animsition.min.css" />
+    <Content Include="loginFiles\vendor\animsition\js\animsition.js" />
+    <Content Include="loginFiles\vendor\animsition\js\animsition.min.js" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="loginFiles\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="loginFiles\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="loginFiles\vendor\bootstrap\js\popper.js" />
+    <Content Include="loginFiles\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="loginFiles\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="loginFiles\vendor\countdowntime\countdowntime.js" />
+    <Content Include="loginFiles\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="loginFiles\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="loginFiles\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="loginFiles\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="loginFiles\vendor\daterangepicker\moment.js" />
+    <Content Include="loginFiles\vendor\daterangepicker\moment.min.js" />
+    <Content Include="loginFiles\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="loginFiles\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="loginFiles\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="loginFiles\vendor\select2\select2.css" />
+    <Content Include="loginFiles\vendor\select2\select2.js" />
+    <Content Include="loginFiles\vendor\select2\select2.min.css" />
+    <Content Include="loginFiles\vendor\select2\select2.min.js" />
+    <Content Include="Views\vistasHTML\Template for CSO.aspx" />
+    <Content Include="Views\vistasHTML\template for Examen Visual.aspx" />
+    <Content Include="Views\vistasHTML\template for Historia Ocupacional.aspx" />
+    <Content Include="Views\vistasHTML\Template For InfoGeneral.aspx" />
+    <Content Include="Views\vistasHTML\template For Laboratorios.aspx" />
+    <Content Include="Views\vistasHTML\Template for Manero.aspx" />
+    <Content Include="Views\vistasHTML\Template Pre esperiometria.aspx" />
+    <Content Include="Views\vistasHTML\teplate for Audiometria.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Info_general\Delete.cshtml" />
+    <Content Include="Views\Info_general\Details.cshtml" />
+    <Content Include="Views\Info_general\Edit.cshtml" />
+    <Content Include="Views\Info_general\Index.cshtml" />
+    <Content Include="Views\Create%28login Backup%29.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Formulario_S_O\Create.cshtml" />
+    <Content Include="Views\Formulario_S_O\Delete.cshtml" />
+    <Content Include="Views\Formulario_S_O\Details.cshtml" />
+    <Content Include="Views\Formulario_S_O\Edit.cshtml" />
+    <Content Include="Views\Info_general\Create.cshtml" />
+    <Content Include="Views\Empresas\Create.cshtml" />
+    <Content Include="Views\Empresas\Delete.cshtml" />
+    <Content Include="Views\Empresas\Details.cshtml" />
+    <Content Include="Views\Empresas\Edit.cshtml" />
+    <Content Include="Views\Empresas\Index.cshtml" />
+    <Content Include="Views\Formulario_S_O\Index.cshtml" />
+    <Content Include="Views\Usuarios\NewUser.cshtml" />
+    <Content Include="Views\CSOes\Create.cshtml" />
+    <Content Include="Views\CSOes\Delete.cshtml" />
+    <Content Include="Views\CSOes\Details.cshtml" />
+    <Content Include="Views\Edit.cshtml" />
+    <Content Include="Views\CSOes\Index.cshtml" />
+    <Content Include="Views\Historia_clinica\Create.cshtml" />
+    <Content Include="Views\Historia_clinica\Delete.cshtml" />
+    <Content Include="Views\Historia_clinica\Details.cshtml" />
+    <Content Include="Views\Historia_clinica\Index.cshtml" />
+    <Content Include="Views\Pre_espirometria\Create.cshtml" />
+    <Content Include="Views\Pre_espirometria\Delete.cshtml" />
+    <Content Include="Views\Pre_espirometria\Details.cshtml" />
+    <Content Include="Views\Pre_espirometria\Edit.cshtml" />
+    <Content Include="Views\Pre_espirometria\Index.cshtml" />
+    <Content Include="Views\Audiometrias\Create.cshtml" />
+    <Content Include="Views\Audiometrias\Delete.cshtml" />
+    <Content Include="Views\Audiometrias\Details.cshtml" />
+    <Content Include="Views\Audiometrias\Edit.cshtml" />
+    <Content Include="Views\Audiometrias\Index.cshtml" />
+    <Content Include="Views\Examen_Visual\Create.cshtml" />
+    <Content Include="Views\Examen_Visual\Delete.cshtml" />
+    <Content Include="Views\Examen_Visual\Details.cshtml" />
+    <Content Include="Views\Examen_Visual\Edit.cshtml" />
+    <Content Include="Views\Examen_Visual\Index.cshtml" />
+    <Content Include="Views\Mareos\Create.cshtml" />
+    <Content Include="Views\Mareos\Delete.cshtml" />
+    <Content Include="Views\Mareos\Details.cshtml" />
+    <Content Include="Views\Mareos\Edit.cshtml" />
+    <Content Include="Views\Mareos\Index.cshtml" />
+    <Content Include="Views\Hemogramas\Create.cshtml" />
+    <Content Include="Views\Hemogramas\Delete.cshtml" />
+    <Content Include="Views\Hemogramas\Details.cshtml" />
+    <Content Include="Views\Hemogramas\Edit.cshtml" />
+    <Content Include="Views\Hemogramas\Index.cshtml" />
+    <Content Include="Views\Laboratorios\Create.cshtml" />
+    <Content Include="Views\Laboratorios\Delete.cshtml" />
+    <Content Include="Views\Laboratorios\Details.cshtml" />
+    <Content Include="Views\Laboratorios\Edit.cshtml" />
+    <Content Include="Views\Laboratorios\Index.cshtml" />
+    <Content Include="Views\Espirometrias\Create.cshtml" />
+    <Content Include="Views\Espirometrias\Delete.cshtml" />
+    <Content Include="Views\Espirometrias\Details.cshtml" />
+    <Content Include="Views\Espirometrias\Edit.cshtml" />
+    <Content Include="Views\Espirometrias\Index.cshtml" />
+    <Content Include="Views\RayosXes\Create.cshtml" />
+    <Content Include="Views\RayosXes\Delete.cshtml" />
+    <Content Include="Views\RayosXes\Details.cshtml" />
+    <Content Include="Views\RayosXes\Edit.cshtml" />
+    <Content Include="Views\RayosXes\Index.cshtml" />
+    <Content Include="Views\Consentimiento_Informado\Create.cshtml" />
+    <Content Include="Views\Consentimiento_Informado\Delete.cshtml" />
+    <Content Include="Views\Consentimiento_Informado\Details.cshtml" />
+    <Content Include="Views\Consentimiento_Informado\Edit.cshtml" />
+    <Content Include="Views\Consentimiento_Informado\Index.cshtml" />
+    <Content Include="Views\EKGs\Create.cshtml" />
+    <Content Include="Views\EKGs\Delete.cshtml" />
+    <Content Include="Views\EKGs\Details.cshtml" />
+    <Content Include="Views\EKGs\Edit.cshtml" />
+    <Content Include="Views\EKGs\Index.cshtml" />
+    <Content Include="Views\Formulario_S_O\PrintPreview.cshtml" />
+    <Content Include="Views\CSOes\Edit.cshtml" />
+    <Content Include="Views\Historia_clinica\Edit.cshtml" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="loginFiles\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="loginFiles\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="loginFiles\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="loginFiles\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="loginFiles\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="loginFiles\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="loginFiles\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Shared\ErrorEliminar.cshtml" />
+    <Content Include="Views\ArchivosExtras\Create.cshtml" />
+    <Content Include="Views\ArchivosExtras\Delete.cshtml" />
+    <Content Include="Views\ArchivosExtras\Details.cshtml" />
+    <Content Include="Views\ArchivosExtras\Edit.cshtml" />
+    <Content Include="Views\ArchivosExtras\Index.cshtml" />
+    <Content Include="Views\Usuarios\IndexEmpresa.cshtml" />
+    <Content Include="Views\Usuarios\ContatctoEmpresa.cshtml" />
+    <Content Include="Views\Usuarios\VideoEmpresa.cshtml" />
+    <Content Include="Views\Formulario_S_O\FormulariosAVencer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56622</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56622/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
