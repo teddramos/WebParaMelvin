@@ -1,0 +1,56 @@
+﻿@model WebParaMelvin.Models.ArchivosExtra
+
+@{
+   // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar</title>
+</head>
+<body>
+    <h3>Esta seguro que quiere eliminar este archivo?</h3>
+    <div>
+        <h4>ArchivosExtra</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.link)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.link)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Formulario_S_O.Estado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Formulario_S_O.Estado)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Eliminar" class="btn btn-default" /> |
+                @Html.ActionLink("Volver al Expedinte", "Formulario_S_O", "Details", new { id = Model.Id_Formulario_S_O })
+            </div>
+        }
+    </div>
+</body>
+</html>

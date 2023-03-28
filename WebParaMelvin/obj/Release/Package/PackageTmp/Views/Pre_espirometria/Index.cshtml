@@ -1,0 +1,111 @@
+﻿@model IEnumerable<WebParaMelvin.Models.Pre_espirometria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pulmon_torax_abdomen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.infarto_al_corazon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.retina_cirugia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.problema_corazon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.medicamento_tuberculosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Esta_embarazada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Presion_arterial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.infeccion_respirtatoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.medicamento_respiracion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cigarro_puro_pipa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ejercicio_fuerte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comida_completa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.pulmon_torax_abdomen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.infarto_al_corazon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.retina_cirugia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.problema_corazon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.medicamento_tuberculosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Esta_embarazada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Presion_arterial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.infeccion_respirtatoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.medicamento_respiracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cigarro_puro_pipa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ejercicio_fuerte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comida_completa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario_S_O.Id_Formulario_S_O)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Pre_espirometria }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Pre_espirometria }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Pre_espirometria })
+        </td>
+    </tr>
+}
+
+</table>

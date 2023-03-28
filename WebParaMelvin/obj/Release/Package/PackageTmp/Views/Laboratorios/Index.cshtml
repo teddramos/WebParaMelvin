@@ -1,0 +1,183 @@
+﻿@model IEnumerable<WebParaMelvin.Models.Laboratorio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Olor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aspecto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Densidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nitritos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Glucosa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Albumina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acetona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bilirrubina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Urobilinógeno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pigmentos_biliares)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hemoglobina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sangre_oculta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Examen_Microscópico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Células_renales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Leucocitos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hematíes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Células_epiteliales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bacterias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fibras_mucosas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Levaduras)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cristales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cilindros)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parásitos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Olor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aspecto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Densidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nitritos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Glucosa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Albumina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acetona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bilirrubina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Urobilinógeno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pigmentos_biliares)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hemoglobina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sangre_oculta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Examen_Microscópico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Células_renales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Leucocitos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hematíes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Células_epiteliales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bacterias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fibras_mucosas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Levaduras)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cristales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cilindros)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parásitos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario_S_O.Id_Formulario_S_O)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Laboratorio }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Laboratorio }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Laboratorio })
+        </td>
+    </tr>
+}
+
+</table>

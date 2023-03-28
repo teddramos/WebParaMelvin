@@ -1,0 +1,226 @@
+﻿@model WebParaMelvin.Models.Laboratorio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Laboratorio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Olor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Olor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aspecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aspecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Densidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Densidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nitritos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nitritos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Glucosa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Glucosa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Albumina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Albumina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Acetona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Acetona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bilirrubina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bilirrubina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Urobilinógeno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Urobilinógeno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pigmentos_biliares)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pigmentos_biliares)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hemoglobina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hemoglobina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sangre_oculta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sangre_oculta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Examen_Microscópico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Examen_Microscópico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Células_renales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Células_renales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Leucocitos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leucocitos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hematíes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hematíes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Células_epiteliales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Células_epiteliales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bacterias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bacterias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fibras_mucosas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fibras_mucosas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Levaduras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Levaduras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cristales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cristales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cilindros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cilindros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parásitos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parásitos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Laboratorio }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

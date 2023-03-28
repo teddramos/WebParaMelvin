@@ -1,0 +1,195 @@
+﻿@model IEnumerable<WebParaMelvin.Models.Audiometria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.trabaja_trabajado_en_areas_ruidosas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_de_proteccion_auditiva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ha_tenido_infecciones_en_los_oidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ha_tenido_zumbido_en_los_oidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ha_estado_en_la_milicia_o_el_ejercito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Escucha_musica_alta_o_usa_audifonos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Horas_desde_la_ultima_exposicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exposicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Entrenamiento_recibido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autoevaluacion_de_su_audicion_)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Otoscopia_Izquierda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Otoscopia_Derecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oiz_500)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oiz_1K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oiz_2K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oiz_3K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oiz_4K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oiz_6K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oiz_8K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ode_500)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ode_1K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ode_2K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ode_3K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ode_4K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ode_6K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ode_8K)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.trabaja_trabajado_en_areas_ruidosas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_de_proteccion_auditiva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ha_tenido_infecciones_en_los_oidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ha_tenido_zumbido_en_los_oidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ha_estado_en_la_milicia_o_el_ejercito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Escucha_musica_alta_o_usa_audifonos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Horas_desde_la_ultima_exposicion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exposicion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Entrenamiento_recibido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Autoevaluacion_de_su_audicion_)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Otoscopia_Izquierda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Otoscopia_Derecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oiz_500)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oiz_1K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oiz_2K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oiz_3K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oiz_4K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oiz_6K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oiz_8K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ode_500)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ode_1K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ode_2K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ode_3K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ode_4K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ode_6K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ode_8K)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario_S_O.Id_Formulario_S_O)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_AudioMetria }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_AudioMetria }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_AudioMetria })
+        </td>
+    </tr>
+}
+
+</table>

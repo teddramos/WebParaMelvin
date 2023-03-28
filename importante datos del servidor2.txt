@@ -1,0 +1,6 @@
+pasword:_x9b84Nv
+
+Host: database.negox.com
+Database name: cisam_form_s_o_2
+User name: cisam_sql_user
+Password: _x9b84Nv

@@ -4,11 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="242c6c020f514c3986f8758ab05bc220" Name="Diagram1" ZoomLevel="57">
+      <Diagram DiagramId="242c6c020f514c3986f8758ab05bc220" Name="Diagram1" ZoomLevel="89">
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.CSO" Width="1.5" PointX="7.5" PointY="26.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Empresa" Width="1.5" PointX="3" PointY="74.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Formulario_S_O" Width="1.5" PointX="5.25" PointY="74.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Info_general" Width="1.5" PointX="7.5" PointY="38.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Rol" Width="1.5" PointX="0.75" PointY="71.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Usuario" Width="1.5" PointX="0.75" PointY="75.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Usuario_Rol" Width="1.5" PointX="3" PointY="71.375" IsExpanded="true" />
@@ -17,7 +16,6 @@
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Empresa_ToUsuario" ManuallyRouted="false" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Formulario_S_O_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Usuario_Empresa_ToEmpresa" ManuallyRouted="false" />
-        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" ManuallyRouted="false" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Usuario_Rol_ToRol" ManuallyRouted="false" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Usuario_Empresa_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Usuario_Rol_Usuario" ManuallyRouted="false" />
@@ -47,6 +45,8 @@
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_RayosX_To_Formulario_S_O" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Actividade" Width="1.5" PointX="3" PointY="79.625" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Actividades_1_Usuarios_1" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Info_general" Width="1.5" PointX="4.125" PointY="1.125" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

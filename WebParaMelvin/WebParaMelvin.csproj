@@ -269,62 +269,6 @@
       <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\vistasHTML\Template for CSO.aspx.cs">
-      <DependentUpon>Template for CSO.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vistasHTML\Template for CSO.aspx.designer.cs">
-      <DependentUpon>Template for CSO.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vistasHTML\template for Examen Visual.aspx.cs">
-      <DependentUpon>template for Examen Visual.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vistasHTML\template for Examen Visual.aspx.designer.cs">
-      <DependentUpon>template for Examen Visual.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vistasHTML\template for Historia Ocupacional.aspx.cs">
-      <DependentUpon>template for Historia Ocupacional.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vistasHTML\template for Historia Ocupacional.aspx.designer.cs">
-      <DependentUpon>template for Historia Ocupacional.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vistasHTML\Template For InfoGeneral.aspx.cs">
-      <DependentUpon>Template For InfoGeneral.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vistasHTML\Template For InfoGeneral.aspx.designer.cs">
-      <DependentUpon>Template For InfoGeneral.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vistasHTML\template For Laboratorios.aspx.cs">
-      <DependentUpon>template For Laboratorios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vistasHTML\template For Laboratorios.aspx.designer.cs">
-      <DependentUpon>template For Laboratorios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vistasHTML\Template for Manero.aspx.cs">
-      <DependentUpon>Template for Manero.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vistasHTML\Template for Manero.aspx.designer.cs">
-      <DependentUpon>Template for Manero.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vistasHTML\Template Pre esperiometria.aspx.cs">
-      <DependentUpon>Template Pre esperiometria.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vistasHTML\Template Pre esperiometria.aspx.designer.cs">
-      <DependentUpon>Template Pre esperiometria.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\vistasHTML\teplate for Audiometria.aspx.cs">
-      <DependentUpon>teplate for Audiometria.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\vistasHTML\teplate for Audiometria.aspx.designer.cs">
-      <DependentUpon>teplate for Audiometria.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CISAMEmpresa\about.html" />
@@ -555,14 +499,6 @@
     <Content Include="loginFiles\vendor\select2\select2.js" />
     <Content Include="loginFiles\vendor\select2\select2.min.css" />
     <Content Include="loginFiles\vendor\select2\select2.min.js" />
-    <Content Include="Views\vistasHTML\Template for CSO.aspx" />
-    <Content Include="Views\vistasHTML\template for Examen Visual.aspx" />
-    <Content Include="Views\vistasHTML\template for Historia Ocupacional.aspx" />
-    <Content Include="Views\vistasHTML\Template For InfoGeneral.aspx" />
-    <Content Include="Views\vistasHTML\template For Laboratorios.aspx" />
-    <Content Include="Views\vistasHTML\Template for Manero.aspx" />
-    <Content Include="Views\vistasHTML\Template Pre esperiometria.aspx" />
-    <Content Include="Views\vistasHTML\teplate for Audiometria.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

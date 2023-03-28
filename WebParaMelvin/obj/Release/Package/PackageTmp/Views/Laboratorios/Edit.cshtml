@@ -1,0 +1,1514 @@
+﻿@model WebParaMelvin.Models.Laboratorio
+
+@{
+    ViewBag.Title = "Edit";
+    WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+    var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var info = db.Info_general.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+}
+
+
+<h2>Editar Laboratorio</h2>
+
+
+<style>
+    input {
+        margin: 0px 0px 0px 0px
+    }
+
+    select {
+        margin: 4px
+    }
+
+    label {
+        margin-left: 5px
+    }
+
+    input[type="checkbox"] {
+        margin-left: 20px;
+        margin-top: 0px;
+        line-height: normal;
+    }
+
+    tr td {
+        font: bold;
+        font-weight: bold;
+    }
+</style>
+
+<table style="width:100%;">
+    <tr>
+        <td colspan="5">&nbsp;</td>
+        <td><strong>expediente No.</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@fso.Id_Formulario_S_O</td>
+    </tr>
+    <tr>
+        <td><strong>Empresa:</strong></td>
+        <td class="form-control" colspan="4">@fso.Empresa.Nombre</td>
+        <td><strong>Fecha:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Fecha</td>
+    </tr>
+    <tr>
+        <td><strong>Departamento:</strong></td>
+        <td class="form-control">&nbsp;@info.Departamento</td>
+        <td><strong>Posicion:</strong></td>
+        <td class="form-control" colspan="4">&nbsp;&nbsp;@info.Posicion</td>
+    </tr>
+    <tr>
+        <td><strong>Tipo evaluacion:</strong></td>
+        <td class="form-control" colspan="6">&nbsp;&nbsp;@info.Tipo_de_evaluacion</td>
+    </tr>
+    <tr>
+        <td colspan="7">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="7"><h3>Datos Generales</h3><hr /></td>
+    </tr>
+    <tr>
+        <td><strong>Nombre:</strong></td>
+        <td class="form-control" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+        <td><strong>Sexo:</strong></td>
+        <td class="form-control">@info.Sexo</td>
+        <td><strong>Cedula:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Cedula</td>
+    </tr>
+    <tr>
+        <td><strong>Fecha de Nacimiento:</strong></td>
+        <td class="form-control">@info.Fecha_de_nacimiento</td>
+        <td><strong>Edad:</strong></td>
+        <td class="form-control">@info.Edad</td>
+        <td><strong>Id Empleado:</strong></td>
+        <td class="form-control" colspan="2">@info.Id_Empleado</td>
+    </tr>
+</table>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id_Laboratorio)
+    @Html.HiddenFor(model => model.Id_Formulario_S_O)
+    @Html.HiddenFor(model => model.firma)
+    @Html.HiddenFor(model => model.Firma1)
+
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+                return false;
+            return true;
+        }
+    </script>
+    <table style="width:100%;">
+        <tr>
+            <td colspan="5">&nbsp;</td>
+            <td><strong>expediente No.</strong></td>
+            <td class="form-control">&nbsp;&nbsp;@fso.Id_Formulario_S_O</td>
+        </tr>
+        <tr>
+            <td><strong>Empresa:</strong></td>
+            <td class="form-control" colspan="4">@fso.Empresa.Nombre</td>
+            <td><strong>Fecha:</strong></td>
+            <td class="form-control">&nbsp;&nbsp;@info.Fecha.Value.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <td><strong>Departamento:</strong></td>
+            <td class="form-control">&nbsp;@info.Departamento</td>
+            <td><strong>Posicion:</strong></td>
+            <td class="form-control" colspan="4">&nbsp;&nbsp;@info.Posicion</td>
+        </tr>
+        <tr>
+            <td><strong>Tipo evaluacion:</strong></td>
+            <td class="form-control" colspan="6">&nbsp;&nbsp;@info.Tipo_de_evaluacion</td>
+        </tr>
+        <tr>
+            <td colspan="7">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="7"><h3>Datos Generales</h3><hr /></td>
+        </tr>
+        <tr>
+            <td><strong>Nombre:</strong></td>
+            <td class="form-control" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+            <td><strong>Sexo:</strong></td>
+            <td class="form-control">@info.Sexo</td>
+            <td><strong>Cedula:</strong></td>
+            <td class="form-control">&nbsp;&nbsp;@info.Cedula</td>
+        </tr>
+        <tr>
+            <td><strong>Fecha de Nacimiento:</strong></td>
+            <td class="form-control">@info.Fecha_de_nacimiento</td>
+            <td><strong>Edad:</strong></td>
+            <td class="form-control">@info.Edad</td>
+            <td><strong>Id Empleado:</strong></td>
+            <td class="form-control" colspan="2">@info.Id_Empleado</td>
+        </tr>
+    </table>
+
+    <table style="width:100%;">
+        <tr>
+            <td width="2"></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="6" align="center">Química</td>
+        </tr>
+        <tr>
+            <td width="2"></td>
+            <td>Determinación</td>
+            <td>Alarma</td>
+            <td>Resultados</td>
+            <td>Unidad</td>
+            <td colspan="3" align="center">Valores de Referencia</td>
+            <td>Método</td>
+        </tr>
+        <tr>
+            <td width="2"></td>
+            <td>
+                @{if (Model.Determinacion1 != null)
+                    { @Html.TextBox("Determinacion1", Model.Determinacion1, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Determinacion1", "Glicemia", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma1, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado1, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado1'),document.getElementById('Valor_de_Referencia_11'),document.getElementById('Valor_de_Referencia_12'),document.getElementById('Alarma1'))" } })</td>
+            <td>
+                @{if (Model.Unidad1 != null)
+                    { @Html.TextBox("Unidad1", Model.Unidad1, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Unidad1", "Mg/dl", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Valor_de_Referencia_11 != null)
+                    { @Html.TextBox("Valor_de_Referencia_11", Model.Valor_de_Referencia_11, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado1'),document.getElementById('Valor_de_Referencia_11'),document.getElementById('Valor_de_Referencia_12'),document.getElementById('Alarma1'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_11", "65", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado1'),document.getElementById('Valor_de_Referencia_11'),document.getElementById('Valor_de_Referencia_12'),document.getElementById('Alarma1'))" })}
+                }
+            </td>
+            <td>a</td>
+            <td>
+                @{if (Model.Valor_de_Referencia_12 != null)
+                    { @Html.TextBox("Valor_de_Referencia_12", Model.Valor_de_Referencia_12, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado1'),document.getElementById('Valor_de_Referencia_11'),document.getElementById('Valor_de_Referencia_12'),document.getElementById('Alarma1'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_12", "110", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado1'),document.getElementById('Valor_de_Referencia_11'),document.getElementById('Valor_de_Referencia_12'),document.getElementById('Alarma1'))" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Metodo1 != null)
+                    { @Html.TextBox("Metodo1", Model.Metodo1, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Metodo1", "Clororimétrico", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @{if (Model.Determinacion2 != null)
+                    { @Html.TextBox("Determinacion2", Model.Determinacion2, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Determinacion2", "Colesterol Total", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma2, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado2, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado2'),document.getElementById('Valor_de_Referencia_21'),document.getElementById('Valor_de_Referencia_22'),document.getElementById('Alarma2'))" } })</td>
+            <td>
+                @{if (Model.Unidad2 != null)
+                    { @Html.TextBox("Unidad2", Model.Unidad2, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Unidad2", "Mg/dl", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Valor_de_Referencia_21 != null)
+                    { @Html.TextBox("Valor_de_Referencia_21", Model.Valor_de_Referencia_21, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado2'),document.getElementById('Valor_de_Referencia_21'),document.getElementById('Valor_de_Referencia_22'),document.getElementById('Alarma2'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_21", "0", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado2'),document.getElementById('Valor_de_Referencia_21'),document.getElementById('Valor_de_Referencia_22'),document.getElementById('Alarma2'))" })}
+                }
+            </td>
+            <td>a</td>
+            <td>
+                @{if (Model.Valor_de_Referencia_12 != null)
+                    { @Html.TextBox("Valor_de_Referencia_22", Model.Valor_de_Referencia_22, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado2'),document.getElementById('Valor_de_Referencia_21'),document.getElementById('Valor_de_Referencia_22'),document.getElementById('Alarma2'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_22", "200", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado2'),document.getElementById('Valor_de_Referencia_21'),document.getElementById('Valor_de_Referencia_22'),document.getElementById('Alarma2'))" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Metodo1 != null)
+                    { @Html.TextBox("Metodo2", Model.Metodo2, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Metodo2", "Clororimétrico", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @{if (Model.Determinacion3 != null)
+                    { @Html.TextBox("Determinacion3", Model.Determinacion3, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Determinacion3", "Triglicéridos", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma3, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado3, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado3'),document.getElementById('Valor_de_Referencia_31'),document.getElementById('Valor_de_Referencia_32'),document.getElementById('Alarma3'))" } })</td>
+            <td>
+                @{if (Model.Unidad3 != null)
+                    { @Html.TextBox("Unidad3", Model.Unidad3, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Unidad3", "Mg/dl", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Valor_de_Referencia_31 != null)
+                    { @Html.TextBox("Valor_de_Referencia_31", Model.Valor_de_Referencia_31, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado3'),document.getElementById('Valor_de_Referencia_31'),document.getElementById('Valor_de_Referencia_32'),document.getElementById('Alarma3'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_31", "65", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado3'),document.getElementById('Valor_de_Referencia_31'),document.getElementById('Valor_de_Referencia_32'),document.getElementById('Alarma3'))" })}
+                }
+            </td>
+            <td>a</td>
+            <td>
+                @{if (Model.Valor_de_Referencia_32 != null)
+                    { @Html.TextBox("Valor_de_Referencia_32", Model.Valor_de_Referencia_32, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado3'),document.getElementById('Valor_de_Referencia_31'),document.getElementById('Valor_de_Referencia_32'),document.getElementById('Alarma3'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_32", "200", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado3'),document.getElementById('Valor_de_Referencia_31'),document.getElementById('Valor_de_Referencia_32'),document.getElementById('Alarma3'))" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Metodo3 != null)
+                    { @Html.TextBox("Metodo3", Model.Metodo3, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Metodo3", "Clororimétrico", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @{if (Model.Determinacion4 != null)
+                    { @Html.TextBox("Determinacion4", Model.Determinacion4, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Determinacion4", "C-HDL", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma4, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado4, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado4'),document.getElementById('Valor_de_Referencia_41'),document.getElementById('Valor_de_Referencia_42'),document.getElementById('Alarma4'))" } })</td>
+            <td>
+                @{if (Model.Unidad4 != null)
+                    { @Html.TextBox("Unidad4", Model.Unidad4, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Unidad4", "Mg/dl", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Valor_de_Referencia_41 != null)
+                    { @Html.TextBox("Valor_de_Referencia_41", Model.Valor_de_Referencia_41, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado4'),document.getElementById('Valor_de_Referencia_41'),document.getElementById('Valor_de_Referencia_42'),document.getElementById('Alarma4'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_41", "40", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado4'),document.getElementById('Valor_de_Referencia_41'),document.getElementById('Valor_de_Referencia_42'),document.getElementById('Alarma4'))" })}
+                }
+            </td>
+            <td>a</td>
+            <td>
+                @{if (Model.Valor_de_Referencia_42 != null)
+                    { @Html.TextBox("Valor_de_Referencia_42", Model.Valor_de_Referencia_42, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado4'),document.getElementById('Valor_de_Referencia_41'),document.getElementById('Valor_de_Referencia_42'),document.getElementById('Alarma4'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_42", "60", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado4'),document.getElementById('Valor_de_Referencia_41'),document.getElementById('Valor_de_Referencia_42'),document.getElementById('Alarma4'))" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Metodo1 != null)
+                    { @Html.TextBox("Metodo4", Model.Metodo4, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Metodo4", "Clororimétrico", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @{if (Model.Determinacion5 != null)
+                    { @Html.TextBox("Determinacion5", Model.Determinacion5, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Determinacion5", "SGPT(ALT)", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma5, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado5, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado5'),document.getElementById('Valor_de_Referencia_51'),document.getElementById('Valor_de_Referencia_52'),document.getElementById('Alarma5'))" } })</td>
+            <td>
+                @{if (Model.Unidad5 != null)
+                    { @Html.TextBox("Unidad5", Model.Unidad5, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Unidad5", "U/L", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Valor_de_Referencia_51 != null)
+                    { @Html.TextBox("Valor_de_Referencia_51", Model.Valor_de_Referencia_51, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado5'),document.getElementById('Valor_de_Referencia_51'),document.getElementById('Valor_de_Referencia_52'),document.getElementById('Alarma5'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_51", "5", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado5'),document.getElementById('Valor_de_Referencia_51'),document.getElementById('Valor_de_Referencia_52'),document.getElementById('Alarma5'))" })}
+                }
+            </td>
+            <td>a</td>
+            <td>
+                @{if (Model.Valor_de_Referencia_52 != null)
+                    { @Html.TextBox("Valor_de_Referencia_52", Model.Valor_de_Referencia_52, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado5'),document.getElementById('Valor_de_Referencia_51'),document.getElementById('Valor_de_Referencia_52'),document.getElementById('Alarma5'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_52", "38", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado5'),document.getElementById('Valor_de_Referencia_51'),document.getElementById('Valor_de_Referencia_52'),document.getElementById('Alarma5'))" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Metodo5 != null)
+                    { @Html.TextBox("Metodo5", Model.Metodo5, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Metodo5", "Clororimétrico", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @{if (Model.Determinacion6 != null)
+                    { @Html.TextBox("Determinacion6", Model.Determinacion6, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Determinacion6", "SGOT (AST)", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma6, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado6, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado6'),document.getElementById('Valor_de_Referencia_61'),document.getElementById('Valor_de_Referencia_62'),document.getElementById('Alarma6'))" } })</td>
+            <td>
+                @{if (Model.Unidad6 != null)
+                    { @Html.TextBox("Unidad6", Model.Unidad6, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Unidad6", "U/L", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Valor_de_Referencia_61 != null)
+                    { @Html.TextBox("Valor_de_Referencia_61", Model.Valor_de_Referencia_61, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado6'),document.getElementById('Valor_de_Referencia_61'),document.getElementById('Valor_de_Referencia_62'),document.getElementById('Alarma6'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_61", "11", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado6'),document.getElementById('Valor_de_Referencia_61'),document.getElementById('Valor_de_Referencia_62'),document.getElementById('Alarma6'))" })}
+                }
+            </td>
+            <td>a</td>
+            <td>
+                @{if (Model.Valor_de_Referencia_62 != null)
+                    { @Html.TextBox("Valor_de_Referencia_62", Model.Valor_de_Referencia_62, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado6'),document.getElementById('Valor_de_Referencia_61'),document.getElementById('Valor_de_Referencia_62'),document.getElementById('Alarma6'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_62", "39", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado6'),document.getElementById('Valor_de_Referencia_61'),document.getElementById('Valor_de_Referencia_62'),document.getElementById('Alarma6'))" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Metodo6 != null)
+                    { @Html.TextBox("Metodo6", Model.Metodo2, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Metodo6", "Cinético", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @{if (Model.Determinacion7 != null)
+                    { @Html.TextBox("Determinacion7", Model.Determinacion7, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Determinacion7", "C-LDL", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma7, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado7, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado7'),document.getElementById('Valor_de_Referencia_71'),document.getElementById('Valor_de_Referencia_72'),document.getElementById('Alarma7'))" } })</td>
+            <td>
+                @{if (Model.Unidad7 != null)
+                    { @Html.TextBox("Unidad7", Model.Unidad7, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Unidad7", "Mg/dl", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Valor_de_Referencia_71 != null)
+                    { @Html.TextBox("Valor_de_Referencia_71", Model.Valor_de_Referencia_71, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado7'),document.getElementById('Valor_de_Referencia_71'),document.getElementById('Valor_de_Referencia_72'),document.getElementById('Alarma7'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_71", "0", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado7'),document.getElementById('Valor_de_Referencia_71'),document.getElementById('Valor_de_Referencia_72'),document.getElementById('Alarma7'))" })}
+                }
+            </td>
+            <td>a</td>
+            <td>
+                @{if (Model.Valor_de_Referencia_72 != null)
+                    { @Html.TextBox("Valor_de_Referencia_72", Model.Valor_de_Referencia_72, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado7'),document.getElementById('Valor_de_Referencia_71'),document.getElementById('Valor_de_Referencia_72'),document.getElementById('Alarma7'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_72", "190", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado7'),document.getElementById('Valor_de_Referencia_71'),document.getElementById('Valor_de_Referencia_72'),document.getElementById('Alarma7'))" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Metodo7 != null)
+                    { @Html.TextBox("Metodo7", Model.Metodo7, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Metodo7", "Cinético", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td>
+                @{if (Model.Determinacion8 != null)
+                    { @Html.TextBox("Determinacion8", Model.Determinacion8, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Determinacion8", "Creatinina", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma8, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado8, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado8'),document.getElementById('Valor_de_Referencia_81'),document.getElementById('Valor_de_Referencia_82'),document.getElementById('Alarma8'))" } })</td>
+            <td>
+                @{if (Model.Unidad8 != null)
+                    { @Html.TextBox("Unidad8", Model.Unidad8, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Unidad8", "Mg/dl", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Valor_de_Referencia_81 != null)
+                    { @Html.TextBox("Valor_de_Referencia_81", Model.Valor_de_Referencia_41, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado8'),document.getElementById('Valor_de_Referencia_81'),document.getElementById('Valor_de_Referencia_82'),document.getElementById('Alarma8'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_81", "0.4", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado8'),document.getElementById('Valor_de_Referencia_81'),document.getElementById('Valor_de_Referencia_82'),document.getElementById('Alarma8'))" })}
+                }
+            </td>
+            <td>a</td>
+            <td>
+                @{if (Model.Valor_de_Referencia_82 != null)
+                    { @Html.TextBox("Valor_de_Referencia_82", Model.Valor_de_Referencia_42, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado8'),document.getElementById('Valor_de_Referencia_81'),document.getElementById('Valor_de_Referencia_82'),document.getElementById('Alarma8'))" })}
+                else
+                { @Html.TextBox("Valor_de_Referencia_82", "1.4", htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado8'),document.getElementById('Valor_de_Referencia_81'),document.getElementById('Valor_de_Referencia_82'),document.getElementById('Alarma8'))" })}
+                }
+            </td>
+            <td>
+                @{if (Model.Metodo8 != null)
+                    { @Html.TextBox("Metodo8", Model.Metodo8, htmlAttributes: new { @class = "form-control" })}
+                else
+                { @Html.TextBox("Metodo8", "Cinético", htmlAttributes: new { @class = "form-control" })}
+                }
+            </td>
+
+            @*<td>Creatinina</td>
+                <td> @Html.EditorFor(model => model.Creatinina_alarma, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+                <td> @Html.TextBoxFor(model => model.Creatinina_resultado, htmlAttributes: new { @class = "form-control", @onkeyup = "chekearResultado(this)", @onkeypress = "return isNumberKey(event)" })</td>
+                <td>mg/dL</td>
+                <td>0.4</td> <td>a</td> <td>1.4</td>
+                <td>Cintético</td>*@
+
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.TextBox("Determinacion9", Model.Determinacion9, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma9, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado9, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado9'),document.getElementById('Valor_de_Referencia_91'),document.getElementById('Valor_de_Referencia_92'),document.getElementById('Alarma9'))" } })</td>
+            <td>
+
+                @Html.TextBox("Unidad9", Model.Unidad9, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+            <td>
+                @Html.TextBox("Valor_de_Referencia_91", Model.Valor_de_Referencia_91, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado9'),document.getElementById('Valor_de_Referencia_91'),document.getElementById('Valor_de_Referencia_92'),document.getElementById('Alarma9'))" })
+
+            </td>
+            <td>a</td>
+            <td>
+                @Html.TextBox("Valor_de_Referencia_92", Model.Valor_de_Referencia_92, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado9'),document.getElementById('Valor_de_Referencia_91'),document.getElementById('Valor_de_Referencia_92'),document.getElementById('Alarma9'))" })
+
+
+            </td>
+            <td>
+                @Html.TextBox("Metodo9", Model.Metodo9, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.TextBox("Determinacion10", Model.Determinacion10, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma10, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado10, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado10'),document.getElementById('Valor_de_Referencia_101'),document.getElementById('Valor_de_Referencia_102'),document.getElementById('Alarma10'))" } })</td>
+            <td>
+
+                @Html.TextBox("Unidad10", Model.Unidad10, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+            <td>
+                @Html.TextBox("Valor_de_Referencia_101", Model.Valor_de_Referencia_101, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado10'),document.getElementById('Valor_de_Referencia_101'),document.getElementById('Valor_de_Referencia_102'),document.getElementById('Alarma10'))" })
+
+            </td>
+            <td>a</td>
+            <td>
+                @Html.TextBox("Valor_de_Referencia_102", Model.Valor_de_Referencia_102, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado10'),document.getElementById('Valor_de_Referencia_101'),document.getElementById('Valor_de_Referencia_102'),document.getElementById('Alarma10'))" })
+
+
+            </td>
+            <td>
+                @Html.TextBox("Metodo10", Model.Metodo10, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.TextBox("Determinacion11", Model.Determinacion11, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma11, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado11, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado11'),document.getElementById('Valor_de_Referencia_111'),document.getElementById('Valor_de_Referencia_112'),document.getElementById('Alarma11'))" } })</td>
+            <td>
+
+                @Html.TextBox("Unidad11", Model.Unidad11, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+            <td>
+                @Html.TextBox("Valor_de_Referencia_111", Model.Valor_de_Referencia_111, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado11'),document.getElementById('Valor_de_Referencia_111'),document.getElementById('Valor_de_Referencia_112'),document.getElementById('Alarma11'))" })
+
+            </td>
+            <td>a</td>
+            <td>
+                @Html.TextBox("Valor_de_Referencia_112", Model.Valor_de_Referencia_112, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado11'),document.getElementById('Valor_de_Referencia_111'),document.getElementById('Valor_de_Referencia_112'),document.getElementById('Alarma11'))" })
+
+
+            </td>
+            <td>
+                @Html.TextBox("Metodo11", Model.Metodo11, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.TextBox("Determinacion12", Model.Determinacion12, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+            <td> @Html.EditorFor(model => model.Alarma12, new { htmlAttributes = new { @class = "form-control", @readonly = "", @style = "width:150px" } })</td>
+            <td> @Html.EditorFor(model => model.Resultado12, new { htmlAttributes = new { @class = "form-control", @onkeyup = "calcularAlarma( document.getElementById('Resultado12'),document.getElementById('Valor_de_Referencia_121'),document.getElementById('Valor_de_Referencia_122'),document.getElementById('Alarma12'))" } })</td>
+            <td>
+
+                @Html.TextBox("Unidad12", Model.Unidad12, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+            <td>
+                @Html.TextBox("Valor_de_Referencia_121", Model.Valor_de_Referencia_121, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado12'),document.getElementById('Valor_de_Referencia_121'),document.getElementById('Valor_de_Referencia_122'),document.getElementById('Alarma12'))" })
+
+            </td>
+            <td>a</td>
+            <td>
+                @Html.TextBox("Valor_de_Referencia_122", Model.Valor_de_Referencia_122, htmlAttributes: new { @class = "form-control", @style = "width:60px", @onkeypress = "return isNumberKey(event)", @onkeyup = "calcularAlarma( document.getElementById('Resultado12'),document.getElementById('Valor_de_Referencia_121'),document.getElementById('Valor_de_Referencia_122'),document.getElementById('Alarma12'))" })
+
+
+            </td>
+            <td>
+                @Html.TextBox("Metodo12", Model.Metodo12, htmlAttributes: new { @class = "form-control" })
+
+            </td>
+        </tr>
+
+
+    </table>
+    <script>
+        function calcularAlarma(resultado, ref1, ref2, alarma) {
+
+            resul = resultado.value;
+            r1 = ref1.value;
+            r2 = ref2.value;
+            if (eval(resul) < eval(r1)) {
+                alarma.value = 'BAJO';
+            }
+            else if (eval(resul) > eval(r2)) {
+                alarma.value = 'ALTO';
+            }
+            else {
+                alarma.value = "";
+            }
+        }
+    </script>
+    <table style="width:100%;">
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            @*<td colspan="6" align="center">Química</td>
+                </tr>
+                <tr>
+                    <td>Determinación</td>
+                    <td>Alarma</td>
+                    <td>Resultados</td>
+                    <td>Unidad</td>
+                    <td>Valores de Referencia</td>
+                    <td>Método</td>
+                </tr>
+                <tr>
+                    <td>Glicemia</td>
+                    <td> @Html.EditorFor(model => model.Glicemia_alarma, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                    <td> @Html.EditorFor(model => model.Glicemia_Resultado, new { htmlAttributes = new { @class = "form-control", @onkeyup = "chekearResultado(this)" } })</td>
+                    <td>mg/dL</td>
+                    <td>65 a 110</td>
+                    <td>Clororimétrico</td>
+                </tr>
+                <tr>
+                    <td>Colesterol Total</td>
+                    <td> @Html.EditorFor(model => model.Colesterol_total_alarma, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                    <td> @Html.EditorFor(model => model.Colesterol_total_resultado, new { htmlAttributes = new { @class = "form-control", @onkeyup = "chekearResultado(this)" } })</td>
+                    <td>mg/dL</td>
+                    <td>0 a 200</td>
+                    <td>Clororimétrico</td>
+                </tr>
+                <tr>
+                    <td>Triglicéridos</td>
+                    <td> @Html.EditorFor(model => model.Trigliceridos_alarma, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                    <td> @Html.EditorFor(model => model.Trigliceridos_reultado, new { htmlAttributes = new { @class = "form-control", @onkeyup = "chekearResultado(this)" } })</td>
+                    <td>mg/dL</td>
+                    <td>0 a 200</td>
+                    <td>Clororimétrico</td>
+                </tr>
+                <tr>
+                    <td>C-HDL</td>
+                    <td> @Html.EditorFor(model => model.C_HDL_alarma, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                    <td> @Html.EditorFor(model => model.C_HDL_resultado, new { htmlAttributes = new { @class = "form-control", @onkeyup = "chekearResultado(this)" } })</td>
+                    <td>mg/dL</td>
+                    <td>40 a 60</td>
+                    <td>Clororimétrico</td>
+                </tr>
+                <tr>
+                    <td>SGPT(ALT)</td>
+                    <td> @Html.EditorFor(model => model.SGPT_ALT_alarma, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                    <td> @Html.EditorFor(model => model.SGPT_ALT_resultado, new { htmlAttributes = new { @class = "form-control", @onkeyup = "chekearResultado(this)" } })</td>
+                    <td>U/L</td>
+                    <td>5 a 38</td>
+                    <td>Clororimétrico</td>
+                </tr>
+                <tr>
+                    <td>SGOT(AST)</td>
+                    <td> @Html.EditorFor(model => model.SGOT_ALT_alarma, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                    <td> @Html.EditorFor(model => model.SGOT_ALT_resultado, new { htmlAttributes = new { @class = "form-control", @onkeyup = "chekearResultado(this)" } })</td>
+                    <td>U/L</td>
+                    <td>11 a 39</td>
+                    <td>Cintético</td>
+                </tr>
+                <tr>
+                    <td>C-LDL</td>
+                    <td> @Html.EditorFor(model => model.C_LDL_alarma, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                    <td> @Html.EditorFor(model => model.C_LDL_resultado, new { htmlAttributes = new { @class = "form-control", @onkeyup = "chekearResultado(this)" } })</td>
+                    <td>mg/dL</td>
+                    <td>0 a 190</td>
+                    <td>Cintético</td>
+                </tr>
+                <tr>
+                    <td>Creatinina</td>
+                    <td> @Html.EditorFor(model => model.Creatinina_alarma, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+                    <td> @Html.TextBoxFor(model => model.Creatinina_resultado, htmlAttributes: new { @class = "form-control", @onkeyup = "chekearResultado(this)", @onkeypress = "return isNumberKey(event)" })</td>
+                    <td>mg/dL</td>
+                    <td>0.4 a 1.4</td>
+                    <td>Cintético</td>
+                </tr>*@
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="6" align="center">Serología</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @{if (Model.Serologia_condicion_1 != null)
+                    {
+                        @Html.TextBox("Serologia_condicion_1", Model.Serologia_condicion_1, htmlAttributes: new { @class = "form-control" })}
+                    else
+                    {
+                        @Html.TextBox("Serologia_condicion_1", "VDRL", htmlAttributes: new { @class = "form-control" })
+                    }
+                }
+            </td>
+            <td colspan="3">
+                @if (Model.Serologia_resultado_1 != null)
+                {@Html.TextBox("Serologia_resultado_1", Model.Serologia_resultado_1, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Serologia_resultado_1", "", htmlAttributes: new { @class = "form-control" })}
+            </td>
+            <td>
+                @if (Model.Serologia_metodo_1 != null)
+                {@Html.TextBox("Serologia_metodo_1", Model.Serologia_metodo_1, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Serologia_metodo_1", "LATEX", htmlAttributes: new { @class = "form-control" })}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @{if (Model.Serologia_condicion_2 != null)
+                    {
+                        @Html.TextBox("Serologia_condicion_2", Model.Serologia_condicion_2, htmlAttributes: new { @class = "form-control" })}
+                    else
+                    {
+                        @Html.TextBox("Serologia_condicion_2", "Bacilo de Koch", htmlAttributes: new { @class = "form-control" })
+                    }
+                }
+            </td>
+            <td colspan="3">
+                @if (Model.Serologia_resultado_2 != null)
+                {@Html.TextBox("Serologia_resultado_2", Model.Serologia_resultado_2, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Serologia_resultado_2", "", htmlAttributes: new { @class = "form-control" })}
+            </td>
+            <td>
+                @if (Model.Serologia_metodo_2 != null)
+                {@Html.TextBox("Serologia_metodo_2", Model.Serologia_metodo_2, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Serologia_metodo_2", "ELFA", htmlAttributes: new { @class = "form-control" })}
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                @{if (Model.Serologia_condicion_3 != null)
+                    {
+                        @Html.TextBox("Serologia_condicion_3", Model.Serologia_condicion_3, htmlAttributes: new { @class = "form-control" })}
+                    else
+                    {
+                        @Html.TextBox("Serologia_condicion_3", "HBsAg", htmlAttributes: new { @class = "form-control" })
+                    }
+                }
+            </td>
+            <td colspan="3">
+                @if (Model.Serologia_resultado_3 != null)
+                {@Html.TextBox("Serologia_resultado_3", Model.Serologia_resultado_3, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Serologia_resultado_3", "", htmlAttributes: new { @class = "form-control" })}
+            </td>
+            <td>
+                @if (Model.Serologia_metodo_3 != null)
+                {@Html.TextBox("Serologia_metodo_3", Model.Serologia_metodo_3, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Serologia_metodo_3", "ELFA", htmlAttributes: new { @class = "form-control" })}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @{if (Model.Serologia_condicion_4 != null)
+                    {
+                        @Html.TextBox("Serologia_condicion_4", Model.Serologia_condicion_4, htmlAttributes: new { @class = "form-control" })}
+                    else
+                    {
+                        @Html.TextBox("Serologia_condicion_4", "HCV", htmlAttributes: new { @class = "form-control" })
+                    }
+                }
+            </td>
+            <td colspan="3">
+                @if (Model.Serologia_resultado_4 != null)
+                {@Html.TextBox("Serologia_resultado_4", Model.Serologia_resultado_4, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Serologia_resultado_4", "", htmlAttributes: new { @class = "form-control" })}
+            </td>
+            <td>
+                @if (Model.Serologia_metodo_4 != null)
+                {@Html.TextBox("Serologia_metodo_4", Model.Serologia_metodo_4, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Serologia_metodo_4", "ELFA", htmlAttributes: new { @class = "form-control" })}
+            </td>
+        </tr>
+
+        @*
+            nuevo formulario
+        *@
+        @*<tr>
+                <td colspan="2">VDRL</td>
+                <td colspan="3">
+                    @if (Model.VDRL != null)
+                    {@Html.TextBox("VDRL", Model.VDRL, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("VDRL", "NO reactivo", htmlAttributes: new { @class = "form-control" })}
+                </td>
+                <td>LATEX</td>
+            </tr>
+            <tr>
+                <td colspan="2">Bacilo de Koch</td>
+                <td colspan="3">
+
+                    @Html.TextBox("Bacilo_de_Koch", "Negativo", htmlAttributes: new { @class = "form-control" })
+                </td>
+                <td>ELFA</td>
+            </tr>
+            <tr>
+                <td colspan="2">HBsAg</td>
+                <td colspan="3">
+
+                    @if (Model.HBsAg != null)
+                    {@Html.TextBox("HBsAg", Model.HBsAg, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("HBsAg", "Negativo", htmlAttributes: new { @class = "form-control" })}
+                </td>
+                <td>ELFA</td>
+            </tr>
+            <tr>
+                <td colspan="2">HCV</td>
+                <td colspan="3">
+
+                    @Html.TextBox("HCV", "Negativo", htmlAttributes: new { @class = "form-control" })
+                </td>
+                <td>ELFA</td>
+            </tr>*@
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="6" align="center">Hematologia</td>
+        </tr>
+        <tr>
+            <td colspan="6" align="center">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">Eritrosedimentación</td>
+            <td colspan="2" align="center">
+                @Html.EditorFor(model => model.Eritrosedimentacion, new { htmlAttributes = new { @class = "form-control" } })
+
+            </td>
+            <td colspan="2">H:0-20/M:0-30 mm/h Westergreen</td>
+        </tr>
+        <tr>
+            <td colspan="6">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="6" align="center">Panel de Drogas</td>
+        </tr>
+        <tr>
+            <td colspan="2">Cocaína</td>
+            <td colspan="3">
+
+                @if (Model.Cocaina != null)
+                {@Html.TextBox("Cocaina", Model.Cocaina, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Cocaina", "", htmlAttributes: new { @class = "form-control" })}
+            </td>
+            <td>Cualitativo</td>
+        </tr>
+        <tr>
+            <td colspan="2">Anfetaminas</td>
+            <td colspan="3">
+
+                @if (Model.Anfetaminas != null)
+                {@Html.TextBox("Anfetaminas", Model.Anfetaminas, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Anfetaminas", "", htmlAttributes: new { @class = "form-control" })}
+            </td>
+            <td>Cualitativo</td>
+        </tr>
+        <tr>
+            <td colspan="2">Opiáceos</td>
+            <td colspan="3">
+
+                @if (Model.Opiaceos != null)
+                {@Html.TextBox("Opiaceos", Model.Opiaceos, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Opiaceos", "", htmlAttributes: new { @class = "form-control" })}
+            </td>
+            <td>Cualitativo</td>
+        </tr>
+        <tr>
+            <td colspan="2">Marihuana</td>
+            <td colspan="3">
+
+                @if (Model.Marihuana != null)
+                {@Html.TextBox("Marihuana", Model.Marihuana, htmlAttributes: new { @class = "form-control" })}
+            else
+            {@Html.TextBox("Marihuana", "", htmlAttributes: new { @class = "form-control" })}
+            </td>
+            <td>Cualitativo</td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3" align="center">Notas</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3" align="center">@Html.TextAreaFor(model => model.Notas, htmlAttributes: new { @class = "form-control" })</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3" align="center">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3" align="center">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3" align="center">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3" align="center">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3" align="center">
+                @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+
+                @Html.TextBoxFor(model => model.Archivo1, htmlAttributes: new { @class = "form-control", @type = "file" })
+                @Html.ValidationMessageFor(model => model.Archivo1, "", new { @class = "text-danger" })
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3" align="center">
+                @{
+                    try
+                    {
+                        var base64 = Convert.ToBase64String(Model.Firma1);
+                        var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                        <img src="@imgSrc" />
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"></td>
+            @*<td colspan="3" align="center" >Firma</td>*@
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+
+
+
+    <table style="width:100%;">
+        <tr>
+            <td colspan="5">&nbsp;</td>
+            <td><strong>expediente No.</strong></td>
+            <td class="form-control">&nbsp;&nbsp;@fso.Id_Formulario_S_O</td>
+        </tr>
+        <tr>
+            <td><strong>Empresa:</strong></td>
+            <td class="form-control" colspan="4">@fso.Empresa.Nombre</td>
+            <td><strong>Fecha:</strong></td>
+            <td class="form-control">&nbsp;&nbsp;@info.Fecha.Value.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <td><strong>Departamento:</strong></td>
+            <td class="form-control">&nbsp;@info.Departamento</td>
+            <td><strong>Posicion:</strong></td>
+            <td class="form-control" colspan="4">&nbsp;&nbsp;@info.Posicion</td>
+        </tr>
+        <tr>
+            <td><strong>Tipo evaluacion:</strong></td>
+            <td class="form-control" colspan="6">&nbsp;&nbsp;@info.Tipo_de_evaluacion</td>
+        </tr>
+        <tr>
+            <td colspan="7">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="7"><h3>Datos Generales</h3><hr /></td>
+        </tr>
+        <tr>
+            <td><strong>Nombre:</strong></td>
+            <td class="form-control" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+            <td><strong>Sexo:</strong></td>
+            <td class="form-control">@info.Sexo</td>
+            <td><strong>Cedula:</strong></td>
+            <td class="form-control">&nbsp;&nbsp;@info.Cedula</td>
+        </tr>
+        <tr>
+            <td><strong>Fecha de Nacimiento:</strong></td>
+            <td class="form-control">@info.Fecha_de_nacimiento</td>
+            <td><strong>Edad:</strong></td>
+            <td class="form-control">@info.Edad</td>
+            <td><strong>Id Empleado:</strong></td>
+            <td class="form-control" colspan="2">@info.Id_Empleado</td>
+        </tr>
+    </table>
+    <div class="form-horizontal">
+        <h4>Laboratorio</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @if (Model.Color != null)
+                    {@Html.TextBox("Color", Model.Color, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Color", "Amarillo", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Olor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Olor != null)
+                    {@Html.TextBox("Olor", Model.Olor, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Olor", "Sui Generis", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Olor, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Aspecto, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Aspecto != null)
+                    {@Html.TextBox("Aspecto", Model.Aspecto, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Aspecto", "Ligero Turbio", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Aspecto, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PH, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.PH != null)
+                    {@Html.TextBox("PH", Model.PH, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("PH", "6.0", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PH, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Densidad, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Densidad != null)
+                    {@Html.TextBox("Densidad", Model.Densidad, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Densidad", "1010", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Densidad, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nitritos, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Nitritos != null)
+                    {@Html.TextBox("Nitritos", Model.Nitritos, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Nitritos", "Negativo", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Nitritos, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Glucosa, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Glucosa != null)
+                    {@Html.TextBox("Glucosa", Model.Glucosa, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Glucosa", "Negativo", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Glucosa, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Albumina, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @if (Model.Albumina != null)
+                    {@Html.TextBox("Albumina", Model.Albumina, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Albumina", "Negativo", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Albumina, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Acetona, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Acetona != null)
+                    {@Html.TextBox("Acetona", Model.Acetona, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Acetona", "Negativo", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Acetona, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Bilirrubina, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Bilirrubina != null)
+                    {@Html.TextBox("Bilirrubina", Model.Bilirrubina, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Bilirrubina", "Negativo", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Bilirrubina, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Urobilinógeno, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Urobilinógeno != null)
+                    {@Html.TextBox("Urobilinógeno", Model.Urobilinógeno, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Urobilinógeno", "Normal", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Urobilinógeno, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Pigmentos_biliares, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Pigmentos_biliares != null)
+                    {@Html.TextBox("Pigmentos_biliares", Model.Pigmentos_biliares, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Pigmentos_biliares, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Pigmentos_biliares", "Negativo", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Pigmentos_biliares, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Hemoglobina, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @if (Model.Hemoglobina != null)
+                    {@Html.TextBox("Hemoglobina", Model.Hemoglobina, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Hemoglobina, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Hemoglobina", "Negativo", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Hemoglobina, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sangre_oculta, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Sangre_oculta != null)
+                    {@Html.TextBox("Sangre_oculta", Model.Sangre_oculta, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Sangre_oculta", "Negativo", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sangre_oculta, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Examen Microscópico", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.Examen_Microscópico, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextBox("Marihuana", "Negativo", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Examen_Microscópico, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Células_renales, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Células_renales != null)
+                    {@Html.TextBox("Células_renales", Model.Células_renales, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })}
+                else
+                {@Html.TextBox("Células_renales", "Ausentes", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Células_renales, "", new { @class = "text-danger" })}
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Leucocitos, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Leucocitos != null)
+                    {@Html.TextBox("Leucocitos", Model.Leucocitos, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("Leucocitos", "0-1", htmlAttributes: new { @class = "form-control" })}<span>&nbsp;/Campo</span>
+                    @Html.ValidationMessageFor(model => model.Leucocitos, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Hematíes, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Hematíes != null)
+                    {@Html.TextBox("Hematíes", Model.Hematíes, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("Hematíes", "0-1", htmlAttributes: new { @class = "form-control" })}&nbsp;/ Campo
+                    @Html.ValidationMessageFor(model => model.Hematíes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Células_epiteliales, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Células_epiteliales != null)
+                    {@Html.TextBox("Células_epiteliales", Model.Células_epiteliales, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("Células_epiteliales", "Escasas", htmlAttributes: new { @class = "form-control" })}
+                    @Html.ValidationMessageFor(model => model.Células_epiteliales, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Bacterias, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Bacterias != null)
+                    {@Html.TextBox("Bacterias", Model.Bacterias, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("Bacterias", "Algunas", htmlAttributes: new { @class = "form-control" })}
+                    @Html.ValidationMessageFor(model => model.Bacterias, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Fibras_mucosas, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Fibras_mucosas != null)
+                    {@Html.TextBox("Fibras_mucosas", Model.Fibras_mucosas, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("Fibras_mucosas", "Algunas", htmlAttributes: new { @class = "form-control" })}
+                    @Html.ValidationMessageFor(model => model.Fibras_mucosas, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Levaduras, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Levaduras != null)
+                    {@Html.TextBox("Levaduras", Model.Levaduras, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("Levaduras", "Ausentes", htmlAttributes: new { @class = "form-control" })}
+                    @Html.ValidationMessageFor(model => model.Levaduras, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cristales, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Cristales != null)
+                    {@Html.TextBox("Cristales", Model.Cristales, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("Cristales", "Uratos A_Algunos", htmlAttributes: new { @class = "form-control" })}
+                    @Html.ValidationMessageFor(model => model.Cristales, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cilindros, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Cilindros != null)
+                    {@Html.TextBox("Cilindros", Model.Cilindros, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("Cilindros", "Ausentes", htmlAttributes: new { @class = "form-control" })}
+                    @Html.ValidationMessageFor(model => model.Cilindros, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Parásitos, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @if (Model.Parásitos != null)
+                    {@Html.TextBox("Parásitos", Model.Parásitos, htmlAttributes: new { @class = "form-control" })}
+                else
+                {@Html.TextBox("Parásitos", "Ausentes", htmlAttributes: new { @class = "form-control" })}
+                    @Html.ValidationMessageFor(model => model.Parásitos, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+
+            @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
+
+            @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+
+            @{
+                try
+                {
+                    var base64 = Convert.ToBase64String(Model.firma);
+                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                    <img src="@imgSrc" />
+                }
+                catch
+                {
+
+                }
+            }
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
+</div>
+<script>
+    function chekearResultado(control) {
+
+        switch (control.id) {
+            case "Glicemia_Resultado":
+                {
+                    if (eval(control.value) < 65) {
+                        document.getElementById("Glicemia_alarma").value = "BAJO";
+
+                    } else if (eval(control.value) > 110) {
+                        document.getElementById("Glicemia_alarma").value = "ALTO";
+
+                    } else {
+                        document.getElementById("Glicemia_alarma").value = "";
+                    }
+                } break;
+            case "Colesterol_total_resultado":
+                {
+                    if (eval(control.value) < 0) {
+                        document.getElementById("Colesterol_total_alarma").value = "BAJO";
+                    } else if (eval(control.value) > 200) {
+                        document.getElementById("Colesterol_total_alarma").value = "ALTO";
+
+                    } else {
+                        document.getElementById("Colesterol_total_alarma").value = "";
+                    }
+                } break;
+            case "Trigliceridos_reultado":
+                {
+                    if (eval(control.value) < 0) {
+                        document.getElementById("Trigliceridos_alarma").value = "BAJO";
+                    } else if (eval(control.value) > 200) {
+                        document.getElementById("Trigliceridos_alarma").value = "ALTO";
+
+                    } else {
+                        document.getElementById("Trigliceridos_alarma").value = "";
+                    }
+                } break;
+            case "C_HDL_resultado":
+                {
+                    if (eval(control.value) < 40) {
+                        document.getElementById("C_HDL_alarma").value = "BAJO";
+                    } else if (eval(control.value) > 60) {
+                        document.getElementById("C_HDL_alarma").value = "ALTO";
+
+                    } else {
+                        document.getElementById("C_HDL_alarma").value = "";
+                    }
+                } break;
+            case "SGPT_ALT_resultado":
+                {
+                    if (eval(control.value) < 5) {
+                        document.getElementById("SGPT_ALT_alarma").value = "BAJO";
+                    } else if (eval(control.value) > 38) {
+                        document.getElementById("SGPT_ALT_alarma").value = "ALTO";
+
+                    } else {
+                        document.getElementById("SGPT_ALT_alarma").value = "";
+                    }
+                } break;
+            case "SGOT_ALT_resultado":
+                {
+                    if (eval(control.value) < 11) {
+                        document.getElementById("SGOT_ALT_alarma").value = "BAJO";
+                    } else if (eval(control.value) > 39) {
+                        document.getElementById("SGOT_ALT_alarma").value = "ALTO";
+
+                    } else {
+                        document.getElementById("SGOT_ALT_alarma").value = "";
+                    }
+                } break;
+            case "C_LDL_resultado":
+                {
+                    if (eval(control.value) < 0) {
+                        document.getElementById("C_LDL_alarma").value = "BAJO";
+                    } else if (eval(control.value) > 190) {
+                        document.getElementById("C_LDL_alarma").value = "ALTO";
+
+                    } else {
+                        document.getElementById("C_LDL_alarma").value = "";
+                    }
+                } break;
+            case "Creatinina_resultado":
+                {
+                    if (eval(control.value < 0.4)) {
+                        document.getElementById("Creatinina_alarma").value = "BAJO";
+                    }
+                    else if (eval(control.value) > 1.4) {
+                        document.getElementById("Creatinina_alarma").value = "ALTO";
+
+                    } else {
+                        document.getElementById("Creatinina_alarma").value = "";
+                    }
+                } break;
+        }
+    }
+</script>

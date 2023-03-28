@@ -1,0 +1,1443 @@
+﻿@model IEnumerable<WebParaMelvin.Models.Historia_Clinica>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado_civil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nivel_educacional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.No_de_Hijos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.No_dependienteds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vivienda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estatura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero_casa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sector)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Celular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.perosona_emergencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono_emergencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_empresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Posicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Dede_Hasta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Fisicos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_quimicos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Hergonomico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Psicosocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_mecanico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Electrico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Locativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Epp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_empresa1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Posicion1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Dede_Hasta1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Fisicos1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_quimicos1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Hergonomico1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Psicosocial1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_mecanico1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Electrico1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Locativo1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Epp1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_empresa2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Posicion2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Dede_Hasta2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Fisicos2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_quimicos2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Hergonomico2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Psicosocial2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_mecanico2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Electrico2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Locativo2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Epp2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_empresa3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Posicion3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Dede_Hasta3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Fisicos3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_quimicos3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Hergonomico3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Psicosocial3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_mecanico3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Electrico3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Locativo3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Epp3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_empresa4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Posicion4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Dede_Hasta4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Fisicos4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_quimicos4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Hergonomico4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Psicosocial4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_mecanico4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Electrico4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Locativo4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Epp4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_empresa5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Posicion5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.H_Dede_Hasta5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Fisicos5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_quimicos5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Hergonomico5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Psicosocial5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_mecanico5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Electrico5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ex_Locativo5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Epp5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_ocupacional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dignostico_ocupacional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empresa_ocupacional)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_aporte_ARL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_ocupacional1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dignostico_ocupacional1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empresa_ocupacional1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_aporte_ARL1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_ocupacional2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dignostico_ocupacional2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empresa_ocupacional2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_aporte_ARL2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_ocupacional3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dignostico_ocupacional3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empresa_ocupacional3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_aporte_ARL3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_ocupacional4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dignostico_ocupacional4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empresa_ocupacional4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_aporte_ARL4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_ocupacional5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dignostico_ocupacional5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empresa_ocupacional5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_aporte_ARL5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ACV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Asma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cancer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cervicalgia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chikungunya)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dengue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diabetes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ETS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Auditiva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Autoinmune)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Cardiaca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Congenita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf__Gastrica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Mental)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Neurlogica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Osteomuscular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Renal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Respiratoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enf_Visual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Epilepsia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gastritis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hepatitis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hernia_Abd_)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hernia_discal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hipertencion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Infarto_Cartdiaco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Intoxicaciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Leptospirosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lumbalgia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Malaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Neumonia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tifoidea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tuberculosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ulcera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vertigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zika)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Detalle_Antecedentes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antecendentes_Quirurgicos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antecendentes_Traumaticos_)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antecendentes_Hospitalarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antecendentes_Transfucionales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antecedentes_ginecologicos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FUM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.G)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.P)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.C)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.A)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hepatitis_A)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Dosis_inm_HepaA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hepatitis_B)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Dosis_Inm_HepaB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Influenza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Dosis_Inm_Influenza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tetanos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Dosis_Imn_Tetanos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alcohol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frecuencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tabaco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad_ta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medida_ta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frecuencia_ta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Infuciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad_In)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medida_In)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frecuencia_In)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drogas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad_dr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medida_dr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frecuencia_dr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.medicamentos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Padre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abuelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hermano)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Madre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abuela)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sintomas_Generales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sistema_Respirtatorio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sistema_Cardiovascular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sistema_GastroIntestinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sistema_GenitoUrinario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sistema_Neurolgogico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inspeccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tension_arterial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pulso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Respiracion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Talla)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lateralidad_Dominante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Riesgo_Cardiovascular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Piel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_Piel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cabello)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_Cabellos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ojos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_ojos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_oidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nariz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_nariz)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Boca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_boca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faringe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_faringe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuello)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_cuello)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pulmon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_pulmon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corzaon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_Corazon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abdomen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_abdomen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genitales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion_Genitales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aparato_Locomotor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_aparato_Locomotor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marcha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_Marcha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Columna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_Columna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miembros_superiores)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_Miembros_superiores)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miembros_inferiores)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_Miembros_Inferiores)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sistema_Nervioso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion_Sistema_Nervioso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado_civil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nivel_educacional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.No_de_Hijos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.No_dependienteds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vivienda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estatura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero_casa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciudad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sector)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Celular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.perosona_emergencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono_emergencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_empresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Posicion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Dede_Hasta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Fisicos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_quimicos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Hergonomico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Psicosocial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_mecanico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Electrico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Locativo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Epp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_empresa1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Posicion1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Dede_Hasta1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Fisicos1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_quimicos1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Hergonomico1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Psicosocial1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_mecanico1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Electrico1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Locativo1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Epp1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_empresa2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Posicion2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Dede_Hasta2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Fisicos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_quimicos2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Hergonomico2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Psicosocial2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_mecanico2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Electrico2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Locativo2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Epp2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_empresa3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Posicion3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Dede_Hasta3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Fisicos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_quimicos3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Hergonomico3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Psicosocial3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_mecanico3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Electrico3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Locativo3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Epp3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_empresa4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Posicion4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Dede_Hasta4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Fisicos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_quimicos4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Hergonomico4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Psicosocial4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_mecanico4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Electrico4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Locativo4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Epp4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_empresa5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Posicion5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.H_Dede_Hasta5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Fisicos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_quimicos5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Hergonomico5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Psicosocial5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_mecanico5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Electrico5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ex_Locativo5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Epp5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_ocupacional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dignostico_ocupacional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empresa_ocupacional)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_aporte_ARL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_ocupacional1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dignostico_ocupacional1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empresa_ocupacional1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_aporte_ARL1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_ocupacional2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dignostico_ocupacional2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empresa_ocupacional2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_aporte_ARL2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_ocupacional3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dignostico_ocupacional3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empresa_ocupacional3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_aporte_ARL3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_ocupacional4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dignostico_ocupacional4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empresa_ocupacional4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_aporte_ARL4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_ocupacional5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dignostico_ocupacional5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empresa_ocupacional5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_aporte_ARL5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ACV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Asma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cancer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cervicalgia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chikungunya)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dengue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diabetes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ETS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Auditiva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Autoinmune)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Cardiaca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Congenita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf__Gastrica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Mental)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Neurlogica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Osteomuscular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Renal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Respiratoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enf_Visual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Epilepsia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gastritis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hepatitis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hernia_Abd_)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hernia_discal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hipertencion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Infarto_Cartdiaco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Intoxicaciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Leptospirosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lumbalgia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Malaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Neumonia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tifoidea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tuberculosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ulcera)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vertigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Zika)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Detalle_Antecedentes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antecendentes_Quirurgicos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antecendentes_Traumaticos_)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antecendentes_Hospitalarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antecendentes_Transfucionales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antecedentes_ginecologicos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FUM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.G)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.P)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.C)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.A)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hepatitis_A)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Dosis_inm_HepaA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hepatitis_B)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Dosis_Inm_HepaB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Influenza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Dosis_Inm_Influenza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tetanos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Dosis_Imn_Tetanos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alcohol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.frecuencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tabaco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad_ta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medida_ta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.frecuencia_ta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Infuciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad_In)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medida_In)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.frecuencia_In)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drogas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad_dr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medida_dr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.frecuencia_dr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.medicamentos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Padre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Abuelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hermano)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Madre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Abuela)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sintomas_Generales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sistema_Respirtatorio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sistema_Cardiovascular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sistema_GastroIntestinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sistema_GenitoUrinario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sistema_Neurolgogico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Inspeccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tension_arterial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pulso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Respiracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Talla)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lateralidad_Dominante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IMC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Riesgo_Cardiovascular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_Piel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cabello)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_Cabellos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ojos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_ojos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_oidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nariz)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_nariz)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Boca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_boca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faringe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_faringe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuello)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_cuello)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pulmon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_pulmon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corzaon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_Corazon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Abdomen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_abdomen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genitales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion_Genitales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aparato_Locomotor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_aparato_Locomotor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marcha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_Marcha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Columna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_Columna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miembros_superiores)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_Miembros_superiores)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miembros_inferiores)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_Miembros_Inferiores)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sistema_Nervioso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion_Sistema_Nervioso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario_S_O.Id_Formulario_S_O)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Historia_Clinica }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Historia_Clinica }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Historia_Clinica })
+        </td>
+    </tr>
+}
+
+</table>

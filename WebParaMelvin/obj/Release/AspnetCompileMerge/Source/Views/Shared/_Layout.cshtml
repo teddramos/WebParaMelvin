@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - Cisam Reports</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" href="@Url.Content("~/Content/favicon.ico")" />
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#20a500">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @{var us = Session["User"] as WebParaMelvin.Models.Usuario;
+                    if (us.id_rol == 3) {
+                    <a href="@Url.Action("IndexEmpresa","Usuarios")"><img src="../../CISAMEmpresa/img/logo2.png" alt="image" class="navbar-brand" ></a>
+                    }
+                }
+                @Html.ActionLink("Formularios de Salud Ocupacional", "Index", "Formulario_S_O", new { area = "" }, new { @class = "navbar-brand", @style= "color: #e6e6e6;" })
+            </div>
+            <div class="navbar-collapse collapse" style="color:white">
+
+                @{
+                    try
+                    {
+                        var user = Session["User"] as WebParaMelvin.Models.Usuario;
+
+
+                        if (user.id_rol == 1)
+                        {
+
+                            @*<ul class="nav navbar-nav" id="btnNavs1">
+                        <li style="color: #e6e6e6;" class="nav navbar-nav">Administración</li>
+                    </ul>*@
+
+
+                            <ul class="nav navbar-nav" id="menu">
+                                <li id="only-pc">
+                                    <a style="color: #e6e6e6;">Administración</a>
+                                    <ul class="nav navbar-nav" id="btnNavs1">
+                                        <li>@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                        <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                    </ul>
+                                </li>
+
+                                <li id="only-mobile">@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                <li id="only-mobile">@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+
+                                <li>@Html.ActionLink("Nuevos Formularios", "Create", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                <li>@Html.ActionLink("Formularios a Vencer", "FormulariosAVencer", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                            </ul>
+                        }
+                        else if (user.id_rol == 2 || user.id_rol == 4)
+                        {
+                            <ul class="nav navbar-nav" id="btnNavs1">
+                                <li>@Html.ActionLink("Nuevos Formularios", "Create", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                            </ul>
+                        }
+                        else if (user.id_rol == 3)
+                        {
+                            <ul class="nav navbar-nav" id="btnNavs1">
+                                <li>@Html.ActionLink("Formularios a Vencer", "FormulariosAVencer", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                            </ul>
+                                }
+
+
+                                }
+                                catch { }
+                                }
+
+                                <ul class="nav navbar-nav" id="btnNavs2">
+                                    <li>@Html.ActionLink("Salir", "Create", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                </ul>
+                        </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p align="center">&copy; @DateTime.Now.Year - Formulario de Salud Ocupacional</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+<style>
+        .btnNavs {
+            color: #e6e6e6;
+        }
+       #btnNavs1 {
+            color: #e6e6e6;
+        }
+        #btnNavs2 {
+            color: #e6e6e6;
+        }
+        #btnNavs3 {
+            color: #e6e6e6;
+        }
+
+        #btnNavs4 {
+            color: #e6e6e6;
+        }
+        /*estilos para menu desplegable*/
+
+        #menu  ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #eee;
+            padding: 0;
+        }
+
+        #menu  ul li {
+            float: initial;
+            width: 150px
+        }
+        #menu  li:hover > ul {
+            display: block;
+        }
+        #menu  li {
+            position: relative;
+            float: left;
+            margin: 0;
+            padding: 0;
+        }
+        #menu ul li {
+            background-color: #20a500;
+        }
+/*estilos para mostrar tanto movil como pc*/
+    #only-pc {
+        display: block;
+    }
+
+    #only-mobile {
+        display: none;
+    }
+
+    @@media screen and (max-width: 768px) {
+
+        #only-pc {
+            display: none;
+        }
+
+        #only-mobile {
+            display: block;
+        }
+    }
+
+</style>
+</body>
+</html>

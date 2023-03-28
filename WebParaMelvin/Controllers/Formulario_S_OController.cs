@@ -18,9 +18,6 @@ namespace WebParaMelvin.Controllers
         private ceisamco_form_s_oEntities db = new ceisamco_form_s_oEntities();
 
        
-            
-        
-
         // GET: Formulario_S_O
         public ActionResult Index()
         {
@@ -52,9 +49,9 @@ namespace WebParaMelvin.Controllers
                 }
                 else
                 {
-                   // return View(db.Formulario_S_O.ToList().OrderByDescending(a => a.Id_Formulario_S_O).ToList());
+                    return View(db.Formulario_S_O.ToList().OrderByDescending(a => a.Id_Formulario_S_O).ToList());
 
-                    return View(db.Formulario_S_O.ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(50).ToList());
+                   //return View(db.Formulario_S_O.ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
                 }
             }
             return View();
