@@ -1,0 +1,58 @@
+Buen día. Yo realice el backup con la cuenta de solidCP y me creo un solo archivo de 3GB Backup-ADVANCED-17012021.scpak, este archivo contiene todas las webs y las bases de datos de la cuenta de solidCP. Debo restaurar este archivo solamente en plesk o debo hacer backup de cada base de datos a parte y restaurarla aparte en plesk. 
+Ustedes tienen un video tutorial sobre como hacer la migración?
+
+plesk
+ceisamco
+@-U6oI57qBo0Bs
+
+cisam
+@-U6oI57qBo0Bs
+https://appreports.cisam.com.do/
+
+cisam_reports
+&3g2vqQ7
+appreports.cisam.com.do
+52.249.30.165
+
+
+TXJNVF
+RLHIHF
+
+Go to http://appreports.cisam.com.do/.well-known/acme-challenge/KorEk_Z229GwxKyDiLX7VWEYoSYMLUymPl6E-70FWcU
+and сheck if the authorization token is available.
+If it is, try to request the certificate again. If the token is not available, there may be an issue with your DNS configuration.
+Your domain in Plesk is hosted on the IP address(es): 52.249.30.165, but the DNS challenge used another IP: 50.97.128.139.
+Make sure that the IP address(es) specified in the domain's DNS zone match the IP address(es) the domain is hosted on.
+If it does not help or if you cannot find an issue with your DNS configuration, use this KB article for troubleshooting.
+
+ http://52.249.30.165/plesk-site-preview/oficinavirtual.cisam.com.do/Usuarios/Create
+qdjkdf
+https://appreports.cisam.com.do/Usuarios/Create
+oficinavirtual.cisam.com.do
+
+DB credentials
+Host: database.negox.com
+Nombre de la base de datos: cisam_form_s_o
+Nombre de usuario: cisam_sqlserv
+password: %h7f74wS
+csmtof
+
+Negox.com credentials
+User: Jean.louis.devargas@gmail.com
+Pass: devargas0926
+
+Nic.do
+user: jean.louis.devargas@gmail.com
+pass: Devargas0926*
+
+ftp: 
+ip:52.249.30.165
+user:cisam_reports
+pass: 3kPc6j6$0
+
+smarterasp.net
+user: teddramos-001
+login: teddramos
+pass:Terora1981
+
+

@@ -45,40 +45,131 @@
         <dt>
             @Html.ActionLink("Certificado de Salud Ocupacional", "Edit", "CSOes", new { id = cso.Id_CSO }, htmlAttributes: new { })
         </dt>
-        <dt>
-            @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Pre-Espirometría", "Edit", "Pre_espirometria", new { id = pre_esp.Id_Pre_espirometria }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Audiometría", "Edit", "Audiometrias", new { id = audio.Id_AudioMetria }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Manero", "Edit", "Mareos", new { id = manero.Id_Mareo }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Hemogramas", "Edit", "Hemogramas", new { id = hemo.Id_Hemograma }, htmlAttributes: new { })
-        </dt>
+        @*@if (info.Bateria_Completa)
+        {
+            <dt>
+                @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Pre-Espirometría", "Edit", "Pre_espirometria", new { id = pre_esp.Id_Pre_espirometria }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Audiometría", "Edit", "Audiometrias", new { id = audio.Id_AudioMetria }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Manero", "Edit", "Mareos", new { id = manero.Id_Mareo }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Hemogramas", "Edit", "Hemogramas", new { id = hemo.Id_Hemograma }, htmlAttributes: new { })
+            </dt>
 
-        <dt>
-            @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Electrocardiograma", "Edit", "EKGs", new { id = ekg.Id_EKG }, htmlAttributes: new { })
-        </dt>
+            <dt>
+                @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Electrocardiograma", "Edit", "EKGs", new { id = ekg.Id_EKG }, htmlAttributes: new { })
+            </dt>
+        }*@
+        @*@if (info.Bateria_de_un_mes)
+        {
+            <dt>
+                @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
+            </dt>
+            <dt>
+                @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
+            </dt>
+
+        }
+        else*@
+        @{
+            if (info.Historia_clinica_y_examen_fisico)
+            {
+                <dt>
+                    @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
+                </dt>
+            }
+            if (info.Pre_espirometria)
+            {
+                <dt>
+                    @Html.ActionLink("Pre-Espirometría", "Edit", "Pre_espirometria", new { id = pre_esp.Id_Pre_espirometria }, htmlAttributes: new { })
+                </dt>
+            }
+            if (info.Audiometria)
+            {
+                <dt>
+                    @Html.ActionLink("Audiometría", "Edit", "Audiometrias", new { id = audio.Id_AudioMetria }, htmlAttributes: new { })
+                </dt>
+            }
+            if (info.Examen_visual)
+            {
+                <dt>
+                    @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
+                </dt>
+            }
+            if (info.Capacidad_fisica)
+            {
+                <dt>
+                    @Html.ActionLink("Manero", "Edit", "Mareos", new { id = manero.Id_Mareo }, htmlAttributes: new { })
+                </dt>
+            }
+            if (info.Hemografia)
+            {
+                <dt>
+                    @Html.ActionLink("Hemogramas", "Edit", "Hemogramas", new { id = hemo.Id_Hemograma }, htmlAttributes: new { })
+                </dt>
+
+            }
+            if (info.Laboratorio)
+            {
+                <dt>
+                    @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
+                </dt>
+            }
+            if (info.Espirometria)
+            {
+                <dt>
+                    @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
+                </dt>
+            }
+            <dt>
+                @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
+            </dt>
+            if (info.Consentimiento_informado)
+            {
+                <dt>
+                    @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
+                </dt>
+            }
+
+            if (info.EKG)
+            {
+                <dt>
+                    @Html.ActionLink("Electrocardiograma", "Edit", "EKGs", new { id = ekg.Id_EKG }, htmlAttributes: new { })
+                </dt>
+            }
+
+
+
+        }
+
 
     </dl>
 </div>

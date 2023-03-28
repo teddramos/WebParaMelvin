@@ -53,7 +53,7 @@ namespace WebParaMelvin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Fecha,Departamento,Posicion,Tipo_de_evaluacion,Nombre,Sexo,Cedula,Fecha_de_nacimiento,Edad,Id_Empleado,Apellido,Pre_espirometria,Espirometria,Audiometria,Capacidad_fisica,Laboratorio,Radiografia,Hemografia,EKG,Examen_visual,Bateria_de_un_mes,Bateria_Completa,Historia_clinica_y_examen_fisico")] Info_general info_general)
+        public ActionResult Create([Bind(Include = "Fecha,Departamento,Posicion,Tipo_de_evaluacion,Nombre,Sexo,Cedula,Fecha_de_nacimiento,Edad,Id_Empleado,Apellido,Pre_espirometria,Espirometria,Audiometria,Capacidad_fisica,Laboratorio,Radiografia,Hemografia,EKG,Examen_visual,Bateria_de_un_mes,Bateria_Completa,Historia_clinica_y_examen_fisico,Consentimiento_informado")] Info_general info_general)
 
         {
             var fso = Session["FormSO"] as Formulario_S_O;
@@ -96,7 +96,7 @@ namespace WebParaMelvin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_Info_General,Empresa,Fecha,Departamento,Posicion,Tipo_de_evaluacion,Nombre,Sexo,Cedula,Fecha_de_nacimiento,Edad,Id_Empleado,Id_Formulario_S_O,Apellido,Pre_espirometria,Espirometria,Audiometria,Capacidad_fisica,Laboratorio,Radiografia,Hemografia,EKG,Examen_visual,Bateria_de_un_mes,Bateria_Completa,Historia_clinica_y_examen_fisico")] Info_general info_general)
+        public ActionResult Edit([Bind(Include = "Id_Info_General,Empresa,Fecha,Departamento,Posicion,Tipo_de_evaluacion,Nombre,Sexo,Cedula,Fecha_de_nacimiento,Edad,Id_Empleado,Id_Formulario_S_O,Apellido,Pre_espirometria,Espirometria,Audiometria,Capacidad_fisica,Laboratorio,Radiografia,Hemografia,EKG,Examen_visual,Bateria_de_un_mes,Bateria_Completa,Historia_clinica_y_examen_fisico,Consentimiento_informado")] Info_general info_general)
         {
             if (ModelState.IsValid)
             {

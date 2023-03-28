@@ -1,0 +1,1182 @@
+﻿@model WebParaMelvin.Models.Historia_Clinica
+@{
+    ViewBag.Title = "Create";
+    WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+    var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var info = db.Info_general.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+}
+
+
+<h2>Editar</h2>
+<style>
+    input {
+        margin: 0px 0px 0px 0px
+    }
+
+    select {
+        margin: 4px
+    }
+
+    label {
+        margin-left: 5px
+    }
+
+    input[type="checkbox"] {
+        margin-left: 20px;
+        margin-top: 0px;
+        line-height: normal;
+    }
+
+    tr td {
+        font: bold;
+        font-weight: bold;
+    }
+</style>
+<table style="width:100%;">
+    <tr>
+        <td colspan="5">&nbsp;</td>
+        <td><strong>expediente No.</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@fso.Id_Formulario_S_O</td>
+    </tr>
+    <tr>
+        <td><strong>Empresa:</strong></td>
+        <td class="form-control" colspan="4">@fso.Empresa.Nombre</td>
+        <td><strong>Fecha:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Fecha</td>
+    </tr>
+    <tr>
+        <td><strong>Departamento:</strong></td>
+        <td class="form-control">&nbsp;@info.Departamento</td>
+        <td><strong>Posicion:</strong></td>
+        <td class="form-control" colspan="4">&nbsp;&nbsp;@info.Posicion</td>
+    </tr>
+    <tr>
+        <td><strong>Tipo evaluacion:</strong></td>
+        <td class="form-control" colspan="6">&nbsp;&nbsp;@info.Tipo_de_evaluacion</td>
+    </tr>
+    <tr>
+        <td colspan="7">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="7"><h3>Datos Generales</h3><hr /></td>
+    </tr>
+    <tr>
+        <td><strong>Nombre:</strong></td>
+        <td class="form-control" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+        <td><strong>Sexo:</strong></td>
+        <td class="form-control">@info.Sexo</td>
+        <td><strong>Cedula:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Cedula</td>
+    </tr>
+    <tr>
+        <td><strong>Fecha de Nacimiento:</strong></td>
+        <td class="form-control">@info.Fecha_de_nacimiento</td>
+        <td><strong>Edad:</strong></td>
+        <td class="form-control">@info.Edad</td>
+        <td><strong>Id Empleado:</strong></td>
+        <td class="form-control" colspan="2">@info.Id_Empleado</td>
+    </tr>
+</table>
+
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id_Historia_Clinica)
+    @Html.HiddenFor(model => model.Id_Formulario_S_O)
+    @Html.HiddenFor(model => model.Firma)
+ 
+    <div class="form-horizontal">
+        <h4>Historia Clinica</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Estado_civil, "Estado Civil", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Estado_civil", new SelectList(new List<string>() { "Soltero(a)", "Casado(a)", "Unión Libre" }), htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Estado_civil, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nivel_educacional, "Nivel Educacional", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nivel_educacional, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nivel_educacional, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.No_de_Hijos, "NO. de Hijos", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.No_de_Hijos, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.No_de_Hijos, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.No_dependienteds, "No. de Dependientes", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.No_dependienteds, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.No_dependienteds, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Vivienda, "Tipo de Vivienda", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Vivienda, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Vivienda, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Estatura, "Estructura", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Estatura, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Estatura, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Calle, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Calle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Numero_casa, "Numero de Casa", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Numero_casa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Numero_casa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ciudad, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Ciudad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sector, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sector, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sector, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Telefono, "Teléfono", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.perosona_emergencia, "Contacto en Caso de Emergencia", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.perosona_emergencia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.perosona_emergencia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.telefono_emergencia, "Teléfono en Caso de Emergencia", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.telefono_emergencia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.telefono_emergencia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-horizontal">
+        <h4>Historia Ocupacional</h4>
+        <hr />
+        <table style="width:100%;">
+            <tr>
+                <td rowspan="2">Empresa</td>
+                <td rowspan="2">Posicion</td>
+                <td rowspan="2">Desde - hasta</td>
+                <td colspan="9">Exposiciones</td>
+            </tr>
+            <tr>
+                <td><span style="writing-mode:tb-rl;">Fisicos</span></td>
+                <td><span style="writing-mode:tb-rl;">quimicos</span></td>
+                <td><span style="writing-mode:tb-rl;">Ergonomico</span></td>
+                <td><span style="writing-mode:tb-rl;">Biologico</span></td>
+                <td><span style="writing-mode:tb-rl;">Psicosocial</span></td>
+                <td><span style="writing-mode:tb-rl;">Mecanico</span></td>
+                <td><span style="writing-mode:tb-rl;">Electrico</span></td>
+                <td><span style="writing-mode:tb-rl;">Locativo</span></td>
+                <td>Epp</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.H_empresa, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Posicion, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Dede_Hasta, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Ex_Fisicos)</td>
+                <td> @Html.EditorFor(model => model.Ex_quimicos)</td>
+                <td>@Html.EditorFor(model => model.Ex_Hergonomico)</td>
+                <td>@Html.EditorFor(model => model.Ex_Biologico)</td>
+                <td>@Html.EditorFor(model => model.Ex_Psicosocial)</td>
+                <td> @Html.EditorFor(model => model.Ex_mecanico)</td>
+                <td>@Html.EditorFor(model => model.Ex_Electrico)</td>
+                <td>@Html.EditorFor(model => model.Ex_Locativo)</td>
+                <td>@Html.EditorFor(model => model.Epp, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.H_empresa1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Posicion1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Dede_Hasta1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Ex_Fisicos1)</td>
+                <td> @Html.EditorFor(model => model.Ex_quimicos1)</td>
+                <td>@Html.EditorFor(model => model.Ex_Hergonomico1)</td>
+                <td>@Html.EditorFor(model => model.Ex_Biologico1)</td>
+                <td>@Html.EditorFor(model => model.Ex_Psicosocial1)</td>
+                <td> @Html.EditorFor(model => model.Ex_mecanico1)</td>
+                <td>@Html.EditorFor(model => model.Ex_Electrico1)</td>
+                <td>@Html.EditorFor(model => model.Ex_Locativo1)</td>
+                <td>@Html.EditorFor(model => model.Epp1, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.H_empresa2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Posicion2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Dede_Hasta2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Ex_Fisicos2)</td>
+                <td> @Html.EditorFor(model => model.Ex_quimicos2)</td>
+                <td>@Html.EditorFor(model => model.Ex_Hergonomico2)</td>
+                <td>@Html.EditorFor(model => model.Ex_Biologico2)</td>
+                <td>@Html.EditorFor(model => model.Ex_Psicosocial2)</td>
+                <td> @Html.EditorFor(model => model.Ex_mecanico2)</td>
+                <td>@Html.EditorFor(model => model.Ex_Electrico2)</td>
+                <td>@Html.EditorFor(model => model.Ex_Locativo2)</td>
+                <td>@Html.EditorFor(model => model.Epp2, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.H_empresa3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Posicion3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Dede_Hasta3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Ex_Fisicos3)</td>
+                <td> @Html.EditorFor(model => model.Ex_quimicos3)</td>
+                <td>@Html.EditorFor(model => model.Ex_Hergonomico3)</td>
+                <td>@Html.EditorFor(model => model.Ex_Biologico3)</td>
+                <td>@Html.EditorFor(model => model.Ex_Psicosocial3)</td>
+                <td> @Html.EditorFor(model => model.Ex_mecanico3)</td>
+                <td>@Html.EditorFor(model => model.Ex_Electrico3)</td>
+                <td>@Html.EditorFor(model => model.Ex_Locativo3)</td>
+                <td>@Html.EditorFor(model => model.Epp3, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.H_empresa4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Posicion4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Dede_Hasta4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Ex_Fisicos4)</td>
+                <td> @Html.EditorFor(model => model.Ex_quimicos4)</td>
+                <td>@Html.EditorFor(model => model.Ex_Hergonomico4)</td>
+                <td>@Html.EditorFor(model => model.Ex_Biologico4)</td>
+                <td>@Html.EditorFor(model => model.Ex_Psicosocial4)</td>
+                <td> @Html.EditorFor(model => model.Ex_mecanico4)</td>
+                <td>@Html.EditorFor(model => model.Ex_Electrico4)</td>
+                <td>@Html.EditorFor(model => model.Ex_Locativo4)</td>
+                <td>@Html.EditorFor(model => model.Epp4, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.H_empresa5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Posicion5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.H_Dede_Hasta5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Ex_Fisicos5)</td>
+                <td> @Html.EditorFor(model => model.Ex_quimicos5)</td>
+                <td>@Html.EditorFor(model => model.Ex_Hergonomico5)</td>
+                <td>@Html.EditorFor(model => model.Ex_Biologico5)</td>
+                <td>@Html.EditorFor(model => model.Ex_Psicosocial5)</td>
+                <td> @Html.EditorFor(model => model.Ex_mecanico5)</td>
+                <td>@Html.EditorFor(model => model.Ex_Electrico5)</td>
+                <td>@Html.EditorFor(model => model.Ex_Locativo5)</td>
+                <td>@Html.EditorFor(model => model.Epp5, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+        </table>
+        <h4>Antecendentes Ocupacionales</h4>
+        <hr />
+        <table style="width:100%;">
+            <tr>
+                <td>Tipo</td>
+                <td>Diagnostico</td>
+                <td>Empresa</td>
+                <td>Fecha Reporte ARL</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.Tipo_ocupacional, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.Dignostico_ocupacional, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Empresa_ocupacional, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Fecha_aporte_ARL, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.Tipo_ocupacional1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.Dignostico_ocupacional1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Empresa_ocupacional1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Fecha_aporte_ARL1, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.Tipo_ocupacional2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.Dignostico_ocupacional2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Empresa_ocupacional2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Fecha_aporte_ARL2, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.Tipo_ocupacional3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.Dignostico_ocupacional3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Empresa_ocupacional3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Fecha_aporte_ARL3, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.Tipo_ocupacional4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.Dignostico_ocupacional4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Empresa_ocupacional4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Fecha_aporte_ARL4, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.Tipo_ocupacional5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.EditorFor(model => model.Dignostico_ocupacional5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Empresa_ocupacional5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Fecha_aporte_ARL5, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
+            </tr>
+        </table>
+
+        <h4>Antecedentes Patologicos ( Marcar las respuestas afirmativas)</h4>
+        <hr />
+        <table style="width:100%;">
+            <tr>
+                <td>ACV</td>
+                <td>@Html.EditorFor(model => model.ACV)</td>
+                <td>Enf. Auditiva</td>
+                <td>@Html.EditorFor(model => model.Enf_Auditiva)</td>
+                <td>Enf. Renal</td>
+                <td>@Html.EditorFor(model => model.Enf_Renal)</td>
+                <td>Hipertension</td>
+                <td>@Html.EditorFor(model => model.Hipertencion)</td>
+                <td>Tuberculosis </td>
+                <td>@Html.EditorFor(model => model.Tuberculosis)</td>
+            </tr>
+            <tr>
+                <td>Asma</td>
+                <td>@Html.EditorFor(model => model.Asma)</td>
+                <td>Enf. Autoinmune</td>
+                <td>@Html.EditorFor(model => model.Enf_Autoinmune)</td>
+                <td>Enf. Respiratoria</td>
+                <td>@Html.EditorFor(model => model.Enf_Respiratoria)</td>
+                <td>Infarto Cardiaco</td>
+                <td>@Html.EditorFor(model => model.Infarto_Cartdiaco)</td>
+                <td>Ulcera</td>
+                <td>@Html.EditorFor(model => model.Ulcera)</td>
+            </tr>
+            <tr>
+                <td>Cancer</td>
+                <td>@Html.EditorFor(model => model.Cancer)</td>
+                <td>Enf. Cardiaca</td>
+                <td>@Html.EditorFor(model => model.Enf_Cardiaca)</td>
+                <td>Enf. Visual</td>
+                <td>@Html.EditorFor(model => model.Enf_Visual)</td>
+                <td>Intoxicaciones</td>
+                <td>@Html.EditorFor(model => model.Intoxicaciones)</td>
+                <td>Vertigo</td>
+                <td>@Html.EditorFor(model => model.Vertigo)</td>
+            </tr>
+            <tr>
+                <td>Cervicalgia</td>
+                <td>@Html.EditorFor(model => model.Cervicalgia)</td>
+                <td>Enf. Congenita</td>
+                <td>@Html.EditorFor(model => model.Enf_Congenita)</td>
+                <td>Epilepsia</td>
+                <td>@Html.EditorFor(model => model.Epilepsia)</td>
+                <td>Leptospirosis</td>
+                <td>@Html.EditorFor(model => model.Leptospirosis)</td>
+                <td>Zika</td>
+                <td>@Html.EditorFor(model => model.Zika)</td>
+            </tr>
+            <tr>
+                <td>Chikungunya</td>
+                <td>@Html.EditorFor(model => model.Chikungunya)</td>
+                <td>Enf. Gastrica</td>
+                <td>@Html.EditorFor(model => model.Enf__Gastrica)</td>
+                <td>Gastritis</td>
+                <td>@Html.EditorFor(model => model.Gastritis)</td>
+                <td>Lumbalgia</td>
+                <td>@Html.EditorFor(model => model.Lumbalgia)</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Dengue</td>
+                <td>@Html.EditorFor(model => model.Dengue)</td>
+                <td>Enf. Mental</td>
+                <td>@Html.EditorFor(model => model.Enf_Mental)</td>
+                <td>Hepatitis</td>
+                <td>@Html.EditorFor(model => model.Hepatitis)</td>
+                <td>Malaria</td>
+                <td>@Html.EditorFor(model => model.Malaria)</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Diabetes</td>
+                <td>@Html.EditorFor(model => model.Diabetes)</td>
+                <td>Enf. Neurologica</td>
+                <td>@Html.EditorFor(model => model.Enf_Neurlogica)</td>
+                <td>Hernia Abd.</td>
+                <td>@Html.EditorFor(model => model.Hernia_Abd_)</td>
+                <td>Neumonia</td>
+                <td>@Html.EditorFor(model => model.Neumonia)</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>E.T.S</td>
+                <td>@Html.EditorFor(model => model.ETS)</td>
+                <td>Enf. Osteomusc.</td>
+                <td>@Html.EditorFor(model => model.Enf_Osteomuscular)</td>
+                <td>Hernia Discal</td>
+                <td>@Html.EditorFor(model => model.Hernia_discal)</td>
+                <td>Tifoidea</td>
+                <td>@Html.EditorFor(model => model.Tifoidea)</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Detalle</td>
+                <td colspan="9"> @Html.EditorFor(model => model.Detalle_Antecedentes, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+        </table>
+
+
+        <table style="width: 100%;">
+            <tr>
+                <td>Antecedentes Quirurgicos</td>
+                <td colspan="11">@Html.EditorFor(model => model.Antecendentes_Quirurgicos, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>Antecedentes Traumaticos</td>
+                <td colspan="11">@Html.EditorFor(model => model.Antecendentes_Traumaticos_, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>Antecedentes Hospitalarios</td>
+                <td colspan="11">@Html.EditorFor(model => model.Antecendentes_Hospitalarios, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>Antecedentes Transfusionales</td>
+                <td colspan="11">@Html.EditorFor(model => model.Antecendentes_Transfucionales, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>Antecedentes Ginecologicos</td>
+                <td>@Html.EditorFor(model => model.Antecedentes_ginecologicos, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>FUM</td>
+                <td>@Html.EditorFor(model => model.FUM, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>G</td>
+                <td>@Html.EditorFor(model => model.G, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>P</td>
+                <td>@Html.EditorFor(model => model.P, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>C</td>
+                <td>@Html.EditorFor(model => model.C, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>A</td>
+                <td>@Html.EditorFor(model => model.A, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+        </table>
+
+        <h4>Inmunizaciones</h4>
+        <hr />
+
+        <table style="width:100%;">
+            <tr>
+                <td colspan="2">Inmunizacion</td>
+                <td>Fecha Ultima Dosis</td>
+                <td colspan="2">Inmunizacion</td>
+                <td>Fecha Ultima Dosis</td>
+            </tr>
+            <tr>
+                <td>Hepatitis A</td>
+                <td>
+                    <select name="Hepatitis_A" class="form-control">
+                        @{if (Model.Hepatitis_A != null)
+                            {
+                                switch (Model.Hepatitis_A.Trim())
+                                {
+                                    case "SI":
+                                        {
+                                            <option selected>SI</option>
+                                            <option>NO</option>
+                                        }
+                                        break;
+                                    case "NO":
+                                        {
+                                            <option>SI</option>
+                                            <option selected>NO</option>
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                <option>SI</option>
+                                <option>NO</option>
+                            }
+                        }
+                    </select>
+                </td>
+
+
+                <td>
+                    <input type="date" value="@String.Format("{0:yyyy-MM-dd}",Model.Fecha_Dosis_inm_HepaA)" name="Fecha_Dosis_inm_HepaA" class="form-control" />
+                </td>
+
+
+                <td>Influenza</td>
+
+
+                <td>
+                    <select name="Influenza" class="form-control">
+                        @{if (Model.Influenza != null)
+                            {
+                                switch (Model.Influenza.Trim())
+                                {
+                                    case "SI":
+                                        {
+                                            <option selected>SI</option>
+                                            <option>NO</option>
+                                        }
+                                        break;
+                                    case "NO":
+                                        {
+                                            <option>SI</option>
+                                            <option selected>NO</option>
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                <option>SI</option>
+                                <option>NO</option>
+                            }
+                        }
+                    </select>
+                </td>
+
+
+                <td> <input type="date" value="@String.Format("{0:yyyy-MM-dd}",Model.Fecha_Dosis_Inm_Influenza)" name="Fecha_Dosis_Inm_Influenza" class="form-control" /></td>
+
+
+            </tr>
+
+
+            <tr>
+
+
+                <td>Hepatitis B</td>
+
+
+                <td>
+                    <select name="Hepatitis_B" class="form-control">
+                        @{if (Model.Hepatitis_B != null)
+                            {
+                                switch (Model.Hepatitis_B.Trim())
+                                {
+                                    case "SI":
+                                        {
+                                            <option selected>SI</option>
+                                            <option>NO</option>
+                                        }
+                                        break;
+                                    case "NO":
+                                        {
+                                            <option>SI</option>
+                                            <option selected>NO</option>
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                <option>SI</option>
+                                <option>NO</option>
+                            }
+                        }
+                    </select>
+                </td>
+
+
+                <td><input type="date" value="@String.Format("{0:yyyy-MM-dd}",Model.Fecha_Dosis_Inm_HepaB)" name="Fecha_Dosis_Inm_HepaB" class="form-control" /></td>
+
+
+                <td>Tetanos</td>
+
+
+                <td>
+                    <select name="Tetanos" class="form-control">
+                        @{if (Model.Tetanos != null)
+                            {
+                                switch (Model.Tetanos.Trim())
+                                {
+                                    case "SI":
+                                        {
+                                            <option selected>SI</option>
+                                            <option>NO</option>
+                                        }
+                                        break;
+                                    case "NO":
+                                        {
+                                            <option>SI</option>
+                                            <option selected>NO</option>
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                <option>SI</option>
+                                <option>NO</option>
+                            }
+                        }
+                    </select>
+                </td>
+
+
+                <td>
+                    <input type="date" value="@String.Format("{0:yyyy-MM-dd}",Model.Fecha_Dosis_Imn_Tetanos)" name="Fecha_Dosis_Imn_Tetanos" class="form-control" />
+                </td>
+
+
+            </tr>
+
+
+        </table>
+
+
+
+        <h4>Habitos Toxicos</h4>
+
+
+        <hr />
+
+
+        <table style="width: 100%;">
+
+
+            <tr>
+
+
+                <td>Sustancia</td>
+
+
+                <td>Tipo</td>
+
+
+                <td>Cantidad</td>
+
+
+                <td>Medida</td>
+
+
+                <td>Frecuencia</td>
+
+
+                <td>Sustancia</td>
+
+
+                <td>Tipo</td>
+
+
+                <td>Cantidad</td>
+
+
+                <td>Medida</td>
+
+
+                <td>Frecuencia</td>
+
+
+            </tr>
+
+
+            <tr>
+
+
+                <td>Alcohol</td>
+
+
+                <td>  @Html.EditorFor(model => model.Alcohol, new { htmlAttributes = new { @class = "form-control" } })</td>
+
+
+                <td>  @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control" } })</td>
+
+
+                <td>  @Html.EditorFor(model => model.Medida, new { htmlAttributes = new { @class = "form-control" } })</td>
+
+
+                <td>
+                    @Html.DropDownList("frecuencia", new SelectList(new List<string> { "Diario", "Semanal", "Mensual", "Anual" }), htmlAttributes: new { @class = "form-control" })
+                </td>
+                <td>Tabaco</td>
+                <td>  @Html.EditorFor(model => model.Tabaco, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>  @Html.EditorFor(model => model.cantidad_ta, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>  @Html.EditorFor(model => model.Medida_ta, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>
+                    @Html.DropDownList("frecuencia_ta", new SelectList(new List<string> { "Diario", "Semanal", "Mensual", "Anual" }), htmlAttributes: new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>Infusiones</td>
+                <td>  @Html.EditorFor(model => model.Infuciones, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>  @Html.EditorFor(model => model.cantidad_In, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>  @Html.EditorFor(model => model.Medida_In, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>
+
+                    @Html.DropDownList("frecuencia_In", new SelectList(new List<string> { "Diario", "Semanal", "Mensual", "Anual" }), htmlAttributes: new { @class = "form-control" })
+                </td>
+                <td>Drogas</td>
+                <td>  @Html.EditorFor(model => model.Drogas, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>  @Html.EditorFor(model => model.cantidad_dr, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>  @Html.EditorFor(model => model.Medida_dr, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>  @Html.DropDownList("frecuencia_dr", new SelectList(new List<string> { "Diario", "Semanal", "Mensual", "Anual" }), htmlAttributes: new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>Medicamentos</td>
+                <td colspan="9">@Html.EditorFor(model => model.medicamentos, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+        </table>
+
+        <h4>Antecedentes Hereditarios</h4>
+        <hr />
+        <table style="width:100%;">
+            <tr>
+                <td>Padre:</td>
+                <td> @Html.EditorFor(model => model.Padre, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>Abuelo Paterno:</td>
+                <td> @Html.EditorFor(model => model.Abuelo, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>Abuelo Materno:</td>
+                <td> @Html.EditorFor(model => model.AbueloM, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>Hermano:</td>
+                <td> @Html.EditorFor(model => model.Hermano, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>Madre:</td>
+                <td> @Html.EditorFor(model => model.Madre, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>Abuela Paterna:</td>
+                <td> @Html.EditorFor(model => model.Abuela, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>Abuela Materna:</td>
+                <td> @Html.EditorFor(model => model.AbuelaM, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>Tio:</td>
+                <td> @Html.EditorFor(model => model.Tio, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+        </table>
+
+
+        <h4>Evaluacion Por Sistema</h4>
+        <hr />
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sintomas_Generales, "Síntomas Generales", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sintomas_Generales, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sintomas_Generales, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sistema_Respirtatorio, "Sistema Respiratorio", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sistema_Respirtatorio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sistema_Respirtatorio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sistema_Cardiovascular, "Sistema Cardiovascular", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sistema_Cardiovascular, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sistema_Cardiovascular, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sistema_GastroIntestinal, "Sistema Gastrointestinal", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sistema_GastroIntestinal, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sistema_GastroIntestinal, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sistema_GenitoUrinario, "Sistema Genitourinario", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sistema_GenitoUrinario, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sistema_GenitoUrinario, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sistema_Neurolgogico, "Sistema Nerológico", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sistema_Neurolgogico, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sistema_Neurolgogico, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <h4>Examen Fisico</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Inspeccion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Inspeccion, htmlAttributes: new { @class = "form-control", @type = "text-area" })
+                @Html.ValidationMessageFor(model => model.Inspeccion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <h4>Signos Vitales</h4>
+    <hr />
+
+    <table style="width:100%;">
+        <tr>
+            <td colspan="2">Tension Arterial</td>
+            <td>@Html.EditorFor(model => model.Tension_arterial, new { htmlAttributes = new { @class = "form-control", @type = "number" } })</td>
+            <td>/</td>
+            <td>@Html.EditorFor(model => model.Tension_arterial2, new { htmlAttributes = new { @class = "form-control", @type = "number" } })</td>
+            <td>mmHg</td>
+            <td colspan="2">Pulso</td>
+            <td>@Html.EditorFor(model => model.Pulso, new { htmlAttributes = new { @class = "form-control", @type = "number" } })</td>
+            <td>L/min.&nbsp;</td>
+            <td>Respiracion</td>
+            <td>@Html.EditorFor(model => model.Respiracion, new { htmlAttributes = new { @class = "form-control", @type = "number" } })</td>
+            <td>R/min.</td>
+        </tr>
+        <tr>
+            <td>Peso</td>
+            <td>@Html.EditorFor(model => model.Peso_Lbs, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return isNumberKey(event)" } })</td>
+            <td>Lbs.</td>
+            <td>@Html.EditorFor(model => model.Peso_Kgs, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+            <td>Kg&nbsp;</td>
+            <td>Talla</td>
+            <td>@Html.EditorFor(model => model.Talla_Pulg, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return isNumberKey(event)" } })</td>
+            <td>Pulg</td>
+            <td>@Html.EditorFor(model => model.Talla_Cms, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+            <td>Cm.</td>
+            <td colspan="2">Literalidad Dominante</td>
+            <td>
+                <select name="Lateralidad_Dominante" class="form-control">
+                    @{
+                        if (Model.Lateralidad_Dominante != null)
+                        {
+                            switch (Model.Lateralidad_Dominante.Trim())
+                            {
+                                case "Derecho":
+                                    {
+                                        <option selected>Derecho</option>
+                                        <option>Zurdo</option>
+                                        <option>Ambidestro</option>
+                                    }
+                                    break;
+                                case "Zurdo":
+                                    {
+                                        <option>Derecho</option>
+                                        <option selected>Zurdo</option>
+                                        <option>Ambidestro</option>
+                                    }
+                                    break;
+                                case "Ambidestro":
+                                    {
+                                        <option>Derecho</option>
+                                        <option>Zurdo</option>
+                                        <option selected>Ambidestro</option>
+                                    }
+                                    break;
+
+                            }
+                        }
+                        else
+                        {
+
+                            <option selected>Derecho</option>
+                            <option>Zurdo</option>
+                            <option>Ambidestro</option>
+
+                        }
+                    }
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">IMC</td>
+            <td>@Html.EditorFor(model => model.IMC, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+            <td colspan="3">@Html.EditorFor(model => model.IMC_Resul, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+            <td colspan="4">Riesgo Cardiovascular</td>
+            <td colspan="3">@Html.EditorFor(model => model.Riesgo_Cardiovascular, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>
+        </tr>
+    </table>
+
+    <h4>Signos Vitales</h4>
+    <hr />
+    <table style="width:100%;">
+        <tr>
+            <td rowspan="8"><span style="writing-mode:vertical-lr;">Cabeza</span></td>
+            <td>Organo o sistema</td>
+            <td>Normal</td>
+            <td>Anormal</td>
+            <td>Descripcion ( Solo hallazgos patologicos o anormales)</td>
+        </tr>
+        <tr>
+            <td>Piel</td>
+            <td> @Html.EditorFor(model => model.Piel)</td>
+            <td> @Html.EditorFor(model => model.PielA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_Piel, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Cabello</td>
+            <td> @Html.EditorFor(model => model.Cabello)</td>
+            <td> @Html.EditorFor(model => model.CabelloA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_Cabellos, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Ojos</td>
+            <td> @Html.EditorFor(model => model.Ojos)</td>
+            <td> @Html.EditorFor(model => model.OjosA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_ojos, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Oidos</td>
+            <td> @Html.EditorFor(model => model.Oidos)</td>
+            <td> @Html.EditorFor(model => model.OidosA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_oidos, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Nariz</td>
+            <td> @Html.EditorFor(model => model.Nariz)</td>
+            <td> @Html.EditorFor(model => model.NarizA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_nariz, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Boca</td>
+            <td> @Html.EditorFor(model => model.Boca)</td>
+            <td> @Html.EditorFor(model => model.BocaA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_boca, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Faringe</td>
+            <td> @Html.EditorFor(model => model.Faringe)</td>
+            <td> @Html.EditorFor(model => model.FaringeA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_faringe, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td colspan="2">Cuello</td>
+            <td> @Html.EditorFor(model => model.Cuello)</td>
+            <td> @Html.EditorFor(model => model.CuelloA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_cuello, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td rowspan="6"><span style="writing-mode:vertical-lr;">Torax</span></td>
+            <td>Pulmon</td>
+            <td> @Html.EditorFor(model => model.Pulmon)</td>
+            <td> @Html.EditorFor(model => model.PulmonA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_pulmon, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Corazon</td>
+            <td> @Html.EditorFor(model => model.Corzaon)</td>
+            <td> @Html.EditorFor(model => model.CorzaonA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_Corazon, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Abdomen</td>
+            <td> @Html.EditorFor(model => model.Abdomen)</td>
+            <td> @Html.EditorFor(model => model.AbdomenA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_abdomen, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Genitales</td>
+            <td> @Html.EditorFor(model => model.Genitales)</td>
+            <td> @Html.EditorFor(model => model.GenitalesA)</td>
+            <td>@Html.EditorFor(model => model.descripcion_Genitales, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Aparato Locomotor</td>
+            <td> @Html.EditorFor(model => model.Aparato_Locomotor)</td>
+            <td> @Html.EditorFor(model => model.Aparato_LocomotorA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_aparato_Locomotor, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Marcha</td>
+            <td> @Html.EditorFor(model => model.Marcha)</td>
+            <td> @Html.EditorFor(model => model.MarchaA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_Marcha, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><span style="writing-mode:vertical-lr;">Soma</span></td>
+            <td>Columna</td>
+            <td> @Html.EditorFor(model => model.Columna)</td>
+            <td> @Html.EditorFor(model => model.ColumnaA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_Columna, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Miembros superiores</td>
+            <td> @Html.EditorFor(model => model.Miembros_superiores)</td>
+            <td> @Html.EditorFor(model => model.Miembros_superioresA)</td>
+            <td>@Html.EditorFor(model => model.Descripcion_Miembros_superiores, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Miembros inferiores</td>
+            <td> @Html.EditorFor(model => model.Miembros_inferiores)</td>
+            <td> @Html.EditorFor(model => model.Miembros_inferioresA)</td>
+            <td>
+                @Html.EditorFor(model => model.Descripcion_Miembros_Inferiores, new { htmlAttributes = new { @class = "form-control" } })
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">Sistema Nervioso</td>
+            <td> @Html.EditorFor(model => model.Sistema_Nervioso)</td>
+            <td> @Html.EditorFor(model => model.Sistema_NerviosoA)</td>
+
+            <td>
+                @*@Html.EditorFor(model => model.Descripcion_Sistema_Nervioso, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.Editor("Descripcion_Sistema_Nervioso", new { htmlAttributes = new { @class = "form-control" } })*@
+                <input type="text" name="Descripcion_Sistema_Nervioso" class="form-control" />
+            </td>
+        </tr>
+    </table>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Comentarios, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Comentarios, htmlAttributes: new { @class = "form-control", @type = "text-area" })
+            @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
+        @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+
+        @{
+            try
+            {
+                var base64 = Convert.ToBase64String(Model.Firma);
+                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                <img src="@imgSrc" />
+            }
+            catch
+            {
+
+            }
+        }
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
+        </div>
+    </div>
+
+
+}
+
+<div>
+    @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+                return false;
+            return true;
+        }
+        //conversion de libras a kilogramos
+        var inputBoxPeso_Lbs = document.getElementById('Peso_Lbs');
+
+        inputBoxPeso_Lbs.onkeyup = function () {
+            var Kgs = eval(inputBoxPeso_Lbs.value) / 2.20462;
+
+            document.getElementById('Peso_Kgs').value = Math.round(Kgs * 100) / 100;
+            calculoICM();
+        }
+        //conversion de pulgadas a centimetros
+        var inputBoxTalla_Pulg = document.getElementById('Talla_Pulg');
+
+        inputBoxTalla_Pulg.onkeyup = function () {
+            var Cms = eval(inputBoxTalla_Pulg.value) * 2.54;
+
+            document.getElementById('Talla_Cms').value = Math.round(Cms * 100) / 100;
+            calculoICM();
+        }
+        //calculo del ICM
+
+
+
+        function calculoICM() {
+            var textBoxCms = document.getElementById('Talla_Cms');
+            var textBoxKgs = document.getElementById('Peso_Kgs');
+            var icm = eval(textBoxKgs.value) / ((eval(textBoxCms.value) / 100) * (eval(textBoxCms.value) / 100));
+            x = Math.round(icm * 100) / 100
+            document.getElementById('IMC').value = x;
+            calculaRiesgoCardio(x);
+        }
+
+
+        function calculaRiesgoCardio(imc) {
+            var rc = document.getElementById('IMC_Resul');
+            var rcar = document.getElementById('Riesgo_Cardiovascular');
+            var imc = document.getElementById('IMC');
+            if (eval(imc.value) < 18.5) { rc.value = 'Bajo Peso'; rcar.value = 'Muy Bajo'; }
+
+            if (eval(imc.value) < 25 && eval(imc.value) > 18.5) { rc.value = 'Normal'; rcar.value = 'Bajo'; }
+            if (eval(imc.value) < 30 && eval(imc.value) > 25) { rc.value = 'Sobre Peso'; rcar.value = 'Moderado'; }
+            if (eval(imc.value) < 35 && eval(imc.value) > 30) { rc.value = 'Obesidad I'; rcar.value = 'Alto'; }
+            if (eval(imc.value) <= 39.9 && eval(imc.value) > 35) { rc.value = 'Obesidad II'; rcar.value = 'Muy Alto'; }
+            if (eval(imc.value) >= 40) { rc.value = 'Obesidad III'; rcar.value = 'Extremo'; }
+
+        }
+
+    </script>
+}

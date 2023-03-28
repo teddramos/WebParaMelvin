@@ -1,0 +1,1793 @@
+﻿@model WebParaMelvin.Models.Examen_Visual
+
+@{
+
+
+    ViewBag.Title = "Create";
+    WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+    var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var info = db.Info_general.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+}
+
+
+<h2>Editar</h2>
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+            return false;
+        return true;
+    }
+    function formatIshiahara(control) {
+        // alert(control.options[control.selectedIndex].text);
+        switch (control.name) {
+            case "Respuesta_del_sujeto1": {
+
+                switch (control.options[control.selectedIndex].text) {
+                    case "12": {
+                        var pan = document.getElementById("Panorama_Normal_1");
+                        var dif = document.getElementById("Deficiencias_Rojo_y_Verde_1");
+                        var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_1");
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                    case "X": {
+                        var pan = document.getElementById("Panorama_Normal_1");
+                        var dif = document.getElementById("Deficiencias_Rojo_y_Verde_1");
+                        var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_1");
+
+                        pan.setAttribute('style', 'background-color:lightblue');
+                        dif.setAttribute('style', 'background-color:lightblue');
+                        ceg.setAttribute('style', 'background-color:lightblue');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto2": {
+                var pan = document.getElementById("Panorama_Normal_2");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_2");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_2");
+                switch (control.options[control.selectedIndex].text) {
+                    case "8": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "3": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto3": {
+                var pan = document.getElementById("Panorama_Normal_3");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_3");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_3");
+                switch (control.options[control.selectedIndex].text) {
+                    case "5": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "2": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto4": {
+                var pan = document.getElementById("Panorama_Normal_4");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_4");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_4");
+                switch (control.options[control.selectedIndex].text) {
+                    case "29": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "70": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto5": {
+                var pan = document.getElementById("Panorama_Normal_5");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_5");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_5");
+                switch (control.options[control.selectedIndex].text) {
+                    case "74": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "21": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto6": {
+                var pan = document.getElementById("Panorama_Normal_6");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_6");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_6");
+                switch (control.options[control.selectedIndex].text) {
+                    case "7": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto7": {
+                var pan = document.getElementById("Panorama_Normal_7");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_7");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_7");
+                switch (control.options[control.selectedIndex].text) {
+                    case "45": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto8": {
+                var pan = document.getElementById("Panorama_Normal_8");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_8");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_8");
+                switch (control.options[control.selectedIndex].text) {
+                    case "2": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto9": {
+                var pan = document.getElementById("Panorama_Normal_9");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_9");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_9");
+                switch (control.options[control.selectedIndex].text) {
+                    case "2": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto10": {
+                var pan = document.getElementById("Panorama_Normal_10");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_10");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_10");
+                switch (control.options[control.selectedIndex].text) {
+                    case "16": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto11": {
+                var pan = document.getElementById("Panorama_Normal_11");
+                var dif = document.getElementById("Deficiencias_Rojo_y_Verde_11");
+                var ceg = document.getElementById("Ceguera_total_o_deilidad_cromatica_11");
+                switch (control.options[control.selectedIndex].text) {
+                    case "Trazable": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                    } break;
+
+                    case "X": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+                }
+            } break;
+            case "Respuesta_del_sujeto_12": {
+                var pan = document.getElementById("Persona_normal_12");
+                var dif = document.getElementById("Deficiencia_rojo_y_verde_LEVE_12");
+                var ceg = document.getElementById("Protanopia_y_protanomalia_12");
+                var pep = document.getElementById("Deuteranopia_y_deuteronomalia_12");
+                switch (control.options[control.selectedIndex].text) {
+                    case "35": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:none');
+                        pep.setAttribute('style', 'background-color:none');
+                    } break;
+
+                    case "5": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                        pep.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "3": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                        pep.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+
+
+                }
+            } break;
+            case "Respuesta_del_sujeto_13": {
+                var pan = document.getElementById("Persona_normal_13");
+                var dif = document.getElementById("Deficiencia_rojo_y_verde_LEVE_13");
+                var ceg = document.getElementById("Protanopia_y_protanomalia_13");
+                var pep = document.getElementById("Deuteranopia_y_deuteronomalia_13");
+                switch (control.options[control.selectedIndex].text) {
+                    case "96": {
+
+                        pan.setAttribute('style', 'background-color:peachpuff');
+                        dif.setAttribute('style', 'background-color:peachpuff');
+                        ceg.setAttribute('style', 'background-color:none');
+                        pep.setAttribute('style', 'background-color:none');
+                    } break;
+
+                    case "6": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:peachpuff');
+                        pep.setAttribute('style', 'background-color:none');
+                    } break;
+                    case "9": {
+
+                        pan.setAttribute('style', 'background-color:none');
+                        dif.setAttribute('style', 'background-color:none');
+                        ceg.setAttribute('style', 'background-color:none');
+                        pep.setAttribute('style', 'background-color:peachpuff');
+                    } break;
+
+
+                }
+            } break;
+        }
+    }
+</script>
+<style>
+    input {
+        margin: 0px 0px 0px 0px;
+        /*background-color:lightblue*/
+    }
+
+    select {
+        margin: 4px
+    }
+
+    label {
+        margin-left: 5px
+    }
+
+    input[type="checkbox"] {
+        margin-left: 20px;
+        margin-top: 0px;
+        line-height: normal;
+    }
+
+    tr td {
+        font: bold;
+        font-weight: bold;
+    }
+</style>
+
+<table style="width:100%;">
+    <tr>
+        <td colspan="5">&nbsp;</td>
+        <td><strong>expediente No.</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@fso.Id_Formulario_S_O</td>
+    </tr>
+    <tr>
+        <td><strong>Empresa:</strong></td>
+        <td class="form-control" colspan="4">@fso.Empresa.Nombre</td>
+        <td><strong>Fecha:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Fecha</td>
+    </tr>
+    <tr>
+        <td><strong>Departamento:</strong></td>
+        <td class="form-control">&nbsp;@info.Departamento</td>
+        <td><strong>Posicion:</strong></td>
+        <td class="form-control" colspan="4">&nbsp;&nbsp;@info.Posicion</td>
+    </tr>
+    <tr>
+        <td><strong>Tipo evaluacion:</strong></td>
+        <td class="form-control" colspan="6">&nbsp;&nbsp;@info.Tipo_de_evaluacion</td>
+    </tr>
+    <tr>
+        <td colspan="7">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="7"><h3>Datos Generales</h3><hr /></td>
+    </tr>
+    <tr>
+        <td><strong>Nombre:</strong></td>
+        <td class="form-control" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+        <td><strong>Sexo:</strong></td>
+        <td class="form-control">@info.Sexo</td>
+        <td><strong>Cedula:</strong></td>
+        <td class="form-control">&nbsp;&nbsp;@info.Cedula</td>
+    </tr>
+    <tr>
+        <td><strong>Fecha de Nacimiento:</strong></td>
+        <td class="form-control">@info.Fecha_de_nacimiento</td>
+        <td><strong>Edad:</strong></td>
+        <td class="form-control">@info.Edad</td>
+        <td><strong>Id Empleado:</strong></td>
+        <td class="form-control" colspan="2">@info.Id_Empleado</td>
+    </tr>
+</table>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id_Examen_Visual)
+    @Html.HiddenFor(model => model.Id_Formulario_S_O)
+    @Html.HiddenFor(model => model.Firma)
+    
+    <div class="form-horizontal">
+        <h4>Examen Visual</h4>
+        <hr />
+
+        <table style="width:100%;">
+            <tr>
+                <td class="auto-style1" colspan="6" align="center">Agudeza Visual Lejana</td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">Sin corrección</td>
+                <td colspan="3" align="center">Con corrección</td>
+            </tr>
+            <tr>
+                <td>OD</td>
+                <td>20/</td>
+                <td> @Html.EditorFor(model => model.Sin_corr_OD, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>OD</td>
+                <td>20/</td>
+                <td> @Html.EditorFor(model => model.Con_corr_OD, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>OS</td>
+                <td>20/</td>
+                <td> @Html.EditorFor(model => model.Sin_corr_OS, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>OS</td>
+                <td>20/</td>
+                <td> @Html.EditorFor(model => model.Con_corr_OS, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <td>AO</td>
+                <td>20/</td>
+                <td> @Html.EditorFor(model => model.Sin_corr_AO, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>AO</td>
+                <td>20/</td>
+                <td> @Html.EditorFor(model => model.Con_corr_AO, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+        </table>
+
+
+
+        <table style="width:100%;">
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2">Agudeza Visual Cercana (Carta de Jaeger)</td>
+            </tr>
+            <tr>
+                <td>Ambos Ojos</td>
+
+                <td>
+                    <select name="AVC_Ambos_ojos" class="form-control">
+                        @{
+                            if (Model.AVC_Ambos_ojos != null)
+                            {
+                                switch (Model.AVC_Ambos_ojos.Trim())
+                                {
+                                    case "J1 Normal":
+                                        {
+                                            <option selected>J1 Normal</option>
+                                            <option>J2 Presbicia</option>
+                                            <option>J3 Presbicia</option>
+                                            <option>J4 Presbicia</option>
+                                            <option>J7 Presbicia</option>
+                                            <option>J12 Presbicia</option>
+                                            <option>J15 Presbicia</option>
+
+                                        }
+                                        break;
+                                    case "J2 Presbicia":
+                                        {
+                                            <option>J1 Normal</option>
+                                            <option selected>J2 Presbicia</option>
+                                            <option>J3 Presbicia</option>
+                                            <option>J4 Presbicia</option>
+                                            <option>J7 Presbicia</option>
+                                            <option>J12 Presbicia</option>
+                                            <option>J15 Presbicia</option>
+
+                                        }
+                                        break;
+                                    case "J3 Presbicia":
+                                        {
+                                            <option>J1 Normal</option>
+                                            <option>J2 Presbicia</option>
+                                            <option selected>J3 Presbicia</option>
+                                            <option>J4 Presbicia</option>
+                                            <option>J7 Presbicia</option>
+                                            <option>J12 Presbicia</option>
+                                            <option>J15 Presbicia</option>
+
+                                        }
+                                        break;
+                                    case "J4 Presbicia":
+                                        {
+                                            <option>J1 Normal</option>
+                                            <option>J2 Presbicia</option>
+                                            <option>J3 Presbicia</option>
+                                            <option selected>J4 Presbicia</option>
+                                            <option>J7 Presbicia</option>
+                                            <option>J12 Presbicia</option>
+                                            <option>J15 Presbicia</option>
+
+                                        }
+                                        break;
+                                    case "J7 Presbicia":
+                                        {
+                                            <option>J1 Normal</option>
+                                            <option>J2 Presbicia</option>
+                                            <option>J3 Presbicia</option>
+                                            <option>J4 Presbicia</option>
+                                            <option selected>J7 Presbicia</option>
+                                            <option>J12 Presbicia</option>
+                                            <option>J15 Presbicia</option>
+
+                                        }
+                                        break;
+                                    case "J12 Presbicia":
+                                        {
+                                            <option>J1 Normal</option>
+                                            <option>J2 Presbicia</option>
+                                            <option>J3 Presbicia</option>
+                                            <option>J4 Presbicia</option>
+                                            <option>J7 Presbicia</option>
+                                            <option> selectedJ12 Presbicia</option>
+                                            <option>J15 Presbicia</option>
+
+                                        }
+                                        break;
+                                    case "J15 Presbicia":
+                                        {
+                                            <option>J1 Normal</option>
+                                            <option>J2 Presbicia</option>
+                                            <option>J3 Presbicia</option>
+                                            <option>J4 Presbicia</option>
+                                            <option>J7 Presbicia</option>
+                                            <option>J12 Presbicia</option>
+                                            <option selected>J15 Presbicia</option>
+
+                                        }
+                                        break;
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>J1 Normal</option>
+                                <option>J2 Presbicia</option>
+                                <option>J3 Presbicia</option>
+                                <option>J4 Presbicia</option>
+                                <option>J7 Presbicia</option>
+                                <option>J12 Presbicia</option>
+                                <option>J15 Presbicia</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <br />
+
+        <h4>Test de Ishihara</h4>
+        <hr />
+        @*<div class="col-md-6">*@
+        <table style="width:100%;">
+            <tr>
+                <td>Lamina</td>
+                <td>Persona Normal</td>
+                <td>Persona con deficiencias rojo y verde</td>
+                <td>Persona con ceguera total o debilidad cromática</td>
+                <td>Respuesta del sujeto</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td> @Html.TextBox("Panorama_Normal_1", "12", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_1", "12", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_1", "12", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto1" class="form-control" onchange="formatIshiahara(this)" id="Respuesta_del_sujeto1">
+                        @{
+                            if (Model.Respuesta_del_sujeto1 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto1.Trim().ToUpper())
+                                {
+                                    case "12":
+                                        {
+                                            <option selected>12</option>
+                                            <option>X</option>
+
+                                        }
+                                        break;
+                                    case "X":
+                                        {
+                                            <option>12</option>
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>12</option>
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td> @Html.TextBox("Panorama_Normal_2", "8", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_2", "3", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_2", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto2" id="Respuesta_del_sujeto2" class="form-control" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto2 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto2.Trim().ToUpper())
+                                {
+                                    case "8":
+                                        {
+                                            <option selected>8</option>
+                                            <option>3</option>
+                                            <option>X</option>
+
+                                        }
+                                        break;
+                                    case "3":
+                                        {
+                                            <option>8</option>
+                                            <option selected>3</option>
+                                            <option>X</option>
+
+                                        }
+                                        break;
+                                    case "X":
+                                        {
+                                            <option>8</option>
+                                            <option>3</option>
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>8</option>
+                                <option>3</option>
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td> @Html.TextBox("Panorama_Normal_3", "5", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_3", "2", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_3", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto3" id="Respuesta_del_sujeto3" class="form-control" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto3 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto3.Trim().ToUpper())
+                                {
+                                    case "5":
+                                        {
+                                            <option selected>5</option>
+                                            <option>2</option>
+                                            <option>X</option>
+
+                                        }
+                                        break;
+                                    case "2":
+                                        {
+                                            <option>5</option>
+                                            <option selected>2</option>
+                                            <option>X</option>
+
+                                        }
+                                        break;
+                                    case "X":
+                                        {
+                                            <option>5</option>
+                                            <option>2</option>
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>5</option>
+                                <option>2</option>
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td> @Html.TextBox("Panorama_Normal_4", "29", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_4", "70", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_4", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto4" id="Respuesta_del_sujeto4" class="form-control" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto4 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto4.Trim().ToUpper())
+                                {
+                                    case "29":
+                                        {
+                                            <option selected>29</option>
+                                            <option>70</option>
+                                            <option>X</option>
+
+                                        }
+                                        break;
+                                    case "70":
+                                        {
+                                            <option>29</option>
+                                            <option selected>70</option>
+                                            <option>X</option>
+
+                                        }
+                                        break;
+                                    case "X":
+                                        {
+                                            <option>29</option>
+                                            <option>70</option>
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>29</option>
+                                <option>70</option>
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td>5</td>
+                <td> @Html.TextBox("Panorama_Normal_5", "74", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_5", "21", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_5", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto5" id="Respuesta_del_sujeto5" class="form-control" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto5 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto5.Trim().ToUpper())
+                                {
+                                    case "74":
+                                        {
+                                            <option selected>74</option>
+                                            <option>21</option>
+                                            <option>X</option>
+
+                                        }
+                                        break;
+                                    case "21":
+                                        {
+                                            <option>74</option>
+                                            <option selected>21</option>
+                                            <option>X</option>
+
+                                        }
+                                        break;
+                                    case "X":
+                                        {
+                                            <option>74</option>
+                                            <option>21</option>
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>74</option>
+                                <option>21</option>
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td> @Html.TextBox("Panorama_Normal_6", "7", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_6", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_6", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto6" id="Respuesta_del_sujeto6" class="form-control" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto6 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto6.Trim().ToUpper())
+                                {
+                                    case "7":
+                                        {
+                                            <option selected>7</option>
+
+                                            <option>X</option>
+
+                                        }
+                                        break;
+
+                                    case "X":
+                                        {
+                                            <option>7</option>
+
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>7</option>
+
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td> @Html.TextBox("Panorama_Normal_7", "45", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_7", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_7", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto7" id="Respuesta_del_sujeto7" class="form-control" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto7 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto7.Trim().ToUpper())
+                                {
+                                    case "45":
+                                        {
+                                            <option selected>45</option>
+
+                                            <option>X</option>
+
+                                        }
+                                        break;
+
+                                    case "X":
+                                        {
+                                            <option>45</option>
+
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>45</option>
+
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td> @Html.TextBox("Panorama_Normal_8", "2", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_8", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_8", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto8" id="Respuesta_del_sujeto8" class="form-control" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto8 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto8.Trim().ToUpper())
+                                {
+                                    case "2":
+                                        {
+                                            <option selected>2</option>
+
+                                            <option>X</option>
+
+                                        }
+                                        break;
+
+                                    case "X":
+                                        {
+                                            <option>2</option>
+
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>2</option>
+
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td> @Html.TextBox("Panorama_Normal_9", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_9", "2", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_9", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto9" class="form-control" id="Respuesta_del_sujeto9" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto9 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto9.Trim().ToUpper())
+                                {
+                                    case "2":
+                                        {
+                                            <option selected>2</option>
+
+                                            <option>X</option>
+
+                                        }
+                                        break;
+
+                                    case "X":
+                                        {
+                                            <option>2</option>
+
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>2</option>
+
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td> @Html.TextBox("Panorama_Normal_10", "16", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_10", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_10", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto10" class="form-control" id="Respuesta_del_sujeto10" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto10 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto10.Trim().ToUpper())
+                                {
+                                    case "16":
+                                        {
+                                            <option selected>16</option>
+
+                                            <option>X</option>
+
+                                        }
+                                        break;
+
+                                    case "X":
+                                        {
+                                            <option>16</option>
+
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>16</option>
+
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td> @Html.TextBox("Panorama_Normal_11", "Trazable", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+
+                    @Html.TextBox("Deficiencias_Rojo_y_Verde_11", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+
+                    @Html.TextBox("Ceguera_total_o_deilidad_cromatica_11", "X", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto11" class="form-control" id="Respuesta_del_sujeto11" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto11 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto11.Trim().ToUpper())
+                                {
+                                    case "TRAZABLE":
+                                        {
+                                            <option selected>Trazable</option>
+
+                                            <option>X</option>
+
+                                        }
+                                        break;
+
+                                    case "X":
+                                        {
+                                            <option>Trazable</option>
+
+                                            <option selected>X</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>Trazable</option>
+
+                                <option>X</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+
+
+        <h4>Campos visuales por confrontación</h4>
+        <hr />
+        <div class="col-md-6">
+            @*<table style="width:100%;">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td colspan="2" align="center">Ojo derecho</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>TS</td>
+                        <td> @Html.EditorFor(model => model.Ojo_derecho_TS, new { htmlAttributes = new { @class = "form-control" } })</td>
+                        <td> @Html.EditorFor(model => model.Ojo_izquierdo_NS, new { htmlAttributes = new { @class = "form-control" } })</td>
+                        <td>NS</td>
+                    </tr>
+                    <tr>
+                        <td>TI</td>
+                        <td> @Html.EditorFor(model => model.Ojo_derecho_TI, new { htmlAttributes = new { @class = "form-control" } })</td>
+                        <td> @Html.EditorFor(model => model.Ojo_izquierdo_NI, new { htmlAttributes = new { @class = "form-control" } })</td>
+                        <td>NI</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td colspan="2" align="center">Ojo Izquierdo</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>NS</td>
+                        <td> @Html.EditorFor(model => model.Ojo_derecho_NS, new { htmlAttributes = new { @class = "form-control" } })</td>
+                        <td> @Html.EditorFor(model => model.Ojo_izquierdo_TS, new { htmlAttributes = new { @class = "form-control" } })</td>
+                        <td>TS</td>
+                    </tr>
+                    <tr>
+                        <td>NI</td>
+                        <td> @Html.EditorFor(model => model.Ojo_derecho_NI, new { htmlAttributes = new { @class = "form-control" } })</td>
+                        <td> @Html.EditorFor(model => model.Ojo_izquierdo_TI, new { htmlAttributes = new { @class = "form-control" } })</td>
+                        <td>TI</td>
+                    </tr>
+                </table>*@
+        </div>
+        <table style="width:100%;">
+            <tr>
+                <td>Lamina</td>
+                <td>Persona normal</td>
+                <td>Deficiencia rojo y verde LEVE</td>
+                <td>Protanopia &amp; Protanomalía</td>
+                <td>Deuteranopia &amp; Deuteranomalía</td>
+                <td>Respuesta del sujeto</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td> @Html.TextBox("Persona_normal_12", "35", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+                    @Html.TextBox("Deficiencia_rojo_y_verde_LEVE_12", "35", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    @Html.TextBox("Protanopia_y_protanomalia_12", "5", htmlAttributes: new { @class = "form-control", @readonly = "" })
+
+                </td>
+                <td>
+                    @Html.TextBox("Deuteranopia_y_deuteronomalia_12", "3", htmlAttributes: new { @class = "form-control", @readonly = "" })
+
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto_12" id="Respuesta_del_sujeto_12" class="form-control" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto_12 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto_12)
+                                {
+                                    case 35:
+                                        {
+                                            <option selected>35</option>
+                                            <option>5</option>
+                                            <option>3</option>
+
+                                        }
+                                        break;
+
+                                    case 5:
+                                        {
+                                            <option>35</option>
+                                            <option selected>5</option>
+                                            <option>3</option>
+
+                                        }
+                                        break;
+                                    case 3:
+                                        {
+                                            <option>35</option>
+                                            <option>5</option>
+                                            <option selected>3</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>35</option>
+                                <option>5</option>
+                                <option>3</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td> @Html.TextBox("Persona_normal_13", "96", htmlAttributes: new { @class = "form-control", @readonly = "" })</td>
+                <td>
+                    @Html.TextBox("Deficiencia_rojo_y_verde_LEVE_13", "96", htmlAttributes: new { @class = "form-control", @readonly = "" })
+                </td>
+                <td>
+                    @Html.TextBox("Protanopia_y_protanomalia_13", "6", htmlAttributes: new { @class = "form-control", @readonly = "" })
+
+                </td>
+                <td>
+                    @Html.TextBox("Deuteranopia_y_deuteronomalia_13", "9", htmlAttributes: new { @class = "form-control", @readonly = "" })
+
+                </td>
+                <td>
+                    <select name="Respuesta_del_sujeto_13" id="Respuesta_del_sujeto_13" class="form-control" onchange="formatIshiahara(this)">
+                        @{
+                            if (Model.Respuesta_del_sujeto_13 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto_13)
+                                {
+                                    case 96:
+                                        {
+                                            <option selected>96</option>
+                                            <option>6</option>
+                                            <option>9</option>
+
+                                        }
+                                        break;
+
+                                    case 6:
+                                        {
+                                            <option>96</option>
+                                            <option selected>6</option>
+                                            <option>9</option>
+
+                                        }
+                                        break;
+                                    case 9:
+                                        {
+                                            <option>96</option>
+                                            <option>6</option>
+                                            <option selected>9</option>
+
+                                        }
+                                        break;
+
+
+                                }
+                            }
+                            else
+                            {
+
+                                <option>96</option>
+                                <option>6</option>
+                                <option>9</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr>
+                <td class="auto-style2">Lamina</td>
+                <td class="auto-style2">Respuesta del sujeto [Resultado]</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>
+                    <select name="Respuesta_del_sujeto_14" class="form-control">
+                        @{
+                            if (Model.Respuesta_del_sujeto_14 != null)
+                            {
+                                switch (Model.Respuesta_del_sujeto_14.Trim())
+                                {
+                                    case "Traza 2 líneas [Normal]":
+                                        {
+                                            <option selected>Traza 2 l&iacute;neas [Normal]</option>
+                                            <option>Traza l&iacute;neas purpura [Protanopia o Protanomal&iacute;a aguda]</option>
+                                            <option>Traza 2 l&iacute;neas, purpura con mayor facilidad [Protanomal&iacute;a leve]</option>
+                                            <option>Traza l&iacute;nea roja [Deuteranopia o deuteranomal&iacute;a aguda]</option>
+                                            <option>Traza 2 l&iacute;neas, roja con mayor facilidad [Deuteranomal&iacute;a leve]</option>
+                                        }
+                                        break;
+                                    case "Traza línea purpura [Protanopia o Protanomalía aguda]":
+                                        {
+                                            <option>Traza 2 l&iacute;neas [Normal]</option>
+                                            <option selected>Traza l&iacute;neas purpura [Protanopia o Protanomal&iacute;a aguda]</option>
+                                            <option>Traza 2 l&iacute;neas, purpura con mayor facilidad [Protanomal&iacute;a leve]</option>
+                                            <option>Traza l&iacute;nea roja [Deuteranopia o deuteranomal&iacute;a aguda]</option>
+                                            <option>Traza 2 l&iacute;neas, roja con mayor facilidad [Deuteranomal&iacute;a leve]</option>
+                                        }
+                                        break;
+                                    case "Traza 2 líneas, purpura con mayor facilidad [Protanomalía leve]":
+                                        {
+                                            <option>Traza 2 l&iacute;neas [Normal]</option>
+                                            <option>Traza l&iacute;neas purpura [Protanopia o Protanomal&iacute;a aguda]</option>
+                                            <option selected>Traza 2 l&iacute;neas, purpura con mayor facilidad [Protanomal&iacute;a leve]</option>
+                                            <option>Traza l&iacute;nea roja [Deuteranopia o deuteranomal&iacute;a aguda]</option>
+                                            <option>Traza 2 l&iacute;neas, roja con mayor facilidad [Deuteranomal&iacute;a leve]</option>
+                                        }
+                                        break;
+                                    case "Traza línea roja [Deuteranopia o deuteranomalía aguda]":
+                                        {
+                                            <option>Traza 2 l&iacute;neas [Normal]</option>
+                                            <option>Traza l&iacute;neas purpura [Protanopia o Protanomal&iacute;a aguda]</option>
+                                            <option>Traza 2 l&iacute;neas, purpura con mayor facilidad [Protanomal&iacute;a leve]</option>
+                                            <option selected>Traza l&iacute;nea roja [Deuteranopia o deuteranomal&iacute;a aguda]</option>
+                                            <option>Traza 2 l&iacute;neas, roja con mayor facilidad [Deuteranomal&iacute;a leve]</option>
+                                        }
+                                        break;
+                                    case "Traza 2 líneas, roja con mayor facilidad [Deuteranomalía leve]":
+                                        {
+                                            <option>Traza 2 l&iacute;neas [Normal]</option>
+                                            <option>Traza l&iacute;neas purpura [Protanopia o Protanomal&iacute;a aguda]</option>
+                                            <option>Traza 2 l&iacute;neas, purpura con mayor facilidad [Protanomal&iacute;a leve]</option>
+                                            <option>Traza l&iacute;nea roja [Deuteranopia o deuteranomal&iacute;a aguda]</option>
+                                            <option selected>Traza 2 l&iacute;neas, roja con mayor facilidad [Deuteranomal&iacute;a leve]</option>
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+
+                                <option>Traza 2 l&iacute;neas [Normal]</option>
+                                <option>Traza l&iacute;neas purpura [Protanopia o Protanomal&iacute;a aguda]</option>
+                                <option>Traza 2 l&iacute;neas, purpura con mayor facilidad [Protanomal&iacute;a leve]</option>
+                                <option>Traza l&iacute;nea roja [Deuteranopia o deuteranomal&iacute;a aguda]</option>
+                                <option>Traza 2 l&iacute;neas, roja con mayor facilidad [Deuteranomal&iacute;a leve]</option>
+
+                            }
+                        }
+                        }
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div>
+            @Html.Label("Comentarios:", htmlAttributes: new { @class = "control-label" })
+
+            @Html.TextAreaFor(model => model.Comentarios_, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Comentarios_, "", new { @class = "text-danger" })
+        </div>
+        <table style="width:100%;">
+            <tr>
+                <td colspan="4" align="center">Conclusiones</td>
+            </tr>
+            <tr>
+                <td>Agudeza visual</td>
+                <td>Visión cromática</td>
+                @*<td colspan="2">Campos visuales</td>*@
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <select name="Agudeza_Visual_" class="form-control">
+                        @{
+                            if (Model.Agudeza_Visual_ != null)
+                            {
+                                switch (Model.Agudeza_Visual_.Trim())
+                                {
+                                    case "Ametropía no corregida":
+                                        {
+                                            <option>Emétrope</option>
+                                            <option selected>Ametrop&iacute;a no corregida</option>
+                                            <option>Ametrop&iacute;a corregida</option>
+                                            <option>Presbicia</option>
+                                        }
+                                        break;
+                                    case "Ametropía corregida":
+                                        {
+                                            <option>Emétrope</option>
+                                            <option>Ametrop&iacute;a no corregida</option>
+                                            <option selected>Ametrop&iacute;a corregida</option>
+                                            <option>Presbicia</option>
+                                        }
+                                        break;
+                                    case "Presbicia":
+                                        {
+                                            <option>Emétrope</option>
+                                            <option>Ametrop&iacute;a no corregida</option>
+                                            <option>Ametrop&iacute;a corregida</option>
+                                            <option selected>Presbicia</option>
+                                        }
+                                        break;
+                                    case "Emétrope":
+                                        {
+                                            <option selected>Emétrope</option>
+                                            <option>Ametrop&iacute;a no corregida</option>
+                                            <option>Ametrop&iacute;a corregida</option>
+                                            <option>Presbicia</option>
+                                        }
+                                        break;
+
+                                }
+                            }
+                            else
+                            {
+                                <option>Emétrope</option>
+                                <option>Ametrop&iacute;a no corregida</option>
+                                <option>Ametrop&iacute;a corregida</option>
+                                <option>Presbicia</option>
+
+                            }
+                        }
+
+
+                    </select>
+                </td>
+                <td rowspan="2">
+                    <select name="Vision_cromatica" class="form-control">
+                        @{
+                            if (Model.Vision_cromatica != null)
+                            {
+                                switch (Model.Vision_cromatica.Trim())
+                                {
+                                    case "Visión cromática normal":
+                                        {
+                                            <option selected>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option>Deficiencia al rojo y verde</option>
+                                            <option>Deficiencia al rojo y verde leve</option>
+                                            <option>Protanopia</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option>Protanomal&iacute;a leve</option>
+                                            <option>Deuteranopia</option>
+                                            <option>Deuteranomal&iacute;a aguda</option>
+                                            <option>Deuteranomal&iacute;a leve</option>
+                                            <option>Acromatopsia</option>
+                                        }
+                                        break;
+                                    case "Deficiencia al rojo y verde":
+                                        {
+                                            <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option selected>Deficiencia al rojo y verde</option>
+                                            <option>Deficiencia al rojo y verde leve</option>
+                                            <option>Protanopia</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option>Protanomal&iacute;a leve</option>
+                                            <option>Deuteranopia</option>
+                                            <option>Deuteranomal&iacute;a aguda</option>
+                                            <option>Deuteranomal&iacute;a leve</option>
+                                            <option>Acromatopsia</option>
+                                        }
+                                        break;
+                                    case "Deficiencia al rojo y verde leve":
+                                        {
+                                            <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option>Deficiencia al rojo y verde</option>
+                                            <option selected>Deficiencia al rojo y verde leve</option>
+                                            <option>Protanopia</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option>Protanomal&iacute;a leve</option>
+                                            <option>Deuteranopia</option>
+                                            <option>Deuteranomal&iacute;a aguda</option>
+                                            <option>Deuteranomal&iacute;a leve</option>
+                                            <option>Acromatopsia</option>
+                                        }
+                                        break;
+                                    case "Protanopia":
+                                        {
+                                            <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option>Deficiencia al rojo y verde</option>
+                                            <option>Deficiencia al rojo y verde leve</option>
+                                            <option selected>Protanopia</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option>Protanomal&iacute;a leve</option>
+                                            <option>Deuteranopia</option>
+                                            <option>Deuteranomal&iacute;a aguda</option>
+                                            <option>Deuteranomal&iacute;a leve</option>
+                                            <option>Acromatopsia</option>
+                                        }
+                                        break;
+                                    case "Protanomalía aguda":
+                                        {
+                                            <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option>Deficiencia al rojo y verde</option>
+                                            <option>Deficiencia al rojo y verde leve</option>
+                                            <option>Protanopia</option>
+                                            <option selected>Protanomal&iacute;a aguda</option>
+                                            <option>Protanomal&iacute;a leve</option>
+                                            <option>Deuteranopia</option>
+                                            <option>Deuteranomal&iacute;a aguda</option>
+                                            <option>Deuteranomal&iacute;a leve</option>
+                                            <option>Acromatopsia</option>
+                                        }
+                                        break;
+                                    case "Protanomalía leve":
+                                        {
+                                            <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option>Deficiencia al rojo y verde</option>
+                                            <option>Deficiencia al rojo y verde leve</option>
+                                            <option>Protanopia</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option selected>Protanomal&iacute;a leve</option>
+                                            <option>Deuteranopia</option>
+                                            <option>Deuteranomal&iacute;a aguda</option>
+                                            <option>Deuteranomal&iacute;a leve</option>
+                                            <option>Acromatopsia</option>
+                                        }
+                                        break;
+                                    case "Deuteranopia":
+                                        {
+                                            <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option>Deficiencia al rojo y verde</option>
+                                            <option>Deficiencia al rojo y verde leve</option>
+                                            <option>Protanopia</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option>Protanomal&iacute;a leve</option>
+                                            <option selected>Deuteranopia</option>
+                                            <option>Deuteranomal&iacute;a aguda</option>
+                                            <option>Deuteranomal&iacute;a leve</option>
+                                            <option>Acromatopsia</option>
+                                        }
+                                        break;
+                                    case "Deuteranomalía aguda":
+                                        {
+                                            <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option>Deficiencia al rojo y verde</option>
+                                            <option>Deficiencia al rojo y verde leve</option>
+                                            <option>Protanopia</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option>Protanomal&iacute;a leve</option>
+                                            <option>Deuteranopia</option>
+                                            <option selected>Deuteranomal&iacute;a aguda</option>
+                                            <option>Deuteranomal&iacute;a leve</option>
+                                            <option>Acromatopsia</option>
+                                        }
+                                        break;
+                                    case "Deuteranomalía leve":
+                                        {
+                                            <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option>Deficiencia al rojo y verde</option>
+                                            <option>Deficiencia al rojo y verde leve</option>
+                                            <option>Protanopia</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option>Protanomal&iacute;a leve</option>
+                                            <option>Deuteranopia</option>
+                                            <option>Deuteranomal&iacute;a aguda</option>
+                                            <option selected>Deuteranomal&iacute;a leve</option>
+                                            <option>Acromatopsia</option>
+                                        }
+                                        break;
+                                    case "Acromatopsia":
+                                        {
+                                            <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                            <option>Deficiencia al rojo y verde</option>
+                                            <option>Deficiencia al rojo y verde leve</option>
+                                            <option>Protanopia</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option>Protanomal&iacute;a leve</option>
+                                            <option>Deuteranopia</option>
+                                            <option>Deuteranomal&iacute;a aguda</option>
+                                            <option>Deuteranomal&iacute;a leve</option>
+                                            <option>Protanomal&iacute;a aguda</option>
+                                            <option selected>Acromatopsia</option>
+                                        }
+                                        break;
+
+                                }
+                            }
+                            else
+                            {
+                                <option>Visi&oacute;n crom&aacute;tica normal</option>
+                                <option>Deficiencia al rojo y verde</option>
+                                <option>Deficiencia al rojo y verde leve</option>
+                                <option>Protanopia</option>
+                                <option>Protanomal&iacute;a aguda</option>
+                                <option>Protanomal&iacute;a leve</option>
+                                <option>Deuteranopia</option>
+                                <option>Deuteranomal&iacute;a aguda</option>
+                                <option>Deuteranomal&iacute;a leve</option>
+                                <option>Protanomal&iacute;a aguda</option>
+                                <option>Acromatopsia</option>
+                            }
+                        }
+                    </select>
+                </td>
+                @*<td>OD:</td>
+                    <td>@Html.EditorFor(model => model.Campos_Visuales_OD, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>*@
+            </tr>
+            <tr>
+                @*<td>OS:</td>
+                    <td>@Html.EditorFor(model => model.Campos_visuales_OS, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })</td>*@
+            </tr>
+        </table>
+        Estándar OPS: Agudeza visual disminuida es aquella menor de 20/40
+
+        <div class="col-md-4">
+            <label class="control-label">Resultado:</label>
+            <select name="Resultado" class="form-control">
+
+                @{
+                    if (Model.Resultado != null)
+                    {
+                        switch (Model.Resultado.Trim())
+                        {
+                            case "Normal":
+                                {
+                                    <option selected>Normal</option>
+                                    <option>Daltonico</option>
+                                }
+                                break;
+                            case "Daltonico":
+                                {
+                                    <option>Normal</option>
+                                    <option selected>Daltonico</option>
+                                }
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        <option>Normal</option>
+                        <option>Daltonico</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Buscar Firma:", htmlAttributes: new { @class = "control-label" })
+
+            @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
+            @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+
+        @{
+            try
+            {
+                var base64 = Convert.ToBase64String(Model.Firma);
+                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                <img src="@imgSrc" />
+            }
+            catch
+            {
+
+            }
+        }
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
+
+    <script>
+        //test de Ishiahara check
+        var r1 = document.getElementById("Respuesta_del_sujeto1");
+        formatIshiahara(r1);
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto2'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto3'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto4'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto5'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto6'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto7'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto8'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto9'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto10'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto11'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto_12'));
+        formatIshiahara(document.getElementById('Respuesta_del_sujeto_13'));
+    </script>
+</div>

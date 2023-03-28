@@ -1,0 +1,32 @@
+﻿@model WebParaMelvin.Models.Formulario_S_O
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Esta seguro que desea eliminar este expediente?</h3>
+<div>
+    <h4>Formulario_S_O</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Formulario_S_O)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Formulario_S_O)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Ver formularios", "Index")
+        </div>
+    }
+</div>

@@ -584,6 +584,7 @@
           <Property Name="Bateria_de_un_mes" Type="bit" />
           <Property Name="Bateria_Completa" Type="bit" />
           <Property Name="Historia_clinica_y_examen_fisico" Type="bit" />
+          <Property Name="Consentimiento_informado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Laboratorio">
           <Key>
@@ -841,8 +842,6 @@
           <Property Name="Ultima_modificacion" Type="datetime" />
           <Property Name="Usuario_que_modifico" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'cisam_form_s_o.dbo.Usuario_Empresa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Usuario_Empresa">
           <Key>
             <PropertyRef Name="Id_Usuario_Empresa" />
@@ -1157,14 +1156,8 @@ warning 6002: The table/view 'cisam_form_s_o.dbo.Usuario_Empresa' does not have 
           <EntitySet Name="RayosX" EntityType="Self.RayosX" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario_Empresa" EntityType="Self.Usuario_Empresa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario_Rol" EntityType="Self.Usuario_Rol" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Usuario_Empresa" EntityType="Self.Usuario_Empresa" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Usuario_Empresa].[Id_Usuario_Empresa] AS [Id_Usuario_Empresa], 
-    [Usuario_Empresa].[Id_Usuario] AS [Id_Usuario], 
-    [Usuario_Empresa].[Id_empresa] AS [Id_empresa]
-    FROM [dbo].[Usuario_Empresa] AS [Usuario_Empresa]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Actividades_1_Usuarios_1" Association="Self.FK_Actividades_1_Usuarios_1">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Actividades" EntitySet="Actividades" />
@@ -2518,6 +2511,7 @@ warning 6002: The table/view 'cisam_form_s_o.dbo.Usuario_Empresa' does not have 
           <Property Name="Bateria_Completa" Type="Boolean" />
           <Property Name="Historia_clinica_y_examen_fisico" Type="Boolean" />
           <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" FromRole="Info_general" ToRole="Formulario_S_O" />
+          <Property Name="Consentimiento_informado" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Info_general_To_Formulario_S_O">
           <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1">
@@ -3381,6 +3375,7 @@ warning 6002: The table/view 'cisam_form_s_o.dbo.Usuario_Empresa' does not have 
           <EntitySetMapping Name="Info_general">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Info_general">
               <MappingFragment StoreEntitySet="Info_general">
+                <ScalarProperty Name="Consentimiento_informado" ColumnName="Consentimiento_informado" />
                 <ScalarProperty Name="Historia_clinica_y_examen_fisico" ColumnName="Historia_clinica_y_examen_fisico" />
                 <ScalarProperty Name="Bateria_Completa" ColumnName="Bateria_Completa" />
                 <ScalarProperty Name="Bateria_de_un_mes" ColumnName="Bateria_de_un_mes" />

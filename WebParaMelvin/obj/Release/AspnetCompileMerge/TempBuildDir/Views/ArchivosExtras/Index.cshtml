@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebParaMelvin.Models.ArchivosExtra>
+
+@*@{
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Archivos Anexos</title>
+</head>
+<body>
+    <h2>Archivos Anexos</h2>
+    <br />
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="data1" id="data1" value="@ViewBag.id" />
+
+        <table width="100%">
+
+            <tr>
+                <td><strong>Archivo:</strong></td>
+                <td><input type="file" name="Archivo" class="form-control-file" /></td>
+                <td><strong>Descripción:</strong></td>
+                <td><input type="text" name="data" id="data" class="form-control" /></td>
+                <td><input type="submit" value="Subir" class="btn btn-default" /></td>
+
+            </tr>
+        </table>
+    }
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Descripción")
+            </th>
+
+
+            <th><strong>Mostrar Archivo</strong></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+
+
+                <td>
+                    <a href="@item.link" class="btn btn-default" target="_blank">Mostrar</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

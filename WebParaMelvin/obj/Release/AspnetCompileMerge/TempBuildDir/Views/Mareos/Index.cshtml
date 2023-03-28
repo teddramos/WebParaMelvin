@@ -1,0 +1,129 @@
+﻿@model IEnumerable<WebParaMelvin.Models.Mareo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pulso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Frecuencia_Cardiaca_Maxima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tension_Arterial1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tension_Arterial2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.C65__Frecuencia_Cartdiaca_Maxima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Primera_Carga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Segund_Carga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tercera_Carga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuarta_Carga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quinta_Carga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VO2Max)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Factor_Correccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resultado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resultado2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pulso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Frecuencia_Cardiaca_Maxima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tension_Arterial1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tension_Arterial2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.C65__Frecuencia_Cartdiaca_Maxima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Primera_Carga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Segund_Carga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tercera_Carga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuarta_Carga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quinta_Carga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VO2Max)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Factor_Correccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resultado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resultado2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comentario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formulario_S_O.Id_Formulario_S_O)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Mareo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Mareo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Mareo })
+        </td>
+    </tr>
+}
+
+</table>

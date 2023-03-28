@@ -1,0 +1,224 @@
+﻿@model WebParaMelvin.Models.CSO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CSO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Antiguedad_en_el_puesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Antiguedad_en_el_puesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tiempo_en_la_empresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tiempo_en_la_empresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anamnesis_ocupacional_ex_fisico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anamnesis_ocupacional_ex_fisico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hemograma_completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hemograma_completo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Audiometria_tonal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Audiometria_tonal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gicemia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gicemia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Espirometria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Espirometria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Urea_creatinina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Urea_creatinina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Panel_de_drogas_minimo_coc_thc_mtd_met)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Panel_de_drogas_minimo_coc_thc_mtd_met)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tuberculosis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tuberculosis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capacidad_fisica_test_manero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capacidad_fisica_test_manero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Examen_de_orina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Examen_de_orina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Agudez_visual_agudeza_campo_profundidad_cromatismo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agudez_visual_agudeza_campo_profundidad_cromatismo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Perfil_Lipidico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Perfil_Lipidico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Electrocardiograma_en_reposo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Electrocardiograma_en_reposo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TGO_TGP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TGO_TGP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Radiografia_De_Torax_PA_Radiografia_lumbo_sacra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Radiografia_De_Torax_PA_Radiografia_lumbo_sacra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HBSAG_Hepatitis_C)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HBSAG_Hepatitis_C)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Otros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Otros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apto_con_restriccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apto_con_restriccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.No_Apto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.No_Apto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aplazado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aplazado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Recomendaciones_observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Recomendaciones_observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

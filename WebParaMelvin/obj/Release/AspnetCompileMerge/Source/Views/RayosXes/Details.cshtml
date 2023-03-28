@@ -1,0 +1,50 @@
+﻿@model WebParaMelvin.Models.RayosX
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RayosX</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tecnica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tecnica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hallasgos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hallasgos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Impresion_diagnostica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Impresion_diagnostica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Formulario_S_O.Id_Formulario_S_O)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_rayos_X }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
