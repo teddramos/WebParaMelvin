@@ -18,9 +18,6 @@ namespace WebParaMelvin.Controllers
         private ceisamco_form_s_oEntities db = new ceisamco_form_s_oEntities();
 
        
-            
-        
-
         // GET: Formulario_S_O
         public ActionResult Index()
         {
