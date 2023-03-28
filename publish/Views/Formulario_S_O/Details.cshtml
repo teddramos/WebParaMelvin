@@ -149,9 +149,13 @@
                     @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
                 </dt>
             }
-            <dt>
-                @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
-            </dt>
+            if (info.Radiografia)
+            {
+                <dt>
+                    @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
+                </dt>
+            }
+            
             if (info.Consentimiento_informado)
             {
                 <dt>

@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>E:\WebParaMelvin\WebParaMelvin\publish</_PublishTargetUrl>
-    <History>True|2023-03-28T01:29:27.8327763Z;False|2023-03-26T22:40:58.8013262-04:00;False|2023-03-26T22:27:47.3941974-04:00;</History>
+    <History>True|2023-03-28T03:51:55.6421468Z;True|2023-03-27T22:32:11.9407593-04:00;True|2023-03-27T22:11:44.5288402-04:00;True|2023-03-27T21:29:27.8327763-04:00;False|2023-03-26T22:40:58.8013262-04:00;False|2023-03-26T22:27:47.3941974-04:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -280,10 +280,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/17/2013 17:03:52</publishTime>
     </File>
     <File Include="bin/WebParaMelvin.dll">
-      <publishTime>03/27/2023 21:29:26</publishTime>
+      <publishTime>03/27/2023 23:51:54</publishTime>
     </File>
     <File Include="bin/WebParaMelvin.pdb">
-      <publishTime>03/27/2023 21:29:26</publishTime>
+      <publishTime>03/27/2023 23:51:54</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
       <publishTime>03/26/2023 22:40:55</publishTime>
@@ -1231,7 +1231,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/20/2023 15:56:45</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/Details.cshtml">
-      <publishTime>03/26/2023 17:23:40</publishTime>
+      <publishTime>03/27/2023 23:50:53</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/Edit.cshtml">
       <publishTime>03/20/2023 15:47:49</publishTime>
@@ -1288,7 +1288,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/20/2023 15:56:45</publishTime>
     </File>
     <File Include="Views/Info_general/Create.cshtml">
-      <publishTime>03/26/2023 17:11:21</publishTime>
+      <publishTime>03/27/2023 22:05:36</publishTime>
     </File>
     <File Include="Views/Info_general/Delete.cshtml">
       <publishTime>03/20/2023 15:56:45</publishTime>

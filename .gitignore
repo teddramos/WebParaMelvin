@@ -1,4 +1,5 @@
-.vs
-WebParaMelvin/bin
-publish
+.vs/
+WebParaMelvin/bin/
+publish/
+WebParaMelvin/obj/
 publish.zip
