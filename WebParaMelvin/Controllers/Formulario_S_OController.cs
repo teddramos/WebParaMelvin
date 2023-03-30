@@ -49,9 +49,9 @@ namespace WebParaMelvin.Controllers
                 }
                 else
                 {
-                    return View(db.Formulario_S_O.ToList().OrderByDescending(a => a.Id_Formulario_S_O).ToList());
+                    //return View(db.Formulario_S_O.ToList().OrderByDescending(a => a.Id_Formulario_S_O).ToList());
 
-                   //return View(db.Formulario_S_O.ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
+                   return View(db.Formulario_S_O.ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
                 }
             }
             return View();
@@ -124,10 +124,14 @@ namespace WebParaMelvin.Controllers
                     List<Info_general> listInfGG = new List<Info_general>();
                     foreach (var inf in listInf.ToList())
                     {
-                        if (inf.Nombre.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Apellido.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Cedula.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Formulario_S_O.Empresa.Nombre.Trim().ToUpper().Contains(vs[0].ToUpper()) || inf.Formulario_S_O.Estado.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()))
+                        if(inf.Nombre != null && inf.Apellido !=null && inf.Cedula != null && inf.Formulario_S_O != null)
                         {
-                            listInfGG.Add(inf);
+                          if (inf.Nombre.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Apellido.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Cedula.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Formulario_S_O.Empresa.Nombre.Trim().ToUpper().Contains(vs[0].ToUpper()) || inf.Formulario_S_O.Estado.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()))
+                                                {
+                                                    listInfGG.Add(inf);
+                                                }
                         }
+                      
                     }
                     List<Formulario_S_O> lista = new List<Formulario_S_O>();
                    
