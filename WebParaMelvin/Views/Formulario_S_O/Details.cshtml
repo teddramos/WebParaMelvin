@@ -25,6 +25,22 @@
 @{
     ViewBag.Title = "Detalles de Expediente";
 }
+<style>
+    .statusbox {
+        padding:2px; margin-left:4px; margin-right:4px; border:solid 1px black;
+        font-size:small;
+    }
+    .gray {
+        background-color:silver;
+    }
+    .blue {
+        background-color:skyblue;
+    }
+    .green {
+        background-color: #20a500;
+        color:white;
+    }
+</style>
 
 <h2>Detalles</h2>
 
@@ -39,143 +55,265 @@
         <dd>
             <h3>@info.Nombre @info.Apellido </h3>
         </dd>
-        <dt>
-            @Html.ActionLink("Información General", "Edit", "Info_general", new { id = info.Id_Info_General }, htmlAttributes: new { })
-        </dt>
-        <dt>
-            @Html.ActionLink("Certificado de Salud Ocupacional", "Edit", "CSOes", new { id = cso.Id_CSO }, htmlAttributes: new { })
-        </dt>
-        @*@if (info.Bateria_Completa)
-        {
-            <dt>
-                @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
-            </dt>
-            <dt>
+
+       
+           
+        <table cellpadding="2">
+            <tr>
+                <td></td>
+                <td colspan="3" align="center" style="font-weight:bold">Estatus</td>
+               
+                <td style="font-weight:bold">Responsable</td>
+            </tr>
+
+
+            <tr>
+                <td style="font-weight:bold">
+                    @Html.ActionLink("Información General", "Edit", "Info_general", new { id = info.Id_Info_General }, htmlAttributes: new {  })
+                </td>
+                <td class="statusbox gray">Aplicada</td>
+                <td class="statusbox blue">En proceso</td>
+                <td class="statusbox green">Finalizada</td>
+                <td class="statusbox">@{
+                    {
+                        var email = db.Usuarios.Find(info.Usuario_que_modifico) != null ? db.Usuarios.Find(info.Usuario_que_modifico).Email : "N/A";
+                    <span>@email</span>
+                        }   }</td>
+
+            </tr>
+            <tr>
+                <td style="font-weight:bold">
+                    @Html.ActionLink("Certificado de Salud Ocupacional", "Edit", "CSOes", new { id = cso.Id_CSO }, htmlAttributes: new { })
+                </td>
+                <td class="statusbox gray">Aplicada</td>
+                <td class="statusbox blue">En proceso</td>
+                <td class="statusbox green">Finalizada</td>
+                <td class="statusbox">
+                    @{
+                        {
+                            var email = db.Usuarios.Find(cso.Usuario_que_modifico) != null ? db.Usuarios.Find(cso.Usuario_que_modifico).Email : "N/A";
+                            <span>@email</span>
+                        } }
+            </td>
+            </tr>
+
+            @{
+                if (info.Historia_clinica_y_examen_fisico)
+                {
+                        <tr>
+                            <td style="font-weight:bold">
+                                @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
+                            </td>
+                            <td class="statusbox gray">Aplicada</td>
+                            <td class="statusbox blue">En proceso</td>
+                            <td class="statusbox green">Finalizada</td>
+                            <td class="statusbox">
+                                @{
+                                    {
+                                        var email = db.Usuarios.Find(historia.Usuario_que_modifico) != null ? db.Usuarios.Find(historia.Usuario_que_modifico).Email : "N/A";
+                                        <span>@email</span>
+                                    } }
+                            </td>
+                        </tr>
+                }
+                if (info.Pre_espirometria)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Pre-Espirometría", "Edit", "Pre_espirometria", new { id = pre_esp.Id_Pre_espirometria }, htmlAttributes: new { })
-            </dt>
-            <dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(pre_esp.Usuario_que_modifico) != null ? db.Usuarios.Find(pre_esp.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
+                }
+                if (info.Audiometria)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Audiometría", "Edit", "Audiometrias", new { id = audio.Id_AudioMetria }, htmlAttributes: new { })
-            </dt>
-            <dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(audio.Usuario_que_modifico) != null ? db.Usuarios.Find(audio.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
+                }
+                if (info.Examen_visual)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
-            </dt>
-            <dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(visual.Usuario_que_modifico) != null ? db.Usuarios.Find(visual.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
+                }
+                if (info.Capacidad_fisica)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Manero", "Edit", "Mareos", new { id = manero.Id_Mareo }, htmlAttributes: new { })
-            </dt>
-            <dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(manero.Usuario_que_modifico) != null ? db.Usuarios.Find(manero.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
+                }
+                if (info.Hemografia)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Hemogramas", "Edit", "Hemogramas", new { id = hemo.Id_Hemograma }, htmlAttributes: new { })
-            </dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(hemo.Usuario_que_modifico) != null ? db.Usuarios.Find(hemo.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
 
-            <dt>
+                }
+                if (info.Laboratorio)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
-            </dt>
-            <dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(lab.Usuario_que_modifico) != null ? db.Usuarios.Find(lab.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
+                }
+                if (info.Espirometria)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
-            </dt>
-            <dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(espiro.Usuario_que_modifico) != null ? db.Usuarios.Find(espiro.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
+                }
+                if (info.Radiografia)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
-            </dt>
-            <dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(rayx.Usuario_que_modifico) != null ? db.Usuarios.Find(rayx.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
+                }
+
+                if (info.Consentimiento_informado)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
-            </dt>
-            <dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(conc.Usuario_que_modifico) != null ? db.Usuarios.Find(conc.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
+                }
+
+                if (info.EKG)
+                {
+        <tr>
+            <td style="font-weight:bold">
                 @Html.ActionLink("Electrocardiograma", "Edit", "EKGs", new { id = ekg.Id_EKG }, htmlAttributes: new { })
-            </dt>
-        }*@
-        @*@if (info.Bateria_de_un_mes)
-        {
-            <dt>
-                @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
-            </dt>
-            <dt>
-                @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
-            </dt>
-            <dt>
-                @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
-            </dt>
-            <dt>
-                @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
-            </dt>
+            </td>
+            <td class="statusbox gray">Aplicada</td>
+            <td class="statusbox blue">En proceso</td>
+            <td class="statusbox green">Finalizada</td>
+            <td class="statusbox">
+                @{
+                    {
+                        var email = db.Usuarios.Find(ekg.Usuario_que_modifico) != null ? db.Usuarios.Find(ekg.Usuario_que_modifico).Email : "N/A";
+                        <span>@email</span>
+                    } }
+            </td>
+        </tr>
+                }
 
-        }
-        else*@
-        @{
-            if (info.Historia_clinica_y_examen_fisico)
-            {
-                <dt>
-                    @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
-                </dt>
-            }
-            if (info.Pre_espirometria)
-            {
-                <dt>
-                    @Html.ActionLink("Pre-Espirometría", "Edit", "Pre_espirometria", new { id = pre_esp.Id_Pre_espirometria }, htmlAttributes: new { })
-                </dt>
-            }
-            if (info.Audiometria)
-            {
-                <dt>
-                    @Html.ActionLink("Audiometría", "Edit", "Audiometrias", new { id = audio.Id_AudioMetria }, htmlAttributes: new { })
-                </dt>
-            }
-            if (info.Examen_visual)
-            {
-                <dt>
-                    @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
-                </dt>
-            }
-            if (info.Capacidad_fisica)
-            {
-                <dt>
-                    @Html.ActionLink("Manero", "Edit", "Mareos", new { id = manero.Id_Mareo }, htmlAttributes: new { })
-                </dt>
-            }
-            if (info.Hemografia)
-            {
-                <dt>
-                    @Html.ActionLink("Hemogramas", "Edit", "Hemogramas", new { id = hemo.Id_Hemograma }, htmlAttributes: new { })
-                </dt>
 
             }
-            if (info.Laboratorio)
-            {
-                <dt>
-                    @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
-                </dt>
-            }
-            if (info.Espirometria)
-            {
-                <dt>
-                    @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
-                </dt>
-            }
-            if (info.Radiografia)
-            {
-                <dt>
-                    @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
-                </dt>
-            }
+        </table>
+           
             
-            if (info.Consentimiento_informado)
-            {
-                <dt>
-                    @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
-                </dt>
-            }
+                    <table name="Info General">
+                        <tr>
+                            
+                        </tr>
+                    </table>
+          
+       
 
-            if (info.EKG)
-            {
-                <dt>
-                    @Html.ActionLink("Electrocardiograma", "Edit", "EKGs", new { id = ekg.Id_EKG }, htmlAttributes: new { })
-                </dt>
-            }
-
-
-
-        }
-
-
-    </dl>
+</dl>
 </div>
 <div>
     <div id="guardarExpedientes">

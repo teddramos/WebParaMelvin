@@ -60,6 +60,8 @@ namespace WebParaMelvin.Controllers
             info_general.Id_Formulario_S_O = fso.Id_Formulario_S_O;
             if (ModelState.IsValid)
             {
+                var user = Session["User"] as Usuario;
+                info_general.Usuario_que_modifico = user.Id_usuario;
                 db.Info_general.Add(info_general);
                 db.SaveChanges();
                 Session["InfoGeneral"] = info_general;

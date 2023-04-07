@@ -18,13 +18,15 @@
     var rayx = db.RayosXes.FirstOrDefault(r => r.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var conc = db.Consentimiento_Informado.FirstOrDefault(c => c.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var ekg = db.EKGs.FirstOrDefault(g => g.Id_Formulario_S_O == Model.Id_Formulario_S_O);
-     }
+
+
+}
 
     <!DOCTYPE html>
 
     <html>
     <head>
-        <meta name="viewport" content="width=device-width" />
+        @*<meta name="viewport"  />*@
         <title>PrintPreview</title>
 
         <style>
@@ -71,20 +73,15 @@
             }
         </style>
 
-        <style>
-
-
-
-        @@page {
-            @@bottom-left { content: "Calle Duarte #13 Maimon, Bonao; Republica Dominicana. Telefono: 809-551-2196 / Fax: 809-551-2056" }
-        }
-        </style>
+        
     </head>
+@{
+    var bodystyle = info.Espirometria ? "font-family: Calibri, Helvetica, Arial, sans-serif;" : "font-family: Calibri, Helvetica, Arial, sans-serif;font-size:13px";
+}
+    <body style="@bodystyle">
 
-    <body style="font-family: Calibri, Helvetica, Arial, sans-serif; font-size: 16px">
 
-
-        <div id="CertificadoSalud">
+        <div id="CertificadoSalud" >
             <table style="width:100%;">
                 <tr>
                     <td>&nbsp;</td>
@@ -104,7 +101,7 @@
                     <td>&nbsp;</td>
                 </tr>
             </table>
-            <table cellspacing="0" class="auto-style1" style="border:1px double">
+            <table cellspacing="0" class="auto-style1" style="border:1px solid">
                 <tr>
                     <td>
                         &nbsp;
@@ -2574,7 +2571,7 @@
                             }
                             catch
                             {
-
+                                <img src="" width="1000" height="0" />
                             }
                         }
                     </p>

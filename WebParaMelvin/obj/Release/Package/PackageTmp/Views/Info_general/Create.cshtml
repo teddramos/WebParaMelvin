@@ -27,7 +27,7 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="form-group">
             @Html.LabelFor(model => model.Empresa, htmlAttributes: new { @class = "control-label col-md-2" })
 
@@ -35,8 +35,9 @@
                 var empresa = db.Empresas.Find(fso.Id_Empresa);
 
             }
-            <span class="control-label">:&nbsp;&nbsp;&nbsp; @empresa.Nombre</span>
-
+            <div class="col-md-10">
+                <input class="form-control" value="@empresa.Nombre"  readonly/>
+            </div>
 
         </div>
 
@@ -82,7 +83,7 @@
         </div>
 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
 
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -139,7 +140,7 @@
 
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
 
         <div class="form-group">
             @Html.LabelFor(model => model.Bateria_de_un_mes, "Batería de un Mes", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
@@ -189,7 +190,6 @@
                 @*<button onclick="_calculateAge()" class="btn btn-danger">calcular</button>*@
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Audiometria, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -198,6 +198,11 @@
 
             </div>
         </div>
+    </div>
+
+    <div class="col-md-3">
+
+
         <div class="form-group">
             @Html.LabelFor(model => model.Capacidad_fisica, "Capacidad Física", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
             <div class="col-md-10">
@@ -252,6 +257,7 @@
 
 
     </div>
+
 
 
 

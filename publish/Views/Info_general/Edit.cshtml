@@ -29,7 +29,7 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id_Info_General)
     @Html.HiddenFor(model => model.Id_Formulario_S_O)
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="form-group">
             @Html.LabelFor(model => model.Empresa, htmlAttributes: new { @class = "control-label col-md-2" })
 
@@ -86,7 +86,7 @@
         </div>
 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
 
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -142,17 +142,17 @@
 
     </div>
 
-    <div class="col-md-4" >
+    <div class="col-md-3">
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Bateria_de_un_mes,"Batería de un Mes", htmlAttributes: new { @class = "control-label col-md-2",@style= "width:100%" })
+            @Html.LabelFor(model => model.Bateria_de_un_mes, "Batería de un Mes", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Bateria_de_un_mes, new { htmlAttributes = new { @class = "form-control bat-un-mes", @type = "checkbox" ,@onclick= "_selectBeteriaCorta(this)" } })
+                @Html.EditorFor(model => model.Bateria_de_un_mes, new { htmlAttributes = new { @class = "form-control bat-un-mes", @type = "checkbox", @onclick = "_selectBeteriaCorta(this)" } })
                 @Html.ValidationMessageFor(model => model.Bateria_de_un_mes, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Bateria_Completa,"Batería Completa", htmlAttributes: new { @class = "control-label col-md-2",@style="width:100%"})
+            @Html.LabelFor(model => model.Bateria_Completa, "Batería Completa", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Bateria_Completa, new { htmlAttributes = new { @class = "form-control bat-comp", @type = "checkbox", @onclick = "_selectBeteriaCompleta(this)" } })
                 @Html.ValidationMessageFor(model => model.Bateria_Completa, "", new { @class = "text-danger" })
@@ -161,7 +161,7 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Historia_clinica_y_examen_fisico,"Historia clínica y examen físico", htmlAttributes: new { @class = "control-label col-md-2", @style="width:100%"})
+            @Html.LabelFor(model => model.Historia_clinica_y_examen_fisico, "Historia clínica y examen físico", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Historia_clinica_y_examen_fisico, new { htmlAttributes = new { @class = "form-control his-cl-ex-fi", @type = "checkbox" } })
                 @Html.ValidationMessageFor(model => model.Historia_clinica_y_examen_fisico, "", new { @class = "text-danger" })
@@ -169,7 +169,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Consentimiento_informado, "Consentiemto Informado", htmlAttributes: new { @class = "control-label col-md-2", @style="width:100%"})
+            @Html.LabelFor(model => model.Consentimiento_informado, "Consentiemto Informado", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Consentimiento_informado, new { htmlAttributes = new { @class = "form-control con-inf", @type = "checkbox" } })
                 @Html.ValidationMessageFor(model => model.Historia_clinica_y_examen_fisico, "", new { @class = "text-danger" })
@@ -177,7 +177,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Pre_espirometria,"Pre Espirometía", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
+            @Html.LabelFor(model => model.Pre_espirometria, "Pre Espirometía", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Pre_espirometria, new { htmlAttributes = new { @class = "form-control pre-esp" } })
                 @Html.ValidationMessageFor(model => model.Pre_espirometria, "", new { @class = "text-danger" })
@@ -192,7 +192,6 @@
                 @*<button onclick="_calculateAge()" class="btn btn-danger">calcular</button>*@
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Audiometria, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -201,8 +200,13 @@
 
             </div>
         </div>
+    </div>
+
+    <div class="col-md-3">
+
+       
         <div class="form-group">
-            @Html.LabelFor(model => model.Capacidad_fisica, "Capacidad Física", htmlAttributes: new { @class = "control-label col-md-2", @style="width:100%" })
+            @Html.LabelFor(model => model.Capacidad_fisica, "Capacidad Física", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Capacidad_fisica, new { htmlAttributes = new { @class = "form-control cap-fisc", @type = "checkbox" } })
                 @Html.ValidationMessageFor(model => model.Capacidad_fisica, "", new { @class = "text-danger" })
@@ -243,7 +247,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Examen_visual,"Examen visual", htmlAttributes: new { @class = "control-label col-md-2", @style="width:100%"})
+            @Html.LabelFor(model => model.Examen_visual, "Examen visual", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Examen_visual, new { htmlAttributes = new { @class = "form-control ex-vi", @type = "checkbox" } })
                 @Html.ValidationMessageFor(model => model.Examen_visual, "", new { @class = "text-danger" })
