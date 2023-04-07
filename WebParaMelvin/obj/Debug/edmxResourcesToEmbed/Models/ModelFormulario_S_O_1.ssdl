@@ -836,6 +836,7 @@
     <Property Name="id_rol" Type="int" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Nombre_completo" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Usuario_Empresa">
     <Key>

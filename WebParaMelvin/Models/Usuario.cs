@@ -29,6 +29,7 @@ namespace WebParaMelvin.Models
         public Nullable<int> id_rol { get; set; }
         public Nullable<System.DateTime> Ultima_modificacion { get; set; }
         public Nullable<int> Usuario_que_modifico { get; set; }
+        public string Nombre_completo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Empresa> Empresas { get; set; }

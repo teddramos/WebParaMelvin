@@ -146,7 +146,7 @@ namespace WebParaMelvin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_usuario,Email,Password,id_rol")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id_usuario,Email,Password,id_rol,Nombre_completo")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -229,7 +229,7 @@ namespace WebParaMelvin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NewUser([Bind(Include = "Id_usuario,Email,Password,id_rol")] Usuario usuario)
+        public ActionResult NewUser([Bind(Include = "Id_usuario,Email,Password,id_rol,Nombre_completo")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {

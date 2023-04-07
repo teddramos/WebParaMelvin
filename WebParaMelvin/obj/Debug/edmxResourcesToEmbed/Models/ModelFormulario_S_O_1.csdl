@@ -103,6 +103,7 @@
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
     <NavigationProperty Name="Actividades" Relationship="ceisamco_form_s_oModel.FK_Actividades_1_Usuarios_1" FromRole="Usuario" ToRole="Actividade" />
+    <Property Name="Nombre_completo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Usuario_Rol">
     <Key>

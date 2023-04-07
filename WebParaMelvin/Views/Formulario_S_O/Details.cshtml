@@ -76,7 +76,7 @@
                 <td class="statusbox green">Finalizada</td>
                 <td class="statusbox">@{
                     {
-                        var email = db.Usuarios.Find(info.Usuario_que_modifico) != null ? db.Usuarios.Find(info.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(info.Usuario_que_modifico) != null ? db.Usuarios.Find(info.Usuario_que_modifico).Nombre_completo : "N/A";
                     <span>@email</span>
                         }   }</td>
 
@@ -91,7 +91,7 @@
                 <td class="statusbox">
                     @{
                         {
-                            var email = db.Usuarios.Find(cso.Usuario_que_modifico) != null ? db.Usuarios.Find(cso.Usuario_que_modifico).Email : "N/A";
+                            var email = db.Usuarios.Find(cso.Usuario_que_modifico) != null ? db.Usuarios.Find(cso.Usuario_que_modifico).Nombre_completo : "N/A";
                             <span>@email</span>
                         } }
             </td>
@@ -110,7 +110,7 @@
                             <td class="statusbox">
                                 @{
                                     {
-                                        var email = db.Usuarios.Find(historia.Usuario_que_modifico) != null ? db.Usuarios.Find(historia.Usuario_que_modifico).Email : "N/A";
+                                        var email = db.Usuarios.Find(historia.Usuario_que_modifico) != null ? db.Usuarios.Find(historia.Usuario_que_modifico).Nombre_completo : "N/A";
                                         <span>@email</span>
                                     } }
                             </td>
@@ -128,7 +128,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(pre_esp.Usuario_que_modifico) != null ? db.Usuarios.Find(pre_esp.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(pre_esp.Usuario_que_modifico) != null ? db.Usuarios.Find(pre_esp.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
@@ -146,7 +146,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(audio.Usuario_que_modifico) != null ? db.Usuarios.Find(audio.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(audio.Usuario_que_modifico) != null ? db.Usuarios.Find(audio.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
@@ -164,7 +164,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(visual.Usuario_que_modifico) != null ? db.Usuarios.Find(visual.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(visual.Usuario_que_modifico) != null ? db.Usuarios.Find(visual.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
@@ -182,7 +182,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(manero.Usuario_que_modifico) != null ? db.Usuarios.Find(manero.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(manero.Usuario_que_modifico) != null ? db.Usuarios.Find(manero.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
@@ -200,7 +200,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(hemo.Usuario_que_modifico) != null ? db.Usuarios.Find(hemo.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(hemo.Usuario_que_modifico) != null ? db.Usuarios.Find(hemo.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
@@ -219,7 +219,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(lab.Usuario_que_modifico) != null ? db.Usuarios.Find(lab.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(lab.Usuario_que_modifico) != null ? db.Usuarios.Find(lab.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
@@ -237,7 +237,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(espiro.Usuario_que_modifico) != null ? db.Usuarios.Find(espiro.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(espiro.Usuario_que_modifico) != null ? db.Usuarios.Find(espiro.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
@@ -255,7 +255,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(rayx.Usuario_que_modifico) != null ? db.Usuarios.Find(rayx.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(rayx.Usuario_que_modifico) != null ? db.Usuarios.Find(rayx.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
@@ -274,7 +274,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(conc.Usuario_que_modifico) != null ? db.Usuarios.Find(conc.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(conc.Usuario_que_modifico) != null ? db.Usuarios.Find(conc.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
@@ -293,7 +293,7 @@
             <td class="statusbox">
                 @{
                     {
-                        var email = db.Usuarios.Find(ekg.Usuario_que_modifico) != null ? db.Usuarios.Find(ekg.Usuario_que_modifico).Email : "N/A";
+                        var email = db.Usuarios.Find(ekg.Usuario_que_modifico) != null ? db.Usuarios.Find(ekg.Usuario_que_modifico).Nombre_completo : "N/A";
                         <span>@email</span>
                     } }
             </td>
