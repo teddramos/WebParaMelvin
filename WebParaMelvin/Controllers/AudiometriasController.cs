@@ -108,12 +108,13 @@ namespace WebParaMelvin.Controllers
             {
                 audiometria.Firma = new byte[audiometria.Archivo.InputStream.Length];
                 audiometria.Archivo.InputStream.Read(audiometria.Firma, 0, audiometria.Firma.Length);
-                var user = Session["User"] as Usuario;
-                audiometria.Usuario_que_modifico = user.Id_usuario;
-                audiometria.Ultima_modificacion = DateTime.Now;
+                
             }
             if (ModelState.IsValid)
             {
+                var user = Session["User"] as Usuario;
+                audiometria.Usuario_que_modifico = user.Id_usuario;
+                audiometria.Ultima_modificacion = DateTime.Now;
                 audiometria.Modificado = true;
                 db.Entry(audiometria).State = EntityState.Modified;
                 db.SaveChanges();

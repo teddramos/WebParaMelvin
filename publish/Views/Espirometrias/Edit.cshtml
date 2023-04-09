@@ -87,161 +87,167 @@
     @Html.HiddenFor(model => model.Archivo)
   
 
-    <div class="form-horizontal">
-        <h4>Espirometria</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+<div class="form-horizontal">
+    <h4>Espirometria</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
 
 
 
-            @Html.Label("Archivo", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Firma, htmlAttributes: new { @class = "form-control", @type = "file" })
-                @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
-            </div>
-
+        @Html.Label("Archivo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Firma, htmlAttributes: new { @class = "form-control", @type = "file" })
+            @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
         </div>
-        <div class="form-group">
-            @Html.Label("Archivo:", htmlAttributes: new { @class = "control-label" })
+
+    </div>
+    <div class="form-group">
+        @Html.Label("Archivo:", htmlAttributes: new { @class = "control-label" })
+
+        @{
+            try
+            {
+                var base64 = Convert.ToBase64String(Model.Archivo);
+                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                <img src="@imgSrc" />
+            }
+            catch
+            {
+
+            }
+        }
+
+    </div>
+
+    <div class="col-md-4">
+        <label class="control-label">Resultado:</label>
+        <select name="Resultado" class="form-control">
 
             @{
-                try
+                if (Model.Resultado != null)
                 {
-                    var base64 = Convert.ToBase64String(Model.Archivo);
-                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-                    <img src="@imgSrc" />
-                }
-                catch
-                {
+                    switch (Model.Resultado.Trim())
+                    {
+                        case "Dentro de los parametros de Normalidad":
+                            {
+                                <option selected>Dentro de los parametros de Normalidad</option>
+                                <option>Dentro de los parametros de Normalidad</option>
+                                <option>Patron Restrictivo Leve</option>
+                                <option>Patron Restrictivo Moderado</option>
+                                <option>Patron Restrictivo Severo</option>
+                                <option>Patron Obstructivo Leve</option>
+                                <option>Patron Obstructivo Moderado</option>
+                                <option>Patron Obstructivo Severo</option>
+                            }
+                            break;
+                        case "Patron Restrictivo Leve":
+                            {
+                                <option>Dentro de los parametros de Normalidad</option>
+                                <option selected>Patron Restrictivo Leve</option>
+                                <option>Patron Restrictivo Moderado</option>
+                                <option>Patron Restrictivo Severo</option>
+                                <option>Patron Obstructivo Leve</option>
+                                <option>Patron Obstructivo Moderado</option>
+                                <option>Patron Obstructivo Severo</option>
+                            }
+                            break;
+                        case "Patron Restrictivo Moderado":
+                            {
+                                <option>Dentro de los parametros de Normalidad</option>
+                                <option>Patron Restrictivo Leve</option>
+                                <option selected>Patron Restrictivo Moderado</option>
+                                <option>Patron Restrictivo Severo</option>
+                                <option>Patron Obstructivo Leve</option>
+                                <option>Patron Obstructivo Moderado</option>
+                                <option>Patron Obstructivo Severo</option>
+                            }
+                            break;
+                        case "Patron Restrictivo Severo":
+                            {
+                                <option>Dentro de los parametros de Normalidad</option>
+                                <option>Patron Restrictivo Leve</option>
+                                <option>Patron Restrictivo Moderado</option>
+                                <option selected>Patron Restrictivo Severo</option>
+                                <option>Patron Obstructivo Leve</option>
+                                <option>Patron Obstructivo Moderado</option>
+                                <option>Patron Obstructivo Severo</option>
+                            }
+                            break;
+                        case "Patron Obstructivo Leve":
+                            {
+                                <option>Dentro de los parametros de Normalidad</option>
+                                <option>Patron Restrictivo Leve</option>
+                                <option>Patron Restrictivo Moderado</option>
+                                <option>Patron Restrictivo Severo</option>
+                                <option selected>Patron Obstructivo Leve</option>
+                                <option>Patron Obstructivo Moderado</option>
+                                <option>Patron Obstructivo Severo</option>
+                            }
+                            break;
+                        case "Patron Obstructivo Moderado":
+                            {
+                                <option>Dentro de los parametros de Normalidad</option>
+                                <option>Patron Restrictivo Leve</option>
+                                <option>Patron Restrictivo Moderado</option>
+                                <option>Patron Restrictivo Severo</option>
+                                <option>Patron Obstructivo Leve</option>
+                                <option selected>Patron Obstructivo Moderado</option>
+                                <option>Patron Obstructivo Severo</option>
+                            }
+                            break;
+                        case "Patron Obstructivo Severo":
+                            {
+                                <option>Dentro de los parametros de Normalidad</option>
+                                <option>Patron Restrictivo Leve</option>
+                                <option>Patron Restrictivo Moderado</option>
+                                <option>Patron Restrictivo Severo</option>
+                                <option>Patron Obstructivo Leve</option>
+                                <option>Patron Obstructivo Moderado</option>
+                                <option selected>Patron Obstructivo Severo</option>
+                            }
+                            break;
+                        default:
+                            {
+                                <option selected>@Model.Resultado.Trim()</option>
+                                <option>Dentro de los parametros de Normalidad</option>
+                                <option>Patron Restrictivo Leve</option>
+                                <option>Patron Restrictivo Moderado</option>
+                                <option>Patron Restrictivo Severo</option>
+                                <option>Patron Obstructivo Leve</option>
+                                <option>Patron Obstructivo Moderado</option>
+                                <option>Patron Obstructivo Severo</option>
 
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    <option>Dentro de los parametros de Normalidad</option>
+                    <option>Patron Restrictivo Leve</option>
+                    <option>Patron Restrictivo Moderado</option>
+                    <option>Patron Restrictivo Severo</option>
+                    <option>Patron Obstructivo Leve</option>
+                    <option>Patron Obstructivo Moderado</option>
+                    <option>Patron Obstructivo Severo</option>
                 }
             }
+        </select>
+    </div>
+    <div class="form-group">
+        @Html.Label("Estado:", htmlAttributes: new { @class = "control-label" })
 
-        </div>
+        @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
 
-        <div class="col-md-4">
-            <label class="control-label">Resultado:</label>
-            <select name="Resultado" class="form-control">
-
-                @{
-                    if (Model.Resultado != null)
-                    {
-                        switch (Model.Resultado.Trim())
-                        {
-                            case "Dentro de los parametros de Normalidad":
-                                {
-                                    <option selected>Dentro de los parametros de Normalidad</option>
-                                    <option>Dentro de los parametros de Normalidad</option>
-                                    <option>Patron Restrictivo Leve</option>
-                                    <option>Patron Restrictivo Moderado</option>
-                                    <option>Patron Restrictivo Severo</option>
-                                    <option>Patron Obstructivo Leve</option>
-                                    <option>Patron Obstructivo Moderado</option>
-                                    <option>Patron Obstructivo Severo</option>
-                                }
-                                break;
-                            case "Patron Restrictivo Leve":
-                                {
-                                    <option>Dentro de los parametros de Normalidad</option>
-                                    <option selected>Patron Restrictivo Leve</option>
-                                    <option>Patron Restrictivo Moderado</option>
-                                    <option>Patron Restrictivo Severo</option>
-                                    <option>Patron Obstructivo Leve</option>
-                                    <option>Patron Obstructivo Moderado</option>
-                                    <option>Patron Obstructivo Severo</option>
-                                }
-                                break;
-                            case "Patron Restrictivo Moderado":
-                                {
-                                    <option>Dentro de los parametros de Normalidad</option>
-                                    <option>Patron Restrictivo Leve</option>
-                                    <option selected>Patron Restrictivo Moderado</option>
-                                    <option>Patron Restrictivo Severo</option>
-                                    <option>Patron Obstructivo Leve</option>
-                                    <option>Patron Obstructivo Moderado</option>
-                                    <option>Patron Obstructivo Severo</option>
-                                }
-                                break;
-                            case "Patron Restrictivo Severo":
-                                {
-                                    <option>Dentro de los parametros de Normalidad</option>
-                                    <option>Patron Restrictivo Leve</option>
-                                    <option>Patron Restrictivo Moderado</option>
-                                    <option selected>Patron Restrictivo Severo</option>
-                                    <option>Patron Obstructivo Leve</option>
-                                    <option>Patron Obstructivo Moderado</option>
-                                    <option>Patron Obstructivo Severo</option>
-                                }
-                                break;
-                            case "Patron Obstructivo Leve":
-                                {
-                                    <option>Dentro de los parametros de Normalidad</option>
-                                    <option>Patron Restrictivo Leve</option>
-                                    <option>Patron Restrictivo Moderado</option>
-                                    <option>Patron Restrictivo Severo</option>
-                                    <option selected>Patron Obstructivo Leve</option>
-                                    <option>Patron Obstructivo Moderado</option>
-                                    <option>Patron Obstructivo Severo</option>
-                                }
-                                break;
-                            case "Patron Obstructivo Moderado":
-                                {
-                                    <option>Dentro de los parametros de Normalidad</option>
-                                    <option>Patron Restrictivo Leve</option>
-                                    <option>Patron Restrictivo Moderado</option>
-                                    <option>Patron Restrictivo Severo</option>
-                                    <option>Patron Obstructivo Leve</option>
-                                    <option selected>Patron Obstructivo Moderado</option>
-                                    <option>Patron Obstructivo Severo</option>
-                                }
-                                break;
-                            case "Patron Obstructivo Severo":
-                                {
-                                    <option>Dentro de los parametros de Normalidad</option>
-                                    <option>Patron Restrictivo Leve</option>
-                                    <option>Patron Restrictivo Moderado</option>
-                                    <option>Patron Restrictivo Severo</option>
-                                    <option>Patron Obstructivo Leve</option>
-                                    <option>Patron Obstructivo Moderado</option>
-                                    <option selected>Patron Obstructivo Severo</option>
-                                }
-                                break;
-                            default:
-                                {
-                                    <option selected>@Model.Resultado.Trim()</option>
-                                    <option>Dentro de los parametros de Normalidad</option>
-                                    <option>Patron Restrictivo Leve</option>
-                                    <option>Patron Restrictivo Moderado</option>
-                                    <option>Patron Restrictivo Severo</option>
-                                    <option>Patron Obstructivo Leve</option>
-                                    <option>Patron Obstructivo Moderado</option>
-                                    <option>Patron Obstructivo Severo</option>
-
-                                }
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        <option>Dentro de los parametros de Normalidad</option>
-                        <option>Patron Restrictivo Leve</option>
-                        <option>Patron Restrictivo Moderado</option>
-                        <option>Patron Restrictivo Severo</option>
-                        <option>Patron Obstructivo Leve</option>
-                        <option>Patron Obstructivo Moderado</option>
-                        <option>Patron Obstructivo Severo</option>
-                    }
-                }
-            </select>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
-            </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
         </div>
     </div>
+</div>
 }
 
 <div>

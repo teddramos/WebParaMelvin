@@ -102,7 +102,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        
+
         <table style="width:100%;">
             <tr>
                 <td colspan="9" align="center">Anamnesis Auditiva</td>
@@ -137,7 +137,7 @@
             <tr>
                 <td colspan="3">Ha tenido infecciones en los oidos</td>
                 <td>@Html.EditorFor(model => model.Ha_tenido_infecciones_en_los_oidos)</td>
-                <td>@Html.CheckBox( "Ha_tenido_infecciones_en_los_oidos_no")</td>
+                <td>@Html.CheckBox("Ha_tenido_infecciones_en_los_oidos_no")</td>
                 <td>&nbsp;</td>
                 <td>Exposicion</td>
                 <td> @Html.EditorFor(model => model.Exposicion, new { htmlAttributes = new { @class = "form-control" } })</td>
@@ -426,7 +426,7 @@
                 </tr>
                 <tr>
                     <td>Prueba Actual</td>
-                    <td>@Html.TextBoxFor(model => model.Oiz_5002, htmlAttributes: new { @style = "width:37px", @onkeypress = "return isNumberKey(event)", @onkeyup = "DoGraphics()"})</td>
+                    <td>@Html.TextBoxFor(model => model.Oiz_5002, htmlAttributes: new { @style = "width:37px", @onkeypress = "return isNumberKey(event)", @onkeyup = "DoGraphics()" })</td>
                     <td>@Html.TextBoxFor(model => model.Oiz_1K2, htmlAttributes: new { @style = "width:37px", @onkeypress = "return isNumberKey(event)", @onkeyup = "DoGraphics()" })</td>
                     <td>@Html.TextBoxFor(model => model.Oiz_2K2, htmlAttributes: new { @style = "width:37px", @onkeypress = "return isNumberKey(event)", @onkeyup = "DoGraphics()" })</td>
                     <td>@Html.TextBoxFor(model => model.Oiz_3K2, htmlAttributes: new { @style = "width:37px", @onkeypress = "return isNumberKey(event)", @onkeyup = "DoGraphics()" })</td>
@@ -487,7 +487,8 @@
 
         </div>
     </div>
-    <div class="col-md-4"><label class="control-label">Resultado:</label>
+    <div class="col-md-4">
+        <label class="control-label">Resultado:</label>
         <select name="Resultado" class="form-control">
 
             @{
@@ -501,7 +502,8 @@
                                 <option>Hipoacusia leve</option>
                                 <option>Hipoacusia moderada</option>
                                 <option>Hipoacusia severa</option>
-                                <option>Hipoacusia profunda</option>}
+                                <option>Hipoacusia profunda</option>
+}
                             break;
                         case "Hipoacusia leve":
                             {
@@ -509,7 +511,8 @@
                                 <option selected>Hipoacusia leve</option>
                                 <option>Hipoacusia moderada</option>
                                 <option>Hipoacusia severa</option>
-                                <option>Hipoacusia profunda</option>}
+                                <option>Hipoacusia profunda</option>
+}
                             break;
                         case "Hipoacusia moderada":
                             {
@@ -517,7 +520,8 @@
                                 <option>Hipoacusia leve</option>
                                 <option selected>Hipoacusia moderada</option>
                                 <option>Hipoacusia severa</option>
-                                <option>Hipoacusia profunda</option>}
+                                <option>Hipoacusia profunda</option>
+}
                             break;
                         case "Hipoacusia severa":
                             {
@@ -525,7 +529,8 @@
                                 <option>Hipoacusia leve</option>
                                 <option>Hipoacusia moderada</option>
                                 <option selected>Hipoacusia severa</option>
-                                <option>Hipoacusia profunda</option>}
+                                <option>Hipoacusia profunda</option>
+}
                             break;
                         case "Hipoacusia profunda":
                             {
@@ -533,7 +538,8 @@
                                 <option>Hipoacusia leve</option>
                                 <option>Hipoacusia moderada</option>
                                 <option>Hipoacusia severa</option>
-                                <option selected>Hipoacusia profunda</option>}
+                                <option selected>Hipoacusia profunda</option>
+}
                             break;
                     }
                 }
@@ -573,7 +579,13 @@
         }
 
     </div>
+    <div class="form-group">
+        @Html.Label("Estado:", htmlAttributes: new { @class = "control-label" })
 
+        @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+
+    </div>
 
     <div class="form-group" style="color:#ff0000">
         <div class="col-md-offset-2 col-md-10">

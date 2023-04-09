@@ -40,6 +40,9 @@
         background-color: #20a500;
         color:white;
     }
+    .white {
+
+    }
 </style>
 
 <h2>Detalles</h2>
@@ -61,7 +64,7 @@
         <table cellpadding="2">
             <tr>
                 <td></td>
-                <td colspan="3" align="center" style="font-weight:bold">Estatus</td>
+                <td colspan="3" align="center" style="font-weight:bold; width:50%" >Estatus</td>
                
                 <td style="font-weight:bold">Responsable</td>
             </tr>
@@ -69,32 +72,83 @@
 
             <tr>
                 <td style="font-weight:bold">
-                    @Html.ActionLink("Información General", "Edit", "Info_general", new { id = info.Id_Info_General }, htmlAttributes: new {  })
+                    @Html.ActionLink("Información General", "Edit", "Info_general", new { id = info.Id_Info_General }, htmlAttributes: new { })
                 </td>
-                <td class="statusbox gray">Aplicada</td>
-                <td class="statusbox blue">En proceso</td>
-                <td class="statusbox green">Finalizada</td>
-                <td class="statusbox">@{
+                @{
+                    if (info.Estado == "Aplicada")
                     {
-                        var email = db.Usuarios.Find(info.Usuario_que_modifico) != null ? db.Usuarios.Find(info.Usuario_que_modifico).Nombre_completo : "N/A";
-                    <span>@email</span>
-                        }   }</td>
+                         <td class="statusbox green">@info.Estado </td>
+                    }
+                    else
+                    {
+                    <td class="statusbox">Aplicada</td>
+                    }
+
+
+                    if (info.Estado == "En proceso")
+                    {
+                        <td class="statusbox green">@info.Estado</td>
+                    }
+                    else
+                    {
+                        <td class="statusbox">En proceso</td>
+                    }
+                    if (info.Estado == "Finalizada")
+                    {
+                        <td class="statusbox green">@info.Estado</td>
+                    }
+                    else
+                    {
+                        <td class="statusbox">Finalizada</td>
+                    }
+                }
+
+                <td class="statusbox">
+                    @{
+                        {
+                            var email = db.Usuarios.Find(info.Usuario_que_modifico) != null ? db.Usuarios.Find(info.Usuario_que_modifico).Nombre_completo : "N/A";
+                            <span>@email</span>
+                        } }
+                </td>
 
             </tr>
             <tr>
                 <td style="font-weight:bold">
                     @Html.ActionLink("Certificado de Salud Ocupacional", "Edit", "CSOes", new { id = cso.Id_CSO }, htmlAttributes: new { })
                 </td>
-                <td class="statusbox gray">Aplicada</td>
-                <td class="statusbox blue">En proceso</td>
-                <td class="statusbox green">Finalizada</td>
+                @{
+                    if (cso.Estado == "Aplicada")
+                    {
+                        <td class="statusbox green">@cso.Estado </td>
+                    }
+                    else
+                    {
+            <td class="statusbox">Aplicada</td>
+                    }
+                    if (cso.Estado == "En proceso")
+                    {
+                        <td class="statusbox green">@cso.Estado</td>
+                    }
+                    else
+                    {
+            <td class="statusbox">En proceso</td>
+                    }
+                    if (cso.Estado == "Finalizada")
+                    {
+                        <td class="statusbox green">@cso.Estado</td>
+                    }
+                    else
+                    {
+            <td class="statusbox">Finalizada</td>
+                    }
+                }
                 <td class="statusbox">
                     @{
                         {
                             var email = db.Usuarios.Find(cso.Usuario_que_modifico) != null ? db.Usuarios.Find(cso.Usuario_que_modifico).Nombre_completo : "N/A";
                             <span>@email</span>
                         } }
-            </td>
+                </td>
             </tr>
 
             @{
@@ -104,9 +158,32 @@
                             <td style="font-weight:bold">
                                 @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
                             </td>
-                            <td class="statusbox gray">Aplicada</td>
-                            <td class="statusbox blue">En proceso</td>
-                            <td class="statusbox green">Finalizada</td>
+                            @{
+                                if (historia.Estado == "Aplicada")
+                                {
+                                    <td class="statusbox green">@historia.Estado </td>
+                                }
+                                else
+                                {
+                        <td class="statusbox">Aplicada</td>
+                                }
+                                if (historia.Estado == "En proceso")
+                                {
+                                    <td class="statusbox green">@historia.Estado</td>
+                                }
+                                else
+                                {
+                        <td class="statusbox">En proceso</td>
+                                }
+                                if (historia.Estado == "Finalizada")
+                                {
+                                    <td class="statusbox green">@historia.Estado</td>
+                                }
+                                else
+                                {
+                        <td class="statusbox">Finalizada</td>
+                                }
+                            }
                             <td class="statusbox">
                                 @{
                                     {
@@ -122,9 +199,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Pre-Espirometría", "Edit", "Pre_espirometria", new { id = pre_esp.Id_Pre_espirometria }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (pre_esp.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@pre_esp.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (pre_esp.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@pre_esp.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (pre_esp.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@pre_esp.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {
@@ -140,9 +240,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Audiometría", "Edit", "Audiometrias", new { id = audio.Id_AudioMetria }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (audio.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@audio.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (audio.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@audio.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (audio.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@audio.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {
@@ -158,9 +281,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (visual.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@visual.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (visual.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@visual.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (visual.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@visual.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {
@@ -176,9 +322,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Manero", "Edit", "Mareos", new { id = manero.Id_Mareo }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (manero.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@manero.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (manero.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@manero.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (manero.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@manero.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {
@@ -194,9 +363,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Hemogramas", "Edit", "Hemogramas", new { id = hemo.Id_Hemograma }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (hemo.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@hemo.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (hemo.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@hemo.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (hemo.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@hemo.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {
@@ -213,9 +405,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (lab.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@lab.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (lab.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@lab.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (lab.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@lab.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {
@@ -231,9 +446,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (espiro.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@espiro.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (espiro.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@espiro.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (espiro.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@espiro.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {
@@ -249,9 +487,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (rayx.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@rayx.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (rayx.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@rayx.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (rayx.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@rayx.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {
@@ -268,9 +529,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (conc.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@conc.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (conc.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@conc.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (conc.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@conc.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {
@@ -287,9 +571,32 @@
             <td style="font-weight:bold">
                 @Html.ActionLink("Electrocardiograma", "Edit", "EKGs", new { id = ekg.Id_EKG }, htmlAttributes: new { })
             </td>
-            <td class="statusbox gray">Aplicada</td>
-            <td class="statusbox blue">En proceso</td>
-            <td class="statusbox green">Finalizada</td>
+            @{
+                if (ekg.Estado == "Aplicada")
+                {
+                    <td class="statusbox green">@ekg.Estado </td>
+                }
+                else
+                {
+        <td class="statusbox">Aplicada</td>
+                }
+                if (ekg.Estado == "En proceso")
+                {
+                    <td class="statusbox green">@ekg.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">En proceso</td>
+                }
+                if (ekg.Estado == "Finalizada")
+                {
+                    <td class="statusbox green">@ekg.Estado</td>
+                }
+                else
+                {
+        <td class="statusbox">Finalizada</td>
+                }
+            }
             <td class="statusbox">
                 @{
                     {

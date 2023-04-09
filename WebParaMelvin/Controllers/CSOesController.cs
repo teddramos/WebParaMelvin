@@ -145,11 +145,12 @@ namespace WebParaMelvin.Controllers
             {
                 cSO.Firma = new byte[cSO.Archivo.InputStream.Length];
                 cSO.Archivo.InputStream.Read(cSO.Firma, 0, cSO.Firma.Length);
-                var user = Session["User"] as Usuario;
-                cSO.Usuario_que_modifico = user.Id_usuario;
-                cSO.Ultima_modificacion = DateTime.Now;
+               
             }
-            
+            var user = Session["User"] as Usuario;
+            cSO.Usuario_que_modifico = user.Id_usuario;
+            cSO.Ultima_modificacion = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 db.Entry(cSO).State = EntityState.Modified;

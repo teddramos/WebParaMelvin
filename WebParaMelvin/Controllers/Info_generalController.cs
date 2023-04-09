@@ -62,6 +62,7 @@ namespace WebParaMelvin.Controllers
             {
                 var user = Session["User"] as Usuario;
                 info_general.Usuario_que_modifico = user.Id_usuario;
+                info_general.Estado = "Finalizada";
                 db.Info_general.Add(info_general);
                 db.SaveChanges();
                 Session["InfoGeneral"] = info_general;
@@ -105,6 +106,7 @@ namespace WebParaMelvin.Controllers
                 var user = Session["User"] as Usuario;
                 info_general.Usuario_que_modifico = user.Id_usuario;
                 info_general.Ultima_modificacion = DateTime.Now;
+                info_general.Estado = "Finalizada";
                 db.Entry(info_general).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details/" + info_general.Id_Formulario_S_O, "Formulario_S_O");

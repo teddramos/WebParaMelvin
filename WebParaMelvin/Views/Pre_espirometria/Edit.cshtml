@@ -89,151 +89,157 @@
     @Html.HiddenFor(model => model.Id_Formulario_S_O)
     @*@Html.HiddenFor(model => model.Firma)*@
    
-    <div class="form-horizontal">
-        <h4>Pre_espirometria</h4>
-        <hr />
+<div class="form-horizontal">
+    <h4>Pre_espirometria</h4>
+    <hr />
 
-        <table style="width:100%;">
-            <tr>
-                <td colspan="2" align="center">Cuestionario A</td>
-                <td>Si</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>1-</td>
-                <td>Tuvo usted alguna cirugia en su pulmon, torax o abdomen, en las ultimas 6 semanas?</td>
-                <td>  @Html.EditorFor(model => model.pulmon_torax_abdomen, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td>  @Html.EditorFor(model => model.pulmon_torax_abdomenA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>2-</td>
-                <td>Tuvo un ataque cardiaco o infarto al corazon, en las ultimas 6 semanas?</td>
-                <td> @Html.EditorFor(model => model.infarto_al_corazon, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.infarto_al_corazonA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>3-</td>
-                <td>Tuvo desprendimiento de la retina o cirugia en los ojos, en las ultimas 6 semanas?</td>
-                <td> @Html.EditorFor(model => model.retina_cirugia, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.retina_cirugiaA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>4-</td>
-                <td>Estuvo hospitalizado por cualquier otro problema del corazon, en las ultimas 6 semanas?</td>
-                <td> @Html.EditorFor(model => model.problema_corazon, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.problema_corazonA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>5-</td>
-                <td>Esta usando medicamentos para la tuberculosis en este momento?</td>
-                <td> @Html.EditorFor(model => model.medicamento_tuberculosis, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.medicamento_tuberculosisA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>6-</td>
-                <td>Esta embarazada en este momento?</td>
-                <td>
-                    <select class="form-control" name="Esta_embarazada">
-                        @{
-                            if (Model.Esta_embarazada != null)
+    <table style="width:100%;">
+        <tr>
+            <td colspan="2" align="center">Cuestionario A</td>
+            <td>Si</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>1-</td>
+            <td>Tuvo usted alguna cirugia en su pulmon, torax o abdomen, en las ultimas 6 semanas?</td>
+            <td>  @Html.EditorFor(model => model.pulmon_torax_abdomen, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td>  @Html.EditorFor(model => model.pulmon_torax_abdomenA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>2-</td>
+            <td>Tuvo un ataque cardiaco o infarto al corazon, en las ultimas 6 semanas?</td>
+            <td> @Html.EditorFor(model => model.infarto_al_corazon, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.infarto_al_corazonA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>3-</td>
+            <td>Tuvo desprendimiento de la retina o cirugia en los ojos, en las ultimas 6 semanas?</td>
+            <td> @Html.EditorFor(model => model.retina_cirugia, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.retina_cirugiaA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>4-</td>
+            <td>Estuvo hospitalizado por cualquier otro problema del corazon, en las ultimas 6 semanas?</td>
+            <td> @Html.EditorFor(model => model.problema_corazon, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.problema_corazonA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>5-</td>
+            <td>Esta usando medicamentos para la tuberculosis en este momento?</td>
+            <td> @Html.EditorFor(model => model.medicamento_tuberculosis, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.medicamento_tuberculosisA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>6-</td>
+            <td>Esta embarazada en este momento?</td>
+            <td>
+                <select class="form-control" name="Esta_embarazada">
+                    @{
+                        if (Model.Esta_embarazada != null)
+                        {
+                            switch (Model.Esta_embarazada.Trim())
                             {
-                                switch (Model.Esta_embarazada.Trim())
-                                {
-                                    case "Positivo":
-                                        {
-                                            <option selected>Positivo</option>
-                                            <option>Negativo</option>
-                                            <option>No Aplica</option>
-                                        }
-                                        break;
-                                    case "Negativo":
-                                        {
-                                            <option>Positivo</option>
-                                            <option selected>Negativo</option>
-                                            <option>No Aplica</option>
-                                        }
-                                        break;
-                                    case "No Aplica":
-                                        {
-                                            <option>Positivo</option>
-                                            <option>Negativo</option>
-                                            <option selected>No Aplica</option>
-                                        }
-                                        break;
+                                case "Positivo":
+                                    {
+                                        <option selected>Positivo</option>
+                                        <option>Negativo</option>
+                                        <option>No Aplica</option>
+                                    }
+                                    break;
+                                case "Negativo":
+                                    {
+                                        <option>Positivo</option>
+                                        <option selected>Negativo</option>
+                                        <option>No Aplica</option>
+                                    }
+                                    break;
+                                case "No Aplica":
+                                    {
+                                        <option>Positivo</option>
+                                        <option>Negativo</option>
+                                        <option selected>No Aplica</option>
+                                    }
+                                    break;
 
-                                }
-                            }
-                            else
-                            {
-                                {
-                                    <option>Positivo</option>
-                                    <option>Negativo</option>
-                                    <option>No Aplica</option>
-                                }
                             }
                         }
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">Cuestionario B</td>
-            </tr>
-            <tr>
-                <td>1-</td>
-                <td>Esta usted bajo tratamiento medico por presion arterial alta?</td>
-                <td> @Html.EditorFor(model => model.Presion_arterial, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.Presion_arterialA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>2-</td>
-                <td>Tuvo una infeccion respiratoria ( resfriado, neumonia, bronquitis), en las ultimas 3 semanas?</td>
-                <td> @Html.EditorFor(model => model.infeccion_respirtatoria, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.infeccion_respirtatoriaA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>3-</td>
-                <td>Uso cualquier remedio o medicamento para la respiracion (para los pulmones), como aerosoles, sprays inhalados o nebulizaciones en las ultimas 6 horas?</td>
-                <td> @Html.EditorFor(model => model.medicamento_respiracion, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.medicamento_respiracionA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>4-</td>
-                <td>Fumo cualquier tipo de cigarro ( puro o pipa) en la ultima hora?</td>
-                <td> @Html.EditorFor(model => model.cigarro_puro_pipa, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.cigarro_puro_pipaA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>5-</td>
-                <td>Realizo algun ejercicio fisico fuerte como caminata o trotar en la ultima hora?</td>
-                <td> @Html.EditorFor(model => model.ejercicio_fuerte, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.ejercicio_fuerteA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-            <tr>
-                <td>6-</td>
-                <td>En la ultima hora ha ingerido una comida completa que le impida respirar profundamente?</td>
-                <td> @Html.EditorFor(model => model.comida_completa, new { htmlAttributes = new { @class = "checkbox" } })</td>
-                <td> @Html.EditorFor(model => model.comida_completaA, new { htmlAttributes = new { @class = "checkbox" } })</td>
-            </tr>
-        </table>
+                        else
+                        {
+                            {
+                                <option>Positivo</option>
+                                <option>Negativo</option>
+                                <option>No Aplica</option>
+                            }
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">Cuestionario B</td>
+        </tr>
+        <tr>
+            <td>1-</td>
+            <td>Esta usted bajo tratamiento medico por presion arterial alta?</td>
+            <td> @Html.EditorFor(model => model.Presion_arterial, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.Presion_arterialA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>2-</td>
+            <td>Tuvo una infeccion respiratoria ( resfriado, neumonia, bronquitis), en las ultimas 3 semanas?</td>
+            <td> @Html.EditorFor(model => model.infeccion_respirtatoria, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.infeccion_respirtatoriaA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>3-</td>
+            <td>Uso cualquier remedio o medicamento para la respiracion (para los pulmones), como aerosoles, sprays inhalados o nebulizaciones en las ultimas 6 horas?</td>
+            <td> @Html.EditorFor(model => model.medicamento_respiracion, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.medicamento_respiracionA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>4-</td>
+            <td>Fumo cualquier tipo de cigarro ( puro o pipa) en la ultima hora?</td>
+            <td> @Html.EditorFor(model => model.cigarro_puro_pipa, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.cigarro_puro_pipaA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>5-</td>
+            <td>Realizo algun ejercicio fisico fuerte como caminata o trotar en la ultima hora?</td>
+            <td> @Html.EditorFor(model => model.ejercicio_fuerte, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.ejercicio_fuerteA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+        <tr>
+            <td>6-</td>
+            <td>En la ultima hora ha ingerido una comida completa que le impida respirar profundamente?</td>
+            <td> @Html.EditorFor(model => model.comida_completa, new { htmlAttributes = new { @class = "checkbox" } })</td>
+            <td> @Html.EditorFor(model => model.comida_completaA, new { htmlAttributes = new { @class = "checkbox" } })</td>
+        </tr>
+    </table>
 
 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Comentarios, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Comentarios, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Comentarios, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Comentarios, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.Label("Estado:", htmlAttributes: new { @class = "control-label" })
+
+        @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 <div>

@@ -75,6 +75,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Consentimiento_Informado">
     <Key>
@@ -87,6 +88,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="CSO">
     <Key>
@@ -122,6 +124,7 @@
     <Property Name="Firma" Type="image" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="EKG">
     <Key>
@@ -133,6 +136,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Empresa">
     <Key>
@@ -161,6 +165,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Examen_Visual">
     <Key>
@@ -248,6 +253,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Formulario_S_O">
     <Key>
@@ -270,6 +276,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Historia_Clinica">
     <Key>
@@ -546,6 +553,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Info_general">
     <Key>
@@ -580,6 +588,7 @@
     <Property Name="Bateria_Completa" Type="bit" />
     <Property Name="Historia_clinica_y_examen_fisico" Type="bit" />
     <Property Name="Consentimiento_informado" Type="bit" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Laboratorio">
     <Key>
@@ -739,6 +748,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Mareo">
     <Key>
@@ -766,6 +776,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Pre_espirometria">
     <Key>
@@ -800,6 +811,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="RayosX">
     <Key>
@@ -818,6 +830,7 @@
     <Property Name="Modificado" Type="bit" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Rol">
     <Key>
@@ -836,6 +849,7 @@
     <Property Name="id_rol" Type="int" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Nombre_completo" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Usuario_Empresa">
     <Key>

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="CSOes">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.CSO">
         <MappingFragment StoreEntitySet="CSO">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Id_CSO" ColumnName="Id_CSO" />
@@ -118,6 +119,7 @@
     <EntitySetMapping Name="Audiometrias">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Audiometria">
         <MappingFragment StoreEntitySet="Audiometria">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -177,6 +179,7 @@
     <EntitySetMapping Name="Consentimiento_Informado">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Consentimiento_Informado">
         <MappingFragment StoreEntitySet="Consentimiento_Informado">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -190,6 +193,7 @@
     <EntitySetMapping Name="EKGs">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.EKG">
         <MappingFragment StoreEntitySet="EKG">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -202,6 +206,7 @@
     <EntitySetMapping Name="Espirometrias">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Espirometria">
         <MappingFragment StoreEntitySet="Espirometria">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -215,6 +220,7 @@
     <EntitySetMapping Name="Examen_Visual">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Examen_Visual">
         <MappingFragment StoreEntitySet="Examen_Visual">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -303,6 +309,7 @@
     <EntitySetMapping Name="Hemogramas">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Hemograma">
         <MappingFragment StoreEntitySet="Hemograma">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -315,6 +322,7 @@
     <EntitySetMapping Name="Historia_Clinica">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Historia_Clinica">
         <MappingFragment StoreEntitySet="Historia_Clinica">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -592,6 +600,7 @@
     <EntitySetMapping Name="Laboratorios">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Laboratorio">
         <MappingFragment StoreEntitySet="Laboratorio">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -752,6 +761,7 @@
     <EntitySetMapping Name="Mareos">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Mareo">
         <MappingFragment StoreEntitySet="Mareo">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -780,6 +790,7 @@
     <EntitySetMapping Name="Pre_espirometria">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Pre_espirometria">
         <MappingFragment StoreEntitySet="Pre_espirometria">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -815,6 +826,7 @@
     <EntitySetMapping Name="RayosXes">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.RayosX">
         <MappingFragment StoreEntitySet="RayosX">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Modificado" ColumnName="Modificado" />
@@ -844,6 +856,7 @@
     <EntitySetMapping Name="Info_general">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Info_general">
         <MappingFragment StoreEntitySet="Info_general">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Consentimiento_informado" ColumnName="Consentimiento_informado" />
           <ScalarProperty Name="Historia_clinica_y_examen_fisico" ColumnName="Historia_clinica_y_examen_fisico" />
           <ScalarProperty Name="Bateria_Completa" ColumnName="Bateria_Completa" />

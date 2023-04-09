@@ -18,6 +18,13 @@
     @Html.HiddenFor(model => model.Id_usuario)
 
     <div class="form-group">
+        @Html.LabelFor(model => model.Nombre_completo, "Nombre completo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nombre_completo, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+            @Html.ValidationMessageFor(model => model.Nombre_completo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
@@ -30,6 +37,13 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Confirmar Password", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="password" required onkeyup="chekPassword(this)" class="form-control" />
+            <label hidden class="text-danger" id="lbe">Las Contraseñas no coiciden</label>
         </div>
     </div>
     <div class="form-group">
@@ -52,7 +66,21 @@
 <div>
     @Html.ActionLink("Ver todos", "Index")
 </div>
-
+<script>
+    function chekPassword(text) {
+        fp = document.getElementById('Password');
+        lbe = document.getElementById('lbe');
+        btnG = document.getElementById('btnG');
+        if (fp.value != text.value) {
+            lbe.removeAttribute("hidden");
+            btnG.setAttribute("disabled", "");
+        }
+        else {
+            lbe.setAttribute("hidden", "");
+            btnG.removeAttribute("disabled");
+        }
+    }
+</script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

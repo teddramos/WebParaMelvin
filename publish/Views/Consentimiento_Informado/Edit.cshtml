@@ -87,74 +87,81 @@
     @Html.HiddenFor(model => model.Firma)
     @Html.HiddenFor(model => model.Huella)
  
-    <div class="form-horizontal">
-        <h4>Consentimiento_Informado</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <p>
-            Certifico que he sido informado(a) acerca de la naturaleza y propósito de los exámenes ocupacionales y pruebas complementarias que me serán realizadas por CENTRO INTEGRAL DE SALUD MAIMON – CISAM DE CONFORMIDAD CON LO ESTABLECIDO EN LA LEY GENERAL DE SALUD (42-01) EN SUS ARTÍCULOS 28 Y 29.
-        </p>
-        <p>
-            Igualmente autorizo expresamente al CENTRO INTEGRAL DE SALUD MAIMON – CISAM, para que informe al departamento de Salud Ocupacional o de Recursos Humanos de la Empresa, sobre las condiciones de mi estado de salud y remita a esta última, una copia de la evaluación médica ocupacional y/o los exámenes paraclínicos que me serán realizados descritos debajo:
-        </p>
+<div class="form-horizontal">
+    <h4>Consentimiento_Informado</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <p>
+        Certifico que he sido informado(a) acerca de la naturaleza y propósito de los exámenes ocupacionales y pruebas complementarias que me serán realizadas por CENTRO INTEGRAL DE SALUD MAIMON – CISAM DE CONFORMIDAD CON LO ESTABLECIDO EN LA LEY GENERAL DE SALUD (42-01) EN SUS ARTÍCULOS 28 Y 29.
+    </p>
+    <p>
+        Igualmente autorizo expresamente al CENTRO INTEGRAL DE SALUD MAIMON – CISAM, para que informe al departamento de Salud Ocupacional o de Recursos Humanos de la Empresa, sobre las condiciones de mi estado de salud y remita a esta última, una copia de la evaluación médica ocupacional y/o los exámenes paraclínicos que me serán realizados descritos debajo:
+    </p>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
 
-            @Html.TextBoxFor(model => model.DataFirma, htmlAttributes: new { @class = "form-control", @type = "file" })
-            @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
+        @Html.TextBoxFor(model => model.DataFirma, htmlAttributes: new { @class = "form-control", @type = "file" })
+        @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
 
-        </div>
-        <div class="form-group">
-            @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
 
-            @{
-                try
-                {
-                    var base64 = Convert.ToBase64String(Model.Firma);
-                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-                    <img src="@imgSrc" />
-                }
-                catch
-                {
-
-                }
+        @{
+            try
+            {
+                var base64 = Convert.ToBase64String(Model.Firma);
+                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                <img src="@imgSrc" />
             }
+            catch
+            {
 
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Huella, htmlAttributes: new { @class = "control-label col-md-2" })
-
-            @Html.TextBoxFor(model => model.DataHuella, htmlAttributes: new { @class = "form-control", @type = "file" })
-            @Html.ValidationMessageFor(model => model.Huella, "", new { @class = "text-danger" })
-
-            Dedo &iacute;ndice Derecho
-
-        </div>
-        <div class="form-group">
-            @Html.Label("Huella:", htmlAttributes: new { @class = "control-label" })
-
-            @{
-                try
-                {
-                    var base64 = Convert.ToBase64String(Model.Huella);
-                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-                    <img src="@imgSrc" />
-                }
-                catch
-                {
-
-                }
             }
+        }
 
-        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Huella, htmlAttributes: new { @class = "control-label col-md-2" })
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-default" />
-            </div>
+        @Html.TextBoxFor(model => model.DataHuella, htmlAttributes: new { @class = "form-control", @type = "file" })
+        @Html.ValidationMessageFor(model => model.Huella, "", new { @class = "text-danger" })
+
+        Dedo &iacute;ndice Derecho
+
+    </div>
+    <div class="form-group">
+        @Html.Label("Huella:", htmlAttributes: new { @class = "control-label" })
+
+        @{
+            try
+            {
+                var base64 = Convert.ToBase64String(Model.Huella);
+                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                <img src="@imgSrc" />
+            }
+            catch
+            {
+
+            }
+        }
+
+    </div>
+    <div class="form-group">
+        @Html.Label("Estado:", htmlAttributes: new { @class = "control-label" })
+
+        @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
         </div>
     </div>
+</div>
 }
 
 <div>

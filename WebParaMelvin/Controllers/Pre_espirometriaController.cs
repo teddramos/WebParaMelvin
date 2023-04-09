@@ -95,7 +95,7 @@ namespace WebParaMelvin.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_Pre_espirometria,pulmon_torax_abdomen,infarto_al_corazon,retina_cirugia,problema_corazon,medicamento_tuberculosis,Esta_embarazada,Presion_arterial,infeccion_respirtatoria,medicamento_respiracion,cigarro_puro_pipa,ejercicio_fuerte,comida_completa,pulmon_torax_abdomenA,infarto_al_corazonA,retina_cirugiaA,problema_corazonA,medicamento_tuberculosisA,Presion_arterialA,infeccion_respirtatoriaA,medicamento_respiracionA,cigarro_puro_pipaA,ejercicio_fuerteA,comida_completaA,Comentarios,Id_Formulario_S_O")] Pre_espirometria pre_espirometria)
+        public ActionResult Edit([Bind(Include = "Id_Pre_espirometria,pulmon_torax_abdomen,infarto_al_corazon,retina_cirugia,problema_corazon,medicamento_tuberculosis,Esta_embarazada,Presion_arterial,infeccion_respirtatoria,medicamento_respiracion,cigarro_puro_pipa,ejercicio_fuerte,comida_completa,pulmon_torax_abdomenA,infarto_al_corazonA,retina_cirugiaA,problema_corazonA,medicamento_tuberculosisA,Presion_arterialA,infeccion_respirtatoriaA,medicamento_respiracionA,cigarro_puro_pipaA,ejercicio_fuerteA,comida_completaA,Comentarios,Id_Formulario_S_O,Estado")] Pre_espirometria pre_espirometria)
         {
             if (ModelState.IsValid)
             {

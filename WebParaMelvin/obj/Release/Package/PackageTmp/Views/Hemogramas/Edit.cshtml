@@ -86,7 +86,7 @@
     @Html.HiddenFor(model => model.Id_Hemograma)
     @Html.HiddenFor(model => model.Id_Formulario_S_O)
     @Html.HiddenFor(model => model.Archivo)
-  
+
     <div class="form-horizontal">
         <h4>Hemograma</h4>
         <hr />
@@ -122,7 +122,13 @@
 
 
     </div>
+    <div class="form-group">
+        @Html.Label("Estado:", htmlAttributes: new { @class = "control-label" })
 
+        @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+
+    </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Guardar" class="btn btn-default" />

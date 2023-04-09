@@ -35,6 +35,7 @@
     <NavigationProperty Name="Formulario_S_O" Relationship="Self.FK_CSO_To_Formulario_S_O" FromRole="CSO" ToRole="Formulario_S_O" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Empresa">
     <Key>
@@ -398,6 +399,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Consentimiento_Informado">
     <Key>
@@ -411,6 +413,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="EKG">
     <Key>
@@ -423,6 +426,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Espirometria">
     <Key>
@@ -436,6 +440,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Examen_Visual">
     <Key>
@@ -524,6 +529,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Hemograma">
     <Key>
@@ -536,6 +542,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Historia_Clinica">
     <Key>
@@ -813,6 +820,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Laboratorio">
     <Key>
@@ -973,6 +981,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Mareo">
     <Key>
@@ -1001,6 +1010,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Pre_espirometria">
     <Key>
@@ -1036,6 +1046,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="RayosX">
     <Key>
@@ -1055,6 +1066,7 @@
     <Property Name="Modificado" Type="Boolean" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_Audiometria_To_Formulario_S_O">
     <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1">
@@ -1266,6 +1278,7 @@
     <Property Name="Historia_clinica_y_examen_fisico" Type="Boolean" />
     <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" FromRole="Info_general" ToRole="Formulario_S_O" />
     <Property Name="Consentimiento_informado" Type="Boolean" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_Info_general_To_Formulario_S_O">
     <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1">

@@ -96,6 +96,7 @@ namespace WebParaMelvin.Models
         public Nullable<bool> Modificado { get; set; }
         public Nullable<System.DateTime> Ultima_modificacion { get; set; }
         public Nullable<int> Usuario_que_modifico { get; set; }
+        public string Estado { get; set; }
     
         public virtual Formulario_S_O Formulario_S_O { get; set; }
     }
