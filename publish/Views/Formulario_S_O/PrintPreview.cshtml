@@ -2889,13 +2889,16 @@
                             <td>Audiograma Derecho</td>
                         </tr>
                         <tr>
-                            <td><canvas id="chart-area5" width="380" height="330"></canvas></td>
+                            <td><canvas id="chart-area5" width="500" height="330"></canvas></td>
                             <td>&nbsp;</td>
-                            <td><canvas id="chart-area4" width="380" height="330"></canvas></td>
+                            <td><canvas id="chart-area4" width="500" height="330"></canvas></td>
                         </tr>
                         <tr><td>&nbsp;</td></tr>
-                        
+
                         <tr><td>&nbsp;</td></tr>
+
+                    </table>
+                    <table style="width:100%;border-collapse:collapse">
                         <tr>
                             <td>&nbsp;</td>
                             <td align="center">
@@ -2916,7 +2919,7 @@
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
-                            <td style="border-top:1px solid;">&nbsp;</td>
+                            <td style="border-top:1px solid;width:50%">&nbsp;</td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
@@ -2927,7 +2930,35 @@
                     </table>
                     <script src="~/Scripts/Chart.js"></script>
                     <script>
-           function DoGraphics() {
+               function DoGraphics() {
+                   var oiz_500 = "@audio.Oiz_500"
+                   var Oiz_1K = "@audio.Oiz_1K"
+                   var Oiz_2K = "@audio.Oiz_2K"
+                   var Oiz_3K = "@audio.Oiz_3K"
+                   var Oiz_4K = "@audio.Oiz_4K"
+                   var Oiz_6K = "@audio.Oiz_6K"
+                   var Oiz_8K = "@audio.Oiz_8K"
+                   var oiz_5002 = "@audio.Oiz_5002"
+                   var Oiz_1K2 = "@audio.Oiz_1K2"
+                   var Oiz_2K2 = "@audio.Oiz_2K2"
+                   var Oiz_3K2 = "@audio.Oiz_3K2"
+                   var Oiz_4K2 = "@audio.Oiz_4K2"
+                   var Oiz_6K2 = "@audio.Oiz_6K2"
+                   var Oiz_8K2 = "@audio.Oiz_8K2"
+                   var Ode_500 = "@audio.Ode_500"
+                   var Ode_1K = "@audio.Ode_1K"
+                   var Ode_2K = "@audio.Ode_2K"
+                   var Ode_3K = "@audio.Ode_3K"
+                   var Ode_4K = "@audio.Ode_4K"
+                   var Ode_6K = "@audio.Ode_6K"
+                   var Ode_8K = "@audio.Ode_8K"
+                   var Ode_5002 ="@audio.Ode_5002"
+                   var Ode_1K2 = "@audio.Ode_1K2"
+                   var Ode_2K2 = "@audio.Ode_2K2"
+                   var Ode_3K2 = "@audio.Ode_3K2"
+                   var Ode_4K2 = "@audio.Ode_4K2"
+                   var Ode_6K2 = "@audio.Ode_6K2"
+                   var Ode_8K2 ="@audio.Ode_8K2"
                var lineChartData1 = {
                    labels: ["500", "1K", "2K", "3K", "4K", "6K", "8K"],
                    datasets: [
@@ -2939,7 +2970,7 @@
                            pointStrokeColor: "#fff",
                            pointHighlightFill: "#fff",
                            pointHighlightStroke: "rgba(220,220,220,1)",
-                           data: [@audio.Ode_500, @audio.Ode_1K,@audio.Ode_2K, @audio.Ode_3K, @audio.Ode_4K, @audio.Ode_6K,@audio.Ode_8K]
+                           data: [@audio.Ode_500*1.8 , @audio.Ode_1K*1.8 ,@audio.Ode_2K*1.8, @audio.Ode_3K*1.8, @audio.Ode_4K*1.8, @audio.Ode_6K*1.8,@audio.Ode_8K*1.8]
                        },
                        {
                            label: "Prueba Actual",
@@ -2949,7 +2980,7 @@
                            pointStrokeColor: "#fff",
                            pointHighlightFill: "#fff",
                            pointHighlightStroke: "rgba(151,187,205,1)",
-                           data:  [@audio.Ode_5002, @audio.Ode_1K2,@audio.Ode_2K2, @audio.Ode_3K2, @audio.Ode_4K2, @audio.Ode_6K2,@audio.Ode_8K2]
+                           data:  [@audio.Ode_5002*1.8, @audio.Ode_1K2*1.8,@audio.Ode_2K2*1.8, @audio.Ode_3K2*1.8, @audio.Ode_4K2*1.8, @audio.Ode_6K2*1.8,@audio.Ode_8K2*1.8]
                        }
                    ]
 
@@ -2965,7 +2996,7 @@
                            pointStrokeColor: "#fff",
                            pointHighlightFill: "#fff",
                            pointHighlightStroke: "rgba(220,220,220,1)",
-                           data: [@audio.Oiz_500,@audio.Oiz_1K,@audio.Oiz_2K,@audio.Oiz_3K, @audio.Oiz_4K,@audio.Oiz_6K,@audio.Oiz_8K]
+                           data: [@audio.Oiz_500*1.8,@audio.Oiz_1K*1.8,@audio.Oiz_2K*1.8,@audio.Oiz_3K*1.8 , @audio.Oiz_4K*1.8 ,@audio.Oiz_6K*1.8 ,@audio.Oiz_8K*1.8 ]
                        },
                        {
                            label: "Prueba Actual",
@@ -2975,21 +3006,21 @@
                            pointStrokeColor: "#fff",
                            pointHighlightFill: "#fff",
                            pointHighlightStroke: "rgba(151,187,205,1)",
-                           data:  [@audio.Oiz_5002,@audio.Oiz_1K2,@audio.Oiz_2K2,@audio.Oiz_3K2, @audio.Oiz_4K2,@audio.Oiz_6K2,@audio.Oiz_8K2]
+                           data:  [@audio.Oiz_5002 *1.8,@audio.Oiz_1K2*1.8,@audio.Oiz_2K2*1.8,@audio.Oiz_3K2*1.8, @audio.Oiz_4K2*1.8,@audio.Oiz_6K2*1.8,@audio.Oiz_8K2*1.8]
                        }
                    ]
 
                }
                var ctx4 = document.getElementById("chart-area4").getContext("2d");
                window.myPie = new Chart(ctx4).Line(lineChartData1, {
-                   responsive: true,
+                   //responsive: true,
                    scaleOverride: true,
                    scaleSteps: 10,
                    scaleStepWidth: 10,
                    scaleStartValue: 0 });
                var ctx5 = document.getElementById("chart-area5").getContext("2d");
                window.myPie = new Chart(ctx5).Line(lineChartData2, {
-                   responsive: true,
+                  // responsive: true,
                    scaleOverride: true,
                    scaleSteps: 10,
                    scaleStepWidth: 10,

@@ -462,7 +462,7 @@
                     <td>@Html.TextBoxFor(model => model.Ode_8K, htmlAttributes: new { @style = "width:37px", @onkeypress = "return isNumberKey(event)", @onkeyup = "DoGraphics()" })</td>
                 </tr>
                 <tr>
-                    <td>Prueba acual</td>
+                    <td>Prueba actual</td>
                     <td>@Html.TextBoxFor(model => model.Ode_5002, htmlAttributes: new { @style = "width:37px", @onkeypress = "return isNumberKey(event)", @onkeyup = "DoGraphics()" })</td>
                     <td>@Html.TextBoxFor(model => model.Ode_1K2, htmlAttributes: new { @style = "width:37px", @onkeypress = "return isNumberKey(event)", @onkeyup = "DoGraphics()" })</td>
                     <td>@Html.TextBoxFor(model => model.Ode_2K2, htmlAttributes: new { @style = "width:37px", @onkeypress = "return isNumberKey(event)", @onkeyup = "DoGraphics()" })</td>
@@ -699,7 +699,8 @@
             scaleOverride: true,
             scaleSteps: 10,
             scaleStepWidth: 10,
-            scaleStartValue: 0
+            scaleStartValue: 0,
+            
         });
     }
     DoGraphics();

@@ -67,4 +67,14 @@ namespace WebParaMelvin.Models
         public string tipo { get; set; }
         public string data { get; set; }
     }
+    public class Notificacion
+    {
+        public string tipo { get; set; }
+        public long NumeroExpediente { get; set; }  
+        public string Expediente { get; set; }  
+        public string NombreUsuario { get; set; }
+        public string Mensaje { get; set; }
+        public string Link { get; set; }
+        public DateTime fechaYhora { get; set; }
+    }
 }

@@ -34,6 +34,173 @@
                     {
                         var user = Session["User"] as WebParaMelvin.Models.Usuario;
 
+                        var notificaciones = new List<WebParaMelvin.Models.Notificacion>();
+                        var db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+                        int NotificationCount = 0;
+                        var audiometrias = db.Audiometrias.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                        NotificationCount += audiometrias.Count();
+                        try
+                        {
+                            foreach (var audio in audiometrias)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)audio.Id_Formulario_S_O;
+                                noti.Expediente = "Audiometrias";
+                                noti.Mensaje = "Completar la Audiometria del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + audio.Id_AudioMetria;
+                                noti.fechaYhora = (DateTime)audio.Ultima_modificacion;
+                                notificaciones.Add(noti);
+
+                            }
+                            var concentimiento = db.Consentimiento_Informado.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += concentimiento.Count();
+                            foreach (var data in concentimiento)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "Consentimiento_Informado";
+                                noti.Mensaje = "Completar el Concentimiento informado del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Consentimiento_Informado;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var Csoes = db.CSOes.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += Csoes.Count();
+                            foreach (var data in Csoes)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_CSO;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var ekgs = db.EKGs.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += ekgs.Count();
+                            foreach (var data in ekgs)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_EKG;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var espirometrias = db.Espirometrias.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += espirometrias.Count();
+                            foreach (var data in espirometrias)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Espirometria;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var visuales = db.Examen_Visual.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += visuales.Count();
+                            foreach (var data in visuales)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Examen_Visual;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var hemogramas = db.Hemogramas.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += hemogramas.Count();
+                            foreach (var data in hemogramas)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Hemograma;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var historias = db.Historia_Clinica.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += historias.Count();
+                            foreach (var data in historias)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Historia_Clinica;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var laboratorios = db.Laboratorios.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += laboratorios.Count();
+                            foreach (var data in laboratorios)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Laboratorio;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var maneros = db.Mareos.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += maneros.Count();
+                            foreach (var data in maneros)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Mareo;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var preEspiros = db.Pre_espirometria.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += preEspiros.Count();
+                            foreach (var data in preEspiros)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Pre_espirometria;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                            var rayos = db.RayosXes.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                            NotificationCount += rayos.Count();
+                            foreach (var data in rayos)
+                            {
+                                var noti = new WebParaMelvin.Models.Notificacion();
+                                noti.tipo = "Notificacion";
+                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                                noti.Expediente = "CSOes";
+                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_rayos_X;
+                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
+                                notificaciones.Add(noti);
+                            }
+                        }
+                        catch(Exception ex)
+                        {
+
+                        }
 
                         if (user.id_rol == 1)
                         {
@@ -43,26 +210,54 @@
                     </ul>*@
 
 
-                            <ul class="nav navbar-nav" id="menu">
-                                <li id="only-pc">
-                                    <a style="color: #e6e6e6;">Administración</a>
-                                    <ul class="nav navbar-nav" id="btnNavs1">
-                                        <li>@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                                        <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                                    </ul>
-                                </li>
+                <ul class="nav navbar-nav" id="menu">
+                    <li id="only-pc">
+                        <a style="color: #e6e6e6;">Administración</a>
+                        <ul class="nav navbar-nav" id="btnNavs1">
+                            <li>@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                            <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                        </ul>
+                    </li>
 
-                                <li id="only-mobile">@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                                <li id="only-mobile">@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                    <li id="only-mobile">@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                    <li id="only-mobile">@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
 
-                                <li>@Html.ActionLink("Nuevos Formularios", "Create", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                                <li>@Html.ActionLink("Formularios a Vencer", "FormulariosAVencer", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                            </ul>
+                    <li>@Html.ActionLink("Nuevos Formularios", "Create", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                    <li>@Html.ActionLink("Formularios a Vencer", "FormulariosAVencer", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                    <li id="only-pc">
+                        <a style="color: #e6e6e6; font-size:2em;">&#x1f56c;<span class="notificactionCircle">@NotificationCount</span></a>
+                        <ul class="nav navbar-nav" style="max-height:300px;overflow:auto">
+                            @{
+                                foreach (var noti in notificaciones)
+                                {
+                                    <li>
+                                        <a style="color: #e6e6e6;" href="@noti.Link">
+                                            <div>Notificacion: @noti.Mensaje</div>
+                                            <div style="font-size:9px">@noti.fechaYhora</div>
+                                        </a>
+                                    </li>
+                                    <div style="height:1px;background-color:darkgreen"></div>
+                                }
+                            }
+                           
+
+                        </ul>
+                    </li>
+                    <li id="only-pc">
+                        <a style="color: #e6e6e6; font-size:2em;"> &#x2709;<span class="notificactionCircle">@NotificationCount</span></a>
+                        <ul class="nav navbar-nav" style="max-height:300px;overflow:auto">
+                           
+                            <li><a style="color: #e6e6e6;" href="#">Mensaje: Favor llenar el expediente 1236</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
                         }
                         else if (user.id_rol == 2 || user.id_rol == 4)
                         {
                             <ul class="nav navbar-nav" id="btnNavs1">
                                 <li>@Html.ActionLink("Nuevos Formularios", "Create", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                <li><a>Notificaciones</a></li>
                             </ul>
                         }
                         else if (user.id_rol == 3)
@@ -76,7 +271,7 @@
                                 }
                                 catch { }
                                 }
-
+                          
                                 <ul class="nav navbar-nav" id="btnNavs2">
                                     <li>@Html.ActionLink("Salir", "Create", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
                                 </ul>
@@ -124,7 +319,7 @@
 
         #menu  ul li {
             float: initial;
-            width: 150px
+            width: 250px
         }
         #menu  li:hover > ul {
             display: block;
@@ -138,6 +333,16 @@
         #menu ul li {
             background-color: #20a500;
         }
+    .notificactionCircle {
+        border-radius: 50%;
+        background-color: white;
+        color: #20a500;
+        padding-left:7px;
+        padding-right:7px;
+        padding-top:3px;
+        padding-bottom:3px;
+        font-size:14px;
+    }
 /*estilos para mostrar tanto movil como pc*/
     #only-pc {
         display: block;
