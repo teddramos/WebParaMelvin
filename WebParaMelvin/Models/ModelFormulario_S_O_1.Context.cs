@@ -46,5 +46,6 @@ namespace WebParaMelvin.Models
         public virtual DbSet<RayosX> RayosXes { get; set; }
         public virtual DbSet<Actividade> Actividades { get; set; }
         public virtual DbSet<Info_general> Info_general { get; set; }
+        public virtual DbSet<Mensaje> Mensajes { get; set; }
     }
 }

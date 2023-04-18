@@ -783,6 +783,17 @@
           <Property Name="Usuario_que_modifico" Type="int" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Mensajes">
+          <Key>
+            <PropertyRef Name="Mesage_id" />
+          </Key>
+          <Property Name="Mesage_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mensaje" Type="nvarchar" MaxLength="256" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id_usuario" Type="int" />
+          <Property Name="Id_usuario_recive" Type="int" />
+          <Property Name="FechaYhora" Type="datetime" />
+        </EntityType>
         <EntityType Name="Pre_espirometria">
           <Key>
             <PropertyRef Name="Id_Pre_espirometria" />
@@ -1074,6 +1085,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Mensajes_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id_usuario" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="Id_usuario_recive" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_Usuario1">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id_usuario" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="Id_usuario_recive" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Pre_espirometria_To_Formulario_S_O">
           <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1166,6 +1201,7 @@
           <EntitySet Name="Info_general" EntityType="Self.Info_general" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Laboratorio" EntityType="Self.Laboratorio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mareo" EntityType="Self.Mareo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mensajes" EntityType="Self.Mensajes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pre_espirometria" EntityType="Self.Pre_espirometria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RayosX" EntityType="Self.RayosX" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
@@ -1231,6 +1267,14 @@
           <AssociationSet Name="FK_Mareo_To_Formulario_S_O" Association="Self.FK_Mareo_To_Formulario_S_O">
             <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
             <End Role="Mareo" EntitySet="Mareo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_Usuario" Association="Self.FK_Mensajes_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_Usuario1" Association="Self.FK_Mensajes_Usuario1">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
           </AssociationSet>
           <AssociationSet Name="FK_Pre_espirometria_To_Formulario_S_O" Association="Self.FK_Pre_espirometria_To_Formulario_S_O">
             <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
@@ -1366,6 +1410,8 @@
           <Property Name="Usuario_que_modifico" Type="Int32" />
           <NavigationProperty Name="Actividades" Relationship="ceisamco_form_s_oModel.FK_Actividades_1_Usuarios_1" FromRole="Usuario" ToRole="Actividade" />
           <Property Name="Nombre_completo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Mensajes" Relationship="ceisamco_form_s_oModel.FK_Mensajes_Usuario" FromRole="Usuario" ToRole="Mensaje" />
+          <NavigationProperty Name="Mensajes1" Relationship="ceisamco_form_s_oModel.FK_Mensajes_Usuario1" FromRole="Usuario" ToRole="Mensaje" />
         </EntityType>
         <EntityType Name="Usuario_Rol">
           <Key>
@@ -1578,6 +1624,15 @@
           <AssociationSet Name="FK_Info_general_To_Formulario_S_O" Association="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O">
             <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
             <End Role="Info_general" EntitySet="Info_general" />
+          </AssociationSet>
+          <EntitySet Name="Mensajes" EntityType="ceisamco_form_s_oModel.Mensaje" />
+          <AssociationSet Name="FK_Mensajes_Usuario" Association="ceisamco_form_s_oModel.FK_Mensajes_Usuario">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Mensaje" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_Usuario1" Association="ceisamco_form_s_oModel.FK_Mensajes_Usuario1">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Mensaje" EntitySet="Mensajes" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="ArchivosExtra">
@@ -2555,6 +2610,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Mensaje">
+          <Key>
+            <PropertyRef Name="Mesage_id" />
+          </Key>
+          <Property Name="Mesage_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mensaje1" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_usuario" Type="Int32" />
+          <Property Name="Id_usuario_recive" Type="Int32" />
+          <Property Name="FechaYhora" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Usuario" Relationship="ceisamco_form_s_oModel.FK_Mensajes_Usuario" FromRole="Mensaje" ToRole="Usuario" />
+          <NavigationProperty Name="Usuario1" Relationship="ceisamco_form_s_oModel.FK_Mensajes_Usuario1" FromRole="Mensaje" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Mensajes_Usuario">
+          <End Type="ceisamco_form_s_oModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="ceisamco_form_s_oModel.Mensaje" Role="Mensaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id_usuario" />
+            </Principal>
+            <Dependent Role="Mensaje">
+              <PropertyRef Name="Id_usuario_recive" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_Usuario1">
+          <End Type="ceisamco_form_s_oModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="ceisamco_form_s_oModel.Mensaje" Role="Mensaje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id_usuario" />
+            </Principal>
+            <Dependent Role="Mensaje">
+              <PropertyRef Name="Id_usuario_recive" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3446,6 +3538,18 @@
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Empresa" ColumnName="Empresa" />
                 <ScalarProperty Name="Id_Info_General" ColumnName="Id_Info_General" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mensajes">
+            <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Mensaje">
+              <MappingFragment StoreEntitySet="Mensajes">
+                <ScalarProperty Name="FechaYhora" ColumnName="FechaYhora" />
+                <ScalarProperty Name="Id_usuario_recive" ColumnName="Id_usuario_recive" />
+                <ScalarProperty Name="Id_usuario" ColumnName="Id_usuario" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Mensaje1" ColumnName="Mensaje" />
+                <ScalarProperty Name="Mesage_id" ColumnName="Mesage_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

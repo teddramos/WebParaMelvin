@@ -21,6 +21,8 @@ namespace WebParaMelvin.Models
             this.Usuario_Empresa = new HashSet<Usuario_Empresa>();
             this.Usuario_Rol = new HashSet<Usuario_Rol>();
             this.Actividades = new HashSet<Actividade>();
+            this.Mensajes = new HashSet<Mensaje>();
+            this.Mensajes1 = new HashSet<Mensaje>();
         }
     
         public int Id_usuario { get; set; }
@@ -39,5 +41,9 @@ namespace WebParaMelvin.Models
         public virtual ICollection<Usuario_Rol> Usuario_Rol { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Actividade> Actividades { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mensaje> Mensajes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mensaje> Mensajes1 { get; set; }
     }
 }

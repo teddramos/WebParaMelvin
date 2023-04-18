@@ -105,6 +105,8 @@
     <Property Name="Usuario_que_modifico" Type="Int32" />
     <NavigationProperty Name="Actividades" Relationship="ceisamco_form_s_oModel.FK_Actividades_1_Usuarios_1" FromRole="Usuario" ToRole="Actividade" />
     <Property Name="Nombre_completo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Mensajes" Relationship="ceisamco_form_s_oModel.FK_Mensajes_Usuario" FromRole="Usuario" ToRole="Mensaje" />
+    <NavigationProperty Name="Mensajes1" Relationship="ceisamco_form_s_oModel.FK_Mensajes_Usuario1" FromRole="Usuario" ToRole="Mensaje" />
   </EntityType>
   <EntityType Name="Usuario_Rol">
     <Key>
@@ -317,6 +319,15 @@
     <AssociationSet Name="FK_Info_general_To_Formulario_S_O" Association="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O">
       <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
       <End Role="Info_general" EntitySet="Info_general" />
+    </AssociationSet>
+    <EntitySet Name="Mensajes" EntityType="ceisamco_form_s_oModel.Mensaje" />
+    <AssociationSet Name="FK_Mensajes_Usuario" Association="ceisamco_form_s_oModel.FK_Mensajes_Usuario">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Mensaje" EntitySet="Mensajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mensajes_Usuario1" Association="ceisamco_form_s_oModel.FK_Mensajes_Usuario1">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Mensaje" EntitySet="Mensajes" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ArchivosExtra">
@@ -1291,6 +1302,43 @@
       </Principal>
       <Dependent Role="Info_general">
         <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Mensaje">
+    <Key>
+      <PropertyRef Name="Mesage_id" />
+    </Key>
+    <Property Name="Mesage_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mensaje1" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id_usuario" Type="Int32" />
+    <Property Name="Id_usuario_recive" Type="Int32" />
+    <Property Name="FechaYhora" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Usuario" Relationship="ceisamco_form_s_oModel.FK_Mensajes_Usuario" FromRole="Mensaje" ToRole="Usuario" />
+    <NavigationProperty Name="Usuario1" Relationship="ceisamco_form_s_oModel.FK_Mensajes_Usuario1" FromRole="Mensaje" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_Mensajes_Usuario">
+    <End Type="ceisamco_form_s_oModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="ceisamco_form_s_oModel.Mensaje" Role="Mensaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Mensaje">
+        <PropertyRef Name="Id_usuario_recive" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mensajes_Usuario1">
+    <End Type="ceisamco_form_s_oModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="ceisamco_form_s_oModel.Mensaje" Role="Mensaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Mensaje">
+        <PropertyRef Name="Id_usuario_recive" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

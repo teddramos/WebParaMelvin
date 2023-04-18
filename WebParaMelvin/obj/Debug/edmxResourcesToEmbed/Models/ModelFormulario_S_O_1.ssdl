@@ -778,6 +778,17 @@
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Mensajes">
+    <Key>
+      <PropertyRef Name="Mesage_id" />
+    </Key>
+    <Property Name="Mesage_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mensaje" Type="nvarchar" MaxLength="256" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_usuario" Type="int" />
+    <Property Name="Id_usuario_recive" Type="int" />
+    <Property Name="FechaYhora" Type="datetime" />
+  </EntityType>
   <EntityType Name="Pre_espirometria">
     <Key>
       <PropertyRef Name="Id_Pre_espirometria" />
@@ -1069,6 +1080,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Mensajes_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Mensajes">
+        <PropertyRef Name="Id_usuario_recive" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mensajes_Usuario1">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Mensajes" Type="Self.Mensajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id_usuario" />
+      </Principal>
+      <Dependent Role="Mensajes">
+        <PropertyRef Name="Id_usuario_recive" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Pre_espirometria_To_Formulario_S_O">
     <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -1161,6 +1196,7 @@
     <EntitySet Name="Info_general" EntityType="Self.Info_general" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Laboratorio" EntityType="Self.Laboratorio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Mareo" EntityType="Self.Mareo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mensajes" EntityType="Self.Mensajes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pre_espirometria" EntityType="Self.Pre_espirometria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RayosX" EntityType="Self.RayosX" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
@@ -1226,6 +1262,14 @@
     <AssociationSet Name="FK_Mareo_To_Formulario_S_O" Association="Self.FK_Mareo_To_Formulario_S_O">
       <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
       <End Role="Mareo" EntitySet="Mareo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mensajes_Usuario" Association="Self.FK_Mensajes_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Mensajes" EntitySet="Mensajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mensajes_Usuario1" Association="Self.FK_Mensajes_Usuario1">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Mensajes" EntitySet="Mensajes" />
     </AssociationSet>
     <AssociationSet Name="FK_Pre_espirometria_To_Formulario_S_O" Association="Self.FK_Pre_espirometria_To_Formulario_S_O">
       <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />

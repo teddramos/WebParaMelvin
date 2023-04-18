@@ -235,6 +235,9 @@
     <Compile Include="Models\Mareo.cs">
       <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Mensaje.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ModelFormulario_S_O_1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
