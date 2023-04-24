@@ -10,6 +10,10 @@ using WebParaMelvin.Models;
 using Rotativa;
 using System.IO;
 using System.Net.Mail;
+using System.Web.Http.Results;
+using System.Threading.Tasks;
+using System.Web.Http.Controllers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebParaMelvin.Controllers
 {
@@ -716,6 +720,284 @@ namespace WebParaMelvin.Controllers
             }
             return base.RedirectToAction("Edit/" + idSo);
         }
+        public JsonResult listaUsuarios(int userSend)
+        {
+            var usuario = db.Usuarios.Find(userSend);
+            var usuarios = new List<UsersForMessages>();
+            if(usuario.id_rol == 1)
+            {
+                usuarios = db.Usuarios.Select(x => new UsersForMessages { id = x.Id_usuario, name = x.Nombre_completo??x.Email,rol =(int)x.id_rol }).Where(x=>x.rol != 5).ToList();
+            }
+            if(usuario.id_rol == 3)
+            {
+                usuarios = db.Usuarios.Select(x => new UsersForMessages { id = x.Id_usuario, name = x.Nombre_completo ?? x.Email, rol = (int)x.id_rol }).Where(x => x.rol == 1).ToList();
+            }
+            if (usuario.id_rol == 2 || usuario.id_rol == 4)
+            {
+                usuarios = db.Usuarios.Select(x => new UsersForMessages { id = x.Id_usuario, name = x.Nombre_completo ?? x.Email, rol = (int)x.id_rol }).Where(x => x.rol != 3 && x.rol != 5).ToList();
+            }
+            return Json(usuarios,JsonRequestBehavior.AllowGet);
+        } 
+        public JsonResult Notificaciones()
+        {
+            var user = Session["User"] as Usuario;
+
+            var notificaciones = new List<Notificacion>();
+           
+            int NotificationCount = 0;
+            var audiometrias = db.Audiometrias.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+            NotificationCount += audiometrias.Count();
+            try
+            {
+                foreach (var audio in audiometrias)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)audio.Id_Formulario_S_O;
+                    noti.Expediente = "Audiometrias";
+                    noti.Mensaje = "Completar la Audiometria del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + audio.Id_AudioMetria;
+                    noti.fechaYhora = audio.Ultima_modificacion != null?audio.Ultima_modificacion.Value.ToShortDateString():DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+
+                }
+                var concentimiento = db.Consentimiento_Informado.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += concentimiento.Count();
+                foreach (var data in concentimiento)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "Consentimiento_Informado";
+                    noti.Mensaje = "Completar el Concentimiento informado del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Consentimiento_Informado;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var Csoes = db.CSOes.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += Csoes.Count();
+                foreach (var data in Csoes)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_CSO;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var ekgs = db.EKGs.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += ekgs.Count();
+                foreach (var data in ekgs)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_EKG;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var espirometrias = db.Espirometrias.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += espirometrias.Count();
+                foreach (var data in espirometrias)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Espirometria;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var visuales = db.Examen_Visual.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += visuales.Count();
+                foreach (var data in visuales)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Examen_Visual;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var hemogramas = db.Hemogramas.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += hemogramas.Count();
+                foreach (var data in hemogramas)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Hemograma;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var historias = db.Historia_Clinica.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += historias.Count();
+                foreach (var data in historias)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Historia_Clinica;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var laboratorios = db.Laboratorios.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += laboratorios.Count();
+                foreach (var data in laboratorios)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Laboratorio;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var maneros = db.Mareos.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += maneros.Count();
+                foreach (var data in maneros)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Mareo;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var preEspiros = db.Pre_espirometria.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += preEspiros.Count();
+                foreach (var data in preEspiros)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Pre_espirometria;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+                var rayos = db.RayosXes.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
+                NotificationCount += rayos.Count();
+                foreach (var data in rayos)
+                {
+                    var noti = new Notificacion();
+                    noti.tipo = "Notificacion";
+                    noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
+                    noti.Expediente = "CSOes";
+                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_rayos_X;
+                    noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
+                    notificaciones.Add(noti);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Json(notificaciones,JsonRequestBehavior.AllowGet);
+
+        }
+        [HttpPost]       
+        public JsonResult SendMessage(SimpleMessage mensaje)
+        {
+            
+            db.Mensajes.Add(new Mensaje
+            {
+                Id_usuario = mensaje.userSender,
+                Id_usuario_recive = mensaje.userReceiver,
+                Mensaje1=mensaje.message,
+                FechaYhora = DateTime.Now,
+                Estado = "ENVIADO"
+            }) ;
+            db.SaveChanges();
+            return Json(mensaje);
+        }
+        public JsonResult getMessages(int userSend, int userRecibe)
+        {
+            var msj = db.Mensajes.Where(x => (x.Id_usuario == userSend || x.Id_usuario == userRecibe) && (x.Id_usuario_recive == userSend || x.Id_usuario_recive == userRecibe));
+           var mensajes = new List<SimpleMessage>(); 
+            foreach (var m in msj)
+            {
+                if(userSend == m.Id_usuario_recive)
+                {
+                    m.Estado = "VISTO";
+                }
+                mensajes.Add(new SimpleMessage
+                {
+                    userReceiver = m.Id_usuario_recive.Value,
+                    userSender = m.Id_usuario.Value,
+                    fechaYhora = m.FechaYhora.Value.ToShortDateString() + " "+m.FechaYhora.Value.ToShortTimeString(),
+                    message = m.Mensaje1
+                }) ;
+            }
+            db.SaveChanges ();
+            
+            return Json(mensajes,JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult updateMessages(int userSend, int userRecibe)
+        {
+            var msj = db.Mensajes.Where(x => (x.Id_usuario == userSend || x.Id_usuario == userRecibe) && (x.Id_usuario_recive == userSend || x.Id_usuario_recive == userRecibe));
+            var mensajes = new List<SimpleMessage>();
+            foreach (var m in msj)
+            {
+                if (m.Id_usuario_recive != userSend)
+                {
+                    m.Estado = "VISTO";
+                }
+                mensajes.Add(new SimpleMessage
+                {
+                    userReceiver = m.Id_usuario_recive.Value,
+                    userSender = m.Id_usuario.Value,
+                    fechaYhora = m.FechaYhora.Value.ToShortDateString() + " " + m.FechaYhora.Value.ToShortTimeString(),
+                    message = m.Mensaje1
+                });
+            }
+            db.SaveChanges();
+
+            return Json(mensajes, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult NewMessageConversation(int userSend, int userRecibe)
+        {
+            var msj = db.Mensajes.Where(x => ( x.Id_usuario == userRecibe) && (x.Id_usuario_recive == userSend) && x.Estado == "ENVIADO");
+            if(msj.Count() > 0)
+            {
+                return Json(new { mensajes =  msj.Count()},JsonRequestBehavior.AllowGet);
+            }
+            return Json(new {mensajes = 0},JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult MessagesNotifications(int userSend)
+        {
+            var msj = db.Mensajes.Where(x => x.Id_usuario_recive == userSend && x.Estado == "ENVIADO");
+            var notify = new List<Object>();
+            if(msj.Count() > 0)
+            {
+                foreach(var m in msj)
+                {
+                    var user = db.Usuarios.Find(m.Id_usuario);
+                    notify.Add(new { userSend = m.Id_usuario_recive, userRecibe = m.Id_usuario, message = m.Mensaje1, nombre =user.Nombre_completo,
+                    fechaYhora= m.FechaYhora.Value.ToShortDateString() + " " + m.FechaYhora.Value.ToShortTimeString()});
+                }
+                return Json(notify, JsonRequestBehavior.AllowGet);
+            }
+            return Json(notify,JsonRequestBehavior.AllowGet);
+
+        }
+
 
         protected override void Dispose(bool disposing)
         {

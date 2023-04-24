@@ -75,6 +75,20 @@ namespace WebParaMelvin.Models
         public string NombreUsuario { get; set; }
         public string Mensaje { get; set; }
         public string Link { get; set; }
-        public DateTime fechaYhora { get; set; }
+        public string fechaYhora { get; set; }
     }
+    public class UsersForMessages
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public int rol { get; set; }
+    }
+    public class SimpleMessage
+    {
+        public int userSender { get; set; }
+        public int userReceiver { get; set; }
+        public string message { get; set; }
+        public string fechaYhora { get; set; }
+    }
+    
 }

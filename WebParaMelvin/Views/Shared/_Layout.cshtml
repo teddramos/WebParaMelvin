@@ -10,8 +10,10 @@
     @Scripts.Render("~/bundles/modernizr")
     <link rel="icon" href="@Url.Content("~/Content/favicon.ico")" />
 
+
 </head>
 <body>
+   
     <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#20a500">
         <div class="container">
             <div class="navbar-header">
@@ -21,11 +23,12 @@
                     <span class="icon-bar"></span>
                 </button>
                 @{var us = Session["User"] as WebParaMelvin.Models.Usuario;
-                    if (us.id_rol == 3) {
-                    <a href="@Url.Action("IndexEmpresa","Usuarios")"><img src="../../CISAMEmpresa/img/logo2.png" alt="image" class="navbar-brand" ></a>
+                    if (us.id_rol == 3)
+                    {
+                        <a href="@Url.Action("IndexEmpresa","Usuarios")"><img src="../../CISAMEmpresa/img/logo2.png" alt="image" class="navbar-brand"></a>
                     }
                 }
-                @Html.ActionLink("Formularios de Salud Ocupacional", "Index", "Formulario_S_O", new { area = "" }, new { @class = "navbar-brand", @style= "color: #e6e6e6;" })
+                @Html.ActionLink("Formularios de Salud Ocupacional", "Index", "Formulario_S_O", new { area = "" }, new { @class = "navbar-brand", @style = "color: #e6e6e6;" })
             </div>
             <div class="navbar-collapse collapse" style="color:white">
 
@@ -34,271 +37,400 @@
                     {
                         var user = Session["User"] as WebParaMelvin.Models.Usuario;
 
-                        var notificaciones = new List<WebParaMelvin.Models.Notificacion>();
-                        var db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
-                        int NotificationCount = 0;
-                        var audiometrias = db.Audiometrias.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                        NotificationCount += audiometrias.Count();
-                        try
-                        {
-                            foreach (var audio in audiometrias)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)audio.Id_Formulario_S_O;
-                                noti.Expediente = "Audiometrias";
-                                noti.Mensaje = "Completar la Audiometria del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + audio.Id_AudioMetria;
-                                noti.fechaYhora = (DateTime)audio.Ultima_modificacion;
-                                notificaciones.Add(noti);
-
-                            }
-                            var concentimiento = db.Consentimiento_Informado.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += concentimiento.Count();
-                            foreach (var data in concentimiento)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "Consentimiento_Informado";
-                                noti.Mensaje = "Completar el Concentimiento informado del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Consentimiento_Informado;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var Csoes = db.CSOes.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += Csoes.Count();
-                            foreach (var data in Csoes)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_CSO;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var ekgs = db.EKGs.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += ekgs.Count();
-                            foreach (var data in ekgs)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_EKG;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var espirometrias = db.Espirometrias.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += espirometrias.Count();
-                            foreach (var data in espirometrias)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Espirometria;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var visuales = db.Examen_Visual.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += visuales.Count();
-                            foreach (var data in visuales)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Examen_Visual;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var hemogramas = db.Hemogramas.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += hemogramas.Count();
-                            foreach (var data in hemogramas)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Hemograma;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var historias = db.Historia_Clinica.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += historias.Count();
-                            foreach (var data in historias)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Historia_Clinica;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var laboratorios = db.Laboratorios.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += laboratorios.Count();
-                            foreach (var data in laboratorios)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Laboratorio;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var maneros = db.Mareos.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += maneros.Count();
-                            foreach (var data in maneros)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Mareo;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var preEspiros = db.Pre_espirometria.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += preEspiros.Count();
-                            foreach (var data in preEspiros)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Pre_espirometria;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                            var rayos = db.RayosXes.Where(x => x.Usuario_que_modifico == user.Id_usuario && x.Estado != "Finalizada");
-                            NotificationCount += rayos.Count();
-                            foreach (var data in rayos)
-                            {
-                                var noti = new WebParaMelvin.Models.Notificacion();
-                                noti.tipo = "Notificacion";
-                                noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                                noti.Expediente = "CSOes";
-                                noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
-                                noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_rayos_X;
-                                noti.fechaYhora = data.Ultima_modificacion != null ? (DateTime)data.Ultima_modificacion : new DateTime();
-                                notificaciones.Add(noti);
-                            }
-                        }
-                        catch(Exception ex)
-                        {
-
-                        }
+                        
 
                         if (user.id_rol == 1)
                         {
 
-                            @*<ul class="nav navbar-nav" id="btnNavs1">
-                        <li style="color: #e6e6e6;" class="nav navbar-nav">Administración</li>
-                    </ul>*@
 
 
-                <ul class="nav navbar-nav" id="menu">
-                    <li id="only-pc">
-                        <a style="color: #e6e6e6;">Administración</a>
-                        <ul class="nav navbar-nav" id="btnNavs1">
-                            <li>@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                            <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                        </ul>
-                    </li>
+                            <ul class="nav navbar-nav" id="menu">
+                                <li id="only-pc">
+                                    <a style="color: #e6e6e6;">Administración</a>
+                                    <ul class="nav navbar-nav" id="btnNavs1">
+                                        <li>@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                        <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                    </ul>
+                                </li>
 
-                    <li id="only-mobile">@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                    <li id="only-mobile">@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                <li id="only-mobile">@Html.ActionLink("Empresas", "Index", "Empresas", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                                <li id="only-mobile">@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
 
-                    <li>@Html.ActionLink("Nuevos Formularios", "Create", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                    <li>@Html.ActionLink("Formularios a Vencer", "FormulariosAVencer", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                    <li id="only-pc">
-                        <a style="color: #e6e6e6; font-size:2em;">&#x1f56c;<span class="notificactionCircle">@NotificationCount</span></a>
-                        <ul class="nav navbar-nav" style="max-height:300px;overflow:auto">
-                            @{
-                                foreach (var noti in notificaciones)
-                                {
-                                    <li>
-                                        <a style="color: #e6e6e6;" href="@noti.Link">
-                                            <div>Notificacion: @noti.Mensaje</div>
-                                            <div style="font-size:9px">@noti.fechaYhora</div>
-                                        </a>
-                                    </li>
-                                    <div style="height:1px;background-color:darkgreen"></div>
-                                }
-                            }
-                           
-
-                        </ul>
-                    </li>
-                    <li id="only-pc">
-                        <a style="color: #e6e6e6; font-size:2em;"> &#x2709;<span class="notificactionCircle">@NotificationCount</span></a>
-                        <ul class="nav navbar-nav" style="max-height:300px;overflow:auto">
-                           
-                            <li><a style="color: #e6e6e6;" href="#">Mensaje: Favor llenar el expediente 1236</a></li>
-
-                        </ul>
-                    </li>
-                </ul>
-                        }
-                        else if (user.id_rol == 2 || user.id_rol == 4)
-                        {
-                            <ul class="nav navbar-nav" id="btnNavs1">
                                 <li>@Html.ActionLink("Nuevos Formularios", "Create", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                                <li><a>Notificaciones</a></li>
-                            </ul>
-                        }
-                        else if (user.id_rol == 3)
-                        {
-                            <ul class="nav navbar-nav" id="btnNavs1">
                                 <li>@Html.ActionLink("Formularios a Vencer", "FormulariosAVencer", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                            </ul>
-                                }
+                                <li>
+                                    <a style="color: #e6e6e6; font-size:2em;">&#x1f56c;<div class="notificactionCircle" id="noti-circle">&#x231b;</div></a>
+                                    <ul class="nav navbar-nav" style="max-height:300px;overflow:auto" id="notificaciones">
+                                       
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a style="color: #e6e6e6; font-size:2em;"> &#x2709;<span class="notificactionCircle" id="mesa-circle">&#x231b;</span></a>
+                                    <ul class="nav navbar-nav" style="max-height: 300px; overflow: auto " id="mensajes-directos">
+                                        <li>
+                                           <button style="color: #e6e6e6; border: none; background-color: #20a500" onclick="openMessenger()">Nuevo Mensaje directo &#x2709;</button>
+                                        </li>
+                                    </ul>
+                                </li>
+                        </ul>
+                    }
+                    else if (user.id_rol == 2 || user.id_rol == 4)
+                    {
+                        <ul class="nav navbar-nav" id="menu">
+                            <li>@Html.ActionLink("Nuevos Formularios", "Create", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                             <li><a style="color: #e6e6e6; font-size:2em;">&#x1f56c;<div class="notificactionCircle" id="noti-circle">&#x231b;</div></a>
+                                    <ul class="nav navbar-nav" style="max-height:300px;overflow:auto" id="notificaciones"> 
+                                    </ul>
+                              </li>
+                                <li>
+                                   <a style="color: #e6e6e6; font-size:2em;"> &#x2709;<span class="notificactionCircle" id="mesa-circle">&#x231b;</span></a>
+                                    <ul class="nav navbar-nav" style="max-height: 300px; overflow: auto " id="mensajes-directos">
+                                        <li>
+                                           <button style="color: #e6e6e6; border: none; background-color: #20a500" onclick="openMessenger()">Nuevo Mensaje directo &#x2709;</button>
+                                        </li>
+                                    </ul>
+                                </li>
+                        </ul>
+                    }
+                    else if (user.id_rol == 3)
+                    {
+                        <ul class="nav navbar-nav" id="menu">
+                            <li>@Html.ActionLink("Formularios a Vencer", "FormulariosAVencer", "Formulario_S_O", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                           
+                                <li>
+                                    <a style="color: #e6e6e6; font-size:2em;"> &#x2709;<span class="notificactionCircle" id="mesa-circle">&#x231b;</span></a>
+                                    <ul class="nav navbar-nav" style="max-height: 300px; overflow: auto " id="mensajes-directos">
+                                        <li>
+                                           <button style="color: #e6e6e6; border: none; background-color: #20a500" onclick="openMessenger()">Nuevo Mensaje directo &#x2709;</button>
+                                        </li>
+                                    </ul>
+                                </li>
+                        </ul>
+                    }
 
 
-                                }
-                                catch { }
-                                }
-                          
-                                <ul class="nav navbar-nav" id="btnNavs2">
-                                    <li>@Html.ActionLink("Salir", "Create", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                                </ul>
-                        </div>
+                }
+                catch { }
+                }
+
+            <ul class="nav navbar-nav" id="btnNavs2">
+                <li>@Html.ActionLink("Salir", "Create", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
+                <li id="only-mobile">
+                    <a style="color: #e6e6e6; font-size:2em;">&#x1f56c;<div class="notificactionCircle" id="noti-circle">&#x231b;</div></a>
+                    <ul class="nav navbar-nav" style="max-height:300px;overflow:auto" id="notificaciones">
+                    </ul>
+                </li>
+                <li id="only-mobile">
+                    <a style="color: #e6e6e6; font-size:2em;"> &#x2709;<span class="notificactionCircle" id="mesa-circle">&#x231b;</span></a>
+                    <ul class="nav navbar-nav" style="max-height: 300px; overflow: auto " id="mensajes-directos">
+                        <li>
+                            <button style="color: #e6e6e6; border: none; background-color: #20a500" onclick="openMessenger()">Nuevo Mensaje directo &#x2709;</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            </div>
+            <script>
+                var notificationCount = 0;
+               // getNotifications();
+            </script>
         </div>
     </div>
+   
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        <hr /> 
+        <!-- Modal para el chat-->
+        <div class="modal fade" id="messenger" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+            <div class="modal-dialog modal-dialog-centered" role="document" style="width:80%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Mensajes directos</h5>
+                        <button type="button" class="close" onclick="closeMessenger()" aria-label="Close" style="float:right">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body" style="height:500px; width:100%">
+                       <table style="width:100%; height:100%;">
+                           <tr>
+                               <td style="border: 1px solid #eeeeee;width:35%"  >
+                                   <div id="userList" style="height:100%;overflow:auto">
+                                       <div>
+                                           <h4 style="color:cornflowerblue">Cargando...</h4>
+                                            <hr />
+                                       </div>
+                                   </div>
+                               </td>
+                               <td style="border: 1px solid #eeeeee; width: 65% " >
+                                   <div id="chat-who" style="height:10%; text-align:center"></div>
+                                   <input type="hidden" id="who-id" />
+                                   <div id="mensajes" style="height:80%;overflow:auto">
+                                       @*<div style="text-align:center">
+                                           Cargando....
+                                       </div>*@
+                                   </div>
+                                   <table style="height:10%;width:100%; border-top:1px solid #eeeeee" >
+                                       <tr>
+                                           <td style="width:80%"><input class="form-control" style="max-width:100%" id="input-message"/> </td>
+                                           <td style="width:20%" align="center"><button type="button" class="btn btn-secondary" onclick="sendMenssage(@us.Id_usuario,$('#who-id').val(),$('#input-message').val())">Enviar</button></td>
+                                       </tr>
+                                       
+                                   </table>
+                               </td>
+                           </tr>
+                       </table>
+                        
+                    </div>
+                    @*<div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>*@
+                </div>
+            </div>
+        </div>
         <footer>
             <p align="center">&copy; @DateTime.Now.Year - Formulario de Salud Ocupacional</p>
         </footer>
     </div>
 
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-<style>
+    <script>
+        var updateMessages;
+        var myUserSend = 0;
+        var myUserRecibe = 0;
+        function openMessenger() {
+            $("#messenger").modal('show');
+            getUsers();
+
+        }
+        function closeMessenger() {
+            $("#messenger").modal('hide');
+            clearInterval(updateMessages);
+            getNotificationMessenger();
+
+        }
+        function getUsers() {
+            $.ajax({
+                type: 'get',
+                url: '/Formulario_S_O/listaUsuarios?userSend='+@us.Id_usuario,
+                success: function (result) {
+                    content = "";
+                    for (let data of result) {
+                        //console.log('user:', data);
+                        content += `<div>
+                            <a href="#" onclick=" getChatMessages('${data.name}',${data.id})"><h4> ${data.name}</h4></a>
+                            <div style="height:1px;background-color:#eeeeee"></div>
+                                </div> <br/>`
+                    }
+                    $('#userList').html(content)
+                    
+
+                }
+            });
+        }
+        function getChatMessages(name, id) {
+            clearTimeout(updateMessages);
+            $('#chat-who').html(name);
+            $('#who-id').val(id);
+            getMessages('@us.Id_usuario', id);
+                myUserSend = @us.Id_usuario
+                myUserRecibe = id;
+             updateMessages = setInterval(checkForNewMessage,3000)
+           
+
+        }
+        function dummy(userSend, userRecibe) {
+            checkForNewMessage(userSend, userRecibe)
+            console.log('dummy function')
+        }
+        function getNotifications() {
+            $.ajax({
+                type: 'get',
+                url: '/Formulario_S_O/Notificaciones',
+                success: function (result) {
+                    content = "";
+                    for (let data of result) {
+                       // console.log('user:', data);
+                        content += ` <li style="background-color:#e6e6e6"> <a style="color:#20a500 ; " href="${data.Link}">
+                                                        <div> ${data.Mensaje}</div>
+                                                        <div style="font-size:9px">${data.fechaYhora}</div>
+                                                    </a>
+                                                </li>
+                                                <div style="height:1px;background-color:darkgreen"></div>`;
+                        notificationCount++;
+                    }
+                    $('#notificaciones').html(content)
+                    $('#noti-circle').html(notificationCount)
+
+                }
+            });
+        }
+        function sendMenssage(usersend, userRecibe, mensaje) {
+            if (mensaje != '') {
+                datos = {
+                    userSender: usersend,
+                    userReceiver: userRecibe,
+                    message: mensaje,
+                    fechaYhora: ''
+                }
+                //console.log('datos:', datos)
+                $.ajax({
+                    type: 'POST',
+                    url: "/Formulario_S_O/SendMessage",
+                    data: datos,
+                    success: function (data) {
+                        //console.log(data);
+
+                    }
+                });
+                $('#input-message').val('');
+                getMessages(usersend, userRecibe);
+            }
+            
+        }
+        function getMessages(userSend, userRecibe) {
+            $('#mensajes').html(`<div style="text-align:center">
+                                           Cargando....
+                                       </div>`)
+            $.ajax({
+                type: 'get',
+                url: '/Formulario_S_O/getMessages?userSend=' + userSend + '&userRecibe=' + userRecibe,
+                success: function (result) {
+                    content = "";
+
+                    for (let data of result) {
+                       /* console.log('mensaje:', data);*/
+                        if (data.userSender == @us.Id_usuario) {
+                            content += `<div class="sentMsj"> 
+                                            <div style="word-wrap:break-word;"> ${data.message}</div>
+                                             <div style="font-size:9px">${data.fechaYhora}</div>
+                                                   
+                                           </div>`;
+                        }
+                        else{
+                            content += `<div class="recibeMsj"> 
+                                            <div style="word-wrap:break-word;"> ${data.message}</div>
+                                             <div style="font-size:9px">${data.fechaYhora}</div>
+                                                   
+                                           </div>`;
+                        }
+                        
+                        
+                    }
+                    $('#mensajes').html(content)
+                    var objDiv = document.getElementById("mensajes");
+                    objDiv.scrollTop = objDiv.scrollHeight;
+
+                }
+            });
+        }
+        function checkForNewMessage() {
+            userSend = myUserSend, userRecibe= myUserRecibe
+           // console.log(`checking messages.${userSend}..${userRecibe}`)
+           
+            $.ajax({
+                type: 'GET',
+                url: '/Formulario_S_O/NewMessageConversation?userSend=' + userSend + '&userRecibe=' + userRecibe,
+                success: function (result) {
+                    
+                    if (result.mensajes > 0) {
+                        getMessages(userSend, userRecibe)
+                       
+                    }
+                }
+            })
+        }
+        function getNotificationMessenger() {
+            var userSend = @us.Id_usuario
+            var notiCount = 0;
+            $.ajax({
+                type: 'GET',
+                url: '/Formulario_S_O/MessagesNotifications?userSend=' + userSend,
+                success: function (result) {
+                    //console.log('mensaje encontrado...', result)
+
+                    content = "";
+                    for (let data of result) {
+                        // console.log('user:', data);
+                        content += ` <li style="background-color:#e6e6e6"> <a style="color:#20a500 ;" onclick="openMessengerFromNoti(${data.userSend}, ${data.userRecibe},'${data.nombre}')" href="#">
+                                                        <div style="color: black;">${data.nombre} dice:</div>
+                                                        <div> ${data.message}</div>
+                                                        <div style="font-size:9px">${data.fechaYhora}</div>
+                                                    </a>
+                                                </li>
+                                                <div style="height:1px;background-color:darkgreen"></div>`;
+                        notiCount++;
+                    }
+                    if (notiCount > 0) {
+                        $('#mensajes-directos').append(content)
+                    } else {
+                        $('#mensajes-directos').html(`<li>
+                            <button style="color: #e6e6e6; border: none; background-color: #20a500" onclick="openMessenger()">Nuevo Mensaje directo &#x2709;</button>
+                        </li>`)
+                    }
+                    
+                    $('#mesa-circle').html(notiCount)
+                  
+                }
+            })
+        }
+        function openMessengerFromNoti(userSend, userRecibe,name) {
+            $("#messenger").modal('show');
+            $('#chat-who').html(name);
+            $('#who-id').val(userRecibe);
+            getMessages(userSend, userRecibe);
+            getUsers();
+        }
+        //ejecutar...
+        getNotifications();
+        getNotificationMessenger();
+        setInterval(getNotificationMessenger, 300000)
+    </script>
+    <style>
+        /*estilos para chat*/
+        .sentMsj {
+            margin-left:auto;
+            margin-right:5px;
+           margin-bottom:4px;
+           margin-top:4px;
+            padding: 5px 10px 5px 10px;
+            border-radius:10px;
+            background-color: #efefef;
+            text-align: right;
+            width:fit-content;
+            
+            
+           
+        }
+        .recibeMsj {
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-bottom: 4px;
+            margin-top: 4px;
+            padding: 5px 10px 5px 10px;
+            border-radius: 10px;
+            background-color: #cafcbe;
+            width: fit-content;
+        }
+        /*estilos para menu desplegable*/
         .btnNavs {
             color: #e6e6e6;
         }
-       #btnNavs1 {
+
+        #btnNavs1 {
             color: #e6e6e6;
         }
+
         #btnNavs2 {
             color: #e6e6e6;
         }
+
         #btnNavs3 {
             color: #e6e6e6;
         }
@@ -308,7 +440,7 @@
         }
         /*estilos para menu desplegable*/
 
-        #menu  ul {
+        #menu ul {
             display: none;
             position: absolute;
             top: 100%;
@@ -317,52 +449,56 @@
             padding: 0;
         }
 
-        #menu  ul li {
-            float: initial;
-            width: 250px
-        }
-        #menu  li:hover > ul {
+            #menu ul li {
+                float: initial;
+                width: 250px
+            }
+
+        #menu li:hover > ul {
             display: block;
         }
-        #menu  li {
+
+        #menu li {
             position: relative;
             float: left;
             margin: 0;
             padding: 0;
         }
+
         #menu ul li {
             background-color: #20a500;
         }
-    .notificactionCircle {
-        border-radius: 50%;
-        background-color: white;
-        color: #20a500;
-        padding-left:7px;
-        padding-right:7px;
-        padding-top:3px;
-        padding-bottom:3px;
-        font-size:14px;
-    }
-/*estilos para mostrar tanto movil como pc*/
-    #only-pc {
-        display: block;
-    }
 
-    #only-mobile {
-        display: none;
-    }
-
-    @@media screen and (max-width: 768px) {
-
+        .notificactionCircle {
+            border-radius: 50%;
+            background-color: white;
+            color: #20a500;
+           
+            text-align: center;
+            padding: 2px 5px 2px 5px;
+            width: fit-content;
+            font-size: 14px;
+            display: inline-block;
+        }
+        /*estilos para mostrar tanto movil como pc*/
         #only-pc {
-            display: none;
+            display: block;
         }
 
         #only-mobile {
-            display: block;
+            display: none;
         }
-    }
 
-</style>
+        @@media screen and (max-width: 768px) {
+
+            #only-pc {
+                display: none;
+            }
+
+            #only-mobile {
+                display: block;
+            }
+        }
+    </style>
 </body>
 </html>
