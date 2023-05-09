@@ -889,5 +889,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Mensajes">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Mensaje">
+        <MappingFragment StoreEntitySet="Mensajes">
+          <ScalarProperty Name="FechaYhora" ColumnName="FechaYhora" />
+          <ScalarProperty Name="Id_usuario_recive" ColumnName="Id_usuario_recive" />
+          <ScalarProperty Name="Id_usuario" ColumnName="Id_usuario" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Mensaje1" ColumnName="Mensaje" />
+          <ScalarProperty Name="Mesage_id" ColumnName="Mesage_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

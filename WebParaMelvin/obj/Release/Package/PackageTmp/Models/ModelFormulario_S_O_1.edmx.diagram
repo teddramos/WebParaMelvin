@@ -47,6 +47,9 @@
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Actividades_1_Usuarios_1" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Info_general" Width="1.5" PointX="4.125" PointY="1.125" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Mensaje" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Mensajes_Usuario" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Mensajes_Usuario1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

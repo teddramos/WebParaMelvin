@@ -53,9 +53,9 @@ namespace WebParaMelvin.Controllers
                 }
                 else
                 {
-                   // return View(db.Formulario_S_O.ToList().OrderByDescending(a => a.Id_Formulario_S_O).ToList());
+                    return View(db.Formulario_S_O.ToList().OrderByDescending(a => a.Id_Formulario_S_O).ToList());
 
-                   return View(db.Formulario_S_O.ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
+                  // return View(db.Formulario_S_O.ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
                 }
             }
             return View();
@@ -794,8 +794,8 @@ namespace WebParaMelvin.Controllers
                     var noti = new Notificacion();
                     noti.tipo = "Notificacion";
                     noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                    noti.Expediente = "CSOes";
-                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Expediente = "EKGs";
+                    noti.Mensaje = "Completar el Electrocardiograma del expediente: " + noti.NumeroExpediente;
                     noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_EKG;
                     noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
                     notificaciones.Add(noti);
@@ -807,8 +807,8 @@ namespace WebParaMelvin.Controllers
                     var noti = new Notificacion();
                     noti.tipo = "Notificacion";
                     noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                    noti.Expediente = "CSOes";
-                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Expediente = "Espirometrias";
+                    noti.Mensaje = "Completar la Espiromentria del expediente: " + noti.NumeroExpediente;
                     noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Espirometria;
                     noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
                     notificaciones.Add(noti);
@@ -820,8 +820,8 @@ namespace WebParaMelvin.Controllers
                     var noti = new Notificacion();
                     noti.tipo = "Notificacion";
                     noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                    noti.Expediente = "CSOes";
-                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Expediente = "Examen_Visual";
+                    noti.Mensaje = "Completar el Examen visual del expediente: " + noti.NumeroExpediente;
                     noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Examen_Visual;
                     noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
                     notificaciones.Add(noti);
@@ -833,8 +833,8 @@ namespace WebParaMelvin.Controllers
                     var noti = new Notificacion();
                     noti.tipo = "Notificacion";
                     noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                    noti.Expediente = "CSOes";
-                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Expediente = "Hemogramas";
+                    noti.Mensaje = "Completar el Hemograma del expediente: " + noti.NumeroExpediente;
                     noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Hemograma;
                     noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
                     notificaciones.Add(noti);
@@ -846,8 +846,8 @@ namespace WebParaMelvin.Controllers
                     var noti = new Notificacion();
                     noti.tipo = "Notificacion";
                     noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                    noti.Expediente = "CSOes";
-                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Expediente = "Historia_Clinica";
+                    noti.Mensaje = "Completar la Historia clinica del expediente: " + noti.NumeroExpediente;
                     noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Historia_Clinica;
                     noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
                     notificaciones.Add(noti);
@@ -859,8 +859,8 @@ namespace WebParaMelvin.Controllers
                     var noti = new Notificacion();
                     noti.tipo = "Notificacion";
                     noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                    noti.Expediente = "CSOes";
-                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Expediente = "Laboratorios";
+                    noti.Mensaje = "Completar el laboratorio del expediente: " + noti.NumeroExpediente;
                     noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Laboratorio;
                     noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
                     notificaciones.Add(noti);
@@ -872,8 +872,8 @@ namespace WebParaMelvin.Controllers
                     var noti = new Notificacion();
                     noti.tipo = "Notificacion";
                     noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                    noti.Expediente = "CSOes";
-                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Expediente = "Mareos";
+                    noti.Mensaje = "Completar La capacidad fisica del expediente: " + noti.NumeroExpediente;
                     noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Mareo;
                     noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
                     notificaciones.Add(noti);
@@ -885,8 +885,8 @@ namespace WebParaMelvin.Controllers
                     var noti = new Notificacion();
                     noti.tipo = "Notificacion";
                     noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                    noti.Expediente = "CSOes";
-                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Expediente = "Pre_espirometria";
+                    noti.Mensaje = "Completar la Pre espiromentria del expediente: " + noti.NumeroExpediente;
                     noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_Pre_espirometria;
                     noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
                     notificaciones.Add(noti);
@@ -898,8 +898,8 @@ namespace WebParaMelvin.Controllers
                     var noti = new Notificacion();
                     noti.tipo = "Notificacion";
                     noti.NumeroExpediente = (long)data.Id_Formulario_S_O;
-                    noti.Expediente = "CSOes";
-                    noti.Mensaje = "Completar el Certificado de salud ocupacional del expediente: " + noti.NumeroExpediente;
+                    noti.Expediente = "RayosXes";
+                    noti.Mensaje = "Completar la radiografia del expediente: " + noti.NumeroExpediente;
                     noti.Link = "/" + noti.Expediente + "/Edit/" + data.Id_rayos_X;
                     noti.fechaYhora = data.Ultima_modificacion != null ? data.Ultima_modificacion.Value.ToShortDateString() : DateTime.Now.ToShortDateString();
                     notificaciones.Add(noti);
@@ -989,7 +989,7 @@ namespace WebParaMelvin.Controllers
                 foreach(var m in msj)
                 {
                     var user = db.Usuarios.Find(m.Id_usuario);
-                    notify.Add(new { userSend = m.Id_usuario_recive, userRecibe = m.Id_usuario, message = m.Mensaje1, nombre =user.Nombre_completo,
+                    notify.Add(new { userSend = m.Id_usuario_recive, userRecibe = m.Id_usuario, message = m.Mensaje1, nombre =user.Nombre_completo??user.Email,
                     fechaYhora= m.FechaYhora.Value.ToShortDateString() + " " + m.FechaYhora.Value.ToShortTimeString()});
                 }
                 return Json(notify, JsonRequestBehavior.AllowGet);

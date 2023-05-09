@@ -115,19 +115,7 @@
 
             <ul class="nav navbar-nav" id="btnNavs2">
                 <li>@Html.ActionLink("Salir", "Create", "Usuarios", new { area = "" }, new { @style = "color: #e6e6e6;" })</li>
-                <li id="only-mobile">
-                    <a style="color: #e6e6e6; font-size:2em;">&#x1f56c;<div class="notificactionCircle" id="noti-circle">&#x231b;</div></a>
-                    <ul class="nav navbar-nav" style="max-height:300px;overflow:auto" id="notificaciones">
-                    </ul>
-                </li>
-                <li id="only-mobile">
-                    <a style="color: #e6e6e6; font-size:2em;"> &#x2709;<span class="notificactionCircle" id="mesa-circle">&#x231b;</span></a>
-                    <ul class="nav navbar-nav" style="max-height: 300px; overflow: auto " id="mensajes-directos">
-                        <li>
-                            <button style="color: #e6e6e6; border: none; background-color: #20a500" onclick="openMessenger()">Nuevo Mensaje directo &#x2709;</button>
-                        </li>
-                    </ul>
-                </li>
+               
             </ul>
 
 
@@ -206,12 +194,16 @@
         var myUserRecibe = 0;
         function openMessenger() {
             $("#messenger").modal('show');
+            $('#chat-who').html('');
+            $('#who-id').val('');
+            $('#mensajes').html('')
             getUsers();
 
         }
         function closeMessenger() {
             $("#messenger").modal('hide');
             clearInterval(updateMessages);
+
             getNotificationMessenger();
 
         }
@@ -235,13 +227,13 @@
             });
         }
         function getChatMessages(name, id) {
-            clearTimeout(updateMessages);
+            
             $('#chat-who').html(name);
             $('#who-id').val(id);
             getMessages('@us.Id_usuario', id);
                 myUserSend = @us.Id_usuario
                 myUserRecibe = id;
-             updateMessages = setInterval(checkForNewMessage,3000)
+             updateMessages = setInterval(checkForNewMessage,5000)
            
 
         }
