@@ -754,6 +754,14 @@
           <Property Name="Ultima_modificacion" Type="datetime" />
           <Property Name="Usuario_que_modifico" Type="int" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="drogas1" Type="varchar" MaxLength="100" />
+          <Property Name="drogas2" Type="varchar" MaxLength="100" />
+          <Property Name="drogas3" Type="varchar" MaxLength="100" />
+          <Property Name="drogas4" Type="varchar" MaxLength="100" />
+          <Property Name="drogas5" Type="varchar" MaxLength="100" />
+          <Property Name="drogas6" Type="varchar" MaxLength="100" />
+          <Property Name="drogasDescripcion5" Type="varchar" MaxLength="100" />
+          <Property Name="drogasDescripcion6" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Mareo">
           <Key>
@@ -2298,6 +2306,14 @@
           <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
           <Property Name="Usuario_que_modifico" Type="Int32" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="drogas1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="drogas2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="drogas3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="drogas4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="drogas5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="drogas6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="drogasDescripcion5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="drogasDescripcion6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Mareo">
           <Key>
@@ -3252,6 +3268,14 @@
           <EntitySetMapping Name="Laboratorios">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Laboratorio">
               <MappingFragment StoreEntitySet="Laboratorio">
+                <ScalarProperty Name="drogasDescripcion6" ColumnName="drogasDescripcion6" />
+                <ScalarProperty Name="drogasDescripcion5" ColumnName="drogasDescripcion5" />
+                <ScalarProperty Name="drogas6" ColumnName="drogas6" />
+                <ScalarProperty Name="drogas5" ColumnName="drogas5" />
+                <ScalarProperty Name="drogas4" ColumnName="drogas4" />
+                <ScalarProperty Name="drogas3" ColumnName="drogas3" />
+                <ScalarProperty Name="drogas2" ColumnName="drogas2" />
+                <ScalarProperty Name="drogas1" ColumnName="drogas1" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
                 <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />

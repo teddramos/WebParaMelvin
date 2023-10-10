@@ -4462,25 +4462,25 @@
                             <td colspan="6" align="center" class="fields">Serología</td>
                         </tr>
                         @*<tr>
-                            <td colspan="2" class="field">VDRL</td>
-                            <td colspan="3" align="center">@lab.VDRL</td>
-                            <td>LATEX</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="field">Bacilo de Koch</td>
-                            <td colspan="3" align="center">@lab.Bacilo_de_Koch</td>
-                            <td>ELFA</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="field">HBsAg</td>
-                            <td colspan="3" align="center">@lab.HBsAg</td>
-                            <td>ELFA</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="field">HCV</td>
-                            <td colspan="3" align="center">@lab.HCV</td>
-                            <td>ELFA</td>
-                        </tr>*@
+            <td colspan="2" class="field">VDRL</td>
+            <td colspan="3" align="center">@lab.VDRL</td>
+            <td>LATEX</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="field">Bacilo de Koch</td>
+            <td colspan="3" align="center">@lab.Bacilo_de_Koch</td>
+            <td>ELFA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="field">HBsAg</td>
+            <td colspan="3" align="center">@lab.HBsAg</td>
+            <td>ELFA</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="field">HCV</td>
+            <td colspan="3" align="center">@lab.HCV</td>
+            <td>ELFA</td>
+        </tr>*@
                         @*nuevo formalario**@
                         <tr>
                             <td colspan="2" class="field">@lab.Serologia_condicion_1</td>
@@ -4525,24 +4525,57 @@
                             <td colspan="6" align="center" class="fields">Panel de Drogas</td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="field">Cocaína</td>
+                            <td colspan="2" class="field">@{if (string.IsNullOrEmpty(lab.drogas1)) {<span>Cocaina</span> } else {<span>@lab.drogas1</span> }
+                            }</td>
                             <td colspan="3" align="center">@lab.Cocaina</td>
                             <td>Cualitativo</td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="field">Anfetaminas</td>
+                            <td colspan="2" class="field">
+                                @{if (string.IsNullOrEmpty(lab.drogas2))
+                                    {<span>Anfetaminas</span> }
+                                    else
+                                    {<span>@lab.drogas2</span> }
+                                                        }
+                                                    </td>
                             <td colspan="3" align="center">@lab.Anfetaminas</td>
                             <td>Cualitativo</td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="field">Opiáceos</td>
+                            <td colspan="2" class="field">
+                                @{if (string.IsNullOrEmpty(lab.drogas3))
+                                    {<span>Opiaceos</span> }
+                                    else
+                                    {<span>@lab.drogas3</span> }
+                                                        }
+                                                    </td>
                             <td colspan="3" align="center">@lab.Opiaceos</td>
                             <td>Cualitativo</td>
                         </tr>
                         <tr>
-                            <td colspan="2">Marihuana</td>
+                            <td colspan="2" class="field">
+                                @{if (string.IsNullOrEmpty(lab.drogas4))
+                                    {<span>Marihuana</span> }
+                                    else
+                                    {<span>@lab.drogas4</span> }
+                                                        }
+                                                    </td>
                             <td colspan="3" align="center">@lab.Marihuana</td>
                             <td>Cualitativo</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="field">@lab.drogas5</td>
+                            <td colspan="3" align="center">@lab.drogasDescripcion5</td>
+                             @{if (lab.drogasDescripcion5 != null)
+                                {<td>Cualitativo</td> }
+                                }
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="field">@lab.drogas6</td>
+                            <td colspan="3" align="center">@lab.drogasDescripcion6</td>
+                            @{if (lab.drogasDescripcion6 != null)
+                                { <td>Cualitativo</td> }
+                                }
                         </tr>
                         <tr>
                             <td colspan="2">&nbsp;</td>

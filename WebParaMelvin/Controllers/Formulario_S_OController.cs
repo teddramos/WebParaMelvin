@@ -55,7 +55,7 @@ namespace WebParaMelvin.Controllers
                 {
                     //return View(db.Formulario_S_O.ToList().OrderByDescending(a => a.Id_Formulario_S_O).ToList());
 
-                   return View(db.Formulario_S_O.ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
+                  return View(db.Formulario_S_O.ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
                 }
             }
             return View();

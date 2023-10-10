@@ -749,6 +749,14 @@
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="drogas1" Type="varchar" MaxLength="100" />
+    <Property Name="drogas2" Type="varchar" MaxLength="100" />
+    <Property Name="drogas3" Type="varchar" MaxLength="100" />
+    <Property Name="drogas4" Type="varchar" MaxLength="100" />
+    <Property Name="drogas5" Type="varchar" MaxLength="100" />
+    <Property Name="drogas6" Type="varchar" MaxLength="100" />
+    <Property Name="drogasDescripcion5" Type="varchar" MaxLength="100" />
+    <Property Name="drogasDescripcion6" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Mareo">
     <Key>

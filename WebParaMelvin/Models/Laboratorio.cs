@@ -169,6 +169,14 @@ namespace WebParaMelvin.Models
         public Nullable<System.DateTime> Ultima_modificacion { get; set; }
         public Nullable<int> Usuario_que_modifico { get; set; }
         public string Estado { get; set; }
+        public string drogas1 { get; set; }
+        public string drogas2 { get; set; }
+        public string drogas3 { get; set; }
+        public string drogas4 { get; set; }
+        public string drogas5 { get; set; }
+        public string drogas6 { get; set; }
+        public string drogasDescripcion5 { get; set; }
+        public string drogasDescripcion6 { get; set; }
     
         public virtual Formulario_S_O Formulario_S_O { get; set; }
     }

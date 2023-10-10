@@ -993,6 +993,14 @@
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
     <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="drogas1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="drogas2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="drogas3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="drogas4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="drogas5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="drogas6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="drogasDescripcion5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="drogasDescripcion6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Mareo">
     <Key>
