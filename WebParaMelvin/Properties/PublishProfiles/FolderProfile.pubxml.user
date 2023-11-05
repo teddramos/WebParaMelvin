@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>E:\WebParaMelvin\WebParaMelvin\publish</_PublishTargetUrl>
-    <History>True|2023-10-10T20:18:50.9635318Z;True|2023-10-10T15:54:39.1208492-04:00;True|2023-07-15T08:57:53.8337425-04:00;True|2023-07-14T16:14:26.7284085-04:00;True|2023-07-13T19:34:19.3615215-04:00;True|2023-07-09T12:12:17.5153782-04:00;True|2023-04-25T12:48:23.8385944-04:00;True|2023-04-25T00:06:16.1995322-04:00;True|2023-04-24T19:01:00.6577412-04:00;True|2023-04-24T18:48:20.2389274-04:00;True|2023-04-24T18:31:13.7585280-04:00;True|2023-04-14T20:26:52.5860470-04:00;True|2023-04-12T11:40:06.5306621-04:00;True|2023-04-11T18:39:29.9822893-04:00;True|2023-04-10T22:47:50.0088577-04:00;True|2023-04-09T16:31:54.6676675-04:00;True|2023-04-09T16:26:16.6303428-04:00;True|2023-04-07T18:16:26.7351241-04:00;True|2023-04-04T10:48:03.7055845-04:00;True|2023-04-04T09:09:52.4832379-04:00;True|2023-03-30T19:19:31.1215433-04:00;True|2023-03-30T19:05:55.3639387-04:00;True|2023-03-28T12:18:50.9013459-04:00;True|2023-03-27T23:51:55.6421468-04:00;True|2023-03-27T22:32:11.9407593-04:00;True|2023-03-27T22:11:44.5288402-04:00;True|2023-03-27T21:29:27.8327763-04:00;False|2023-03-26T22:40:58.8013262-04:00;False|2023-03-26T22:27:47.3941974-04:00;</History>
+    <History>True|2023-11-02T23:04:15.6762520Z;True|2023-10-25T20:29:39.5223120-04:00;True|2023-10-11T21:49:56.5197144-04:00;True|2023-10-10T16:18:50.9635318-04:00;True|2023-10-10T15:54:39.1208492-04:00;True|2023-07-15T08:57:53.8337425-04:00;True|2023-07-14T16:14:26.7284085-04:00;True|2023-07-13T19:34:19.3615215-04:00;True|2023-07-09T12:12:17.5153782-04:00;True|2023-04-25T12:48:23.8385944-04:00;True|2023-04-25T00:06:16.1995322-04:00;True|2023-04-24T19:01:00.6577412-04:00;True|2023-04-24T18:48:20.2389274-04:00;True|2023-04-24T18:31:13.7585280-04:00;True|2023-04-14T20:26:52.5860470-04:00;True|2023-04-12T11:40:06.5306621-04:00;True|2023-04-11T18:39:29.9822893-04:00;True|2023-04-10T22:47:50.0088577-04:00;True|2023-04-09T16:31:54.6676675-04:00;True|2023-04-09T16:26:16.6303428-04:00;True|2023-04-07T18:16:26.7351241-04:00;True|2023-04-04T10:48:03.7055845-04:00;True|2023-04-04T09:09:52.4832379-04:00;True|2023-03-30T19:19:31.1215433-04:00;True|2023-03-30T19:05:55.3639387-04:00;True|2023-03-28T12:18:50.9013459-04:00;True|2023-03-27T23:51:55.6421468-04:00;True|2023-03-27T22:32:11.9407593-04:00;True|2023-03-27T22:11:44.5288402-04:00;True|2023-03-27T21:29:27.8327763-04:00;False|2023-03-26T22:40:58.8013262-04:00;False|2023-03-26T22:27:47.3941974-04:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -601,10 +601,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/28/2023 00:17:41</publishTime>
     </File>
     <File Include="bin/WebParaMelvin.dll">
-      <publishTime>10/10/2023 16:18:49</publishTime>
+      <publishTime>11/02/2023 19:04:12</publishTime>
     </File>
     <File Include="bin/WebParaMelvin.pdb">
-      <publishTime>10/10/2023 16:18:49</publishTime>
+      <publishTime>11/02/2023 19:04:12</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
       <publishTime>03/26/2023 22:40:55</publishTime>
@@ -1561,7 +1561,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/28/2023 00:17:41</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/Index.cshtml">
-      <publishTime>03/28/2023 00:17:41</publishTime>
+      <publishTime>10/25/2023 22:20:08</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/logo cisam.jpg">
       <publishTime>03/28/2023 00:17:41</publishTime>
@@ -1708,7 +1708,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2023 18:01:27</publishTime>
     </File>
     <File Include="Views/Usuarios/Index.cshtml">
-      <publishTime>03/28/2023 00:17:41</publishTime>
+      <publishTime>10/11/2023 20:51:32</publishTime>
     </File>
     <File Include="Views/Usuarios/IndexEmpresa.cshtml">
       <publishTime>03/28/2023 00:17:41</publishTime>

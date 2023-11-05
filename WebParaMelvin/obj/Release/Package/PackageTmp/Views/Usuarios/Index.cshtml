@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<WebParaMelvin.Models.Usuario>
 
+
 @{
     ViewBag.Title = "Index";
+   
 }
 
 <h2>Index</h2>
@@ -18,6 +20,9 @@
             @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
+            Empresa
+        </th>
+        <th>
             Rol
         </th>
         <th></th>
@@ -30,7 +35,21 @@
             @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @string.Format("*******",item.Password)
+            @string.Format("*******", item.Password)
+        </td>
+        <td>@{
+            var emp = item.Empresas;
+
+            if (emp.Count > 0)
+            {
+                    <span>@emp.First().Nombre</span>
+                }
+            else
+            {
+                    <span></span>
+                }
+
+            }
         </td>
         <td>
             @{ switch (item.id_rol)

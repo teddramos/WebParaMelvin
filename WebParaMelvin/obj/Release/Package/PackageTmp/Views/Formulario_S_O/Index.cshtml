@@ -106,31 +106,44 @@
 @{ if (user.id_rol == 3)
     {
         <div style="background-image: url('../../Images/logo cisam2.jpeg'); background-size:cover; width:auto; height:400px;">
-        </div>} }
+        </div>
+        }
+    }
+
 <table class="table" style="background-color:white;">
 
     @{ if (Model != null)
         {
-            <tr>
-                <th>
-                    No. Expediente
-                </th>
-                <th>
-                    Empresa
-                </th>
-                <th>
-                    Persona
-                </th>
-                <th>
-                    Fecha de Evaluación
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Estado)
-                </th>
-                <th>
+        <tr>
+            <th>
+                No. Expediente
+            </th>
+            @if(user.id_rol != 3){
 
-                </th>
-            </tr>} }
+                    <th>
+                        Empresa
+                    </th>
+                }
+                else
+                {
+                    <th>
+                        Tipo de Evaluación
+                    </th>
+                }
+            <th>
+                Persona
+            </th>
+            <th>
+                Fecha de Evaluación
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+
+            </th>
+        </tr>}
+        }
     @{ if (Model != null)
         {
             foreach (var item in Model)
@@ -143,7 +156,16 @@
                             @Html.DisplayFor(modelItem => item.Id_Formulario_S_O)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Empresa.Nombre)
+                            @if (user.id_rol != 3)
+                            {
+                                @Html.DisplayFor(modelItem => item.Empresa.Nombre)
+                            }
+                            else
+                            {
+                                var tipo = db.Info_general.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Tipo_de_evaluacion;
+                                <span>@tipo</span>
+                            }
+
                         </td>
                         <td>
                             @{
@@ -186,6 +208,7 @@
 
 
 </table>
+
 
 <script>
     function pasarEnfermedad(control) {

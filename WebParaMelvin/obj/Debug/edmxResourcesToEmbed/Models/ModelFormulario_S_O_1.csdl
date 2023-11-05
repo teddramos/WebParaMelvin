@@ -832,6 +832,7 @@
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
     <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pais_de_nacimiento" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Laboratorio">
     <Key>

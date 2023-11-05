@@ -559,6 +559,7 @@
           <Property Name="Ultima_modificacion" Type="datetime" />
           <Property Name="Usuario_que_modifico" Type="int" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pais_de_nacimiento" Type="nvarchar" MaxLength="120" />
         </EntityType>
         <EntityType Name="Info_general">
           <Key>
@@ -2145,6 +2146,7 @@
           <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
           <Property Name="Usuario_que_modifico" Type="Int32" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pais_de_nacimiento" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Laboratorio">
           <Key>
@@ -2990,6 +2992,7 @@
           <EntitySetMapping Name="Historia_Clinica">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Historia_Clinica">
               <MappingFragment StoreEntitySet="Historia_Clinica">
+                <ScalarProperty Name="Pais_de_nacimiento" ColumnName="Pais_de_nacimiento" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
                 <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />

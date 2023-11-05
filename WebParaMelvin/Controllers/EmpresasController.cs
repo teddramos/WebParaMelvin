@@ -23,7 +23,7 @@ namespace WebParaMelvin.Controllers
                 return RedirectToAction("Create", "Usuarios");
             }
             var empresa = db.Empresas.Include(e => e.Usuario);
-            return View(empresa.ToList());
+            return View(empresa.OrderBy(x=>x.Nombre).ToList());
         }
 
         // GET: Empresas/Details/5

@@ -23,7 +23,8 @@ namespace WebParaMelvin.Controllers
             {
                 return RedirectToAction("Create", "Usuarios");
             }
-            return View(db.Usuarios.ToList());
+            return View( db.Usuarios.Include(x => x.Empresas).OrderBy(x => x.Empresas.FirstOrDefault().Nombre).ToList());
+           // return View(db.Usuarios.ToList());
         }
 
         // GET: Usuarios/Details/5
