@@ -118,27 +118,38 @@
             <th>
                 No. Expediente
             </th>
-            @if(user.id_rol != 3){
+            @if (user.id_rol != 3)
+            {
 
-                    <th>
-                        Empresa
-                    </th>
-                }
-                else
-                {
-                    <th>
-                        Tipo de Evaluación
-                    </th>
-                }
+                <th>
+                    Empresa
+                </th>
+            }
+            else
+            {
+                <th>
+                    Tipo de Evaluación
+                </th>
+            }
             <th>
                 Persona
             </th>
             <th>
                 Fecha de Evaluación
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
+            @if (user.id_rol != 3)
+            {
+
+                <th>
+                    Estado
+                </th>
+            }
+            else
+            {
+                <th>
+                    País de origen
+                </th>
+            }
             <th>
 
             </th>
@@ -188,8 +199,15 @@
 
                         </td>
                         <td>
-
-                            @Html.DisplayFor(modelItem => item.Estado)
+                            @if (user.id_rol != 3)
+                            {
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            }
+                            else
+                            {
+                                var tipo = db.Historia_Clinica.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Pais_de_nacimiento;
+                                <span>@tipo</span>
+                            }
                         </td>
                         <td>
                             @{ if (user.id_rol != 3)

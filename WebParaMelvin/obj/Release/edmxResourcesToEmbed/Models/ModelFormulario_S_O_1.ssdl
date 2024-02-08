@@ -554,6 +554,7 @@
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pais_de_nacimiento" Type="nvarchar" MaxLength="120" />
   </EntityType>
   <EntityType Name="Info_general">
     <Key>
