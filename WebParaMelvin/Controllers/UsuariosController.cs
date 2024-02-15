@@ -147,8 +147,13 @@ namespace WebParaMelvin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_usuario,Email,Password,id_rol,Nombre_completo")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id_usuario,Email,Password,id_rol,Nombre_completo,Archivo")] Usuario usuario)
         {
+            if (usuario.Archivo != null)
+            {
+                usuario.Firma = new byte[usuario.Archivo.InputStream.Length];
+                usuario.Archivo.InputStream.Read(usuario.Firma, 0, usuario.Firma.Length);
+            }
             if (ModelState.IsValid)
             {
                 var user = Session["User"] as Usuario;
@@ -230,8 +235,13 @@ namespace WebParaMelvin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NewUser([Bind(Include = "Id_usuario,Email,Password,id_rol,Nombre_completo")] Usuario usuario)
+        public ActionResult NewUser([Bind(Include = "Id_usuario,Email,Password,id_rol,Nombre_completo,Archivo")] Usuario usuario)
         {
+            if (usuario.Archivo != null)
+            {
+                usuario.Firma = new byte[usuario.Archivo.InputStream.Length];
+                usuario.Archivo.InputStream.Read(usuario.Firma, 0, usuario.Firma.Length);
+            }
             if (ModelState.IsValid)
             {
                 db.Usuarios.Add(usuario);

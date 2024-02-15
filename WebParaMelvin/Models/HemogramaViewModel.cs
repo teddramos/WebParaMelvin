@@ -53,6 +53,10 @@ namespace WebParaMelvin.Models
     {
         public HttpPostedFileBase Archivo { get; set; }
     }
+    public partial class Usuario
+    {
+        public HttpPostedFileBase Archivo { get; set; }
+    }
     public partial class Laboratorio
     {
         public HttpPostedFileBase Archivo { get; set; }
