@@ -105,11 +105,11 @@ namespace WebParaMelvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Historia_Clinica Historia_Clinica)
         {
-            if (Historia_Clinica.Archivo != null)
-            {
-                Historia_Clinica.Firma = new byte[Historia_Clinica.Archivo.InputStream.Length];
-                Historia_Clinica.Archivo.InputStream.Read(Historia_Clinica.Firma, 0, Historia_Clinica.Firma.Length);
-            }
+            //if (Historia_Clinica.Archivo != null)
+            //{
+            //    Historia_Clinica.Firma = new byte[Historia_Clinica.Archivo.InputStream.Length];
+            //    Historia_Clinica.Archivo.InputStream.Read(Historia_Clinica.Firma, 0, Historia_Clinica.Firma.Length);
+            //}
 
             if (ModelState.IsValid)
             {
@@ -117,6 +117,10 @@ namespace WebParaMelvin.Controllers
                 var user = Session["User"] as Usuario;
                 Historia_Clinica.Usuario_que_modifico = user.Id_usuario;
                 Historia_Clinica.Ultima_modificacion = DateTime.Now;
+                if (Historia_Clinica.Estado == "Finalizada")
+                {
+                    Historia_Clinica.Firma = user.Firma;
+                }
                 db.Entry(Historia_Clinica).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details/" + Historia_Clinica.Id_Formulario_S_O, "Formulario_S_O");

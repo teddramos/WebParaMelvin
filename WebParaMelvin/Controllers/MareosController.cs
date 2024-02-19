@@ -106,17 +106,21 @@ namespace WebParaMelvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Mareo mareo)
         {
-            if (mareo.Archivo != null)
-            {
-                mareo.Firma = new byte[mareo.Archivo.InputStream.Length];
-                mareo.Archivo.InputStream.Read(mareo.Firma, 0, mareo.Firma.Length);
-            }
-            if (ModelState.IsValid)
+            //if (mareo.Archivo != null)
+            //{
+            //    mareo.Firma = new byte[mareo.Archivo.InputStream.Length];
+            //    mareo.Archivo.InputStream.Read(mareo.Firma, 0, mareo.Firma.Length);
+            //}
+            //if (ModelState.IsValid)
             {
                 mareo.Modificado = true;
                 var user = Session["User"] as Usuario;
                 mareo.Usuario_que_modifico = user.Id_usuario;
                 mareo.Ultima_modificacion = DateTime.Now;
+                if (mareo.Estado == "Finalizada")
+                {
+                    mareo.Firma = user.Firma;
+                }
                 db.Entry(mareo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details/" + mareo.Id_Formulario_S_O, "Formulario_S_O");

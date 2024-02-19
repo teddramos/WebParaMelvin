@@ -101,17 +101,21 @@ namespace WebParaMelvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Examen_Visual examen_Visual)
         {
-            if (examen_Visual.Archivo != null)
-            {
-                examen_Visual.Firma = new byte[examen_Visual.Archivo.InputStream.Length];
-                examen_Visual.Archivo.InputStream.Read(examen_Visual.Firma, 0, examen_Visual.Firma.Length);
-            }
+            //if (examen_Visual.Archivo != null)
+            //{
+            //    examen_Visual.Firma = new byte[examen_Visual.Archivo.InputStream.Length];
+            //    examen_Visual.Archivo.InputStream.Read(examen_Visual.Firma, 0, examen_Visual.Firma.Length);
+            //}
             if (ModelState.IsValid)
             {
                 var user = Session["User"] as Usuario;
                 examen_Visual.Usuario_que_modifico = user.Id_usuario;
                 examen_Visual.Ultima_modificacion = DateTime.Now;
                 examen_Visual.Modificado = true;
+                if (examen_Visual.Estado == "Finalizada")
+                {
+                    examen_Visual.Firma = user.Firma;
+                }
                 db.Entry(examen_Visual).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details/" + examen_Visual.Id_Formulario_S_O, "Formulario_S_O");
