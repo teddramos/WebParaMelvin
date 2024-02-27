@@ -78,6 +78,7 @@
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
           <ScalarProperty Name="Nombre_completo" ColumnName="Nombre_completo" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
