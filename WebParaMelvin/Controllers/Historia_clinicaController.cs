@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using WebParaMelvin.Models;
 
@@ -44,7 +41,7 @@ namespace WebParaMelvin.Controllers
             {
                 return RedirectToAction("Create", "Usuarios");
             }
-           
+
             return View();
         }
 
@@ -53,7 +50,7 @@ namespace WebParaMelvin.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( Historia_Clinica Historia_Clinica)
+        public ActionResult Create(Historia_Clinica Historia_Clinica)
         {
 
 
@@ -72,7 +69,7 @@ namespace WebParaMelvin.Controllers
                 return RedirectToAction("Create", "Pre_espirometria");
             }
 
-           
+
             return View(Historia_Clinica);
         }
 
@@ -94,7 +91,7 @@ namespace WebParaMelvin.Controllers
             {
                 return HttpNotFound();
             }
-        
+
             return View(Historia_Clinica);
         }
 
@@ -105,11 +102,11 @@ namespace WebParaMelvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Historia_Clinica Historia_Clinica)
         {
-            if (Historia_Clinica.Archivo != null)
-            {
-                Historia_Clinica.Firma = new byte[Historia_Clinica.Archivo.InputStream.Length];
-                Historia_Clinica.Archivo.InputStream.Read(Historia_Clinica.Firma, 0, Historia_Clinica.Firma.Length);
-            }
+            //if (Historia_Clinica.Archivo != null)
+            //{
+            //    Historia_Clinica.Firma = new byte[Historia_Clinica.Archivo.InputStream.Length];
+            //    Historia_Clinica.Archivo.InputStream.Read(Historia_Clinica.Firma, 0, Historia_Clinica.Firma.Length);
+            //}
 
             if (ModelState.IsValid)
             {
@@ -117,11 +114,15 @@ namespace WebParaMelvin.Controllers
                 var user = Session["User"] as Usuario;
                 Historia_Clinica.Usuario_que_modifico = user.Id_usuario;
                 Historia_Clinica.Ultima_modificacion = DateTime.Now;
+                if (Historia_Clinica.Estado == "Finalizada" && Historia_Clinica.Firmar)
+                {
+                    Historia_Clinica.Firma = user.Firma;
+                }
                 db.Entry(Historia_Clinica).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details/" + Historia_Clinica.Id_Formulario_S_O, "Formulario_S_O");
             }
-         
+
             return View(Historia_Clinica);
         }
 

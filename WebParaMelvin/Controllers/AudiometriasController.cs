@@ -104,15 +104,21 @@ namespace WebParaMelvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Audiometria audiometria)
         {
-            if (audiometria.Archivo != null)
+            //if (audiometria.Archivo != null)
+            //{
+            //    audiometria.Firma = new byte[audiometria.Archivo.InputStream.Length];
+            //    audiometria.Archivo.InputStream.Read(audiometria.Firma, 0, audiometria.Firma.Length);
+
+            //}
+            var user = Session["User"] as Usuario;
+            if (audiometria.Estado == "Finalizada" && audiometria.Firmar)
             {
-                audiometria.Firma = new byte[audiometria.Archivo.InputStream.Length];
-                audiometria.Archivo.InputStream.Read(audiometria.Firma, 0, audiometria.Firma.Length);
-                
+                audiometria.Firma = user.Firma;
             }
+
             if (ModelState.IsValid)
             {
-                var user = Session["User"] as Usuario;
+               // var user = Session["User"] as Usuario;
                 audiometria.Usuario_que_modifico = user.Id_usuario;
                 audiometria.Ultima_modificacion = DateTime.Now;
                 audiometria.Modificado = true;

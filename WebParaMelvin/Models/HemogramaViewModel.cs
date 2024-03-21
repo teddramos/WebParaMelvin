@@ -14,12 +14,14 @@ namespace WebParaMelvin.Models
     {
       
         public HttpPostedFileBase Firma { get; set; }
+        public bool Firmar { get; set; }
     }
     public partial class  RayosX
     {
         
         public HttpPostedFileBase Archivo { get; set; }
         public HttpPostedFileBase Archivo2 { get; set; }
+        public bool Firmar { get; set; }
 
     }
     public partial class Consentimiento_Informado
@@ -36,22 +38,27 @@ namespace WebParaMelvin.Models
     public partial class Historia_Clinica
     {
         public HttpPostedFileBase Archivo { get; set; }
+        public bool Firmar { get; set; }
     }
     public partial class CSO
     {
         public HttpPostedFileBase Archivo { get; set; }
+        public bool Firmar { get; set; }
     }
     public partial class Audiometria
     {
         public HttpPostedFileBase Archivo { get; set; }
+        public bool Firmar { get; set; }
     }
     public partial class Examen_Visual
     {
         public HttpPostedFileBase Archivo { get; set; }
+        public bool Firmar { get; set; }
     }
     public partial class Mareo
     {
         public HttpPostedFileBase Archivo { get; set; }
+        public bool Firmar { get; set; }
     }
     public partial class Usuario
     {
@@ -61,6 +68,7 @@ namespace WebParaMelvin.Models
     {
         public HttpPostedFileBase Archivo { get; set; }
         public HttpPostedFileBase Archivo1 { get; set; }
+        public bool Firmar { get; set; }
     }
     public partial class ArchivosExtra
     {

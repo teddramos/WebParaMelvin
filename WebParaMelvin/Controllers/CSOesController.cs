@@ -59,11 +59,11 @@ namespace WebParaMelvin.Controllers
         {
             var fso = Session["FormSO"] as Formulario_S_O;
             cSO.Id_Formulario_S_O = fso.Id_Formulario_S_O;
-            if (cSO.Archivo != null)
-            {
-                cSO.Firma = new byte[cSO.Archivo.InputStream.Length];
-                cSO.Archivo.InputStream.Read(cSO.Firma, 0, cSO.Firma.Length);
-            }
+            //if (cSO.Archivo != null)
+            //{
+            //    cSO.Firma = new byte[cSO.Archivo.InputStream.Length];
+            //    cSO.Archivo.InputStream.Read(cSO.Firma, 0, cSO.Firma.Length);
+            //}
 
             
             if (ModelState.IsValid)
@@ -141,15 +141,22 @@ namespace WebParaMelvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit( CSO cSO)
         {
-            if (cSO.Archivo != null)
-            {
-                cSO.Firma = new byte[cSO.Archivo.InputStream.Length];
-                cSO.Archivo.InputStream.Read(cSO.Firma, 0, cSO.Firma.Length);
+            //if (cSO.Archivo != null)
+            //{
+            //    cSO.Firma = new byte[cSO.Archivo.InputStream.Length];
+            //    cSO.Archivo.InputStream.Read(cSO.Firma, 0, cSO.Firma.Length);
                
-            }
+            //}
             var user = Session["User"] as Usuario;
             cSO.Usuario_que_modifico = user.Id_usuario;
             cSO.Ultima_modificacion = DateTime.Now;
+
+            if (cSO.Estado == "Finalizada" && cSO.Firmar)
+            {
+                var firma = db.Usuarios.Find(user.Id_usuario).Firma;
+                cSO.Firma = firma;
+            }
+
 
             if (ModelState.IsValid)
             {

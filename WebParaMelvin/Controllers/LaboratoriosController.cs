@@ -102,22 +102,28 @@ namespace WebParaMelvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Laboratorio laboratorio)
         {
-            if (laboratorio.Archivo != null )
-            {
-                laboratorio.firma = new byte[laboratorio.Archivo.InputStream.Length];
-                laboratorio.Archivo.InputStream.Read(laboratorio.firma, 0, laboratorio.firma.Length);
+            //if (laboratorio.Archivo != null )
+            //{
+            //    laboratorio.firma = new byte[laboratorio.Archivo.InputStream.Length];
+            //    laboratorio.Archivo.InputStream.Read(laboratorio.firma, 0, laboratorio.firma.Length);
                 
 
-            }
-            if (laboratorio.Archivo1 != null)
-            {
-                laboratorio.Firma1 = new byte[laboratorio.Archivo1.InputStream.Length];
-                laboratorio.Archivo1.InputStream.Read(laboratorio.Firma1, 0, laboratorio.Firma1.Length);
-            }
+            //}
+            //if (laboratorio.Archivo1 != null)
+            //{
+            //    laboratorio.Firma1 = new byte[laboratorio.Archivo1.InputStream.Length];
+            //    laboratorio.Archivo1.InputStream.Read(laboratorio.Firma1, 0, laboratorio.Firma1.Length);
+            //}
             if (ModelState.IsValid)
             {
                 laboratorio.Modificado = true;
                 var user = Session["User"] as Usuario;
+                if(laboratorio.Estado == "Finalizada" && laboratorio.Firmar)
+                {
+                    laboratorio.firma = user.Firma;
+                    laboratorio.Firma1 = user.Firma;
+                }
+                
                 laboratorio.Usuario_que_modifico = user.Id_usuario;
                 laboratorio.Ultima_modificacion = DateTime.Now;
                 db.Entry(laboratorio).State = EntityState.Modified;

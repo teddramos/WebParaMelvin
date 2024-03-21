@@ -503,7 +503,7 @@
                                 <option>Hipoacusia moderada</option>
                                 <option>Hipoacusia severa</option>
                                 <option>Hipoacusia profunda</option>
-}
+                            }
                             break;
                         case "Hipoacusia leve":
                             {
@@ -512,7 +512,7 @@
                                 <option>Hipoacusia moderada</option>
                                 <option>Hipoacusia severa</option>
                                 <option>Hipoacusia profunda</option>
-}
+                            }
                             break;
                         case "Hipoacusia moderada":
                             {
@@ -521,7 +521,7 @@
                                 <option selected>Hipoacusia moderada</option>
                                 <option>Hipoacusia severa</option>
                                 <option>Hipoacusia profunda</option>
-}
+                            }
                             break;
                         case "Hipoacusia severa":
                             {
@@ -530,7 +530,7 @@
                                 <option>Hipoacusia moderada</option>
                                 <option selected>Hipoacusia severa</option>
                                 <option>Hipoacusia profunda</option>
-}
+                            }
                             break;
                         case "Hipoacusia profunda":
                             {
@@ -539,7 +539,7 @@
                                 <option>Hipoacusia moderada</option>
                                 <option>Hipoacusia severa</option>
                                 <option selected>Hipoacusia profunda</option>
-}
+                            }
                             break;
                     }
                 }
@@ -554,13 +554,13 @@
             }
         </select>
     </div>
-    <div>
-        @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+    @*<div>
+            @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
 
-        @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
-        @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file",@style = "display:none" })
+            @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
 
-    </div>
+        </div>*@
 
     <div>
         @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
@@ -584,6 +584,14 @@
 
         @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firmar, "Firmar?", htmlAttributes: new { @class = "control-label" })
+
+        @Html.EditorFor(model => model.Firmar, new { htmlAttributes = new { @class = "form-control", @type = "checkbox" } })
+        @Html.ValidationMessageFor(model => model.Firmar, "", new { @class = "text-danger" })
+        <p style="font-size:12px">La opción de firmar solo funciona en el estado 'Finalizada'.</p>
 
     </div>
 
@@ -700,7 +708,7 @@
             scaleSteps: 10,
             scaleStepWidth: 10,
             scaleStartValue: 0,
-            
+
         });
     }
     DoGraphics();

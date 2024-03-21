@@ -376,13 +376,13 @@
 
     <br />
 
-    <div class="form-group">
-        @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+    @*<div class="form-group">
+            @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
 
-        @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
-        @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
+            @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
 
-    </div>
+        </div>*@
     <div class="form-group">
         @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
 
@@ -405,6 +405,14 @@
 
         @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firmar, "Firmar?", htmlAttributes: new { @class = "control-label" })
+
+        @Html.EditorFor(model => model.Firmar, new { htmlAttributes = new { @class = "form-control", @type = "checkbox" } })
+        @Html.ValidationMessageFor(model => model.Firmar, "", new { @class = "text-danger" })
+        <p style="font-size:12px">La opción de firmar solo funciona en el estado 'Finalizada'.</p>
 
     </div>
 

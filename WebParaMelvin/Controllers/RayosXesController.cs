@@ -98,20 +98,25 @@ namespace WebParaMelvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(RayosX rayosX)
         {
-            if (rayosX.Archivo != null) 
-            {
-                rayosX.Firma = new byte[rayosX.Archivo.InputStream.Length];
-                rayosX.Archivo.InputStream.Read(rayosX.Firma, 0, rayosX.Firma.Length);
+            //if (rayosX.Archivo != null) 
+            //{
+            //    rayosX.Firma = new byte[rayosX.Archivo.InputStream.Length];
+            //    rayosX.Archivo.InputStream.Read(rayosX.Firma, 0, rayosX.Firma.Length);
 
                 
-            }
-            if(rayosX.Archivo2 != null) { 
-            rayosX.Firma2 = new byte[rayosX.Archivo2.InputStream.Length];
-                rayosX.Archivo2.InputStream.Read(rayosX.Firma2, 0, rayosX.Firma2.Length);
-            }
+            //}
+            //if(rayosX.Archivo2 != null) { 
+            //rayosX.Firma2 = new byte[rayosX.Archivo2.InputStream.Length];
+            //    rayosX.Archivo2.InputStream.Read(rayosX.Firma2, 0, rayosX.Firma2.Length);
+            //}
             if (ModelState.IsValid)
             {
                 var user = Session["User"] as Usuario;
+                if(rayosX.Estado == "Finalizada" && rayosX.Firmar)
+                {
+                    rayosX.Firma = user.Firma;
+                    rayosX.Firma2 = user.Firma;
+                }
                 rayosX.Usuario_que_modifico = user.Id_usuario;
                 rayosX.Ultima_modificacion = DateTime.Now;
                 rayosX.Modificado = true;
