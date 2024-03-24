@@ -91,144 +91,144 @@
         <h4>Historia Clinica</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="col-md-4">
-        <div class="form-group">
-            @Html.LabelFor(model => model.Estado_civil, "Estado Civil", htmlAttributes: new { @class = "" })
-            <div class="col-md-10">
-                @Html.DropDownList("Estado_civil", new SelectList(new List<string>() { "Soltero(a)", "Casado(a)", "Unión Libre" }), htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Estado_civil, "", new { @class = "text-danger" })
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Estado_civil, "Estado Civil", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Estado_civil", new SelectList(new List<string>() { "Soltero(a)", "Casado(a)", "Unión Libre" }), htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Estado_civil, "", new { @class = "text-danger" })
 
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nivel_educacional, "País de nacimiento", htmlAttributes: new { @class = "" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Pais_de_nacimiento, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Pais_de_nacimiento, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nivel_educacional, "País de nacimiento", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Pais_de_nacimiento, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Pais_de_nacimiento, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nivel_educacional, "Nivel Educacional", htmlAttributes: new { @class = "" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nivel_educacional, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nivel_educacional, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nivel_educacional, "Nivel Educacional", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nivel_educacional, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nivel_educacional, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.No_de_Hijos, "NO. de Hijos", htmlAttributes: new { @class = "" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.No_de_Hijos, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.No_de_Hijos, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.No_de_Hijos, "NO. de Hijos", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.No_de_Hijos, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.No_de_Hijos, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.No_dependienteds, "No. de Dependientes", htmlAttributes: new { @class = "" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.No_dependienteds, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.No_dependienteds, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.No_dependienteds, "No. de Dependientes", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.No_dependienteds, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.No_dependienteds, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-       
-    </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            @Html.LabelFor(model => model.Vivienda, "Tipo de Vivienda", htmlAttributes: new { @class = "" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Vivienda, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Vivienda, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Vivienda, "Tipo de Vivienda", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Vivienda, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Vivienda, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Estatura, "Estructura", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Estatura, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Estatura, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Estatura, "Estructura", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Estatura, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Estatura, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Calle, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Calle, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Calle, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Calle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Numero_casa, "Numero de Casa", htmlAttributes: new { @class = "" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Numero_casa, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Numero_casa, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Numero_casa, "Numero de Casa", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Numero_casa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Numero_casa, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ciudad, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ciudad, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ciudad, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Ciudad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Ciudad, "", new { @class = "text-danger" })
+                </div>
             </div>
+
+
+
+
         </div>
-
-      
-
-
-    </div>
-    <div class="col-md-4">
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sector, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Sector, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sector, "", new { @class = "text-danger" })
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sector, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sector, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sector, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Telefono, "Teléfono", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Telefono, "Teléfono", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.perosona_emergencia, "Contacto en Caso de Emergencia", htmlAttributes: new { @class = "" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.perosona_emergencia, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.perosona_emergencia, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.perosona_emergencia, "Contacto en Caso de Emergencia", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.perosona_emergencia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.perosona_emergencia, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.telefono_emergencia, "Teléfono en Caso de Emergencia", htmlAttributes: new { @class = "" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.telefono_emergencia, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.telefono_emergencia, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.telefono_emergencia, "Teléfono en Caso de Emergencia", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.telefono_emergencia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.telefono_emergencia, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 
     </div>
 
@@ -1095,12 +1095,12 @@
         </div>
     </div>
     @*<div class="form-group">
-        @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
 
-        @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
-        @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
+            @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
 
-    </div>*@
+        </div>*@
     <div class="form-group">
         @Html.Label("Firma:", htmlAttributes: new { @class = "control-label  col-md-2" })
 
@@ -1109,7 +1109,7 @@
             {
                 var base64 = Convert.ToBase64String(Model.Firma);
                 var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-                <img src="@imgSrc"  width="200"/>
+                <img src="@imgSrc" width="200" />
             }
             catch
             {
@@ -1120,79 +1120,87 @@
     </div>
     <div class="form-group">
         @Html.Label("Estado", htmlAttributes: new { @class = "control-label col-md-2" })
-
-        @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
-
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Guardar" class="btn btn-default" />
+        
+            @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+           
         </div>
-    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firmar, "Firmar?", htmlAttributes: new { @class = "control-label col-md-2" })
+      
+            @Html.EditorFor(model => model.Firmar, new { htmlAttributes = new { @class = "form-control", @type = "checkbox" } })
+            @Html.ValidationMessageFor(model => model.Firmar, "", new { @class = "text-danger" })
+            <p style="font-size:12px">La opción de firmar solo funciona en el estado 'Finalizada'.</p>
+            
+        </div>
+    
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </div>
 
-
-}
-
-<div>
-    @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script>
-        function isNumberKey(evt) {
-            var charCode = (evt.which) ? evt.which : event.keyCode
-            if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
-                return false;
-            return true;
-        }
-        //conversion de libras a kilogramos
-        var inputBoxPeso_Lbs = document.getElementById('Peso_Lbs');
-
-        inputBoxPeso_Lbs.onkeyup = function () {
-            var Kgs = eval(inputBoxPeso_Lbs.value) / 2.20462;
-
-            document.getElementById('Peso_Kgs').value = Math.round(Kgs * 100) / 100;
-            calculoICM();
-        }
-        //conversion de pulgadas a centimetros
-        var inputBoxTalla_Pulg = document.getElementById('Talla_Pulg');
-
-        inputBoxTalla_Pulg.onkeyup = function () {
-            var Cms = eval(inputBoxTalla_Pulg.value) * 2.54;
-
-            document.getElementById('Talla_Cms').value = Math.round(Cms * 100) / 100;
-            calculoICM();
-        }
-        //calculo del ICM
-
-
-
-        function calculoICM() {
-            var textBoxCms = document.getElementById('Talla_Cms');
-            var textBoxKgs = document.getElementById('Peso_Kgs');
-            var icm = eval(textBoxKgs.value) / ((eval(textBoxCms.value) / 100) * (eval(textBoxCms.value) / 100));
-            x = Math.round(icm * 100) / 100
-            document.getElementById('IMC').value = x;
-            calculaRiesgoCardio(x);
-        }
-
-
-        function calculaRiesgoCardio(imc) {
-            var rc = document.getElementById('IMC_Resul');
-            var rcar = document.getElementById('Riesgo_Cardiovascular');
-            var imc = document.getElementById('IMC');
-            if (eval(imc.value) < 18.5) { rc.value = 'Bajo Peso'; rcar.value = 'Muy Bajo'; }
-
-            if (eval(imc.value) < 25 && eval(imc.value) > 18.5) { rc.value = 'Normal'; rcar.value = 'Bajo'; }
-            if (eval(imc.value) < 30 && eval(imc.value) > 25) { rc.value = 'Sobre Peso'; rcar.value = 'Moderado'; }
-            if (eval(imc.value) < 35 && eval(imc.value) > 30) { rc.value = 'Obesidad I'; rcar.value = 'Alto'; }
-            if (eval(imc.value) <= 39.9 && eval(imc.value) > 35) { rc.value = 'Obesidad II'; rcar.value = 'Muy Alto'; }
-            if (eval(imc.value) >= 40) { rc.value = 'Obesidad III'; rcar.value = 'Extremo'; }
 
         }
 
-    </script>
-}
+        <div>
+            @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+            <script>
+                function isNumberKey(evt) {
+                    var charCode = (evt.which) ? evt.which : event.keyCode
+                    if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+                        return false;
+                    return true;
+                }
+                //conversion de libras a kilogramos
+                var inputBoxPeso_Lbs = document.getElementById('Peso_Lbs');
+
+                inputBoxPeso_Lbs.onkeyup = function () {
+                    var Kgs = eval(inputBoxPeso_Lbs.value) / 2.20462;
+
+                    document.getElementById('Peso_Kgs').value = Math.round(Kgs * 100) / 100;
+                    calculoICM();
+                }
+                //conversion de pulgadas a centimetros
+                var inputBoxTalla_Pulg = document.getElementById('Talla_Pulg');
+
+                inputBoxTalla_Pulg.onkeyup = function () {
+                    var Cms = eval(inputBoxTalla_Pulg.value) * 2.54;
+
+                    document.getElementById('Talla_Cms').value = Math.round(Cms * 100) / 100;
+                    calculoICM();
+                }
+                //calculo del ICM
+
+
+
+                function calculoICM() {
+                    var textBoxCms = document.getElementById('Talla_Cms');
+                    var textBoxKgs = document.getElementById('Peso_Kgs');
+                    var icm = eval(textBoxKgs.value) / ((eval(textBoxCms.value) / 100) * (eval(textBoxCms.value) / 100));
+                    x = Math.round(icm * 100) / 100
+                    document.getElementById('IMC').value = x;
+                    calculaRiesgoCardio(x);
+                }
+
+
+                function calculaRiesgoCardio(imc) {
+                    var rc = document.getElementById('IMC_Resul');
+                    var rcar = document.getElementById('Riesgo_Cardiovascular');
+                    var imc = document.getElementById('IMC');
+                    if (eval(imc.value) < 18.5) { rc.value = 'Bajo Peso'; rcar.value = 'Muy Bajo'; }
+
+                    if (eval(imc.value) < 25 && eval(imc.value) > 18.5) { rc.value = 'Normal'; rcar.value = 'Bajo'; }
+                    if (eval(imc.value) < 30 && eval(imc.value) > 25) { rc.value = 'Sobre Peso'; rcar.value = 'Moderado'; }
+                    if (eval(imc.value) < 35 && eval(imc.value) > 30) { rc.value = 'Obesidad I'; rcar.value = 'Alto'; }
+                    if (eval(imc.value) <= 39.9 && eval(imc.value) > 35) { rc.value = 'Obesidad II'; rcar.value = 'Muy Alto'; }
+                    if (eval(imc.value) >= 40) { rc.value = 'Obesidad III'; rcar.value = 'Extremo'; }
+
+                }
+
+            </script>
+        }
