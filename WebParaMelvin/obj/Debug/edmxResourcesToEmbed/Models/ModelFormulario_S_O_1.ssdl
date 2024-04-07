@@ -265,6 +265,8 @@
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Confrima_asistencia" Type="bit" Nullable="false" />
+    <Property Name="Confrima_pruebas_completadas" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Hemograma">
     <Key>
@@ -576,18 +578,18 @@
     <Property Name="Id_Formulario_S_O" Type="int" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
-    <Property Name="Pre_espirometria" Type="bit" />
-    <Property Name="Espirometria" Type="bit" />
-    <Property Name="Audiometria" Type="bit" />
-    <Property Name="Capacidad_fisica" Type="bit" />
-    <Property Name="Laboratorio" Type="bit" />
-    <Property Name="Radiografia" Type="bit" />
-    <Property Name="Hemografia" Type="bit" />
-    <Property Name="EKG" Type="bit" />
-    <Property Name="Examen_visual" Type="bit" />
-    <Property Name="Bateria_de_un_mes" Type="bit" />
-    <Property Name="Bateria_Completa" Type="bit" />
-    <Property Name="Historia_clinica_y_examen_fisico" Type="bit" />
+    <Property Name="Pre_espirometria" Type="bit" Nullable="false" />
+    <Property Name="Espirometria" Type="bit" Nullable="false" />
+    <Property Name="Audiometria" Type="bit" Nullable="false" />
+    <Property Name="Capacidad_fisica" Type="bit" Nullable="false" />
+    <Property Name="Laboratorio" Type="bit" Nullable="false" />
+    <Property Name="Radiografia" Type="bit" Nullable="false" />
+    <Property Name="Hemografia" Type="bit" Nullable="false" />
+    <Property Name="EKG" Type="bit" Nullable="false" />
+    <Property Name="Examen_visual" Type="bit" Nullable="false" />
+    <Property Name="Bateria_de_un_mes" Type="bit" Nullable="false" />
+    <Property Name="Bateria_Completa" Type="bit" Nullable="false" />
+    <Property Name="Historia_clinica_y_examen_fisico" Type="bit" Nullable="false" />
     <Property Name="Consentimiento_informado" Type="bit" Nullable="false" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>

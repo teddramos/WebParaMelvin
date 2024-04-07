@@ -58,6 +58,8 @@
     <EntitySetMapping Name="Formulario_S_O">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Formulario_S_O">
         <MappingFragment StoreEntitySet="Formulario_S_O">
+          <ScalarProperty Name="Confrima_pruebas_completadas" ColumnName="Confrima_pruebas_completadas" />
+          <ScalarProperty Name="Confrima_asistencia" ColumnName="Confrima_asistencia" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
           <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
           <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />

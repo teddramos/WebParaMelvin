@@ -81,6 +81,8 @@
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
     <NavigationProperty Name="Info_general" Relationship="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" FromRole="Formulario_S_O" ToRole="Info_general" />
+    <Property Name="Confrima_asistencia" Type="Boolean" Nullable="false" />
+    <Property Name="Confrima_pruebas_completadas" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Rol">
     <Key>
@@ -1285,18 +1287,18 @@
     <Property Name="Id_Formulario_S_O" Type="Int32" />
     <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
     <Property Name="Usuario_que_modifico" Type="Int32" />
-    <Property Name="Pre_espirometria" Type="Boolean" />
-    <Property Name="Espirometria" Type="Boolean" />
-    <Property Name="Audiometria" Type="Boolean" />
-    <Property Name="Capacidad_fisica" Type="Boolean" />
-    <Property Name="Laboratorio" Type="Boolean" />
-    <Property Name="Radiografia" Type="Boolean" />
-    <Property Name="Hemografia" Type="Boolean" />
-    <Property Name="EKG" Type="Boolean" />
-    <Property Name="Examen_visual" Type="Boolean" />
-    <Property Name="Bateria_de_un_mes" Type="Boolean" />
-    <Property Name="Bateria_Completa" Type="Boolean" />
-    <Property Name="Historia_clinica_y_examen_fisico" Type="Boolean" />
+    <Property Name="Pre_espirometria" Type="Boolean" Nullable="false" />
+    <Property Name="Espirometria" Type="Boolean" Nullable="false" />
+    <Property Name="Audiometria" Type="Boolean" Nullable="false" />
+    <Property Name="Capacidad_fisica" Type="Boolean" Nullable="false" />
+    <Property Name="Laboratorio" Type="Boolean" Nullable="false" />
+    <Property Name="Radiografia" Type="Boolean" Nullable="false" />
+    <Property Name="Hemografia" Type="Boolean" Nullable="false" />
+    <Property Name="EKG" Type="Boolean" Nullable="false" />
+    <Property Name="Examen_visual" Type="Boolean" Nullable="false" />
+    <Property Name="Bateria_de_un_mes" Type="Boolean" Nullable="false" />
+    <Property Name="Bateria_Completa" Type="Boolean" Nullable="false" />
+    <Property Name="Historia_clinica_y_examen_fisico" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" FromRole="Info_general" ToRole="Formulario_S_O" />
     <Property Name="Consentimiento_informado" Type="Boolean" Nullable="false" />
     <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />

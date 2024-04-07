@@ -55,7 +55,7 @@ namespace WebParaMelvin.Controllers
                 {
                      return View(db.Formulario_S_O.Include(x => x.Info_general).Where(x => x.Info_general.FirstOrDefault(b => b.Id_Formulario_S_O == x.Id_Formulario_S_O).Fecha > new DateTime(2021,12,31)).ToList().OrderByDescending(a =>a.Id_Formulario_S_O).ToList());
 
-                 // return View(db.Formulario_S_O.Include(x => x.Info_general).Where(x => x.Info_general.FirstOrDefault(b => b.Id_Formulario_S_O == x.Id_Formulario_S_O).Fecha > new DateTime(2020,12,31)).ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
+                 //  return View(db.Formulario_S_O.Include(x => x.Info_general).Where(x => x.Info_general.FirstOrDefault(b => b.Id_Formulario_S_O == x.Id_Formulario_S_O).Fecha > new DateTime(2020,12,31)).ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
                 }
             }
             return View();
@@ -1018,7 +1018,7 @@ namespace WebParaMelvin.Controllers
                     str2 = reader.ReadToEnd();
                 }
                 str2 = str2.Replace("{cliente}", empresa.Nombre).Replace("{empleado}", _general.Nombre + " " + _general.Apellido);
-                string str3 = "Candidato se ha ido";
+                string str3 = "Candidato a terminado las pruebas";
                 SmtpClient client1 = new SmtpClient();
                 client1.Host = "mail.negox.com";
                 client1.Port = 0x24b;
@@ -1036,15 +1036,69 @@ namespace WebParaMelvin.Controllers
                     client.Send(message);
                 }
                 ViewBag.mensaje = "true";
-                Session.Add("mensaje", "true");
-                return base.RedirectToAction("Details/" + idSo);
+              //  Session.Add("mensaje", "true");
+                formu.Confrima_pruebas_completadas = true;
+                db.Entry(formu).State = EntityState.Modified;
+                db.SaveChanges();
+                return View("Details", formu);
             }
             catch (Exception exception)
             {
-                // ViewBag.mensaje = "Ocurrio un error enviando el email:" + exception.Message;
-                Session.Add("mensaje", "Ocurrio un error enviando el email:" + exception.Message);
+                 ViewBag.mensaje = "Ocurrio un error enviando el email:" + exception.Message;
+               // Session.Add("mensaje", "Ocurrio un error enviando el email:" + exception.Message);
             }
-            return base.RedirectToAction("Details/" + idSo);
+            return View("Details",formu);
+        }
+        [HttpGet]
+        public ActionResult SendEmailCandidatoAsistio(int? idSo)
+        {
+
+            Formulario_S_O formu = this.db.Formulario_S_O.FirstOrDefault(x => x.Id_Formulario_S_O == idSo);
+
+            Info_general _general = this.db.Info_general.FirstOrDefault(x => x.Id_Formulario_S_O == idSo);
+
+            Empresa empresa = this.db.Empresas.FirstOrDefault(x => x.Id_Empresa == formu.Id_Empresa);
+            try
+            {
+                MailAddress from = new MailAddress("teddramos@cisam.com.do", "cisam");
+                MailAddress to = new MailAddress(empresa.Email, empresa.Nombre);
+                string password = "K2z7#a9s4";
+                string str2 = string.Empty;
+                using (StreamReader reader = new StreamReader(Server.MapPath("~/templateforCameEmail.html")))
+                {
+                    str2 = reader.ReadToEnd();
+                }
+                str2 = str2.Replace("{cliente}", empresa.Nombre).Replace("{empleado}", _general.Nombre + " " + _general.Apellido);
+                string str3 = "Candidato asistio a la prueba";
+                SmtpClient client1 = new SmtpClient();
+                client1.Host = "mail.negox.com";
+                client1.Port = 0x24b;
+                client1.EnableSsl = true;
+                client1.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client1.UseDefaultCredentials = false;
+                client1.Credentials = new NetworkCredential(from.Address, password);
+                SmtpClient client = client1;
+                MailMessage message1 = new MailMessage(from, to);
+                message1.Subject = str3;
+                message1.Body = str2;
+                message1.IsBodyHtml = true;
+                using (MailMessage message = message1)
+                {
+                    client.Send(message);
+                }
+                ViewBag.mensaje = "true";
+               // Session.Add("mensaje", "true");
+                formu.Confrima_asistencia = true;
+                db.Entry(formu).State = EntityState.Modified;
+                db.SaveChanges();
+                return View("Details", formu);
+            }
+            catch (Exception exception)
+            {
+                 ViewBag.mensaje = "Ocurrio un error enviando el email:" + exception.Message;
+               // Session.Add("mensaje", "Ocurrio un error enviando el email:" + exception.Message);
+            }
+            return View("Details", formu);
         }
         protected override void Dispose(bool disposing)
         {

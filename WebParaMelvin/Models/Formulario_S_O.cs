@@ -39,6 +39,8 @@ namespace WebParaMelvin.Models
         public string Estado { get; set; }
         public Nullable<System.DateTime> Ultima_modificacion { get; set; }
         public Nullable<int> Usuario_que_modifico { get; set; }
+        public bool Confrima_asistencia { get; set; }
+        public bool Confrima_pruebas_completadas { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CSO> CSOes { get; set; }

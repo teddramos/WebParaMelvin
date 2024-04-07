@@ -492,6 +492,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="templateforCameEmail.html" />
+    <Content Include="templateforGoneEmail.html" />
     <Content Include="Views\Formulario_S_O\logo cisam.jpg" />
     <Content Include="loginFiles\css\main.css" />
     <Content Include="loginFiles\css\util.css" />
