@@ -678,6 +678,7 @@
           <Property Name="Historia_clinica_y_examen_fisico" Type="bit" Nullable="false" />
           <Property Name="Consentimiento_informado" Type="bit" Nullable="false" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="EpWorth" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Laboratorio">
           <Key>
@@ -2746,6 +2747,7 @@
           <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" FromRole="Info_general" ToRole="Formulario_S_O" />
           <Property Name="Consentimiento_informado" Type="Boolean" Nullable="false" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EpWorth" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Info_general_To_Formulario_S_O">
           <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1">
@@ -3778,6 +3780,7 @@
           <EntitySetMapping Name="Info_general">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Info_general">
               <MappingFragment StoreEntitySet="Info_general">
+                <ScalarProperty Name="EpWorth" ColumnName="EpWorth" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Consentimiento_informado" ColumnName="Consentimiento_informado" />
                 <ScalarProperty Name="Historia_clinica_y_examen_fisico" ColumnName="Historia_clinica_y_examen_fisico" />

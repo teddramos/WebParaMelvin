@@ -44,6 +44,7 @@ namespace WebParaMelvin.Models
         public bool Historia_clinica_y_examen_fisico { get; set; }
         public bool Consentimiento_informado { get; set; }
         public string Estado { get; set; }
+        public bool EpWorth { get; set; }
     
         public virtual Formulario_S_O Formulario_S_O { get; set; }
     }
