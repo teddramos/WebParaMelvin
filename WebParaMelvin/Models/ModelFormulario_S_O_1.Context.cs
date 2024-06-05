@@ -47,5 +47,7 @@ namespace WebParaMelvin.Models
         public virtual DbSet<Actividade> Actividades { get; set; }
         public virtual DbSet<Info_general> Info_general { get; set; }
         public virtual DbSet<Mensaje> Mensajes { get; set; }
+        public virtual DbSet<Deteccion_SAS> Deteccion_SAS { get; set; }
+        public virtual DbSet<EpWorth> EpWorths { get; set; }
     }
 }
