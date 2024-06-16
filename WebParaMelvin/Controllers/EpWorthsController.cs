@@ -82,15 +82,31 @@ namespace WebParaMelvin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_EpWorth,sentado_y_leyendo,viendo_la_television,sentado_inactivo_lugar_publico,sentado_una_hora_pasajero,tumbado_de_tarde_para_descansar,sentado_hablando_con_otro,sentado_tranquilo_despues_de_comida,sentado_en_coche_por_unos_minutos_por_atasco,Modificado,Ultima_modificacion,Usuario_que_modifico,Estado,Id_Formulario_S_O")] EpWorth epWorth)
+        public ActionResult Edit( EpWorth epWorth)
         {
+
             if (ModelState.IsValid)
             {
+                epWorth.Modificado = true;
+                var user = Session["User"] as Usuario;
+                epWorth.Usuario_que_modifico = user.Id_usuario;
+                epWorth.Ultima_modificacion = DateTime.Now;
+
+                if (epWorth.Estado == "Finalizada" && epWorth.Firmar)
+                {
+                    epWorth.Firma = user.Firma;
+                }
+                if (epWorth.Archivo != null)
+                {
+                    epWorth.Firma_candidato = new byte[epWorth.Archivo.InputStream.Length];
+                    epWorth.Archivo.InputStream.Read(epWorth.Firma_candidato, 0, epWorth.Firma_candidato.Length);
+                }
+
                 db.Entry(epWorth).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details/" + epWorth.Id_Formulario_S_O, "Formulario_S_O");
             }
-            ViewBag.Id_Formulario_S_O = new SelectList(db.Formulario_S_O, "Id_Formulario_S_O", "Estado", epWorth.Id_Formulario_S_O);
+          
             return View(epWorth);
         }
 

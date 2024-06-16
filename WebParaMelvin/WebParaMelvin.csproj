@@ -497,6 +497,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\clientScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -507,8 +508,10 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SigWebTablet.js" />
     <Content Include="templateforCameEmail.html" />
     <Content Include="templateforGoneEmail.html" />
+    <Content Include="Views\EpWorths\Topaz SigWeb\clientScripts.js" />
     <Content Include="Views\Formulario_S_O\logo cisam.jpg" />
     <Content Include="loginFiles\css\main.css" />
     <Content Include="loginFiles\css\util.css" />
@@ -727,6 +730,7 @@
     <Content Include="Views\EpWorths\Details.cshtml" />
     <Content Include="Views\EpWorths\Edit.cshtml" />
     <Content Include="Views\EpWorths\Index.cshtml" />
+    <Content Include="Views\EpWorths\Topaz SigWeb\SigWebTablet.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -102,5 +102,10 @@ namespace WebParaMelvin.Models
         public string message { get; set; }
         public string fechaYhora { get; set; }
     }
-    
+    public partial class EpWorth
+    {
+        public HttpPostedFileBase Archivo { get; set; }
+        public bool Firmar { get; set; }
+    }
+
 }

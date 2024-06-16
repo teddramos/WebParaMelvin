@@ -1449,6 +1449,8 @@
     <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Id_Formulario_S_O" Type="Int32" />
     <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" FromRole="EpWorth" ToRole="Formulario_S_O" />
+    <Property Name="Firma" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Firma_candidato" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="FK__Deteccion__Id_Fo__731B1205">
     <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1" />

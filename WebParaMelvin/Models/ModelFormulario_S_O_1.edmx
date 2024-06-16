@@ -239,6 +239,8 @@
           <Property Name="Usuario_que_modifico" Type="int" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
           <Property Name="Id_Formulario_S_O" Type="int" />
+          <Property Name="Firma" Type="image" />
+          <Property Name="Firma_candidato" Type="image" />
         </EntityType>
         <EntityType Name="Espirometria">
           <Key>
@@ -2882,6 +2884,8 @@
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id_Formulario_S_O" Type="Int32" />
           <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" FromRole="EpWorth" ToRole="Formulario_S_O" />
+          <Property Name="Firma" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Firma_candidato" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK__Deteccion__Id_Fo__731B1205">
           <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1" />
@@ -3892,6 +3896,8 @@
           <EntitySetMapping Name="EpWorths">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.EpWorth">
               <MappingFragment StoreEntitySet="EpWorth">
+                <ScalarProperty Name="Firma_candidato" ColumnName="Firma_candidato" />
+                <ScalarProperty Name="Firma" ColumnName="Firma" />
                 <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />

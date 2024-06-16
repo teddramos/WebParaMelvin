@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)https://www.sigplusweb.com/sigwebtablet_demo.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" sigplusextliteextension-installed="true" extension-version="3.0.55.1" sigplusextlitewrapperurl="chrome-extension://dhcpobccjkdnmibckgpejmbpmpembgco/SigPlusExtLiteWrapper.js"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  
+	<meta http-equiv="origin-trial" content="Anx9M3J0aHLpGAMe3zP5qpGiORIM9XVPn0kCEMBGlIzpUAmigST4zEpCybneyUtCHHt8N6xJqNEI/eczFA3E8QoAAAB6eyJvcmlnaW4iOiJodHRwczovL3d3dy5zaWdwbHVzd2ViLmNvbTo0NDMiLCJmZWF0dXJlIjoiQWxsb3dTeW5jWEhSSW5QYWdlRGlzbWlzc2FsIiwiZXhwaXJ5IjoxNTk1MTc3MTgxLCJpc1N1YmRvbWFpbiI6dHJ1ZX0=">
+
+  <title>Topaz SigWeb Demo</title>
+
+
+
+  <script type="text/javascript" src="Topaz SigWeb/SigWebTablet.js"></script>
+  <!--SigWebTablet.js is required for SigWeb to function-->
+  <!--SigWebTablet.js is located here and may be copied for your own use-->
+  <!--http://www.sigplusweb.com/SigWebTablet.js-->
+
+
+  <script type="text/javascript" src="Topaz SigWeb/clientScripts.js"></script>
+
+</head>
+<body>
+
+
+  <table border="1" cellpadding="0" width="500">
+    <tbody><tr>
+      <td height="100" width="500">
+        <canvas id="cnv" name="cnv" width="500" height="100"></canvas>
+      </td>
+    </tr>
+  </tbody></table>
+
+
+  <br>
+    <canvas name="SigImg" id="SigImg" width="500" height="100"></canvas>
+    <p id="sigWebVrsnNote" style="font-family: Arial;">SigWeb 1.7.0 installed</p>
+
+
+    <form action="https://www.sigplusweb.com/sigwebtablet_demo.html#" name="FORM1">
+      <p>
+        <input id="SignBtn" name="SignBtn" type="button" value="Sign" onclick="javascript:onSign()">&nbsp;&nbsp;&nbsp;&nbsp;
+        <input id="button1" name="ClearBtn" type="button" value="Clear" onclick="javascript:onClear()">&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <input id="button2" name="DoneBtn" type="button" value="Done" onclick="javascript:onDone()">&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <input type="HIDDEN" name="bioSigData">
+          <input type="HIDDEN" name="sigImgData">
+            <br>
+              <br>
+                <textarea name="sigStringData" rows="20" cols="50">SigString: </textarea>
+                <textarea name="sigImageData" rows="20" cols="50">Base64 String: </textarea>
+              </p>
+            </form>
+
+            <br><br>
+            <p id="daysUntilExpElement">SigWeb Certificate expires in 285 days.</p>
+			<p id="SigWebVersion"></p>
+			<p id="SigWebTabletJSVersion"></p>
+			<p id="CertificateExpirationDate"></p>
+    
+
+</body></html>
