@@ -119,6 +119,7 @@
     @Html.HiddenFor(model => model.Id_EpWorth)
     @Html.HiddenFor(model => model.Id_Formulario_S_O)
     @Html.HiddenFor(model => model.Firma)
+    @Html.HiddenFor(model => model.firma_candidato)
 
     <div class="form-group">
         <table>
@@ -536,9 +537,9 @@
         @{
             try
             {
-                var base64 = Convert.ToBase64String(Model.Firma_candidato);
+                var base64 = Model.firma_candidato;
                 var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-                <img src="@imgSrc" />
+                <img src="@imgSrc" height="150" width="300" />
             }
             catch
             {
@@ -547,42 +548,46 @@
         }
 
     </div>
+    <script>
+        function verTopaz() {
+            $("#topaz-panel").removeAttr('hidden')
+        }
+    </script>
     
     <div class="form-group">
-        @Html.LabelFor(model => model.Firma_candidato, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Firma Candidato", htmlAttributes: new { @class = "control-label col-md-2" })
 
         @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
-        @Html.ValidationMessageFor(model => model.Firma_candidato, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(model => model.firma_candidato, "", new { @class = "text-danger" })
 
-        firmar con Topaz-pad
-        <div>
+        <input type="button" onclick="verTopaz(); onSign();" value="firmar con Topaz-pad"/>
+        <div id="topaz-panel" hidden>
             <script type="text/javascript" src="../../Scripts/SigWebTablet.js"></script>
             <script type="text/javascript" src="../../Scripts/clientScripts.js"></script>
             <table border="1" cellpadding="0" width="500">
                 <tbody>
                     <tr>
                         <td height="100" width="500">
-                            <canvas id="cnv" name="cnv" width="500" height="100"></canvas>
+                            <canvas id="cnv" name="cnv" width="300" height="150"></canvas>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <br>
-            <canvas name="SigImg" id="SigImg" width="500" height="100"></canvas>
+           
+            <canvas name="SigImg" id="SigImg" width="300" height="150" hidden></canvas>
             <p id="sigWebVrsnNote" style="font-family: Arial;">SigWeb 1.7.0 installed</p>
             
                 <p>
-                    <input id="SignBtn" name="SignBtn" type="button" value="Sign" onclick="javascript:onSign()">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input id="button1" name="ClearBtn" type="button" value="Clear" onclick="javascript:onClear()">&nbsp;&nbsp;&nbsp;&nbsp;
+                    @*<input id="SignBtn" name="SignBtn" type="button" value="Comenzar" onclick="javascript:onSign()">&nbsp;&nbsp;&nbsp;&nbsp;*@
+                    <input id="button1" name="ClearBtn" type="button" value="Cancelar" onclick="javascript:onClear()">&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <input id="button2" name="DoneBtn" type="button" value="Done" onclick="javascript:onDone()">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input id="button2" name="DoneBtn" type="button" value="Listo" onclick="javascript:onDone()">&nbsp;&nbsp;&nbsp;&nbsp;
 
                     <input type="HIDDEN" name="bioSigData">
                     <input type="HIDDEN" name="sigImgData">
-                    <br>
-                    <br>
-                    <textarea name="sigStringData" rows="20" cols="50">SigString: </textarea>
-                    <textarea name="sigImageData" rows="20" cols="50">Base64 String: </textarea>
+                    
+                    <textarea name="sigStringData" rows="20" cols="50" hidden>SigString: </textarea>
+                    <input type="hidden" name="sigImageData" />
                 </p>
            
         </div>

@@ -106,6 +106,7 @@ namespace WebParaMelvin.Models
     {
         public HttpPostedFileBase Archivo { get; set; }
         public bool Firmar { get; set; }
+        public string sigImageData { get; set; }
     }
 
 }

@@ -235,7 +235,7 @@
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
     <Property Name="Id_Formulario_S_O" Type="int" />
     <Property Name="Firma" Type="image" />
-    <Property Name="Firma_candidato" Type="image" />
+    <Property Name="firma_candidato" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Espirometria">
     <Key>

@@ -29,7 +29,7 @@ namespace WebParaMelvin.Models
         public string Estado { get; set; }
         public Nullable<int> Id_Formulario_S_O { get; set; }
         public byte[] Firma { get; set; }
-        public byte[] Firma_candidato { get; set; }
+        public string firma_candidato { get; set; }
     
         public virtual Formulario_S_O Formulario_S_O { get; set; }
     }

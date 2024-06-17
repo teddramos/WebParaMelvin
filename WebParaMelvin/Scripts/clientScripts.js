@@ -168,8 +168,8 @@ function close() {
 //	1. Browser Closure
 //	2. Tab Closure
 //	3. Tab Refresh
-window.onbeforeunload = function (evt) {
-    close();
-    clearInterval(tmr);
-    evt.preventDefault(); //For Firefox, needed for browser closure
-};
+//window.onbeforeunload = function (evt) {
+//    close();
+//    clearInterval(tmr);
+//    evt.preventDefault(); //For Firefox, needed for browser closure
+//};

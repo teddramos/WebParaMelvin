@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -64,6 +65,11 @@ namespace WebParaMelvin.Controllers
         // GET: EpWorths/Edit/5
         public ActionResult Edit(int? id)
         {
+            var user = Session["User"] as Usuario;
+            if (user == null)
+            {
+                return RedirectToAction("Create", "Usuarios");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,11 +90,16 @@ namespace WebParaMelvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit( EpWorth epWorth)
         {
+            var user = Session["User"] as Usuario;
+            if (user == null)
+            {
+                return RedirectToAction("Create", "Usuarios");
+            }
 
             if (ModelState.IsValid)
             {
                 epWorth.Modificado = true;
-                var user = Session["User"] as Usuario;
+                
                 epWorth.Usuario_que_modifico = user.Id_usuario;
                 epWorth.Ultima_modificacion = DateTime.Now;
 
@@ -98,8 +109,21 @@ namespace WebParaMelvin.Controllers
                 }
                 if (epWorth.Archivo != null)
                 {
-                    epWorth.Firma_candidato = new byte[epWorth.Archivo.InputStream.Length];
-                    epWorth.Archivo.InputStream.Read(epWorth.Firma_candidato, 0, epWorth.Firma_candidato.Length);
+                    byte[] thePictureAsBytes = new byte[epWorth.Archivo.ContentLength];
+                    using (BinaryReader theReader = new BinaryReader(epWorth.Archivo.InputStream))
+                    {
+                        thePictureAsBytes = theReader.ReadBytes(epWorth.Archivo.ContentLength);
+                    }
+                    epWorth.firma_candidato = Convert.ToBase64String(thePictureAsBytes);
+                }
+                else if( !string.IsNullOrEmpty(epWorth.sigImageData))
+                {
+                    epWorth.firma_candidato = epWorth.sigImageData;
+                  
+                }
+                if (epWorth.Firmar)
+                {
+                    epWorth.Firma = user.Firma;
                 }
 
                 db.Entry(epWorth).State = EntityState.Modified;
