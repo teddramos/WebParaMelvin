@@ -109,16 +109,12 @@ namespace WebParaMelvin.Controllers
                 }
                 if (epWorth.Archivo != null)
                 {
-                    byte[] thePictureAsBytes = new byte[epWorth.Archivo.ContentLength];
-                    using (BinaryReader theReader = new BinaryReader(epWorth.Archivo.InputStream))
-                    {
-                        thePictureAsBytes = theReader.ReadBytes(epWorth.Archivo.ContentLength);
-                    }
-                    epWorth.firma_candidato = Convert.ToBase64String(thePictureAsBytes);
+                    epWorth.firma_candidato = new byte[epWorth.Archivo.ContentLength];
+                    epWorth.Archivo.InputStream.Read(epWorth.firma_candidato, 0,epWorth.firma_candidato.Length);
                 }
                 else if( !string.IsNullOrEmpty(epWorth.sigImageData))
                 {
-                    epWorth.firma_candidato = epWorth.sigImageData;
+                    epWorth.firma_candidato = Convert.FromBase64String( epWorth.sigImageData);
                   
                 }
                 if (epWorth.Firmar)

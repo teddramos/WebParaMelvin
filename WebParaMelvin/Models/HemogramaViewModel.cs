@@ -63,6 +63,7 @@ namespace WebParaMelvin.Models
     public partial class Usuario
     {
         public HttpPostedFileBase Archivo { get; set; }
+        public string sigImageData { get; set; }
     }
     public partial class Laboratorio
     {

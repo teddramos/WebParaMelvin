@@ -7,7 +7,7 @@
 <h2>Editar</h2>
 
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data", name="FORM1" }))
 {
     @Html.AntiForgeryToken()
     
@@ -63,6 +63,48 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <script>
+                function verTopaz() {
+                    $("#topaz-panel").removeAttr('hidden')
+                }
+            </script>
+            <input type="button" onclick="verTopaz();  onSign();" value="firmar con Topaz-pad" class="form-control" />
+            <div id="topaz-panel" hidden>
+                <script type="text/javascript" src="../../Scripts/SigWebTablet.js"></script>
+                <script type="text/javascript" src="../../Scripts/clientScripts.js"></script>
+                <table border="1" cellpadding="0" width="500">
+                    <tbody>
+                        <tr>
+                            <td height="100" width="500">
+                                <canvas id="cnv" name="cnv" width="300" height="150"></canvas>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <canvas name="SigImg" id="SigImg" width="300" height="150" hidden></canvas>
+                <p id="sigWebVrsnNote" style="font-family: Arial;">SigWeb 1.7.0 installed</p>
+
+                <p>
+                    @*<input id="SignBtn" name="SignBtn" type="button" value="Comenzar" onclick="javascript:onSign()">&nbsp;&nbsp;&nbsp;&nbsp;*@
+                    <input id="button1" name="ClearBtn" type="button" value="Cancelar" onclick="javascript:onClear()">&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <input id="button2" name="DoneBtn" type="button" value="Listo" onclick="javascript:onDone()">&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <input type="HIDDEN" name="bioSigData">
+                    <input type="HIDDEN" name="sigImgData">
+
+                    <input type="hidden" name="sigStringData"/>
+                    <input type="hidden" name="sigImageData" />
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
         @Html.Label("Firma:", htmlAttributes: new { @class = "control-label col-md-2" })
 
         @{
@@ -71,22 +113,22 @@
                 var base64 = Convert.ToBase64String(Model.Firma);
                 var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
                 <div class="col-md-10">
-                    <img src="@imgSrc" width="250" />
+                    <img src="@imgSrc" height="150" width="300" />
                 </div>
-             }
-             catch
-             {
+            }
+            catch
+            {
 
-             }
-          }
+            }
+        }
 
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Guardar" class="btn btn-default" />
-                    </div>
-                </div>
-            </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 <div>
