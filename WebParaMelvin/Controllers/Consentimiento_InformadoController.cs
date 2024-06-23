@@ -122,6 +122,11 @@ namespace WebParaMelvin.Controllers
                 consentimiento_Informado.Huella = new byte[consentimiento_Informado.DataHuella.InputStream.Length];
                 consentimiento_Informado.DataHuella.InputStream.Read(consentimiento_Informado.Huella, 0, consentimiento_Informado.Huella.Length);
             }
+            if (!string.IsNullOrEmpty(consentimiento_Informado.sigImageData))
+            {
+                consentimiento_Informado.Firma = Convert.FromBase64String(consentimiento_Informado.sigImageData);
+
+            }
             if (ModelState.IsValid)
             {
                 consentimiento_Informado.Modificado = true;

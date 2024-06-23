@@ -29,6 +29,7 @@ namespace WebParaMelvin.Models
        
         public HttpPostedFileBase DataFirma { get; set; }
         public HttpPostedFileBase DataHuella { get; set; }
+        public string sigImageData { get; set; }
     }
     public partial class EKG
     {
