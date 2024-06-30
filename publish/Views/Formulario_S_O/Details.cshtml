@@ -18,6 +18,7 @@
     var rayx = db.RayosXes.FirstOrDefault(r => r.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var conc = db.Consentimiento_Informado.FirstOrDefault(c => c.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var ekg = db.EKGs.FirstOrDefault(g => g.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var epw = db.EpWorths.FirstOrDefault(e => e.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var user = Session["User"] as WebParaMelvin.Models.Usuario;
 }
 
@@ -107,14 +108,15 @@ if (displayMensaje === "true") {
         <table cellpadding="2" style="border-collapse:collapse">
             <tr>
                 <td></td>
-                <td colspan="3" align="center" style="font-weight:bold; width:50%" >Estatus</td>
-               
-                <td style="font-weight:bold">Responsable</td><td style="font-weight: bold; padding-left: 10px">Notificaciones</td>
+                <td colspan="3" align="center" style="font-weight:bold; width:50%">Estatus</td>
+
+                <td style="font-weight:bold">Responsable</td>
+                <td style="font-weight: bold; padding-left: 10px">Notificaciones</td>
             </tr>
 
 
             <tr>
-                <td style="font-weight:bold;padding-right:10px" >
+                <td style="font-weight:bold;padding-right:10px">
                     @Html.ActionLink("Información General", "Edit", "Info_general", new { id = info.Id_Info_General }, htmlAttributes: new { })
                 </td>
                 @{
@@ -154,17 +156,18 @@ if (displayMensaje === "true") {
                             var email = db.Usuarios.Find(info.Usuario_que_modifico) != null ? db.Usuarios.Find(info.Usuario_que_modifico).Nombre_completo : "N/A";
                             <span>@email</span>
                         }
-}
-                </td><td style="padding-left:10px">
-                        @if (Model.Confrima_asistencia)
-                        {
-                            <span style="color:#20a500" >Asistencia confirmada &check;</span>
-                        }
-                        else
-                        {
-                           @Html.ActionLink("Confirmar Asistencia", "SendEmailCandidatoAsistio", new { idSo = Model.Id_Formulario_S_O }, new{@class = "btn btn-info"})
-                        }
-                    </td>
+                    }
+                </td>
+                <td style="padding-left:10px">
+                    @if (Model.Confrima_asistencia)
+                    {
+                        <span style="color:#20a500">Asistencia confirmada &check;</span>
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Confirmar Asistencia", "SendEmailCandidatoAsistio", new { idSo = Model.Id_Formulario_S_O }, new { @class = "btn btn-info" })
+                    }
+                </td>
 
             </tr>
             <tr>
@@ -198,7 +201,7 @@ if (displayMensaje === "true") {
                         <td class="statusbox">&nbsp;Aplicada</td>
                         <td class="statusbox">&nbsp;En proceso</td>
                         <td class="statusbox">&nbsp;Finalizada</td>
-                      
+
                     }
                 }
                 <td class="statusbox">
@@ -215,7 +218,7 @@ if (displayMensaje === "true") {
                     }
                     else
                     {
-                        @Html.ActionLink("Confirmar Retirada", "SendEmailCandidatoSeFue", new { idSo = Model.Id_Formulario_S_O }, new { @class = "btn btn-primary",@style="heigth:15px" })
+                        @Html.ActionLink("Confirmar Retirada", "SendEmailCandidatoSeFue", new { idSo = Model.Id_Formulario_S_O }, new { @class = "btn btn-primary", @style = "heigth:15px" })
                     }
                 </td>
             </tr>
@@ -223,513 +226,559 @@ if (displayMensaje === "true") {
             @{
                 if (info.Historia_clinica_y_examen_fisico)
                 {
-                        <tr>
-                            <td style="font-weight:bold">
-                                @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
-                            </td>
-                            @{
-                                if (historia.Estado == "Aplicada")
-                                {
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Historia Clínica", "Edit", "Historia_Clinica", new { id = historia.Id_Historia_Clinica }, htmlAttributes: new { })
+                        </td>
+                        @{
+                            if (historia.Estado == "Aplicada")
+                            {
 
-                                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                                }
-                                else if (historia.Estado == "En proceso")
-                                {
-
-                                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                                }
-                                else if (historia.Estado == "Finalizada")
-
-                                {
-                                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                                }
-                                else
-                                {
-                                    <td class="statusbox">&nbsp;Aplicada</td>
-                                    <td class="statusbox">&nbsp;En proceso</td>
-                                    <td class="statusbox">&nbsp;Finalizada</td>
-
-                                }
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
                             }
-                            <td class="statusbox">
-                                @{
-                                    {
-                                        var email = db.Usuarios.Find(historia.Usuario_que_modifico) != null ? db.Usuarios.Find(historia.Usuario_que_modifico).Nombre_completo : "N/A";
-                                        <span>@email</span>
-                                    } }
-                            </td>
-                        </tr>
+                            else if (historia.Estado == "En proceso")
+                            {
+
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (historia.Estado == "Finalizada")
+
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
+
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(historia.Usuario_que_modifico) != null ? db.Usuarios.Find(historia.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
                 }
                 if (info.Pre_espirometria)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Pre-Espirometría", "Edit", "Pre_espirometria", new { id = pre_esp.Id_Pre_espirometria }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Pre-Espirometría", "Edit", "Pre_espirometria", new { id = pre_esp.Id_Pre_espirometria }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (pre_esp.Estado == "Aplicada")
-                {
+                            if (pre_esp.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (pre_esp.Estado == "En proceso")
-                {
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (pre_esp.Estado == "En proceso")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (pre_esp.Estado == "Finalizada")
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (pre_esp.Estado == "Finalizada")
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(pre_esp.Usuario_que_modifico) != null ? db.Usuarios.Find(pre_esp.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(pre_esp.Usuario_que_modifico) != null ? db.Usuarios.Find(pre_esp.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
                 }
                 if (info.Audiometria)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Audiometría", "Edit", "Audiometrias", new { id = audio.Id_AudioMetria }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Audiometría", "Edit", "Audiometrias", new { id = audio.Id_AudioMetria }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (audio.Estado == "Aplicada")
-                {
+                            if (audio.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (audio.Estado == "En proceso")
-                {
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (audio.Estado == "En proceso")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (audio.Estado == "Finalizada")
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (audio.Estado == "Finalizada")
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(audio.Usuario_que_modifico) != null ? db.Usuarios.Find(audio.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(audio.Usuario_que_modifico) != null ? db.Usuarios.Find(audio.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
                 }
                 if (info.Examen_visual)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Examen Visual", "Edit", "Examen_Visual", new { id = visual.Id_Examen_Visual }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (visual.Estado == "Aplicada")
-                {
+                            if (visual.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (visual.Estado == "En proceso")
-                {
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (visual.Estado == "En proceso")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (visual.Estado == "Finalizada")
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (visual.Estado == "Finalizada")
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(visual.Usuario_que_modifico) != null ? db.Usuarios.Find(visual.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(visual.Usuario_que_modifico) != null ? db.Usuarios.Find(visual.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
                 }
                 if (info.Capacidad_fisica)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Manero", "Edit", "Mareos", new { id = manero.Id_Mareo }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Manero", "Edit", "Mareos", new { id = manero.Id_Mareo }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (manero.Estado == "Aplicada")
-                {
+                            if (manero.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (manero.Estado == "En proceso")
-                {
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (manero.Estado == "En proceso")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (manero.Estado == "Finalizada")
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (manero.Estado == "Finalizada")
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(manero.Usuario_que_modifico) != null ? db.Usuarios.Find(manero.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(manero.Usuario_que_modifico) != null ? db.Usuarios.Find(manero.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
                 }
                 if (info.Hemografia)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Hemogramas", "Edit", "Hemogramas", new { id = hemo.Id_Hemograma }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Hemogramas", "Edit", "Hemogramas", new { id = hemo.Id_Hemograma }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (hemo.Estado == "Aplicada")
-                {
+                            if (hemo.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (hemo.Estado == "En proceso")
-                {
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (hemo.Estado == "En proceso")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (hemo.Estado == "Finalizada")
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (hemo.Estado == "Finalizada")
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(hemo.Usuario_que_modifico) != null ? db.Usuarios.Find(hemo.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(hemo.Usuario_que_modifico) != null ? db.Usuarios.Find(hemo.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
 
                 }
                 if (info.Laboratorio)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Laboratorios", "Edit", "Laboratorios", new { id = lab.Id_Laboratorio }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (lab.Estado == "Aplicada")
-                {
+                            if (lab.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (lab.Estado == "En proceso")
-                {
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (lab.Estado == "En proceso")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (lab.Estado == "Finalizada")
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (lab.Estado == "Finalizada")
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(lab.Usuario_que_modifico) != null ? db.Usuarios.Find(lab.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(lab.Usuario_que_modifico) != null ? db.Usuarios.Find(lab.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
                 }
                 if (info.Espirometria)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Espirometría", "Edit", "Espirometrias", new { id = espiro.Id_Espirometria }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (espiro.Estado == "Aplicada")
-                {
+                            if (espiro.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (espiro.Estado == "En proceso")
-                {
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (espiro.Estado == "En proceso")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (espiro.Estado == "Finalizada")
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (espiro.Estado == "Finalizada")
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(espiro.Usuario_que_modifico) != null ? db.Usuarios.Find(espiro.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(espiro.Usuario_que_modifico) != null ? db.Usuarios.Find(espiro.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
                 }
                 if (info.Radiografia)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Rayos X", "Edit", "RayosXes", new { id = rayx.Id_rayos_X }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (rayx.Estado == "Aplicada")
-                {
+                            if (rayx.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (rayx.Estado == "En proceso")
-                {
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (rayx.Estado == "En proceso")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (rayx.Estado == "Finalizada")
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (rayx.Estado == "Finalizada")
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(rayx.Usuario_que_modifico) != null ? db.Usuarios.Find(rayx.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(rayx.Usuario_que_modifico) != null ? db.Usuarios.Find(rayx.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
                 }
 
                 if (info.Consentimiento_informado)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Consentimiento Informado", "Edit", "Consentimiento_Informado", new { id = conc.Id_Consentimiento_Informado }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (conc.Estado == "Aplicada")
-                {
+                            if (conc.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (conc.Estado == "En proceso")
-                {
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (conc.Estado == "En proceso")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (conc.Estado == "Finalizada")
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (conc.Estado == "Finalizada")
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(conc.Usuario_que_modifico) != null ? db.Usuarios.Find(conc.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(conc.Usuario_que_modifico) != null ? db.Usuarios.Find(conc.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
                 }
 
                 if (info.EKG)
                 {
-        <tr>
-            <td style="font-weight:bold">
-                @Html.ActionLink("Electrocardiograma", "Edit", "EKGs", new { id = ekg.Id_EKG }, htmlAttributes: new { })
-            </td>
-            @{
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Electrocardiograma", "Edit", "EKGs", new { id = ekg.Id_EKG }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                if (ekg.Estado == "Aplicada")
+                            if (ekg.Estado == "Aplicada")
+                            {
+
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (ekg.Estado == "En proceso")
+                            {
+
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (ekg.Estado == "Finalizada")
+
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
+
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(ekg.Usuario_que_modifico) != null ? db.Usuarios.Find(ekg.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
+                }
+
+                if (info.EpWorth)
                 {
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Escala de Somnolencia", "Edit", "EpWorths", new { id = epw.Id_EpWorth }, htmlAttributes: new { })
+                        </td>
+                        @{
 
-                    <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
-                    <td class="statusbox"><span>&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span>&nbsp;Finalizada</span></td>
-                }
-                else if (ekg.Estado == "En proceso")
-                {
+                            if (epw.Estado == "Aplicada")
+                            {
 
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
-                    <td class="statusbox"><div>&nbsp;Finalizada</div></td>
-                }
-                else if (ekg.Estado == "Finalizada")
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (epw.Estado == "En proceso")
+                            {
 
-                {
-                    <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
-                    <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
-                    <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
-                }
-                else
-                {
-                    <td class="statusbox">&nbsp;Aplicada</td>
-                    <td class="statusbox">&nbsp;En proceso</td>
-                    <td class="statusbox">&nbsp;Finalizada</td>
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (epw.Estado == "Finalizada")
 
-                }
-            }
-            <td class="statusbox">
-                @{
-                    {
-                        var email = db.Usuarios.Find(ekg.Usuario_que_modifico) != null ? db.Usuarios.Find(ekg.Usuario_que_modifico).Nombre_completo : "N/A";
-                        <span>@email</span>
-                    } }
-            </td>
-        </tr>
-                }
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
 
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(epw.Usuario_que_modifico) != null ? db.Usuarios.Find(epw.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
+                }
 
             }
         </table>
