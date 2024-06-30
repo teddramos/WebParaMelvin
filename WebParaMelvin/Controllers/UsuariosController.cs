@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using WebParaMelvin.Models;
@@ -147,12 +148,17 @@ namespace WebParaMelvin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_usuario,Email,Password,id_rol,Nombre_completo,Archivo")] Usuario usuario)
+        public ActionResult Edit(Usuario usuario)
         {
             if (usuario.Archivo != null)
             {
                 usuario.Firma = new byte[usuario.Archivo.InputStream.Length];
                 usuario.Archivo.InputStream.Read(usuario.Firma, 0, usuario.Firma.Length);
+            }
+            if(!string.IsNullOrEmpty( usuario.sigImageData))
+            {
+                  usuario.Firma =  Convert.FromBase64String(usuario.sigImageData);
+
             }
             if (ModelState.IsValid)
             {

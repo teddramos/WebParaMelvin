@@ -51,8 +51,8 @@
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Mensajes_Usuario" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Mensajes_Usuario1" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Deteccion_SAS" Width="1.5" PointX="7.5" PointY="170.25" />
-        <EntityTypeShape EntityType="ceisamco_form_s_oModel.EpWorth" Width="1.5" PointX="7.5" PointY="1.625" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK__Deteccion__Id_Fo__731B1205" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.EpWorth" Width="1.5" PointX="7.5" PointY="0.875" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" />
         </Diagram>
     </edmx:Diagrams>

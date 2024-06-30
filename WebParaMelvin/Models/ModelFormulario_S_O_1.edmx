@@ -239,6 +239,8 @@
           <Property Name="Usuario_que_modifico" Type="int" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
           <Property Name="Id_Formulario_S_O" Type="int" />
+          <Property Name="Firma" Type="image" />
+          <Property Name="firma_candidato" Type="image" />
         </EntityType>
         <EntityType Name="Espirometria">
           <Key>
@@ -678,6 +680,7 @@
           <Property Name="Historia_clinica_y_examen_fisico" Type="bit" Nullable="false" />
           <Property Name="Consentimiento_informado" Type="bit" Nullable="false" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="EpWorth" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Laboratorio">
           <Key>
@@ -1767,11 +1770,11 @@
             <End Role="Mensaje" EntitySet="Mensajes" />
           </AssociationSet>
           <EntitySet Name="Deteccion_SAS" EntityType="ceisamco_form_s_oModel.Deteccion_SAS" />
-          <EntitySet Name="EpWorths" EntityType="ceisamco_form_s_oModel.EpWorth" />
           <AssociationSet Name="FK__Deteccion__Id_Fo__731B1205" Association="ceisamco_form_s_oModel.FK__Deteccion__Id_Fo__731B1205">
             <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
             <End Role="Deteccion_SAS" EntitySet="Deteccion_SAS" />
           </AssociationSet>
+          <EntitySet Name="EpWorths" EntityType="ceisamco_form_s_oModel.EpWorth" />
           <AssociationSet Name="FK__EpWorth__Id_Form__6D6238AF" Association="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF">
             <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
             <End Role="EpWorth" EntitySet="EpWorths" />
@@ -2746,6 +2749,7 @@
           <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK_Info_general_To_Formulario_S_O" FromRole="Info_general" ToRole="Formulario_S_O" />
           <Property Name="Consentimiento_informado" Type="Boolean" Nullable="false" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EpWorth" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Info_general_To_Formulario_S_O">
           <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1">
@@ -2861,6 +2865,18 @@
           <Property Name="Id_Formulario_S_O" Type="Int32" />
           <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK__Deteccion__Id_Fo__731B1205" FromRole="Deteccion_SAS" ToRole="Formulario_S_O" />
         </EntityType>
+        <Association Name="FK__Deteccion__Id_Fo__731B1205">
+          <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1" />
+          <End Type="ceisamco_form_s_oModel.Deteccion_SAS" Role="Deteccion_SAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formulario_S_O">
+              <PropertyRef Name="Id_Formulario_S_O" />
+            </Principal>
+            <Dependent Role="Deteccion_SAS">
+              <PropertyRef Name="Id_Formulario_S_O" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="EpWorth">
           <Key>
             <PropertyRef Name="Id_EpWorth" />
@@ -2879,20 +2895,10 @@
           <Property Name="Usuario_que_modifico" Type="Int32" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id_Formulario_S_O" Type="Int32" />
+          <Property Name="Firma" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="firma_candidato" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" FromRole="EpWorth" ToRole="Formulario_S_O" />
         </EntityType>
-        <Association Name="FK__Deteccion__Id_Fo__731B1205">
-          <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1" />
-          <End Type="ceisamco_form_s_oModel.Deteccion_SAS" Role="Deteccion_SAS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Formulario_S_O">
-              <PropertyRef Name="Id_Formulario_S_O" />
-            </Principal>
-            <Dependent Role="Deteccion_SAS">
-              <PropertyRef Name="Id_Formulario_S_O" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__EpWorth__Id_Form__6D6238AF">
           <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1" />
           <End Type="ceisamco_form_s_oModel.EpWorth" Role="EpWorth" Multiplicity="*" />
@@ -3778,6 +3784,7 @@
           <EntitySetMapping Name="Info_general">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Info_general">
               <MappingFragment StoreEntitySet="Info_general">
+                <ScalarProperty Name="EpWorth" ColumnName="EpWorth" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Consentimiento_informado" ColumnName="Consentimiento_informado" />
                 <ScalarProperty Name="Historia_clinica_y_examen_fisico" ColumnName="Historia_clinica_y_examen_fisico" />
@@ -3889,6 +3896,8 @@
           <EntitySetMapping Name="EpWorths">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.EpWorth">
               <MappingFragment StoreEntitySet="EpWorth">
+                <ScalarProperty Name="firma_candidato" ColumnName="firma_candidato" />
+                <ScalarProperty Name="Firma" ColumnName="Firma" />
                 <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />

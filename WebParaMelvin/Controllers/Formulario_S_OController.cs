@@ -55,7 +55,7 @@ namespace WebParaMelvin.Controllers
                 {
                      return View(db.Formulario_S_O.Include(x => x.Info_general).Where(x => x.Info_general.FirstOrDefault(b => b.Id_Formulario_S_O == x.Id_Formulario_S_O).Fecha > new DateTime(2021,12,31)).ToList().OrderByDescending(a =>a.Id_Formulario_S_O).ToList());
 
-                   //return View(db.Formulario_S_O.Include(x => x.Info_general).Where(x => x.Info_general.FirstOrDefault(b => b.Id_Formulario_S_O == x.Id_Formulario_S_O).Fecha > new DateTime(2020,12,31)).ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
+                  // return View(db.Formulario_S_O.Include(x => x.Info_general).Where(x => x.Info_general.FirstOrDefault(b => b.Id_Formulario_S_O == x.Id_Formulario_S_O).Fecha > new DateTime(2020,12,31)).ToList().OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
                 }
             }
             return View();

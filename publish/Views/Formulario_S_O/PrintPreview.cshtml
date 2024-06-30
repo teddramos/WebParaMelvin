@@ -18,6 +18,7 @@
     var rayx = db.RayosXes.FirstOrDefault(r => r.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var conc = db.Consentimiento_Informado.FirstOrDefault(c => c.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var ekg = db.EKGs.FirstOrDefault(g => g.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var epw = db.EpWorths.FirstOrDefault(e => e.Id_Formulario_S_O == Model.Id_Formulario_S_O);
 
 
 }
@@ -81,7 +82,7 @@
     <body style="@bodystyle">
 
 
-        <div id="CertificadoSalud" >
+        <div id="CertificadoSalud">
             <table style="width:100%;">
                 <tr>
                     <td>&nbsp;</td>
@@ -424,7 +425,7 @@
                 <tr>
                     <td class="auto-style3">
                         @{if (cso.
-  Apto)
+Apto)
                             { <input type="checkbox" checked />}
                             else
                             {
@@ -516,12 +517,12 @@
             </table>
         </div>
 
-        
+
         <p style="page-break-before: always;">&nbsp;</p>
 
         @{ if (info.Historia_clinica_y_examen_fisico)
             {
-                
+
 
                 <div id="historiaClinica">
 
@@ -2058,7 +2059,7 @@
 
                 <p style="page-break-before: always;">&nbsp;</p>
 
-                                    }
+            }
         }
         @{ if (info.Consentimiento_informado)
             {
@@ -2206,7 +2207,7 @@
                 </div>
 
                 <p style="page-break-before: always;">&nbsp;</p>
-                                    }
+            }
         }
 
         @{ if (info.Pre_espirometria)
@@ -2487,7 +2488,7 @@
                     </table>
                 </div>
                 <p style="page-break-before: always;">&nbsp;</p>
-                                    }
+            }
         }
 
         @{ if (info.Espirometria)
@@ -2581,7 +2582,7 @@
                 </div>
 
                 <p style="page-break-before: always;">&nbsp;</p>
-                            }
+            }
         }
 
         @{ if (info.Audiometria)
@@ -2870,11 +2871,11 @@
                         </tr>
 
                     </table>
-                    
+
 
                     <p class="field" style="font-size:14px" align="center">&nbsp;Resultados: @audio.Resultado</p>
-                   
-                   
+
+
                     <div class="field">Prueba Actual</div>
 
 
@@ -3035,7 +3036,7 @@
 
                 </div>
                 <p style="page-break-before: always;">&nbsp;</p>
-                                    }
+            }
         }
 
         @{ if (info.Examen_visual)
@@ -3584,7 +3585,7 @@
                                 </table>
                             </td>
                             <td colspan="1">&nbsp;</td>
-                           
+
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -3712,7 +3713,7 @@
                 </div>
 
                 <p style="page-break-before: always;">&nbsp;</p>
-                                    }
+            }
         }
 
         @{ if (info.Capacidad_fisica)
@@ -4117,7 +4118,7 @@
 
                 <p style="page-break-before: always;">&nbsp;</p>
 
-                                    }
+            }
         }
 
         @{ if (info.Hemografia)
@@ -4205,7 +4206,7 @@
                 </div>
                 <p style="page-break-before: always;">&nbsp;</p>
 
-                            }}
+            }}
 
         @{ if (info.Laboratorio)
             {
@@ -4298,7 +4299,7 @@
                                     {
                                         if (lab.Determinacion1.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_11 a @lab.Valor_de_Referencia_12</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo1</td>
                         </tr>
@@ -4312,7 +4313,7 @@
                                     {
                                         if (lab.Determinacion2.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_21 a @lab.Valor_de_Referencia_22</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo2</td>
                         </tr>
@@ -4326,7 +4327,7 @@
                                     {
                                         if (lab.Determinacion3.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_31 a @lab.Valor_de_Referencia_32</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo3</td>
                         </tr>
@@ -4340,7 +4341,7 @@
                                     {
                                         if (lab.Determinacion4.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_41 a @lab.Valor_de_Referencia_42</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo4</td>
                         </tr>
@@ -4354,7 +4355,7 @@
                                     {
                                         if (lab.Determinacion5.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_51 a @lab.Valor_de_Referencia_52</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo5</td>
                         </tr>
@@ -4368,7 +4369,7 @@
                                     {
                                         if (lab.Determinacion6.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_61 a @lab.Valor_de_Referencia_62</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo6</td>
                         </tr>
@@ -4382,7 +4383,7 @@
                                     {
                                         if (lab.Determinacion7.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_71 a @lab.Valor_de_Referencia_72</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo7</td>
                         </tr>
@@ -4396,7 +4397,7 @@
                                     {
                                         if (lab.Determinacion8.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_81 a @lab.Valor_de_Referencia_82</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo8</td>
                         </tr>
@@ -4410,7 +4411,7 @@
                                     {
                                         if (lab.Determinacion9.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_91 a @lab.Valor_de_Referencia_92</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo9</td>
                         </tr>
@@ -4424,7 +4425,7 @@
                                     {
                                         if (lab.Determinacion10.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_101 a @lab.Valor_de_Referencia_102</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo10</td>
                         </tr>
@@ -4438,7 +4439,7 @@
                                     {
                                         if (lab.Determinacion11.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_111 a @lab.Valor_de_Referencia_112</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo11</td>
                         </tr>
@@ -4452,7 +4453,7 @@
                                     {
                                         if (lab.Determinacion12.Trim() != "")
                                         {<span>@lab.Valor_de_Referencia_121 a @lab.Valor_de_Referencia_122</span>}
-                                    }}
+                                }}
                             </td>
                             <td>@lab.Metodo12</td>
                         </tr>
@@ -4464,25 +4465,25 @@
                             <td colspan="6" align="center" class="fields">Serología</td>
                         </tr>
                         @*<tr>
-            <td colspan="2" class="field">VDRL</td>
-            <td colspan="3" align="center">@lab.VDRL</td>
-            <td>LATEX</td>
-        </tr>
-        <tr>
-            <td colspan="2" class="field">Bacilo de Koch</td>
-            <td colspan="3" align="center">@lab.Bacilo_de_Koch</td>
-            <td>ELFA</td>
-        </tr>
-        <tr>
-            <td colspan="2" class="field">HBsAg</td>
-            <td colspan="3" align="center">@lab.HBsAg</td>
-            <td>ELFA</td>
-        </tr>
-        <tr>
-            <td colspan="2" class="field">HCV</td>
-            <td colspan="3" align="center">@lab.HCV</td>
-            <td>ELFA</td>
-        </tr>*@
+                            <td colspan="2" class="field">VDRL</td>
+                            <td colspan="3" align="center">@lab.VDRL</td>
+                            <td>LATEX</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="field">Bacilo de Koch</td>
+                            <td colspan="3" align="center">@lab.Bacilo_de_Koch</td>
+                            <td>ELFA</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="field">HBsAg</td>
+                            <td colspan="3" align="center">@lab.HBsAg</td>
+                            <td>ELFA</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="field">HCV</td>
+                            <td colspan="3" align="center">@lab.HCV</td>
+                            <td>ELFA</td>
+                        </tr>*@
                         @*nuevo formalario**@
                         <tr>
                             <td colspan="2" class="field">@lab.Serologia_condicion_1</td>
@@ -4527,344 +4528,353 @@
                             <td colspan="6" align="center" class="fields">Panel de Drogas</td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="field">@{if (string.IsNullOrEmpty(lab.drogas1)) {<span>Cocaina</span> } else {<span>@lab.drogas1</span> }
-                            }</td>
-                            <td colspan="3" align="center">@lab.Cocaina</td>
-                            <td>Cualitativo</td>
-                        </tr>
-                        <tr>
                             <td colspan="2" class="field">
-                                @{if (string.IsNullOrEmpty(lab.drogas2))
-                                    {<span>Anfetaminas</span> }
+                                @{if (string.IsNullOrEmpty(lab.drogas1))
+                                    {<span>Cocaina</span> }
                                     else
-                                    {<span>@lab.drogas2</span> }
-                                                        }
-                                                    </td>
-                            <td colspan="3" align="center">@lab.Anfetaminas</td>
-                            <td>Cualitativo</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="field">
-                                @{if (string.IsNullOrEmpty(lab.drogas3))
-                                    {<span>Opiaceos</span> }
-                                    else
-                                    {<span>@lab.drogas3</span> }
-                                                        }
-                                                    </td>
-                            <td colspan="3" align="center">@lab.Opiaceos</td>
-                            <td>Cualitativo</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="field">
-                                @{if (string.IsNullOrEmpty(lab.drogas4))
-                                    {<span>Marihuana</span> }
-                                    else
-                                    {<span>@lab.drogas4</span> }
-                                                        }
-                                                    </td>
-                            <td colspan="3" align="center">@lab.Marihuana</td>
-                            <td>Cualitativo</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="field">@lab.drogas5</td>
-                            <td colspan="3" align="center">@lab.drogasDescripcion5</td>
-                             @{if (lab.drogasDescripcion5 != null)
-                                {<td>Cualitativo</td> }
+                                    {<span>@lab.drogas1</span> }
+                            }
+                        </td>
+                        <td colspan="3" align="center">@lab.Cocaina</td>
+                        <td>Cualitativo</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="field">
+                            @{if (string.IsNullOrEmpty(lab.drogas2))
+                                {<span>Anfetaminas</span> }
+                                else
+                                {<span>@lab.drogas2</span> }
+                            }
+                        </td>
+                        <td colspan="3" align="center">@lab.Anfetaminas</td>
+                        <td>Cualitativo</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="field">
+                            @{if (string.IsNullOrEmpty(lab.drogas3))
+                                {<span>Opiaceos</span> }
+                                else
+                                {<span>@lab.drogas3</span> }
+                            }
+                        </td>
+                        <td colspan="3" align="center">@lab.Opiaceos</td>
+                        <td>Cualitativo</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="field">
+                            @{if (string.IsNullOrEmpty(lab.drogas4))
+                                {<span>Marihuana</span> }
+                                else
+                                {<span>@lab.drogas4</span> }
+                            }
+                        </td>
+                        <td colspan="3" align="center">@lab.Marihuana</td>
+                        <td>Cualitativo</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="field">@lab.drogas5</td>
+                        <td colspan="3" align="center">@lab.drogasDescripcion5</td>
+                        @{if (lab.drogasDescripcion5 != null)
+                            {
+                                <td>Cualitativo</td>
+ }
+                        }
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="field">@lab.drogas6</td>
+                        <td colspan="3" align="center">@lab.drogasDescripcion6</td>
+                        @{if (lab.drogasDescripcion6 != null)
+                            {
+                                <td>Cualitativo</td>
+ }
+                        }
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td colspan="3">&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="6" align="center" class="fields">Notas</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="6" align="center">@lab.Notas</td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="6" align="center" height="300">&nbsp;</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td colspan="3" align="center">
+                            @{
+                                try
+                                {
+                                    var base64 = Convert.ToBase64String(lab.Firma1);
+                                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                                    <img src="@imgSrc" width="280" height="110" />
                                 }
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="field">@lab.drogas6</td>
-                            <td colspan="3" align="center">@lab.drogasDescripcion6</td>
-                            @{if (lab.drogasDescripcion6 != null)
-                                { <td>Cualitativo</td> }
+                                catch
+                                {
+
                                 }
-                        </tr>
-                        <tr>
-                            <td colspan="2">&nbsp;</td>
-                            <td colspan="3">&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-
-                            <td colspan="6" align="center" class="fields">Notas</td>
-
-                        </tr>
-                        <tr>
-                            <td colspan="6" align="center">@lab.Notas</td>
-                        </tr>
-                        <tr>
-
-                            <td colspan="6" align="center" height="300">&nbsp;</td>
-
-                        </tr>
-                        <tr>
-                            <td colspan="2">&nbsp;</td>
-                            <td colspan="3" align="center">
-                                @{
-                                    try
-                                    {
-                                        var base64 = Convert.ToBase64String(lab.Firma1);
-                                        var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-                                        <img src="@imgSrc" width="280" height="110" />
-                                    }
-                                    catch
-                                    {
-
-                                    }
-                                }
-                            </td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">&nbsp;</td>
-                            <td colspan="3" align="center" style="border-top:solid" class="field">Firma</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </table>
-                    <p style="page-break-before: always;">&nbsp;</p>
-
-
-                    <table style="width:100%;border-collapse:collapse">
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img alt="cisam logo" style="border:1px solid white;" src="../../Images/logo%20cisam.jpg" width="150" height="55" />
-                            </td>
-                            <td align="center" class="field" style="font-size:18px">CENTRO INTEGRAL DE SALUD MAIMÓN</td>
-                            <td class="field" style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Laboratorio</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                    </table>
-                    <table style="width:100%;border-collapse:collapse">
-                        <tr>
-                            <td colspan="5">&nbsp;</td>
-                            <td class="fields">Expediente No.</td>
-                            <td class="content-fields">@fso.Id_Formulario_S_O</td>
-                        </tr>
-                        <tr>
-                            <td class="fields">Empresa:</td>
-                            <td class="content-fields" colspan="4">@empresa.Nombre</td>
-                            <td class="fields">Fecha:</td>
-                            <td class="content-fields">@info.Fecha.Value.ToShortDateString()</td>
-                        </tr>
-                        <tr>
-                            <td class="fields">Departamento:</td>
-                            <td class="content-fields">@info.Departamento</td>
-                            <td class="fields">Posición:</td>
-                            <td class="content-fields" colspan="4">@info.Posicion</td>
-                        </tr>
-                        <tr>
-                            <td class="fields">Tipo evaluación:</td>
-                            <td class="content-fields" colspan="6">@info.Tipo_de_evaluacion</td>
-                        </tr>
-                        <tr>
-                            <td colspan="7" style="border-bottom:1px solid">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="fields" colspan="7" align="center">Datos Generales</td>
-                        </tr>
-                        <tr>
-                            <td class="fields">Nombre:</td>
-                            <td class="content-fields" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
-                            <td class="fields">Sexo:</td>
-                            <td class="content-fields">@info.Sexo</td>
-                            <td class="fields">Cédula:</td>
-                            <td class="content-fields">@info.Cedula</td>
-                        </tr>
-                        <tr>
-                            <td class="fields">Fecha de Nacimiento</td>
-                            <td class="content-fields">@info.Fecha_de_nacimiento.Value.ToShortDateString()</td>
-                            <td class="fields">Edad:</td>
-                            <td class="content-fields">@info.Edad</td>
-                            <td class="fields">Id Empleado</td>
-                            <td class="content-fields" colspan="2">@info.Id_Empleado</td>
-                        </tr>
-                    </table>
-
-                    <table style="width:100%;border-collapse:collapse">
-                        <tr><td>&nbsp;</td></tr>
-                        <tr><td colspan="5" align="center" class="fields">Examen de Orina</td></tr>
-                        <tr>
-                            <td class="field" width="320">Color</td>
-                            <td width="120" align="center">@lab.Color</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Olor</td>
-                            <td align="center">@lab.Olor</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Aspecto</td>
-                            <td align="center">@lab.Aspecto</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">PH</td>
-                            <td align="center">@lab.PH</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Densidad</td>
-                            <td align="center">@lab.Densidad</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Nitritos</td>
-                            <td align="center">@lab.Nitritos</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Glucosa</td>
-                            <td align="center">@lab.Glucosa</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Albumia</td>
-                            <td align="center">@lab.Albumina</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Acetona</td>
-                            <td align="center">@lab.Acetona</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Bilirrubina</td>
-                            <td align="center">@lab.Bilirrubina</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Urobilinógeno</td>
-                            <td align="center">@lab.Urobilinógeno</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Pigmentos biliares</td>
-                            <td align="center">@lab.Pigmentos_biliares</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Hemoglobina</td>
-                            <td align="center">@lab.Hemoglobina</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Sangre oculta</td>
-                            <td align="center">@lab.Sangre_oculta</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Examen Microscópico</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Células renales</td>
-                            <td align="center">@lab.Células_renales</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Leucocitos</td>
-                            <td align="center">@lab.Leucocitos</td>
-                            <td>/Campo</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Hematíes</td>
-                            <td align="center">@lab.Hematíes</td>
-                            <td>/Campo</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Nitritos</td>
-                            <td align="center">@lab.Nitritos</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Células epiteliales</td>
-                            <td align="center">@lab.Células_epiteliales</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Bacterias</td>
-                            <td align="center">@lab.Bacterias</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Fibras mucosas</td>
-                            <td align="center">@lab.Fibras_mucosas</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Levaduras</td>
-                            <td align="center">@lab.Levaduras</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Cristales</td>
-                            <td align="center">@lab.Cristales</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Cilindros</td>
-                            <td align="center">@lab.Cilindros</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="field">Parásitos</td>
-                            <td align="center">@lab.Parásitos</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp; </td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-
-                    </table>
-                    <table style="width:100%;border-collapse:collapse">
-                        <tr>
-                            <td height="300">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp; </td>
-                            <td>&nbsp;</td>
-                            <td align="center">
-                                @{
-                                    try
-                                    {
-                                        var base64 = Convert.ToBase64String(lab.firma);
-                                        var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-                                        <img src="@imgSrc" width="280" height="110" />
-                                    }
-                                    catch
-                                    {
-
-                                    }
-                                }
-                            </td>
-                            <td>&nbsp;</td>
-
-                        </tr>
-
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp; </td>
-                            <td align="center" class="field" style="border-top:1px solid" width="300">Firma</td>
-                            <td>&nbsp;</td>
-
-                        </tr>
-                    </table>
-                </div>
+                            }
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td colspan="3" align="center" style="border-top:solid" class="field">Firma</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
                 <p style="page-break-before: always;">&nbsp;</p>
-                                    }}
+
+
+                <table style="width:100%;border-collapse:collapse">
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img alt="cisam logo" style="border:1px solid white;" src="../../Images/logo%20cisam.jpg" width="150" height="55" />
+                        </td>
+                        <td align="center" class="field" style="font-size:18px">CENTRO INTEGRAL DE SALUD MAIMÓN</td>
+                        <td class="field" style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Laboratorio</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="width:100%;border-collapse:collapse">
+                    <tr>
+                        <td colspan="5">&nbsp;</td>
+                        <td class="fields">Expediente No.</td>
+                        <td class="content-fields">@fso.Id_Formulario_S_O</td>
+                    </tr>
+                    <tr>
+                        <td class="fields">Empresa:</td>
+                        <td class="content-fields" colspan="4">@empresa.Nombre</td>
+                        <td class="fields">Fecha:</td>
+                        <td class="content-fields">@info.Fecha.Value.ToShortDateString()</td>
+                    </tr>
+                    <tr>
+                        <td class="fields">Departamento:</td>
+                        <td class="content-fields">@info.Departamento</td>
+                        <td class="fields">Posición:</td>
+                        <td class="content-fields" colspan="4">@info.Posicion</td>
+                    </tr>
+                    <tr>
+                        <td class="fields">Tipo evaluación:</td>
+                        <td class="content-fields" colspan="6">@info.Tipo_de_evaluacion</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" style="border-bottom:1px solid">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="fields" colspan="7" align="center">Datos Generales</td>
+                    </tr>
+                    <tr>
+                        <td class="fields">Nombre:</td>
+                        <td class="content-fields" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+                        <td class="fields">Sexo:</td>
+                        <td class="content-fields">@info.Sexo</td>
+                        <td class="fields">Cédula:</td>
+                        <td class="content-fields">@info.Cedula</td>
+                    </tr>
+                    <tr>
+                        <td class="fields">Fecha de Nacimiento</td>
+                        <td class="content-fields">@info.Fecha_de_nacimiento.Value.ToShortDateString()</td>
+                        <td class="fields">Edad:</td>
+                        <td class="content-fields">@info.Edad</td>
+                        <td class="fields">Id Empleado</td>
+                        <td class="content-fields" colspan="2">@info.Id_Empleado</td>
+                    </tr>
+                </table>
+
+                <table style="width:100%;border-collapse:collapse">
+                    <tr><td>&nbsp;</td></tr>
+                    <tr><td colspan="5" align="center" class="fields">Examen de Orina</td></tr>
+                    <tr>
+                        <td class="field" width="320">Color</td>
+                        <td width="120" align="center">@lab.Color</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Olor</td>
+                        <td align="center">@lab.Olor</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Aspecto</td>
+                        <td align="center">@lab.Aspecto</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">PH</td>
+                        <td align="center">@lab.PH</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Densidad</td>
+                        <td align="center">@lab.Densidad</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Nitritos</td>
+                        <td align="center">@lab.Nitritos</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Glucosa</td>
+                        <td align="center">@lab.Glucosa</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Albumia</td>
+                        <td align="center">@lab.Albumina</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Acetona</td>
+                        <td align="center">@lab.Acetona</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Bilirrubina</td>
+                        <td align="center">@lab.Bilirrubina</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Urobilinógeno</td>
+                        <td align="center">@lab.Urobilinógeno</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Pigmentos biliares</td>
+                        <td align="center">@lab.Pigmentos_biliares</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Hemoglobina</td>
+                        <td align="center">@lab.Hemoglobina</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Sangre oculta</td>
+                        <td align="center">@lab.Sangre_oculta</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Examen Microscópico</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Células renales</td>
+                        <td align="center">@lab.Células_renales</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Leucocitos</td>
+                        <td align="center">@lab.Leucocitos</td>
+                        <td>/Campo</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Hematíes</td>
+                        <td align="center">@lab.Hematíes</td>
+                        <td>/Campo</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Nitritos</td>
+                        <td align="center">@lab.Nitritos</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Células epiteliales</td>
+                        <td align="center">@lab.Células_epiteliales</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Bacterias</td>
+                        <td align="center">@lab.Bacterias</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Fibras mucosas</td>
+                        <td align="center">@lab.Fibras_mucosas</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Levaduras</td>
+                        <td align="center">@lab.Levaduras</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Cristales</td>
+                        <td align="center">@lab.Cristales</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Cilindros</td>
+                        <td align="center">@lab.Cilindros</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="field">Parásitos</td>
+                        <td align="center">@lab.Parásitos</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp; </td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                </table>
+                <table style="width:100%;border-collapse:collapse">
+                    <tr>
+                        <td height="300">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp; </td>
+                        <td>&nbsp;</td>
+                        <td align="center">
+                            @{
+                                try
+                                {
+                                    var base64 = Convert.ToBase64String(lab.firma);
+                                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                                    <img src="@imgSrc" width="280" height="110" />
+                                }
+                                catch
+                                {
+
+                                }
+                            }
+                        </td>
+                        <td>&nbsp;</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp; </td>
+                        <td align="center" class="field" style="border-top:1px solid" width="300">Firma</td>
+                        <td>&nbsp;</td>
+
+                    </tr>
+                </table>
+            </div>
+            <p style="page-break-before: always;">&nbsp;</p>
+        }}
 
         @{ if (info.Radiografia)
             {
@@ -5165,7 +5175,7 @@
                             <td>&nbsp;</td>
                         </tr>
                     </table>
-                    <table style="width:100%;border-collapse:collapse" >
+                    <table style="width:100%;border-collapse:collapse">
                         <tr>
                             <td colspan="5">&nbsp;</td>
                             <td class="fields">Expediente No.</td>
@@ -5226,8 +5236,571 @@
                         }
                     </p>
                 </div>
-             }
-          }
+            }
+        }
+        @{ if (info.EpWorth)
+            {
+                <div id="EpWorth">
+                    <table style="width:100%;border-collapse:collapse">
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="cisam logo" style="border:1px solid white;" src="../../Images/logo%20cisam.jpg" width="150" height="55" />
+                            </td>
+                            <td align="center" class="field" style="font-size:18px">CENTRO INTEGRAL DE SALUD MAIMÓN</td>
+                            <td class="field" style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Escala de Somnolencia</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                    <table style="width:100%;border-collapse:collapse">
+                        <tr>
+                            <td colspan="5">&nbsp;</td>
+                            <td class="fields">Expediente No.</td>
+                            <td class="content-fields">@fso.Id_Formulario_S_O</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Empresa:</td>
+                            <td class="content-fields" colspan="4">@empresa.Nombre</td>
+                            <td class="fields">Fecha:</td>
+                            <td class="content-fields">@info.Fecha</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Departamento:</td>
+                            <td class="content-fields">@info.Departamento</td>
+                            <td class="fields">Posicion:</td>
+                            <td class="content-fields" colspan="4">@info.Posicion</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Tipo evaluacion:</td>
+                            <td class="content-fields" colspan="6">@info.Tipo_de_evaluacion</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" style="border-bottom:1px solid">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="fields" colspan="7" align="center">Datos Generales</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Nombre:</td>
+                            <td class="content-fields" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+                            <td class="fields">Sexo:</td>
+                            <td class="content-fields">@info.Sexo</td>
+                            <td class="fields">Cedula:</td>
+                            <td class="content-fields">@info.Cedula</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Fecha de Nacimiento</td>
+                            <td class="content-fields">@info.Fecha_de_nacimiento.Value.ToShortDateString()</td>
+                            <td class="fields">Edad:</td>
+                            <td class="content-fields">@info.Edad</td>
+                            <td class="fields">Id Empleado</td>
+                            <td class="content-fields" colspan="2">@info.Id_Empleado</td>
+                        </tr>
+                    </table>
+                    <table style="width:100%;border-collapse:collapse">
+                        <tr>
+                            <td colspan="3" style="text-align:center;font-weight:bold;font-size:18px;padding-top:50px">Escala de Somnolencia de EPWORTH</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" height="50">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" >
+                                Johns MW. A new method for measuring daytime sleepiness: the Epworth Sleepiness Scale. Sleep 1991; 14: 540-545.
 
-            </body>
+                                Se trata de una escala autoadministrada. El evaluador debe explicar al paciente el modo de contestar a las preguntas y este último debe de rellenar el formulario.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" >
+                                ¿Con qué frecuencia se queda Vd. dormido en las siguientes situaciones? Incluso si no ha realizado recientemente alguna de las actividades mencionadas a continuación, trate de imaginar en qué medida le afectarían.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" >
+                                Utilice la siguiente escala y elija la cifra adecuada para cada situación.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" >
+                                <ul>
+                                    <li>0 = nunca se ha dormido</li> 
+                                    <li>1 = escasa posibilidad de dormirse</li> 
+                                    <li>2 = moderada posibilidad de dormirse</li> 
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div class="form-group">
+                                    <table>
+                                        <tr>
+                                            <td colspan="3" style="color:navy">Sentado y leyendo</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30"></td>
+                                            <td width="20">
+                                                @if (epw.sentado_y_leyendo == 0 || epw.sentado_y_leyendo == null)
+                                                {<input type="radio" name="sentado_y_leyendo" value="0" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_y_leyendo" value="0" />}
+                                            </td>
+                                            <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_y_leyendo == 1)
+                                                {<input type="radio" name="sentado_y_leyendo" value="1" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_y_leyendo" value="1" />}
+                                            </td>
+                                            <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_y_leyendo == 2)
+                                                {<input type="radio" name="sentado_y_leyendo" value="2" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_y_leyendo" value="2" />}
+                                            </td>
+                                            <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_y_leyendo == 3)
+                                                {<input type="radio" name="sentado_y_leyendo" value="3" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_y_leyendo" value="3" />}
+                                            </td>
+                                            <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <table>
+                                        <tr>
+                                            <td colspan="3" style="color:navy">Viendo la televisión</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30"></td>
+                                            <td width="20">
+                                                @if (epw.viendo_la_television == 0 || epw.viendo_la_television == null)
+                                                {<input type="radio" name="viendo_la_television" value="0" checked />}
+                                                else
+                                                {<input type="radio" name="viendo_la_television" value="0" />}
+                                            </td>
+                                            <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.viendo_la_television == 1)
+                                                {<input type="radio" name="viendo_la_television" value="1" checked />}
+                                                else
+                                                {<input type="radio" name="viendo_la_television" value="1" />}
+                                            </td>
+                                            <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.viendo_la_television == 2)
+                                                {<input type="radio" name="viendo_la_television" value="2" checked />}
+                                                else
+                                                {<input type="radio" name="viendo_la_television" value="2" />}
+                                            </td>
+                                            <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.viendo_la_television == 3)
+                                                {<input type="radio" name="viendo_la_television" value="3" checked />}
+                                                else
+                                                {<input type="radio" name="viendo_la_television" value="3" />}
+                                            </td>
+                                            <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <table>
+                                        <tr>
+                                            <td colspan="3" style="color:navy">Sentado inactivo en un lugar público</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30"></td>
+                                            <td width="20">
+                                                @if (epw.sentado_inactivo_lugar_publico == 0 || epw.sentado_inactivo_lugar_publico == null)
+                                                {<input type="radio" name="sentado_inactivo_lugar_publico" value="0" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_inactivo_lugar_publico" value="0" />}
+                                            </td>
+                                            <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_inactivo_lugar_publico == 1)
+                                                {<input type="radio" name="sentado_inactivo_lugar_publico" value="1" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_inactivo_lugar_publico" value="1" />}
+                                            </td>
+                                            <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_inactivo_lugar_publico == 2)
+                                                {<input type="radio" name="sentado_inactivo_lugar_publico" value="2" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_inactivo_lugar_publico" value="2" />}
+                                            </td>
+                                            <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_inactivo_lugar_publico == 3)
+                                                {<input type="radio" name="sentado_inactivo_lugar_publico" value="3" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_inactivo_lugar_publico" value="3" />}
+                                            </td>
+                                            <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <table>
+                                        <tr>
+                                            <td colspan="3" style="color:navy">Sentado durante una hora como pasajero en un coche</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30"></td>
+                                            <td width="20">
+                                                @if (epw.sentado_una_hora_pasajero == 0 || epw.sentado_una_hora_pasajero == null)
+                                                {<input type="radio" name="sentado_una_hora_pasajero" value="0" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_una_hora_pasajero" value="0" />}
+                                            </td>
+                                            <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_una_hora_pasajero == 1)
+                                                {<input type="radio" name="sentado_una_hora_pasajero" value="1" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_una_hora_pasajero" value="1" />}
+                                            </td>
+                                            <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_una_hora_pasajero == 2)
+                                                {<input type="radio" name="sentado_una_hora_pasajero" value="2" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_una_hora_pasajero" value="2" />}
+                                            </td>
+                                            <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_una_hora_pasajero == 3)
+                                                {<input type="radio" name="sentado_una_hora_pasajero" value="3" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_una_hora_pasajero" value="3" />}
+                                            </td>
+                                            <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <table>
+                                        <tr>
+                                            <td colspan="3" style="color:navy">Tumbado por la tarde para descansar</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30"></td>
+                                            <td width="20">
+                                                @if (epw.tumbado_de_tarde_para_descansar == 0 || epw.tumbado_de_tarde_para_descansar == null)
+                                                {<input type="radio" name="tumbado_de_tarde_para_descansar" value="0" checked />}
+                                                else
+                                                {<input type="radio" name="tumbado_de_tarde_para_descansar" value="0" />}
+                                            </td>
+                                            <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.tumbado_de_tarde_para_descansar == 1)
+                                                {<input type="radio" name="tumbado_de_tarde_para_descansar" value="1" checked />}
+                                                else
+                                                {<input type="radio" name="tumbado_de_tarde_para_descansar" value="1" />}
+                                            </td>
+                                            <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.tumbado_de_tarde_para_descansar == 2)
+                                                {<input type="radio" name="tumbado_de_tarde_para_descansar" value="2" checked />}
+                                                else
+                                                {<input type="radio" name="tumbado_de_tarde_para_descansar" value="2" />}
+                                            </td>
+                                            <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.tumbado_de_tarde_para_descansar == 3)
+                                                {<input type="radio" name="tumbado_de_tarde_para_descansar" value="3" checked />}
+                                                else
+                                                {<input type="radio" name="tumbado_de_tarde_para_descansar" value="3" />}
+                                            </td>
+                                            <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                                        </tr>
+                                    </table>
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <table>
+                                        <tr>
+                                            <td colspan="3" style="color:navy">Sentado y hablando con otra persona</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30"></td>
+                                            <td width="20">
+                                                @if (epw.sentado_hablando_con_otro == 0 || epw.sentado_hablando_con_otro == null)
+                                                {<input type="radio" name="sentado_hablando_con_otro" value="0" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_hablando_con_otro" value="0" />}
+                                            </td>
+                                            <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_hablando_con_otro == 1)
+                                                {<input type="radio" name="sentado_hablando_con_otro" value="1" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_hablando_con_otro" value="1" />}
+                                            </td>
+                                            <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_hablando_con_otro == 2)
+                                                {<input type="radio" name="sentado_hablando_con_otro" value="2" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_hablando_con_otro" value="2" />}
+                                            </td>
+                                            <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_hablando_con_otro == 3)
+                                                {<input type="radio" name="sentado_hablando_con_otro" value="3" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_hablando_con_otro" value="3" />}
+                                            </td>
+                                            <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="form-group">
+                                    <table>
+                                        <tr>
+                                            <td colspan="3" style="color:navy">Sentado tranquilamente después de una comida (sin consumo de alcohol en la comida)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30"></td>
+                                            <td width="20">
+                                                @if (epw.sentado_tranquilo_despues_de_comida == 0 || epw.sentado_tranquilo_despues_de_comida == null)
+                                                {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="0" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="0" />}
+                                            </td>
+                                            <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_tranquilo_despues_de_comida == 1)
+                                                {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="1" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="1" />}
+                                            </td>
+                                            <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_tranquilo_despues_de_comida == 2)
+                                                {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="2" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="2" />}
+                                            </td>
+                                            <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_tranquilo_despues_de_comida == 3)
+                                                {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="3" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="3" />}
+                                            </td>
+                                            <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <table>
+                                        <tr>
+                                            <td colspan="3" style="color:navy">Sentado en un coche, detenido durante unos pocos minutos por un atasco</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30"></td>
+                                            <td width="20">
+                                                @if (epw.sentado_en_coche_por_unos_minutos_por_atasco == 0 || epw.sentado_en_coche_por_unos_minutos_por_atasco == null)
+                                                {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="0" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="0" />}
+                                            </td>
+                                            <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_en_coche_por_unos_minutos_por_atasco == 1)
+                                                {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="1" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="1" />}
+                                            </td>
+                                            <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_en_coche_por_unos_minutos_por_atasco == 2)
+                                                {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="2" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="2" />}
+                                            </td>
+                                            <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10"></td>
+                                            <td>
+                                                @if (epw.sentado_en_coche_por_unos_minutos_por_atasco == 3)
+                                                {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="3" checked />}
+                                                else
+                                                {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="3" />}
+                                            </td>
+                                            <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td align="center" style="border-bottom:1px solid">
+                                @{
+                                    try
+                                    {
+                                        var base64 = Convert.ToBase64String(epw.Firma);
+                                        var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                                        <img src="@imgSrc" width="280" height="110" />
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                }
+                            </td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td align="center">Firma Especialista</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td width="50%">&nbsp;</td>
+                            <td align="center" style="border-bottom:1px solid">
+                                @{
+                                    try
+                                    {
+                                        var base64 = Convert.ToBase64String(epw.firma_candidato);
+                                        var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                                        <img src="@imgSrc" width="280" height="110" />
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                }
+                              
+                            </td>
+                            <td width="50%">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td align="center">Firma candidato</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p style="page-break-before: always;">&nbsp;</p>
+            }
+        }
+
+    </body>
 </html>

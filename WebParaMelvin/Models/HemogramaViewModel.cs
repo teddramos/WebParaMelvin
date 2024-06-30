@@ -29,6 +29,7 @@ namespace WebParaMelvin.Models
        
         public HttpPostedFileBase DataFirma { get; set; }
         public HttpPostedFileBase DataHuella { get; set; }
+        public string sigImageData { get; set; }
     }
     public partial class EKG
     {
@@ -63,6 +64,7 @@ namespace WebParaMelvin.Models
     public partial class Usuario
     {
         public HttpPostedFileBase Archivo { get; set; }
+        public string sigImageData { get; set; }
     }
     public partial class Laboratorio
     {
@@ -102,5 +104,11 @@ namespace WebParaMelvin.Models
         public string message { get; set; }
         public string fechaYhora { get; set; }
     }
-    
+    public partial class EpWorth
+    {
+        public HttpPostedFileBase Archivo { get; set; }
+        public bool Firmar { get; set; }
+        public string sigImageData { get; set; }
+    }
+
 }

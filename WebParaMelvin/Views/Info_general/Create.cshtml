@@ -252,6 +252,14 @@
 
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EpWorth, "Escala de Somnolencia", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EpWorth, new { htmlAttributes = new { @class = "form-control ex-ep", @type = "checkbox" } })
+                @Html.ValidationMessageFor(model => model.EpWorth, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
 
 
 

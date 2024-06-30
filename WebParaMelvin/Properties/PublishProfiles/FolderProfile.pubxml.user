@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\WebParaMelvin\WebParaMelvin\publish</_PublishTargetUrl>
-    <History>True|2024-04-07T15:54:52.8399722Z;True|2024-04-07T11:47:12.5368310-04:00;True|2024-04-07T10:06:08.1504096-04:00;True|2024-04-07T10:01:39.6573629-04:00;True|2024-04-02T21:51:13.3598493-04:00;True|2024-04-02T21:46:17.1171467-04:00;True|2024-03-21T21:23:35.8248982-04:00;True|2024-03-09T20:46:59.8535528-04:00;True|2024-03-09T20:46:41.3502060-04:00;True|2024-03-09T20:31:25.3786515-04:00;True|2024-02-28T12:11:35.3902639-04:00;True|2024-02-27T12:28:18.6728707-04:00;True|2024-02-27T12:22:06.9672840-04:00;True|2024-02-27T11:59:13.9263725-04:00;True|2024-02-27T11:48:36.5156310-04:00;True|2024-02-27T11:41:20.4294874-04:00;True|2024-02-27T11:22:56.8275144-04:00;True|2024-02-27T11:16:54.8609346-04:00;True|2024-02-27T10:54:42.6310498-04:00;True|2024-02-27T09:26:42.7087063-04:00;True|2024-02-27T07:52:44.1098483-04:00;True|2023-11-05T19:19:15.0025390-04:00;True|2023-11-05T19:09:32.8468377-04:00;True|2023-11-02T19:04:15.6762520-04:00;True|2023-10-25T20:29:39.5223120-04:00;True|2023-10-11T21:49:56.5197144-04:00;True|2023-10-10T16:18:50.9635318-04:00;True|2023-10-10T15:54:39.1208492-04:00;True|2023-07-15T08:57:53.8337425-04:00;True|2023-07-14T16:14:26.7284085-04:00;True|2023-07-13T19:34:19.3615215-04:00;True|2023-07-09T12:12:17.5153782-04:00;True|2023-04-25T12:48:23.8385944-04:00;True|2023-04-25T00:06:16.1995322-04:00;True|2023-04-24T19:01:00.6577412-04:00;True|2023-04-24T18:48:20.2389274-04:00;True|2023-04-24T18:31:13.7585280-04:00;True|2023-04-14T20:26:52.5860470-04:00;True|2023-04-12T11:40:06.5306621-04:00;True|2023-04-11T18:39:29.9822893-04:00;True|2023-04-10T22:47:50.0088577-04:00;True|2023-04-09T16:31:54.6676675-04:00;True|2023-04-09T16:26:16.6303428-04:00;True|2023-04-07T18:16:26.7351241-04:00;True|2023-04-04T10:48:03.7055845-04:00;True|2023-04-04T09:09:52.4832379-04:00;True|2023-03-30T19:19:31.1215433-04:00;True|2023-03-30T19:05:55.3639387-04:00;True|2023-03-28T12:18:50.9013459-04:00;True|2023-03-27T23:51:55.6421468-04:00;True|2023-03-27T22:32:11.9407593-04:00;True|2023-03-27T22:11:44.5288402-04:00;True|2023-03-27T21:29:27.8327763-04:00;False|2023-03-26T22:40:58.8013262-04:00;False|2023-03-26T22:27:47.3941974-04:00;</History>
+    <History>True|2024-06-23T13:11:24.8199094Z;True|2024-06-23T09:03:31.4188561-04:00;True|2024-04-07T11:54:52.8399722-04:00;True|2024-04-07T11:47:12.5368310-04:00;True|2024-04-07T10:06:08.1504096-04:00;True|2024-04-07T10:01:39.6573629-04:00;True|2024-04-02T21:51:13.3598493-04:00;True|2024-04-02T21:46:17.1171467-04:00;True|2024-03-21T21:23:35.8248982-04:00;True|2024-03-09T20:46:59.8535528-04:00;True|2024-03-09T20:46:41.3502060-04:00;True|2024-03-09T20:31:25.3786515-04:00;True|2024-02-28T12:11:35.3902639-04:00;True|2024-02-27T12:28:18.6728707-04:00;True|2024-02-27T12:22:06.9672840-04:00;True|2024-02-27T11:59:13.9263725-04:00;True|2024-02-27T11:48:36.5156310-04:00;True|2024-02-27T11:41:20.4294874-04:00;True|2024-02-27T11:22:56.8275144-04:00;True|2024-02-27T11:16:54.8609346-04:00;True|2024-02-27T10:54:42.6310498-04:00;True|2024-02-27T09:26:42.7087063-04:00;True|2024-02-27T07:52:44.1098483-04:00;True|2023-11-05T19:19:15.0025390-04:00;True|2023-11-05T19:09:32.8468377-04:00;True|2023-11-02T19:04:15.6762520-04:00;True|2023-10-25T20:29:39.5223120-04:00;True|2023-10-11T21:49:56.5197144-04:00;True|2023-10-10T16:18:50.9635318-04:00;True|2023-10-10T15:54:39.1208492-04:00;True|2023-07-15T08:57:53.8337425-04:00;True|2023-07-14T16:14:26.7284085-04:00;True|2023-07-13T19:34:19.3615215-04:00;True|2023-07-09T12:12:17.5153782-04:00;True|2023-04-25T12:48:23.8385944-04:00;True|2023-04-25T00:06:16.1995322-04:00;True|2023-04-24T19:01:00.6577412-04:00;True|2023-04-24T18:48:20.2389274-04:00;True|2023-04-24T18:31:13.7585280-04:00;True|2023-04-14T20:26:52.5860470-04:00;True|2023-04-12T11:40:06.5306621-04:00;True|2023-04-11T18:39:29.9822893-04:00;True|2023-04-10T22:47:50.0088577-04:00;True|2023-04-09T16:31:54.6676675-04:00;True|2023-04-09T16:26:16.6303428-04:00;True|2023-04-07T18:16:26.7351241-04:00;True|2023-04-04T10:48:03.7055845-04:00;True|2023-04-04T09:09:52.4832379-04:00;True|2023-03-30T19:19:31.1215433-04:00;True|2023-03-30T19:05:55.3639387-04:00;True|2023-03-28T12:18:50.9013459-04:00;True|2023-03-27T23:51:55.6421468-04:00;True|2023-03-27T22:32:11.9407593-04:00;True|2023-03-27T22:11:44.5288402-04:00;True|2023-03-27T21:29:27.8327763-04:00;False|2023-03-26T22:40:58.8013262-04:00;False|2023-03-26T22:27:47.3941974-04:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -34,10 +34,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/26/2023 22:40:54</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>02/27/2024 09:12:34</publishTime>
+      <publishTime>04/16/2020 16:38:42</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>02/27/2024 09:12:34</publishTime>
+      <publishTime>04/16/2020 16:38:56</publishTime>
     </File>
     <File Include="bin/es/System.Net.Http.Formatting.resources.dll">
       <publishTime>02/27/2024 09:12:34</publishTime>
@@ -601,10 +601,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2024 09:12:35</publishTime>
     </File>
     <File Include="bin/WebParaMelvin.dll">
-      <publishTime>04/07/2024 11:54:48</publishTime>
+      <publishTime>06/23/2024 09:11:22</publishTime>
     </File>
     <File Include="bin/WebParaMelvin.pdb">
-      <publishTime>04/07/2024 11:54:48</publishTime>
+      <publishTime>06/23/2024 09:11:22</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
       <publishTime>03/26/2023 22:40:55</publishTime>
@@ -1360,7 +1360,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/27/2024 09:12:26</publishTime>
     </File>
     <File Include="Models/ModelFormulario_S_O_1.edmx.diagram">
-      <publishTime>02/27/2024 09:12:26</publishTime>
+      <publishTime>06/18/2024 21:51:54</publishTime>
     </File>
     <File Include="Models/ModelFormulario_S_O_1.edmx.sql">
       <publishTime>02/27/2024 09:12:26</publishTime>
@@ -1388,6 +1388,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Scripts/Chart.js">
       <publishTime>02/27/2024 09:12:27</publishTime>
+    </File>
+    <File Include="Scripts/clientScripts.js">
+      <publishTime>06/16/2024 15:39:28</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
       <publishTime>02/27/2024 09:12:27</publishTime>
@@ -1418,6 +1421,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Scripts/respond.min.js">
       <publishTime>02/27/2024 09:12:27</publishTime>
+    </File>
+    <File Include="Scripts/SigWebTablet.js">
+      <publishTime>06/13/2024 23:27:39</publishTime>
     </File>
     <File Include="templateforCameEmail.html">
       <publishTime>04/02/2024 19:00:02</publishTime>
@@ -1465,7 +1471,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/15/2024 06:03:27</publishTime>
     </File>
     <File Include="Views/Consentimiento_Informado/Edit.cshtml">
-      <publishTime>02/15/2024 06:03:27</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Consentimiento_Informado/Index.cshtml">
       <publishTime>02/15/2024 06:03:27</publishTime>
@@ -1521,6 +1527,27 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Empresas/Index.cshtml">
       <publishTime>02/15/2024 06:03:27</publishTime>
     </File>
+    <File Include="Views/EpWorths/Create.cshtml">
+      <publishTime>04/06/2024 21:07:37</publishTime>
+    </File>
+    <File Include="Views/EpWorths/Delete.cshtml">
+      <publishTime>04/06/2024 21:07:38</publishTime>
+    </File>
+    <File Include="Views/EpWorths/Details.cshtml">
+      <publishTime>04/06/2024 21:07:39</publishTime>
+    </File>
+    <File Include="Views/EpWorths/Edit.cshtml">
+      <publishTime>06/18/2024 22:02:55</publishTime>
+    </File>
+    <File Include="Views/EpWorths/Index.cshtml">
+      <publishTime>04/06/2024 21:07:42</publishTime>
+    </File>
+    <File Include="Views/EpWorths/Topaz SigWeb/clientScripts.js">
+      <publishTime>06/14/2024 00:01:04</publishTime>
+    </File>
+    <File Include="Views/EpWorths/Topaz SigWeb/SigWebTablet.js">
+      <publishTime>06/13/2024 23:27:39</publishTime>
+    </File>
     <File Include="Views/Espirometrias/Create.cshtml">
       <publishTime>02/15/2024 06:03:27</publishTime>
     </File>
@@ -1558,7 +1585,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/15/2024 06:03:27</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/Details.cshtml">
-      <publishTime>04/07/2024 09:20:49</publishTime>
+      <publishTime>05/06/2024 00:26:50</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/Edit.cshtml">
       <publishTime>02/15/2024 06:03:27</publishTime>
@@ -1573,7 +1600,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/15/2024 06:03:27</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/PrintPreview.cshtml">
-      <publishTime>02/15/2024 06:03:27</publishTime>
+      <publishTime>06/22/2024 22:14:30</publishTime>
     </File>
     <File Include="Views/Hemogramas/Create.cshtml">
       <publishTime>02/15/2024 06:03:27</publishTime>
@@ -1615,7 +1642,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/15/2024 06:03:27</publishTime>
     </File>
     <File Include="Views/Info_general/Create.cshtml">
-      <publishTime>02/15/2024 06:03:27</publishTime>
+      <publishTime>04/06/2024 21:37:53</publishTime>
     </File>
     <File Include="Views/Info_general/Delete.cshtml">
       <publishTime>02/15/2024 06:03:27</publishTime>
@@ -1624,7 +1651,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/15/2024 06:03:27</publishTime>
     </File>
     <File Include="Views/Info_general/Edit.cshtml">
-      <publishTime>02/15/2024 06:03:27</publishTime>
+      <publishTime>04/06/2024 21:50:31</publishTime>
     </File>
     <File Include="Views/Info_general/Index.cshtml">
       <publishTime>02/15/2024 06:03:27</publishTime>
@@ -1711,7 +1738,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/15/2024 06:03:27</publishTime>
     </File>
     <File Include="Views/Usuarios/Edit.cshtml">
-      <publishTime>02/15/2024 06:03:27</publishTime>
+      <publishTime>06/18/2024 22:06:37</publishTime>
     </File>
     <File Include="Views/Usuarios/Index.cshtml">
       <publishTime>02/15/2024 06:03:27</publishTime>
@@ -1732,7 +1759,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/15/2024 06:03:27</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/27/2024 12:22:04</publishTime>
+      <publishTime>06/23/2024 09:03:27</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -28,6 +28,8 @@ namespace WebParaMelvin.Models
         public Nullable<int> Usuario_que_modifico { get; set; }
         public string Estado { get; set; }
         public Nullable<int> Id_Formulario_S_O { get; set; }
+        public byte[] Firma { get; set; }
+        public byte[] firma_candidato { get; set; }
     
         public virtual Formulario_S_O Formulario_S_O { get; set; }
     }

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<WebParaMelvin.Models.EpWorth>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.sentado_y_leyendo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.viendo_la_television)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sentado_inactivo_lugar_publico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sentado_una_hora_pasajero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tumbado_de_tarde_para_descansar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sentado_hablando_con_otro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sentado_tranquilo_despues_de_comida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sentado_en_coche_por_unos_minutos_por_atasco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modificado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ultima_modificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario_que_modifico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Formulario_S_O.Estado)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.sentado_y_leyendo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.viendo_la_television)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sentado_inactivo_lugar_publico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sentado_una_hora_pasajero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tumbado_de_tarde_para_descansar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sentado_hablando_con_otro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sentado_tranquilo_despues_de_comida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sentado_en_coche_por_unos_minutos_por_atasco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modificado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ultima_modificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario_que_modifico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formulario_S_O.Estado)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id_EpWorth }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id_EpWorth }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id_EpWorth })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

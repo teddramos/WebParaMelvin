@@ -1,0 +1,136 @@
+﻿@model WebParaMelvin.Models.EpWorth
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>EpWorth</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.sentado_y_leyendo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sentado_y_leyendo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.viendo_la_television)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.viendo_la_television)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sentado_inactivo_lugar_publico)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sentado_inactivo_lugar_publico)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sentado_una_hora_pasajero)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sentado_una_hora_pasajero)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tumbado_de_tarde_para_descansar)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tumbado_de_tarde_para_descansar)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sentado_hablando_con_otro)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sentado_hablando_con_otro)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sentado_tranquilo_despues_de_comida)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sentado_tranquilo_despues_de_comida)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sentado_en_coche_por_unos_minutos_por_atasco)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sentado_en_coche_por_unos_minutos_por_atasco)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Modificado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Modificado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Ultima_modificacion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Ultima_modificacion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Usuario_que_modifico)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Usuario_que_modifico)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Formulario_S_O.Estado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Formulario_S_O.Estado)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>
