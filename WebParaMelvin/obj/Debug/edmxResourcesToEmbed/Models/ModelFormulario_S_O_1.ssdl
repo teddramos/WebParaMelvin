@@ -737,6 +737,7 @@
     <Property Name="Consentimiento_informado" Type="bit" Nullable="false" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
     <Property Name="EpWorth" Type="bit" Nullable="false" />
+    <Property Name="Apnea" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Laboratorio">
     <Key>
@@ -1059,18 +1060,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EpWorth__Id_Form__6D6238AF">
-    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1" />
-    <End Role="EpWorth" Type="Self.EpWorth" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Formulario_S_O">
-        <PropertyRef Name="Id_Formulario_S_O" />
-      </Principal>
-      <Dependent Role="EpWorth">
-        <PropertyRef Name="Id_Formulario_S_O" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Actividades_1_Usuarios_1">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
     <End Role="Actividades" Type="Self.Actividades" Multiplicity="*" />
@@ -1373,6 +1362,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="orders_customer_id_fkey">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EpWorth" Type="Self.EpWorth" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="EpWorth">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ceisamco_form_s_oModelStoreContainer">
     <EntitySet Name="Actividades" EntityType="Self.Actividades" Schema="cisam_ceisamco_cisam" store:Type="Tables" />
     <EntitySet Name="Apnea" EntityType="Self.Apnea" Schema="dbo" store:Type="Tables" />
@@ -1406,10 +1409,6 @@
     <AssociationSet Name="FK__Deteccion__Id_Fo__731B1205" Association="Self.FK__Deteccion__Id_Fo__731B1205">
       <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
       <End Role="Deteccion_SAS" EntitySet="Deteccion_SAS" />
-    </AssociationSet>
-    <AssociationSet Name="FK__EpWorth__Id_Form__6D6238AF" Association="Self.FK__EpWorth__Id_Form__6D6238AF">
-      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
-      <End Role="EpWorth" EntitySet="EpWorth" />
     </AssociationSet>
     <AssociationSet Name="FK_Actividades_1_Usuarios_1" Association="Self.FK_Actividades_1_Usuarios_1">
       <End Role="Usuario" EntitySet="Usuario" />
@@ -1502,6 +1501,10 @@
     <AssociationSet Name="FK_Usuario_Rol_Usuario" Association="Self.FK_Usuario_Rol_Usuario">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Usuario_Rol" EntitySet="Usuario_Rol" />
+    </AssociationSet>
+    <AssociationSet Name="orders_customer_id_fkey" Association="Self.orders_customer_id_fkey">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="EpWorth" EntitySet="EpWorth" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

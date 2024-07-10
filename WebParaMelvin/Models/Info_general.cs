@@ -45,6 +45,7 @@ namespace WebParaMelvin.Models
         public bool Consentimiento_informado { get; set; }
         public string Estado { get; set; }
         public bool EpWorth { get; set; }
+        public bool Apnea { get; set; }
     
         public virtual Formulario_S_O Formulario_S_O { get; set; }
     }
