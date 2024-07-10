@@ -1042,7 +1042,9 @@
           <Property Name="Id_Usuario" Type="int" />
         </EntityType>
         <Association Name="FK__Apnea__Id_Formul__035179CE">
-          <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1" />
+          <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Apnea" Type="Self.Apnea" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Formulario_S_O">
