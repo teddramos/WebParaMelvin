@@ -1,7 +1,7 @@
 ﻿@model WebParaMelvin.Models.EpWorth
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
 
     var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
