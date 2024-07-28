@@ -521,95 +521,111 @@
                 {<input type="radio" name="Su_esposa_comento_que_deja_de_respirar" value="false" />}
             </td>
         </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Comparado con sus compañeros, usted siente que tiene más sueño o cansancio que ellos mientras trabaja
+            </td>
+            <td>
+                @if (Model.Siente_mas_que_tiene_mas_sueno)
+                {<input type="radio" name="Siente_mas_que_tiene_mas_sueno" value="true" checked />}
+                else
+                {<input type="radio" name="Siente_mas_que_tiene_mas_sueno" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Siente_mas_que_tiene_mas_sueno)
+                {<input type="radio" name="Siente_mas_que_tiene_mas_sueno" value="false" checked />}
+                else
+                {<input type="radio" name="Siente_mas_que_tiene_mas_sueno" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                ¿Tiene usted un familiar con Apnea del sueño?
+            </td>
+            <td>
+                @if (Model.Tiene_familiar_con_apnea)
+                {<input type="radio" name="Tiene_familiar_con_apnea" value="true" checked />}
+                else
+                {<input type="radio" name="Tiene_familiar_con_apnea" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Tiene_familiar_con_apnea)
+                {<input type="radio" name="Tiene_familiar_con_apnea" value="false" checked />}
+                else
+                {<input type="radio" name="Tiene_familiar_con_apnea" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Ha tenido algún accidente o incidente vehicular considerado “por falla humana”
+            </td>
+            <td>
+                @if (Model.Accidente_por_falla_humana)
+                {<input type="radio" name="Accidente_por_falla_humana" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_por_falla_humana" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_por_falla_humana)
+                {<input type="radio" name="Accidente_por_falla_humana" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_por_falla_humana" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Está recibiendo tratamiento para Ápnea del sueño con CPAP
+            </td>
+            <td>
+                @if (Model.Recibe_tratamiento_para_apnea)
+                {<input type="radio" name="Recibe_tratamiento_para_apnea" value="true" checked />}
+                else
+                {<input type="radio" name="Recibe_tratamiento_para_apnea" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Recibe_tratamiento_para_apnea)
+                {<input type="radio" name="Recibe_tratamiento_para_apnea" value="false" checked />}
+                else
+                {<input type="radio" name="Recibe_tratamiento_para_apnea" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Se le ha realizado una PSG durante el sueño para descartarle un trastorno del sueño
+            </td>
+            <td>
+                @if (Model.Se_le_ha_relizado_una_PSG)
+                {<input type="radio" name="Se_le_ha_relizado_una_PSG" value="true" checked />}
+                else
+                {<input type="radio" name="Se_le_ha_relizado_una_PSG" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Se_le_ha_relizado_una_PSG)
+                {<input type="radio" name="Se_le_ha_relizado_una_PSG" value="false" checked />}
+                else
+                {<input type="radio" name="Se_le_ha_relizado_una_PSG" value="false" />}
+            </td>
+        </tr>
     </table>
+   <br />
+   <h4>PUNTUACIÓN DE LA ESCALA DE EPWORTH (ESS) </h4>
+   <h5>(Nunca=0, poca=1, moderada=2, alta=3) </h5>
     <div class="form-group">
-        @Html.LabelFor(model => model.Su_esposa_comento_que_ronca, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Su_esposa_comento_que_ronca)
-                @Html.ValidationMessageFor(model => model.Su_esposa_comento_que_ronca, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Su_esposa_comento_que_hace_ruidos, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Su_esposa_comento_que_hace_ruidos)
-                @Html.ValidationMessageFor(model => model.Su_esposa_comento_que_hace_ruidos, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Su_esposa_comento_que_deja_de_respirar, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Su_esposa_comento_que_deja_de_respirar)
-                @Html.ValidationMessageFor(model => model.Su_esposa_comento_que_deja_de_respirar, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Siente_mas_que_tiene_mas_sueno, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Siente_mas_que_tiene_mas_sueno)
-                @Html.ValidationMessageFor(model => model.Siente_mas_que_tiene_mas_sueno, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Tiene_familiar_con_apnea, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Tiene_familiar_con_apnea)
-                @Html.ValidationMessageFor(model => model.Tiene_familiar_con_apnea, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Accidente_por_falla_humana, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Accidente_por_falla_humana)
-                @Html.ValidationMessageFor(model => model.Accidente_por_falla_humana, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Recibe_tratamiento_para_apnea, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Recibe_tratamiento_para_apnea)
-                @Html.ValidationMessageFor(model => model.Recibe_tratamiento_para_apnea, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Se_le_ha_relizado_una_PSG, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Se_le_ha_relizado_una_PSG)
-                @Html.ValidationMessageFor(model => model.Se_le_ha_relizado_una_PSG, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Puntuacion_epwhorth, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.Label("Total puntos (sumatoria) >10** ", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Puntuacion_epwhorth, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Puntuacion_epwhorth, "", new { @class = "text-danger" })
         </div>
     </div>
-
+    <br />
+    <br />
+    <h4>4. EXÁMEN FÍSICO: </h4>
+    <hr />
     <div class="form-group">
         @Html.LabelFor(model => model.Peso, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
