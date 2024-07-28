@@ -115,7 +115,7 @@
                 @if (Model.Trabaja_de_noche)
                 {<span>SI</span><input type="radio" name="Trabaja_de_noche" value="true" checked /> <span>NO</span><input type="radio" name="Trabaja_de_noche" value="false" /> }
                 else
-                {<span>SI</span><input type="radio" name="Trabaja_de_noche" value="true"/> <span>NO</span><input type="radio" name="Trabaja_de_noche" value="false" checked />}
+                {<span>SI</span><input type="radio" name="Trabaja_de_noche" value="true" /> <span>NO</span><input type="radio" name="Trabaja_de_noche" value="false" checked />}
             </td>
             <td class="label-form"># dias de trabajo:</td>
             <td> @Html.EditorFor(model => model.Dias_trabajo, new { htmlAttributes = new { @class = "form-control" } })</td>
@@ -144,7 +144,7 @@
                 {<span>SI</span><input type="radio" name="Apnea_del_sueno" value="true" /> <span>NO</span><input type="radio" name="Apnea_del_sueno" value="false" checked />}
             </td>
             <td class="label-form">Último control:</td>
-            <td > @Html.EditorFor(model => model.Ultimo_control, new { htmlAttributes = new { @class = "form-control",@type = "date" } })</td>
+            <td> @Html.EditorFor(model => model.Ultimo_control, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
         </tr>
         <tr>
             <td class="label-form">HTA</td>
@@ -161,14 +161,14 @@
             <td class="label-form" colspan="2">Polisomnografía (PSG) realizada alguna vez: </td>
             <td>
                 @if (Model.Polisomnografía_PSG)
-                {<span>SI</span><input type="radio" name="Polisomnografía_PSG" value="true" checked  /> <span>NO</span><input type="radio" name="Polisomnografía_PSG" value="false"/> }
+                {<span>SI</span><input type="radio" name="Polisomnografía_PSG" value="true" checked /> <span>NO</span><input type="radio" name="Polisomnografía_PSG" value="false" /> }
                 else
                 {<span>SI</span><input type="radio" name="Polisomnografía_PSG" value="true" /> <span>NO</span><input type="radio" name="Polisomnografía_PSG" value="false" checked />}
             </td>
             <td class="label-form">
                 Fecha de última PSG:
             </td>
-            <td colspan="2">  @Html.EditorFor(model => model.Fecha_ultima_PSG, new { htmlAttributes = new { @class = "form-control",@type="date" } })</td>
+            <td colspan="2">  @Html.EditorFor(model => model.Fecha_ultima_PSG, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
         </tr>
         <tr>
             <td class="label-form" colspan="2">Antecedente de choque de vehículo:</td>
@@ -178,17 +178,17 @@
             </td>
             <td>
                 @if (Model.En_mina)
-                {<span>SI</span><input type="radio" name="En_mina" value="true" checked /> <span>NO</span><input type="radio" name="En_mina" value="false"/> }
+                {<span>SI</span><input type="radio" name="En_mina" value="true" checked /> <span>NO</span><input type="radio" name="En_mina" value="false" /> }
                 else
                 {<span>SI</span><input type="radio" name="En_mina" value="true" /> <span>NO</span><input type="radio" name="En_mina" value="false" checked />}
             </td>
             <td class="label-form">
-                <div>Fuera de mina:</div> 
-                <div>(si es NO, pase a sección 4)</div> 
+                <div>Fuera de mina:</div>
+                <div>(si es NO, pase a sección 4)</div>
             </td>
             <td>
                 @if (Model.Fuera_de_mina)
-                {<span>SI</span><input type="radio" name="Fuera_de_mina" value="true" checked/> <span>NO</span><input type="radio" name="Fuera_de_mina" value="false" /> }
+                {<span>SI</span><input type="radio" name="Fuera_de_mina" value="true" checked /> <span>NO</span><input type="radio" name="Fuera_de_mina" value="false" /> }
                 else
                 {<span>SI</span><input type="radio" name="Fuera_de_mina" value="true" /> <span>NO</span><input type="radio" name="Fuera_de_mina" value="false" checked />}
             </td>
@@ -197,267 +197,267 @@
     <br />
     <h4>Detalle lo siguiente de los antecedentes del (los) choques (incidentes o accidentes):</h4>
     <hr />
- 
+
     @* detalle lo siguiente *@
-<table>
-    <tr>
-        <td colspan="2"></td>
-        <td style="padding-right:5px;padding-left:5px" class="label-form">SI</td>
-        <td style="padding-right:5px;padding-left:5px" class="label-form">NO</td>
-    </tr>
-    <tr>
-        <td class="label-form" width="80">Criterio 1</td>
-        <td>
-            Se “cabeceó” y por ello le ocurrió un accidente (incidente) con un vehículo
-            (alguna vez)
-        </td>
-        <td>
-            @if (Model.Se_cabeceo)
-            {<input type="radio" name="Se_cabeceo" value="true" checked />}
-            else
-            {<input type="radio" name="Se_cabeceo" value="true" />}
-        </td>
-        <td>
-            @if (!Model.Se_cabeceo)
-            {<input type="radio" name="Se_cabeceo" value="false" checked />}
-            else
-            {<input type="radio" name="Se_cabeceo" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form">
-            Criterio 2
-        </td>
-        <td>(2 o más es positivo)</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            Accidente ocurrido en las últimas 5 horas de un turno nocturno o entre las 14 y 17 horas (tarde)
-        </td>
-        <td>
-            @if (Model.Accidente_en_ultimas_5_horas)
-            {<input type="radio" name="Accidente_en_ultimas_5_horas" value="true" checked />}
-            else
-            {<input type="radio" name="Accidente_en_ultimas_5_horas" value="true" />}
-        </td>
-        <td>
-            @if (!Model.Se_cabeceo)
-            {<input type="radio" name="Accidente_en_ultimas_5_horas" value="false" checked />}
-            else
-            {<input type="radio" name="Accidente_en_ultimas_5_horas" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            AUSENCIA DE evidencia de maniobra evasiva del chofer para evitar la colisión
-        </td>
-        <td>
-            @if (Model.Ausencia_de_evidencia_de_maniobra)
-            {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="true" checked />}
-            else
-            {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="true" />}
-        </td>
-        <td>
-            @if (!Model.Ausencia_de_evidencia_de_maniobra)
-            {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="false" checked />}
-            else
-            {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            Colisión frontal del vehículo contra otro, cayó a un precipicio, río o chocó contra un poste, puente, edificio u otra estructura estática sin motivo aparente
-        </td>
-        <td>
-            @if (Model.Colision_frontal_del_vehiculo)
-            {<input type="radio" name="Colision_frontal_del_vehiculo" value="true" checked />}
-            else
-            {<input type="radio" name="Colision_frontal_del_vehiculo" value="true" />}
-        </td>
-        <td>
-            @if (!Model.Colision_frontal_del_vehiculo)
-            {<input type="radio" name="Colision_frontal_del_vehiculo" value="false" checked />}
-            else
-            {<input type="radio" name="Colision_frontal_del_vehiculo" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            Vehículo que invadió el otro carril o se desvió sin causa aparente
-        </td>
-        <td>
-            @if (Model.Vehiculo_que_invadio)
-            {<input type="radio" name="Vehiculo_que_invadio" value="true" checked />}
-            else
-            {<input type="radio" name="Vehiculo_que_invadio" value="true" />}
-        </td>
-        <td>
-            @if (!Model.Colision_frontal_del_vehiculo)
-            {<input type="radio" name="Vehiculo_que_invadio" value="false" checked />}
-            else
-            {<input type="radio" name="Vehiculo_que_invadio" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            El conductor no recuerda claramente lo ocurrido 10 segundos antes del impacto
-        </td>
-        <td>
-            @if (Model.El_conductor_no_recuerda)
-            {<input type="radio" name="El_conductor_no_recuerda" value="true" checked />}
-            else
-            {<input type="radio" name="El_conductor_no_recuerda" value="true" />}
-        </td>
-        <td>
-            @if (!Model.El_conductor_no_recuerda)
-            {<input type="radio" name="El_conductor_no_recuerda" value="false" checked />}
-            else
-            {<input type="radio" name="El_conductor_no_recuerda" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            El conductor tomó alguna medicación o recientemente terminó un tratamiento con medicinas que causan somnolencia (benzodiacepinas, antihistamínicos, relajantes musculares o antidepresivos, etc)
-        </td>
-        <td>
-            @if (Model.El_conductor_tomo_una_medicacion)
-            {<input type="radio" name="El_conductor_tomo_una_medicacion" value="true" checked />}
-            else
-            {<input type="radio" name="El_conductor_tomo_una_medicacion" value="true" />}
-        </td>
-        <td>
-            @if (!Model.El_conductor_tomo_una_medicacion)
-            {<input type="radio" name="El_conductor_tomo_una_medicacion" value="false" checked />}
-            else
-            {<input type="radio" name="El_conductor_tomo_una_medicacion" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            El conductor se encontraba en horas extra (excediendo sus horas habituales de trabajo) o realizando días adicionales de trabajo (sobretiempo)
-        </td>
-        <td>
-            @if (Model.El_conductor_se_encontraba_en_horas_extras)
-            {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="true" checked />}
-            else
-            {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="true" />}
-        </td>
-        <td>
-            @if (!Model.El_conductor_se_encontraba_en_horas_extras)
-            {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="false" checked />}
-            else
-            {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="label-form">Clasificación del (los) “Choques” o accidentes vehiculares del postulante</td>
-        <td class="label-form">SI</td>
-        <td class="label-form">NO</td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            Accidente confirmado por Somnolencia (Criterio 1 positivo)
-        </td>
-        <td>
-            @if (Model.Accidente_por_somnolencia)
-            {<input type="radio" name="Accidente_por_somnolencia" value="true" checked />}
-            else
-            {<input type="radio" name="Accidente_por_somnolencia" value="true" />}
-        </td>
-        <td>
-            @if (!Model.Accidente_por_somnolencia)
-            {<input type="radio" name="Accidente_por_somnolencia" value="false" checked />}
-            else
-            {<input type="radio" name="Accidente_por_somnolencia" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            Accidente con alta sospecha de somnolencia (Criterio 2 positivo)
-        </td>
-        <td>
-            @if (Model.Accidente_con_alta_sospecha)
-            {<input type="radio" name="Accidente_con_alta_sospecha" value="true" checked />}
-            else
-            {<input type="radio" name="Accidente_con_alta_sospecha" value="true" />}
-        </td>
-        <td>
-            @if (!Model.Accidente_con_alta_sospecha)
-            {<input type="radio" name="Accidente_con_alta_sospecha" value="false" checked />}
-            else
-            {<input type="radio" name="Accidente_con_alta_sospecha" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            Accidente con escasa evidencia/ sospecha por somnolencia (solo 1 ítem de Criterio 2)
-        </td>
-        <td>
-            @if (Model.Accidente_con_escasa_evidencia)
-            {<input type="radio" name="Accidente_con_escasa_evidencia" value="true" checked />}
-            else
-            {<input type="radio" name="Accidente_con_escasa_evidencia" value="true" />}
-        </td>
-        <td>
-            @if (!Model.Accidente_con_escasa_evidencia)
-            {<input type="radio" name="Accidente_con_escasa_evidencia" value="false" checked />}
-            else
-            {<input type="radio" name="Accidente_con_escasa_evidencia" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            No se dispone de datos suficientes para clasificar el (los) incidentes
-        </td>
-        <td>
-            @if (Model.No_se_dispone_de_datos_suficientes)
-            {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="true" checked />}
-            else
-            {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="true" />}
-        </td>
-        <td>
-            @if (!Model.No_se_dispone_de_datos_suficientes)
-            {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="false" checked />}
-            else
-            {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="false" />}
-        </td>
-    </tr>
-    <tr>
-        <td class="label-form"></td>
-        <td>
-            Accidente no debido a somnolencia (información suficiente que descarta la somnolencia)
-        </td>
-        <td>
-            @if (Model.Accidente_no_debido_a_somnolencia)
-            {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="true" checked />}
-            else
-            {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="true" />}
-        </td>
-        <td>
-            @if (!Model.Accidente_no_debido_a_somnolencia)
-            {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="false" checked />}
-            else
-            {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="false" />}
-        </td>
-    </tr>
-  
-</table>
-   @*Entrevista al paciente*@
-<br />
-<h4>3. ENTREVISTA AL PACIENTE:</h4>
+    <table>
+        <tr>
+            <td colspan="2"></td>
+            <td style="padding-right:5px;padding-left:5px" class="label-form">SI</td>
+            <td style="padding-right:5px;padding-left:5px" class="label-form">NO</td>
+        </tr>
+        <tr>
+            <td class="label-form" width="80">Criterio 1</td>
+            <td>
+                Se “cabeceó” y por ello le ocurrió un accidente (incidente) con un vehículo
+                (alguna vez)
+            </td>
+            <td>
+                @if (Model.Se_cabeceo)
+                {<input type="radio" name="Se_cabeceo" value="true" checked />}
+                else
+                {<input type="radio" name="Se_cabeceo" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Se_cabeceo)
+                {<input type="radio" name="Se_cabeceo" value="false" checked />}
+                else
+                {<input type="radio" name="Se_cabeceo" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form">
+                Criterio 2
+            </td>
+            <td>(2 o más es positivo)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente ocurrido en las últimas 5 horas de un turno nocturno o entre las 14 y 17 horas (tarde)
+            </td>
+            <td>
+                @if (Model.Accidente_en_ultimas_5_horas)
+                {<input type="radio" name="Accidente_en_ultimas_5_horas" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_en_ultimas_5_horas" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Se_cabeceo)
+                {<input type="radio" name="Accidente_en_ultimas_5_horas" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_en_ultimas_5_horas" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                AUSENCIA DE evidencia de maniobra evasiva del chofer para evitar la colisión
+            </td>
+            <td>
+                @if (Model.Ausencia_de_evidencia_de_maniobra)
+                {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="true" checked />}
+                else
+                {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Ausencia_de_evidencia_de_maniobra)
+                {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="false" checked />}
+                else
+                {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Colisión frontal del vehículo contra otro, cayó a un precipicio, río o chocó contra un poste, puente, edificio u otra estructura estática sin motivo aparente
+            </td>
+            <td>
+                @if (Model.Colision_frontal_del_vehiculo)
+                {<input type="radio" name="Colision_frontal_del_vehiculo" value="true" checked />}
+                else
+                {<input type="radio" name="Colision_frontal_del_vehiculo" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Colision_frontal_del_vehiculo)
+                {<input type="radio" name="Colision_frontal_del_vehiculo" value="false" checked />}
+                else
+                {<input type="radio" name="Colision_frontal_del_vehiculo" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Vehículo que invadió el otro carril o se desvió sin causa aparente
+            </td>
+            <td>
+                @if (Model.Vehiculo_que_invadio)
+                {<input type="radio" name="Vehiculo_que_invadio" value="true" checked />}
+                else
+                {<input type="radio" name="Vehiculo_que_invadio" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Colision_frontal_del_vehiculo)
+                {<input type="radio" name="Vehiculo_que_invadio" value="false" checked />}
+                else
+                {<input type="radio" name="Vehiculo_que_invadio" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                El conductor no recuerda claramente lo ocurrido 10 segundos antes del impacto
+            </td>
+            <td>
+                @if (Model.El_conductor_no_recuerda)
+                {<input type="radio" name="El_conductor_no_recuerda" value="true" checked />}
+                else
+                {<input type="radio" name="El_conductor_no_recuerda" value="true" />}
+            </td>
+            <td>
+                @if (!Model.El_conductor_no_recuerda)
+                {<input type="radio" name="El_conductor_no_recuerda" value="false" checked />}
+                else
+                {<input type="radio" name="El_conductor_no_recuerda" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                El conductor tomó alguna medicación o recientemente terminó un tratamiento con medicinas que causan somnolencia (benzodiacepinas, antihistamínicos, relajantes musculares o antidepresivos, etc)
+            </td>
+            <td>
+                @if (Model.El_conductor_tomo_una_medicacion)
+                {<input type="radio" name="El_conductor_tomo_una_medicacion" value="true" checked />}
+                else
+                {<input type="radio" name="El_conductor_tomo_una_medicacion" value="true" />}
+            </td>
+            <td>
+                @if (!Model.El_conductor_tomo_una_medicacion)
+                {<input type="radio" name="El_conductor_tomo_una_medicacion" value="false" checked />}
+                else
+                {<input type="radio" name="El_conductor_tomo_una_medicacion" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                El conductor se encontraba en horas extra (excediendo sus horas habituales de trabajo) o realizando días adicionales de trabajo (sobretiempo)
+            </td>
+            <td>
+                @if (Model.El_conductor_se_encontraba_en_horas_extras)
+                {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="true" checked />}
+                else
+                {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="true" />}
+            </td>
+            <td>
+                @if (!Model.El_conductor_se_encontraba_en_horas_extras)
+                {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="false" checked />}
+                else
+                {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="label-form">Clasificación del (los) “Choques” o accidentes vehiculares del postulante</td>
+            <td class="label-form">SI</td>
+            <td class="label-form">NO</td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente confirmado por Somnolencia (Criterio 1 positivo)
+            </td>
+            <td>
+                @if (Model.Accidente_por_somnolencia)
+                {<input type="radio" name="Accidente_por_somnolencia" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_por_somnolencia" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_por_somnolencia)
+                {<input type="radio" name="Accidente_por_somnolencia" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_por_somnolencia" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente con alta sospecha de somnolencia (Criterio 2 positivo)
+            </td>
+            <td>
+                @if (Model.Accidente_con_alta_sospecha)
+                {<input type="radio" name="Accidente_con_alta_sospecha" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_con_alta_sospecha" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_con_alta_sospecha)
+                {<input type="radio" name="Accidente_con_alta_sospecha" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_con_alta_sospecha" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente con escasa evidencia/ sospecha por somnolencia (solo 1 ítem de Criterio 2)
+            </td>
+            <td>
+                @if (Model.Accidente_con_escasa_evidencia)
+                {<input type="radio" name="Accidente_con_escasa_evidencia" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_con_escasa_evidencia" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_con_escasa_evidencia)
+                {<input type="radio" name="Accidente_con_escasa_evidencia" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_con_escasa_evidencia" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                No se dispone de datos suficientes para clasificar el (los) incidentes
+            </td>
+            <td>
+                @if (Model.No_se_dispone_de_datos_suficientes)
+                {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="true" checked />}
+                else
+                {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="true" />}
+            </td>
+            <td>
+                @if (!Model.No_se_dispone_de_datos_suficientes)
+                {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="false" checked />}
+                else
+                {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente no debido a somnolencia (información suficiente que descarta la somnolencia)
+            </td>
+            <td>
+                @if (Model.Accidente_no_debido_a_somnolencia)
+                {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_no_debido_a_somnolencia)
+                {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="false" />}
+            </td>
+        </tr>
+
+    </table>
+    @*Entrevista al paciente*@
+    <br />
+    <h4>3. ENTREVISTA AL PACIENTE:</h4>
     <hr />
 
     <table>
@@ -612,9 +612,9 @@
             </td>
         </tr>
     </table>
-   <br />
-   <h4>PUNTUACIÓN DE LA ESCALA DE EPWORTH (ESS) </h4>
-   <h5>(Nunca=0, poca=1, moderada=2, alta=3) </h5>
+    <br />
+    <h4>PUNTUACIÓN DE LA ESCALA DE EPWORTH (ESS) </h4>
+    <h5>(Nunca=0, poca=1, moderada=2, alta=3) </h5>
     <div class="form-group">
         @Html.Label("Total puntos (sumatoria) >10** ", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -648,7 +648,16 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.IMC, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.IMC, "", new { @class = "text-danger" })
-            
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Circunferencia_de_cuello, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Circunferencia_de_cuello)
+                @Html.ValidationMessageFor(model => model.Circunferencia_de_cuello, "", new { @class = "text-danger" })
+            </div>
         </div>
     </div>
 

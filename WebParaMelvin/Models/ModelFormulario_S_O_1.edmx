@@ -74,6 +74,7 @@
           <Property Name="Ultima_modificacion" Type="datetime" />
           <Property Name="Usuario_que_modifico" Type="int" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Circunferencia_de_cuello" Type="decimal" Precision="9" Scale="2" />
         </EntityType>
         <EntityType Name="ArchivosExtras">
           <Key>
@@ -3062,6 +3063,7 @@
           <Property Name="Usuario_que_modifico" Type="Int32" />
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK__Apnea__Id_Formul__035179CE" FromRole="Apnea" ToRole="Formulario_S_O" />
+          <Property Name="Circunferencia_de_cuello" Type="Decimal" Precision="9" Scale="2" />
         </EntityType>
         <Association Name="FK__Apnea__Id_Formul__035179CE">
           <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1" />
@@ -4083,6 +4085,7 @@
           <EntitySetMapping Name="Apneas">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Apnea">
               <MappingFragment StoreEntitySet="Apnea">
+                <ScalarProperty Name="Circunferencia_de_cuello" ColumnName="Circunferencia_de_cuello" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
                 <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
