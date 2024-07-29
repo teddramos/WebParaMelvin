@@ -71,7 +71,7 @@
     {
         @Html.AntiForgeryToken()
 
-<div>
+<div class="form-horizontal">
     <h4>Detección de Síndrome de Apnea del Sueño</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -615,6 +615,7 @@
     <br />
     <h4>PUNTUACIÓN DE LA ESCALA DE EPWORTH (ESS) </h4>
     <h5>(Nunca=0, poca=1, moderada=2, alta=3) </h5>
+ 
     <div class="form-group">
         @Html.Label("Total puntos (sumatoria) >10** ", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -644,40 +645,64 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.IMC, "IMC (Kg/m2):", htmlAttributes: new { @class = "control-label col-md-2" })
-        <span>(> 35 es de alto riesgo)</span>
+
         <div class="col-md-10">
             @Html.EditorFor(model => model.IMC, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.IMC, "", new { @class = "text-danger" })
-
+            <span>(> 35 es de alto riesgo)</span>
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Circunferencia_de_cuello, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Circunferencia_de_cuello, "Circunferencia de cuello:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
+
+            @Html.EditorFor(model => model.Circunferencia_de_cuello, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Circunferencia_de_cuello, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Varon_normal, "Varón Normal:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
             <div class="checkbox">
-                @Html.EditorFor(model => model.Circunferencia_de_cuello)
-                @Html.ValidationMessageFor(model => model.Circunferencia_de_cuello, "", new { @class = "text-danger" })
+                <span>Si
+                    @if (Model.Varon_normal)
+                    {<input type="radio" name="Varon_normal" value="true" checked />}
+                    else
+                    {<input type="radio" name="Varon_normal" value="true" />}
+                </span>
+                <span>No
+                    @if (!Model.Varon_normal)
+                    {<input type="radio" name="Varon_normal" value="false" checked />}
+                    else
+                    {<input type="radio" name="Varon_normal" value="false" />}
+                </span>
             </div>
+            <span>(menor de 43,2 cm, es normal)</span>
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Varon_normal, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Mujer_normal, "Mujer Normal:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Varon_normal)
-                @Html.ValidationMessageFor(model => model.Varon_normal, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Mujer_normal, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
             <div class="checkbox">
-                @Html.EditorFor(model => model.Mujer_normal)
-                @Html.ValidationMessageFor(model => model.Mujer_normal, "", new { @class = "text-danger" })
+                <span>
+                    Si
+                    @if (Model.Mujer_normal)
+                    {<input type="radio" name="Mujer_normal" value="true" checked />}
+                    else
+                    {<input type="radio" name="Mujer_normal" value="true" />}
+                </span>
+                <span>
+                    No
+                    @if (!Model.Mujer_normal)
+                    {<input type="radio" name="Mujer_normal" value="false" checked />}
+                    else
+                    {<input type="radio" name="Mujer_normal" value="false" />}
+                </span>
             </div>
+            <span>(menor de 40.6 cm, es normal)</span>
         </div>
     </div>
 
