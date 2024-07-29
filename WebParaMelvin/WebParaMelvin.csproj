@@ -445,6 +445,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\grado1.png" />
     <Content Include="Images\logo cisam.jpg" />
     <Content Include="Images\logo cisam2.jpeg" />
     <Content Include="loginFiles\index.html" />
