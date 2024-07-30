@@ -756,10 +756,10 @@
     <table cellpadding="20">
         <tr>
             <td width="50"></td>
-            <td><img src="../../Images/grado1.png" width="150"></td>
-            <td><img src="../../Images/grado1.png" width="150"></td>
-            <td><img src="../../Images/grado1.png" width="150"></td>
-            <td><img src="../../Images/grado1.png" width="150"></td>
+            <td><img id="grado1" src="../../Images/grado1.png" width="150" onclick="singImage('grado1')"></td>
+            <td><img id="grado2" src="../../Images/grado2.png" width="150" onclick="singImage('grado2')"></td>
+            <td><img id="grado3" src="../../Images/grado3.png" width="150" onclick="singImage('grado3')"></td>
+            <td><img id="grado4" src="../../Images/grado4.png" width="150" onclick="singImage('grado4')"></td>
             <td width="50"></td>
         </tr>
         <tr>
@@ -770,14 +770,15 @@
             <td align="center">Grado IV</td>
             <td width="50"></td>
         </tr>
+        <tr>
+            <td width="50"></td>
+            <td align="center"></td>
+            <td align="center" colspan="2"><a onclick="clearSigImage()" style="cursor:pointer">Cancelar Seleccion</a></td>
+            <td align="center"></td>
+            <td width="50"></td>
+        </tr>
     </table>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Grado, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Grado, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Grado, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <input type="hidden" name="Grado" id="grado" value="@Model.Grado"/>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Excesiva_somnolencia, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -902,3 +903,46 @@
     </div>
 </body>
 </html>
+<script>
+    var grade = '@Model.Grado'
+    function singImage(img) {
+        clearSigImage();
+        image = document.getElementById(img);
+        switch (img) {
+            case "grado1":
+                image.src = '../../Images/grado1-marked.png'; document.getElementById("grado").value = 1
+                break;
+            case "grado2":
+                image.src = '../../Images/grado2-marked.png'; document.getElementById("grado").value = 2
+                break;
+            case "grado3":
+                image.src = '../../Images/grado3-marked.png'; document.getElementById("grado").value = 3
+                break;
+            case "grado4":
+                image.src = '../../Images/grado4-marked.png'; document.getElementById("grado").value = 4
+                break;
+
+        }
+        
+    }
+    function clearSigImage() {
+        document.getElementById("grado1").src = '../../Images/grado1.png'
+        document.getElementById("grado2").src = '../../Images/grado2.png'
+        document.getElementById("grado3").src = '../../Images/grado3.png'
+        document.getElementById("grado4").src = '../../Images/grado4.png'
+        document.getElementById("grado").value = ''
+    }
+    function setGradeSelected(grade) {
+        switch (grade) {
+            case '1': document.getElementById("grado1").src = '../../Images/grado1-marked.png'
+                break;
+            case '2': document.getElementById("grado2").src = '../../Images/grado2-marked.png'
+                break;
+            case '3': document.getElementById("grado3").src = '../../Images/grado3-marked.png'
+                break;
+            case '4': document.getElementById("grado4").src = '../../Images/grado4-marked.png'
+                break;
+        }
+    }
+    setGradeSelected(grade)
+</script>
