@@ -782,66 +782,129 @@
     <br />
     <h4>5. CONCLUSIÓN DE LA EVALUACIÓN</h4>
     <hr />
+    <table width="100%">
+        <tr>
+            <td colspan="3">*Ampliación: oximetría, polisomnografía, seguimiento tratamiento, interconsulta</td>
+            <td align="center"><strong>SI</strong></td>
+            <td align="center"><strong>NO</strong></td>
+        </tr>
+        <tr>
+            <td width="200" colspan="2"><h4>RIESGO ALTO:</h4></td>
+            <td>(criterio A o B positivo)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td width="75"></td>
+            <td><strong>Criterio A:</strong></td>
+            <td>
+                Excesiva somnolencia (Epworth > 15 o cabeceo presenciado durante espera), incidente por somnolencia o con alta sospecha (último año)
+            </td>
+            <td>
+                @if (Model.Excesiva_somnolencia)
+                {<input type="radio" name="Excesiva_somnolencia" value="true" checked />}
+                else
+                {<input type="radio" name="Excesiva_somnolencia" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Excesiva_somnolencia)
+                {<input type="radio" name="Excesiva_somnolencia" value="false" checked />}
+                else
+                {<input type="radio" name="Excesiva_somnolencia" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Criterio B:</strong></td>
+            <td>
+                Antecedente de SAS sin control reciente o sin cumplimiento de tratamiento (con CPAP o cirugía)
+            </td>
+            <td>
+                @if (Model.Antecendente_de_SAS)
+                {<input type="radio" name="Antecendente_de_SAS" value="true" checked />}
+                else
+                {<input type="radio" name="Antecendente_de_SAS" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Antecendente_de_SAS)
+                {<input type="radio" name="Antecendente_de_SAS" value="false" checked />}
+                else
+                {<input type="radio" name="Antecendente_de_SAS" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <strong><u>Acción requerida:</u></strong> en <strong>RIESGO ALTO</strong>, el paciente requiere pruebas ampliatorias
+                (oximetría, PSG o certificación de cumplimiento de tratamiento de apnea del sueño)
+            </td>
+        </tr>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Excesiva_somnolencia, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Excesiva_somnolencia)
-                @Html.ValidationMessageFor(model => model.Excesiva_somnolencia, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
+        <tr>
+            <td width="150" colspan="2"><h4>RIESGO MEDIO:</h4></td>
+            <td>(Criterio C, D o E positivo)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Criterio C:</strong></td>
+            <td>
+                Historia de higiene de sueño sugiere SAS (ronquidos + pausas respiratorias + Epworth >10)
+            </td>
+            <td>
+                @if (Model.Historia_de_higiene)
+                {<input type="radio" name="Historia_de_higiene" value="true" checked />}
+                else
+                {<input type="radio" name="Historia_de_higiene" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Historia_de_higiene)
+                {<input type="radio" name="Historia_de_higiene" value="false" checked />}
+                else
+                {<input type="radio" name="Historia_de_higiene" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Criterio D:</strong></td>
+            <td>
+                Cumple con 2 o más de los siguientes: IMC mayor o igual a <span style="color:red">30</span> Hipertensión Arterial (nueva o no controlada con una sola medicación) Circunferencia del cuello anormal Puntuación de Epworth mayor de 10 y menor de 16 Antecedente de trastorno del sueño (diagnosticado) sin seguimiento Índice de ápnea-hipopnea (AHI) mayor de 5 y menor de 30
+            </td>
+            <td>
+                @if (Model.Cumple_con_dos_o_mas)
+                {<input type="radio" name="Cumple_con_dos_o_mas" value="true" checked />}
+                else
+                {<input type="radio" name="Cumple_con_dos_o_mas" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Historia_de_higiene)
+                {<input type="radio" name="Cumple_con_dos_o_mas" value="false" checked />}
+                else
+                {<input type="radio" name="Cumple_con_dos_o_mas" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Criterio E:</strong></td>
+            <td>
+                Evaluación de vía aérea superior patológico*(Mallampati III o IV)
+            </td>
+            <td>
+                @if (Model.Evaluacion_via_aerea)
+                {<input type="radio" name="Evaluacion_via_aerea" value="true" checked />}
+                else
+                {<input type="radio" name="Evaluacion_via_aerea" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Evaluacion_via_aerea)
+                {<input type="radio" name="Evaluacion_via_aerea" value="false" checked />}
+                else
+                {<input type="radio" name="Evaluacion_via_aerea" value="false" />}
+            </td>
+        </tr>
+    </table>
+    
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Antecendente_de_SAS, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Antecendente_de_SAS)
-                @Html.ValidationMessageFor(model => model.Antecendente_de_SAS, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Historia_de_higiene, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Historia_de_higiene)
-                @Html.ValidationMessageFor(model => model.Historia_de_higiene, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Cumple_con_dos_o_mas, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Cumple_con_dos_o_mas)
-                @Html.ValidationMessageFor(model => model.Cumple_con_dos_o_mas, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Evaluacion_via_aerea, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Evaluacion_via_aerea)
-                @Html.ValidationMessageFor(model => model.Evaluacion_via_aerea, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Apto_para_conducir_vehiculos, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Apto_para_conducir_vehiculos)
-                @Html.ValidationMessageFor(model => model.Apto_para_conducir_vehiculos, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
