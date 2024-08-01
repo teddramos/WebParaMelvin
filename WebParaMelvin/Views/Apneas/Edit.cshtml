@@ -67,7 +67,7 @@
             <td class="form-control" colspan="2">@info.Id_Empleado</td>
         </tr>
     </table>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data", name = "FORM1" }))
     {
         @Html.AntiForgeryToken()
 
@@ -77,6 +77,7 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id_Apnea)
     @Html.HiddenFor(model => model.Id_Formulario_S_O)
+    @Html.HiddenFor(model => model.Firma)
 
     <h4>1. FILIACION</h4>
     <hr />
@@ -144,7 +145,7 @@
                 {<span>SI</span><input type="radio" name="Apnea_del_sueno" value="true" /> <span>NO</span><input type="radio" name="Apnea_del_sueno" value="false" checked />}
             </td>
             <td class="label-form">Último control:</td>
-            <td> @Html.EditorFor(model => model.Ultimo_control, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
+            <td><input type="date" value="@String.Format("{0:yyyy-MM-dd}",Model.Ultimo_control)" name="Ultimo_control" class="form-control" /></td>
         </tr>
         <tr>
             <td class="label-form">HTA</td>
@@ -168,7 +169,7 @@
             <td class="label-form">
                 Fecha de última PSG:
             </td>
-            <td colspan="2">  @Html.EditorFor(model => model.Fecha_ultima_PSG, new { htmlAttributes = new { @class = "form-control", @type = "date" } })</td>
+            <td colspan="2"><input type="date" value="@String.Format("{0:yyyy-MM-dd}",Model.Fecha_ultima_PSG)" name="Fecha_ultima_PSG" class="form-control" /></td>
         </tr>
         <tr>
             <td class="label-form" colspan="2">Antecedente de choque de vehículo:</td>
@@ -615,7 +616,7 @@
     <br />
     <h4>PUNTUACIÓN DE LA ESCALA DE EPWORTH (ESS) </h4>
     <h5>(Nunca=0, poca=1, moderada=2, alta=3) </h5>
- 
+
     <div class="form-group">
         @Html.Label("Total puntos (sumatoria) >10** ", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -778,7 +779,7 @@
             <td width="50"></td>
         </tr>
     </table>
-    <input type="hidden" name="Grado" id="grado" value="@Model.Grado"/>
+    <input type="hidden" name="Grado" id="grado" value="@Model.Grado" />
     <br />
     <h4>5. CONCLUSIÓN DE LA EVALUACIÓN</h4>
     <hr />
@@ -834,8 +835,7 @@
         </tr>
         <tr>
             <td colspan="5">
-                <strong><u>Acción requerida:</u></strong> en <strong>RIESGO ALTO</strong>, el paciente requiere pruebas ampliatorias
-                (oximetría, PSG o certificación de cumplimiento de tratamiento de apnea del sueño)
+                <strong><u>Acción requerida:</u></strong> en <strong>RIESGO ALTO</strong>, el paciente requiere pruebas ampliatorias (oximetría, PSG o certificación de cumplimiento de tratamiento de apnea del sueño)
             </td>
         </tr>
 
@@ -902,71 +902,78 @@
                 {<input type="radio" name="Evaluacion_via_aerea" value="false" />}
             </td>
         </tr>
+        <tr>
+            <td colspan="5">
+                <strong><u>Acción requerida:</u></strong> en <strong>RIESGO MEDIO</strong>, el paciente TIENE 3 MESES de aptitud TEMPORAL. Requiere pruebas ampliatorias (oximetría, PSG o certificación de cumplimiento de tratamiento de apnea del sueño) antes de emitir aptitud por 12 meses
+            </td>
+        </tr>
+        <tr>
+            <td width="150" colspan="2"><h4>RIESGO BAJO:</h4></td>
+            <td><strong>Apto para conducir vehículos (ningún criterio positivo</strong></td>
+            <td>
+                @if (Model.Apto_para_conducir_vehiculos)
+                {<input type="radio" name="Apto_para_conducir_vehiculos" value="true" checked />}
+                else
+                {<input type="radio" name="Apto_para_conducir_vehiculos" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Apto_para_conducir_vehiculos)
+                {<input type="radio" name="Apto_para_conducir_vehiculos" value="false" checked />}
+                else
+                {<input type="radio" name="Apto_para_conducir_vehiculos" value="false" />}
+            </td>
+        </tr>
     </table>
-    
+
 
 
     <div class="form-group">
         @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Firma, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
+
+            @{
+                try
+                {
+                    var base64 = Convert.ToBase64String(Model.Firma);
+                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                    <img src="@imgSrc" />
+                }
+                catch
+                {
+
+                }
+            }
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Id_Formulario_S_O, "Id_Formulario_S_O", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("Id_Formulario_S_O", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Id_Formulario_S_O, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Modificado, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.Modificado)
-                @Html.ValidationMessageFor(model => model.Modificado, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Ultima_modificacion, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Ultima_modificacion, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Ultima_modificacion, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Usuario_que_modifico, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Usuario_que_modifico, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Usuario_que_modifico, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
         </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firmar, "Firmar?", htmlAttributes: new { @class = "control-label" })
+
+        @Html.EditorFor(model => model.Firmar, new { htmlAttributes = new { @class = "form-control", @type = "checkbox" } })
+        @Html.ValidationMessageFor(model => model.Firmar, "", new { @class = "text-danger" })
+        <p style="font-size:12px">La opción de firmar solo funciona en el estado 'Finalizada'.</p>
+
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Guardar" class="btn btn-default" />
         </div>
     </div>
 </div>
     }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
+</div>
 </body>
 </html>
 <script>

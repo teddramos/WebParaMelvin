@@ -110,5 +110,11 @@ namespace WebParaMelvin.Models
         public bool Firmar { get; set; }
         public string sigImageData { get; set; }
     }
+    public partial class Apnea
+    {
+        public HttpPostedFileBase Archivo { get; set; }
+        public bool Firmar { get; set; }
+        public string sigImageData { get; set; }
+    }
 
 }
