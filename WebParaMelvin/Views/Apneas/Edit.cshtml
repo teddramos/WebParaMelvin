@@ -72,7 +72,7 @@
         @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Detección de Síndrome de Apnea del Sueño</h4>
+    <h2>Detección de Síndrome de Apnea del Sueño</h2>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id_Apnea)
@@ -834,7 +834,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="5">
+            <td colspan="5" style="background-color:lightgrey">
                 <strong><u>Acción requerida:</u></strong> en <strong>RIESGO ALTO</strong>, el paciente requiere pruebas ampliatorias (oximetría, PSG o certificación de cumplimiento de tratamiento de apnea del sueño)
             </td>
         </tr>
@@ -903,7 +903,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="5">
+            <td colspan="5" style="background-color:lightgrey">
                 <strong><u>Acción requerida:</u></strong> en <strong>RIESGO MEDIO</strong>, el paciente TIENE 3 MESES de aptitud TEMPORAL. Requiere pruebas ampliatorias (oximetría, PSG o certificación de cumplimiento de tratamiento de apnea del sueño) antes de emitir aptitud por 12 meses
             </td>
         </tr>
@@ -928,7 +928,7 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Firma,"Firma Especialista:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
 
             @{
@@ -948,7 +948,7 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Estado,"Estado:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
