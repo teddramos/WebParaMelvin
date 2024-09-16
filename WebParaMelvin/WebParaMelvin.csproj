@@ -445,7 +445,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\grado1-marked.png" />
     <Content Include="Images\grado1.png" />
+    <Content Include="Images\grado2-marked.png" />
+    <Content Include="Images\grado2.png" />
+    <Content Include="Images\grado3-marked.png" />
+    <Content Include="Images\grado3.png" />
+    <Content Include="Images\grado4-marked.png" />
+    <Content Include="Images\grado4.png" />
     <Content Include="Images\logo cisam.jpg" />
     <Content Include="Images\logo cisam2.jpeg" />
     <Content Include="loginFiles\index.html" />

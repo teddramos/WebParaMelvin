@@ -2809,7 +2809,7 @@ Apto)
                                         <td style="border:1px solid;" class="field">8K</td>
                                     </tr>
                                     <tr>
-                                        <td style="color:#0094ff" class="field">Línea Base</td>
+                                        <td style="color:#0094ff" class="field">Prueba Actual</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Oiz_500</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Oiz_1K</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Oiz_2K</td>
@@ -2819,7 +2819,7 @@ Apto)
                                         <td style="border:1px solid;" class="content-fields">@audio.Oiz_8K</td>
                                     </tr>
                                     <tr>
-                                        <td class="field">Prueba Actual</td>
+                                        <td class="field">Línea Base</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Oiz_5002</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Oiz_1K2</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Oiz_2K2</td>
@@ -2847,7 +2847,7 @@ Apto)
                                         <td style="border:1px solid;" class="field">8K</td>
                                     </tr>
                                     <tr>
-                                        <td style="color:#ff0000" class="field">Línea Base</td>
+                                        <td style="color:#ff0000" class="field">Prueba Actual</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Ode_500</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Ode_1K</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Ode_2K</td>
@@ -2857,7 +2857,7 @@ Apto)
                                         <td style="border:1px solid;" class="content-fields">@audio.Ode_8K</td>
                                     </tr>
                                     <tr>
-                                        <td class="field">Prueba Actual</td>
+                                        <td class="field">Línea Base</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Ode_5002</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Ode_1K2</td>
                                         <td style="border:1px solid;" class="content-fields">@audio.Ode_2K2</td>
@@ -6256,6 +6256,7 @@ Apto)
                         </tr>
 
                     </table>
+                    <p style="page-break-before: always;">&nbsp;</p>
                     @*Entrevista al paciente*@
                     <br />
                     <h4>3. ENTREVISTA AL PACIENTE:</h4>
@@ -6447,7 +6448,8 @@ Apto)
                             <td></td>
                         </tr>
                         <tr>
-                            <td>  @Html.Label("Varón Normal:", htmlAttributes: new { @class = "label-form col-md-3" }) <span>(menor de 43, 2 cm, es normal)</span>
+                            <td>
+                                @Html.Label("Varón Normal:", htmlAttributes: new { @class = "label-form col-md-3" }) <span>(menor de 43, 2 cm, es normal)</span>
                             </td>
                             <td>
                                 <span>
@@ -6513,7 +6515,7 @@ Apto)
                             <td></td>
                         </tr>
                     </table>
-                   <br />
+                    <br />
 
                     <h4>Evaluación de vía aérea superior MALLAMPATI (marque con una X) </h4>
                     <br />
@@ -6542,7 +6544,7 @@ Apto)
                             <td width="50"></td>
                         </tr>
                     </table>
-                    
+                    <p style="page-break-before: always;">&nbsp;</p>
                     <br />
                     <h4>5. CONCLUSIÓN DE LA EVALUACIÓN</h4>
                     <hr />
@@ -6711,8 +6713,8 @@ Apto)
                                 </td>
                             </tr>
                         </table>
-                        
-                        
+
+
                     </div>
                     <script>
                         var grade = '@apn.Grado'
