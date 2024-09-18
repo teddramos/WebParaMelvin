@@ -303,6 +303,7 @@
           <Property Name="Id_Formulario_S_O" Type="int" />
           <Property Name="Firma" Type="image" />
           <Property Name="firma_candidato" Type="image" />
+          <Property Name="TotalPuntos" Type="int" />
         </EntityType>
         <EntityType Name="Espirometria">
           <Key>
@@ -2989,6 +2990,7 @@
           <Property Name="Firma" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="firma_candidato" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" FromRole="EpWorth" ToRole="Formulario_S_O" />
+          <Property Name="TotalPuntos" Type="Int32" />
         </EntityType>
         <Association Name="FK__EpWorth__Id_Form__6D6238AF">
           <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1" />
@@ -4063,6 +4065,7 @@
           <EntitySetMapping Name="EpWorths">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.EpWorth">
               <MappingFragment StoreEntitySet="EpWorth">
+                <ScalarProperty Name="TotalPuntos" ColumnName="TotalPuntos" />
                 <ScalarProperty Name="firma_candidato" ColumnName="firma_candidato" />
                 <ScalarProperty Name="Firma" ColumnName="Firma" />
                 <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />

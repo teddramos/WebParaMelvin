@@ -120,6 +120,7 @@
     @Html.HiddenFor(model => model.Id_Formulario_S_O)
     @Html.HiddenFor(model => model.Firma)
     @Html.HiddenFor(model => model.firma_candidato)
+  
     <div class="row">
         <div class="col-md-6">
 
@@ -637,7 +638,7 @@
     </div>
     <div>
         <p style="text-align:center;font-size:16px;font-weight:bold">
-            TOTAL DE PUNTOS <span id="total-puntos">0</span>
+            TOTAL DE PUNTOS <input name="TotalPuntos" id="total-puntos" style="border:none;width:25px;font-weight:bold" value="@Model.TotalPuntos" readonly/>
         </p>
     </div>
 
@@ -752,8 +753,19 @@
         @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
     </div>
     <script>
-        var valor1 = 0, valor2 = 0, valor3 = 0, valor4 = 0, valor5 = 0, valor6 = 0, valor7 = 0, valor8 = 0
-        var total = 0
+        var valor1 = "@Model.sentado_y_leyendo" == "" ? 0 : eval("@Model.sentado_y_leyendo"),
+            valor2 = "@Model.viendo_la_television" == "" ? 0 : eval("@Model.viendo_la_television"),
+            valor3 = "@Model.sentado_inactivo_lugar_publico" == "" ? 0 : eval("@Model.sentado_inactivo_lugar_publico"),
+            valor4 = "@Model.sentado_una_hora_pasajero" == "" ? 0 : eval("@Model.sentado_una_hora_pasajero"),
+            valor5 = "@Model.tumbado_de_tarde_para_descansar" == "" ? 0 : eval("@Model.tumbado_de_tarde_para_descansar"),
+            valor6 = "@Model.sentado_hablando_con_otro" == "" ? 0 : eval("@Model.sentado_hablando_con_otro"),
+            valor7 = "@Model.sentado_tranquilo_despues_de_comida" == "" ? 0 : eval("@Model.sentado_tranquilo_despues_de_comida"),
+            valor8 = "@Model.sentado_en_coche_por_unos_minutos_por_atasco" == "" ? 0 : eval("@Model.sentado_en_coche_por_unos_minutos_por_atasco");
+        if ("@Model.TotalPuntos" === "")
+            var total = 0;
+        else
+            var total = eval("@Model.TotalPuntos");
+
         function sumarPuntos(radio, rubro) {
             switch (rubro) {
                 case 1:
@@ -782,9 +794,10 @@
                     break;
 
             }
-            total = valor1 + valor2 + valor3 + valor4 + valor5 + valor6 + valor7 + valor8
-            $("#total-puntos").html(total)
+            total = eval(valor1) + eval(valor2) + eval(valor3) + eval(valor4) + eval(valor5) + eval(valor6) + eval(valor7) + eval(valor8)
+            $("#total-puntos").val(total)
         }
+        
     </script>
 </body>
 </html>
