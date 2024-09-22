@@ -7,6 +7,7 @@
     var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var info = db.Info_general.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var cso = db.CSOes.FirstOrDefault(c => c.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var epw = db.EpWorths.FirstOrDefault(a => a.Id_Formulario_S_O == Model.Id_Formulario_S_O);
 }
 
 <!DOCTYPE html>
@@ -618,11 +619,10 @@
     <h5>(Nunca=0, poca=1, moderada=2, alta=3) </h5>
 
     <div class="form-group">
-        @Html.Label("Total puntos (sumatoria) >10** ", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Puntuacion_epwhorth, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Puntuacion_epwhorth, "", new { @class = "text-danger" })
-        </div>
+        @Html.Label("Total puntos (sumatoria) >10** : "+ epw.TotalPuntos, htmlAttributes: new { @class = "control-label col-md-4" })
+        
+           
+          
     </div>
     <br />
     <br />
