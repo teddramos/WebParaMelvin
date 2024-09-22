@@ -205,6 +205,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ApneasController.cs" />
     <Compile Include="Controllers\ArchivosExtrasController.cs" />
     <Compile Include="Controllers\AudiometriasController.cs" />
     <Compile Include="Controllers\Consentimiento_InformadoController.cs" />
@@ -229,6 +230,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Actividade.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Apnea.cs">
       <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ArchivosExtra.cs">
@@ -441,6 +445,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\grado1-marked.png" />
+    <Content Include="Images\grado1.png" />
+    <Content Include="Images\grado2-marked.png" />
+    <Content Include="Images\grado2.png" />
+    <Content Include="Images\grado3-marked.png" />
+    <Content Include="Images\grado3.png" />
+    <Content Include="Images\grado4-marked.png" />
+    <Content Include="Images\grado4.png" />
     <Content Include="Images\logo cisam.jpg" />
     <Content Include="Images\logo cisam2.jpeg" />
     <Content Include="loginFiles\index.html" />
@@ -731,6 +743,11 @@
     <Content Include="Views\EpWorths\Edit.cshtml" />
     <Content Include="Views\EpWorths\Index.cshtml" />
     <Content Include="Views\EpWorths\Topaz SigWeb\SigWebTablet.js" />
+    <Content Include="Views\Apneas\Create.cshtml" />
+    <Content Include="Views\Apneas\Delete.cshtml" />
+    <Content Include="Views\Apneas\Details.cshtml" />
+    <Content Include="Views\Apneas\Edit.cshtml" />
+    <Content Include="Views\Apneas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

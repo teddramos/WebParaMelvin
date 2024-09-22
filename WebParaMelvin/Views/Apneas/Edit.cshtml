@@ -1,0 +1,1021 @@
+﻿@model WebParaMelvin.Models.Apnea
+
+@{
+    ViewBag.Title = "Edit";
+    WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+
+    var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var info = db.Info_general.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var cso = db.CSOes.FirstOrDefault(c => c.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var epw = db.EpWorths.FirstOrDefault(a => a.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <style>
+        .label-form{
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <table style="width:100%;">
+        <tr>
+            <td colspan="5">&nbsp;</td>
+            <td><strong>expediente No.</strong></td>
+            <td class="form-control">&nbsp;&nbsp;@fso.Id_Formulario_S_O</td>
+        </tr>
+        <tr>
+            <td><strong>Empresa:</strong></td>
+            <td class="form-control" colspan="4">@fso.Empresa.Nombre</td>
+            <td><strong>Fecha:</strong></td>
+            <td class="form-control">&nbsp;&nbsp;@info.Fecha</td>
+        </tr>
+        <tr>
+            <td><strong>Departamento:</strong></td>
+            <td class="form-control">&nbsp;@info.Departamento</td>
+            <td><strong>Posicion:</strong></td>
+            <td class="form-control" colspan="4">&nbsp;&nbsp;@info.Posicion</td>
+        </tr>
+        <tr>
+            <td><strong>Tipo evaluacion:</strong></td>
+            <td class="form-control" colspan="6">&nbsp;&nbsp;@info.Tipo_de_evaluacion</td>
+        </tr>
+        <tr>
+            <td colspan="7">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="7"><h3>Datos Generales</h3><hr /></td>
+        </tr>
+        <tr>
+            <td><strong>Nombre:</strong></td>
+            <td class="form-control" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+            <td><strong>Sexo:</strong></td>
+            <td class="form-control">@info.Sexo</td>
+            <td><strong>Cedula:</strong></td>
+            <td class="form-control">&nbsp;&nbsp;@info.Cedula</td>
+        </tr>
+        <tr>
+            <td><strong>Fecha de Nacimiento:</strong></td>
+            <td class="form-control">@info.Fecha_de_nacimiento.Value.ToShortDateString()</td>
+            <td><strong>Edad:</strong></td>
+            <td class="form-control">@info.Edad</td>
+            <td><strong>Id Empleado:</strong></td>
+            <td class="form-control" colspan="2">@info.Id_Empleado</td>
+        </tr>
+    </table>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data", name = "FORM1" }))
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h2>Detección de Síndrome de Apnea del Sueño</h2>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id_Apnea)
+    @Html.HiddenFor(model => model.Id_Formulario_S_O)
+    @Html.HiddenFor(model => model.Firma)
+
+    <h4>1. FILIACION</h4>
+    <hr />
+    <table>
+        <tr>
+            <td class="label-form">DNI</td>
+            <td>@info.Cedula</td>
+            <td colspan="2"><span class="label-form">F. Nacimiento:</span> @info.Fecha_de_nacimiento.Value.ToShortDateString()</td>
+            <td class="label-form">Sexo</td>
+            <td colspan="2">
+                @if (info.Sexo == "Masculino")
+                {<span>M</span><input type="radio" checked disabled />
+                }
+                else
+                { <span>M</span><input type="radio" disabled />}
+                @if (info.Sexo != "Masculino")
+                {<span>F</span><input type="radio" checked disabled />
+                }
+                else
+                { <span>F</span><input type="radio" disabled />}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="label-form">Area de trabajo:</td>
+            <td colspan="2">@cso.Área_de_Trabajo</td>
+            <td colspan="2" class="label-form">Tipo Licencia:</td>
+            <td> @Html.EditorFor(model => model.Tipo_licencia, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="label-form">Empresa</td>
+            <td colspan="4"> @fso.Empresa.Nombre</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="label-form">Trabaja de noche</td>
+            <td>
+                @if (Model.Trabaja_de_noche)
+                {<span>SI</span><input type="radio" name="Trabaja_de_noche" value="true" checked /> <span>NO</span><input type="radio" name="Trabaja_de_noche" value="false" /> }
+                else
+                {<span>SI</span><input type="radio" name="Trabaja_de_noche" value="true" /> <span>NO</span><input type="radio" name="Trabaja_de_noche" value="false" checked />}
+            </td>
+            <td class="label-form"># dias de trabajo:</td>
+            <td> @Html.EditorFor(model => model.Dias_trabajo, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td colspan="2" class="label-form"># dias de descanso:</td>
+            <td>  @Html.EditorFor(model => model.Dias_descanso, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="label-form">
+                Años que trabaja en dicho horario de trabajo:
+            </td>
+            <td colspan="4">@cso.Antiguedad_en_el_puesto</td>
+        </tr>
+    </table>
+    <br />
+    @* Antecedentes personales... *@
+
+    <h4>2. ANTECEDENTES PERSONALES</h4>
+    <hr />
+    <table>
+        <tr>
+            <td class="label-form" colspan="2">Ápnea del sueño</td>
+            <td colspan="2">
+                @if (Model.Apnea_del_sueno)
+                {<span>SI</span><input type="radio" name="Apnea_del_sueno" value="true" checked /> <span>NO</span><input type="radio" name="Apnea_del_sueno" value="false" /> }
+                else
+                {<span>SI</span><input type="radio" name="Apnea_del_sueno" value="true" /> <span>NO</span><input type="radio" name="Apnea_del_sueno" value="false" checked />}
+            </td>
+            <td class="label-form">Último control:</td>
+            <td><input type="date" value="@String.Format("{0:yyyy-MM-dd}",Model.Ultimo_control)" name="Ultimo_control" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td class="label-form">HTA</td>
+            <td>
+                @if (Model.HTA)
+                {<span>SI</span><input type="radio" name="HTA" value="true" checked /> <span>NO</span><input type="radio" name="HTA" value="false" /> }
+                else
+                {<span>SI</span><input type="radio" name="HTA" value="true" /> <span>NO</span><input type="radio" name="HTA" value="false" checked />}
+            </td>
+            <td class="label-form">Medicación: (riesgo >2)</td>
+            <td colspan="5"> @Html.EditorFor(model => model.Medicacion, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td class="label-form" colspan="2">Polisomnografía (PSG) realizada alguna vez: </td>
+            <td>
+                @if (Model.Polisomnografía_PSG)
+                {<span>SI</span><input type="radio" name="Polisomnografía_PSG" value="true" checked /> <span>NO</span><input type="radio" name="Polisomnografía_PSG" value="false" /> }
+                else
+                {<span>SI</span><input type="radio" name="Polisomnografía_PSG" value="true" /> <span>NO</span><input type="radio" name="Polisomnografía_PSG" value="false" checked />}
+            </td>
+            <td class="label-form">
+                Fecha de última PSG:
+            </td>
+            <td colspan="2"><input type="date" value="@String.Format("{0:yyyy-MM-dd}",Model.Fecha_ultima_PSG)" name="Fecha_ultima_PSG" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td class="label-form" colspan="2">Antecedente de choque de vehículo:</td>
+            <td class="label-form">
+                <div>En mina:</div>
+                <div>(si es NO, pase a sección 4)</div>
+            </td>
+            <td>
+                @if (Model.En_mina)
+                {<span>SI</span><input type="radio" name="En_mina" value="true" checked /> <span>NO</span><input type="radio" name="En_mina" value="false" /> }
+                else
+                {<span>SI</span><input type="radio" name="En_mina" value="true" /> <span>NO</span><input type="radio" name="En_mina" value="false" checked />}
+            </td>
+            <td class="label-form">
+                <div>Fuera de mina:</div>
+                <div>(si es NO, pase a sección 4)</div>
+            </td>
+            <td>
+                @if (Model.Fuera_de_mina)
+                {<span>SI</span><input type="radio" name="Fuera_de_mina" value="true" checked /> <span>NO</span><input type="radio" name="Fuera_de_mina" value="false" /> }
+                else
+                {<span>SI</span><input type="radio" name="Fuera_de_mina" value="true" /> <span>NO</span><input type="radio" name="Fuera_de_mina" value="false" checked />}
+            </td>
+        </tr>
+    </table>
+    <br />
+    <h4>Detalle lo siguiente de los antecedentes del (los) choques (incidentes o accidentes):</h4>
+    <hr />
+
+    @* detalle lo siguiente *@
+    <table>
+        <tr>
+            <td colspan="2"></td>
+            <td style="padding-right:5px;padding-left:5px" class="label-form">SI</td>
+            <td style="padding-right:5px;padding-left:5px" class="label-form">NO</td>
+        </tr>
+        <tr>
+            <td class="label-form" width="80">Criterio 1</td>
+            <td>
+                Se “cabeceó” y por ello le ocurrió un accidente (incidente) con un vehículo
+                (alguna vez)
+            </td>
+            <td>
+                @if (Model.Se_cabeceo)
+                {<input type="radio" name="Se_cabeceo" value="true" checked />}
+                else
+                {<input type="radio" name="Se_cabeceo" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Se_cabeceo)
+                {<input type="radio" name="Se_cabeceo" value="false" checked />}
+                else
+                {<input type="radio" name="Se_cabeceo" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form">
+                Criterio 2
+            </td>
+            <td>(2 o más es positivo)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente ocurrido en las últimas 5 horas de un turno nocturno o entre las 14 y 17 horas (tarde)
+            </td>
+            <td>
+                @if (Model.Accidente_en_ultimas_5_horas)
+                {<input type="radio" name="Accidente_en_ultimas_5_horas" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_en_ultimas_5_horas" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Se_cabeceo)
+                {<input type="radio" name="Accidente_en_ultimas_5_horas" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_en_ultimas_5_horas" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                AUSENCIA DE evidencia de maniobra evasiva del chofer para evitar la colisión
+            </td>
+            <td>
+                @if (Model.Ausencia_de_evidencia_de_maniobra)
+                {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="true" checked />}
+                else
+                {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Ausencia_de_evidencia_de_maniobra)
+                {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="false" checked />}
+                else
+                {<input type="radio" name="Ausencia_de_evidencia_de_maniobra" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Colisión frontal del vehículo contra otro, cayó a un precipicio, río o chocó contra un poste, puente, edificio u otra estructura estática sin motivo aparente
+            </td>
+            <td>
+                @if (Model.Colision_frontal_del_vehiculo)
+                {<input type="radio" name="Colision_frontal_del_vehiculo" value="true" checked />}
+                else
+                {<input type="radio" name="Colision_frontal_del_vehiculo" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Colision_frontal_del_vehiculo)
+                {<input type="radio" name="Colision_frontal_del_vehiculo" value="false" checked />}
+                else
+                {<input type="radio" name="Colision_frontal_del_vehiculo" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Vehículo que invadió el otro carril o se desvió sin causa aparente
+            </td>
+            <td>
+                @if (Model.Vehiculo_que_invadio)
+                {<input type="radio" name="Vehiculo_que_invadio" value="true" checked />}
+                else
+                {<input type="radio" name="Vehiculo_que_invadio" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Colision_frontal_del_vehiculo)
+                {<input type="radio" name="Vehiculo_que_invadio" value="false" checked />}
+                else
+                {<input type="radio" name="Vehiculo_que_invadio" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                El conductor no recuerda claramente lo ocurrido 10 segundos antes del impacto
+            </td>
+            <td>
+                @if (Model.El_conductor_no_recuerda)
+                {<input type="radio" name="El_conductor_no_recuerda" value="true" checked />}
+                else
+                {<input type="radio" name="El_conductor_no_recuerda" value="true" />}
+            </td>
+            <td>
+                @if (!Model.El_conductor_no_recuerda)
+                {<input type="radio" name="El_conductor_no_recuerda" value="false" checked />}
+                else
+                {<input type="radio" name="El_conductor_no_recuerda" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                El conductor tomó alguna medicación o recientemente terminó un tratamiento con medicinas que causan somnolencia (benzodiacepinas, antihistamínicos, relajantes musculares o antidepresivos, etc)
+            </td>
+            <td>
+                @if (Model.El_conductor_tomo_una_medicacion)
+                {<input type="radio" name="El_conductor_tomo_una_medicacion" value="true" checked />}
+                else
+                {<input type="radio" name="El_conductor_tomo_una_medicacion" value="true" />}
+            </td>
+            <td>
+                @if (!Model.El_conductor_tomo_una_medicacion)
+                {<input type="radio" name="El_conductor_tomo_una_medicacion" value="false" checked />}
+                else
+                {<input type="radio" name="El_conductor_tomo_una_medicacion" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                El conductor se encontraba en horas extra (excediendo sus horas habituales de trabajo) o realizando días adicionales de trabajo (sobretiempo)
+            </td>
+            <td>
+                @if (Model.El_conductor_se_encontraba_en_horas_extras)
+                {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="true" checked />}
+                else
+                {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="true" />}
+            </td>
+            <td>
+                @if (!Model.El_conductor_se_encontraba_en_horas_extras)
+                {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="false" checked />}
+                else
+                {<input type="radio" name="El_conductor_se_encontraba_en_horas_extras" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="label-form">Clasificación del (los) “Choques” o accidentes vehiculares del postulante</td>
+            <td class="label-form">SI</td>
+            <td class="label-form">NO</td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente confirmado por Somnolencia (Criterio 1 positivo)
+            </td>
+            <td>
+                @if (Model.Accidente_por_somnolencia)
+                {<input type="radio" name="Accidente_por_somnolencia" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_por_somnolencia" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_por_somnolencia)
+                {<input type="radio" name="Accidente_por_somnolencia" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_por_somnolencia" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente con alta sospecha de somnolencia (Criterio 2 positivo)
+            </td>
+            <td>
+                @if (Model.Accidente_con_alta_sospecha)
+                {<input type="radio" name="Accidente_con_alta_sospecha" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_con_alta_sospecha" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_con_alta_sospecha)
+                {<input type="radio" name="Accidente_con_alta_sospecha" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_con_alta_sospecha" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente con escasa evidencia/ sospecha por somnolencia (solo 1 ítem de Criterio 2)
+            </td>
+            <td>
+                @if (Model.Accidente_con_escasa_evidencia)
+                {<input type="radio" name="Accidente_con_escasa_evidencia" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_con_escasa_evidencia" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_con_escasa_evidencia)
+                {<input type="radio" name="Accidente_con_escasa_evidencia" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_con_escasa_evidencia" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                No se dispone de datos suficientes para clasificar el (los) incidentes
+            </td>
+            <td>
+                @if (Model.No_se_dispone_de_datos_suficientes)
+                {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="true" checked />}
+                else
+                {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="true" />}
+            </td>
+            <td>
+                @if (!Model.No_se_dispone_de_datos_suficientes)
+                {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="false" checked />}
+                else
+                {<input type="radio" name="No_se_dispone_de_datos_suficientes" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Accidente no debido a somnolencia (información suficiente que descarta la somnolencia)
+            </td>
+            <td>
+                @if (Model.Accidente_no_debido_a_somnolencia)
+                {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_no_debido_a_somnolencia)
+                {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_no_debido_a_somnolencia" value="false" />}
+            </td>
+        </tr>
+
+    </table>
+    @*Entrevista al paciente*@
+    <br />
+    <h4>3. ENTREVISTA AL PACIENTE:</h4>
+    <hr />
+
+    <table>
+        <tr>
+            <td></td>
+            <td width="100%"></td>
+            <td style="padding-right:5px;padding-left:5px" class="label-form">SI</td>
+            <td style="padding-right:5px;padding-left:5px" class="label-form">NO</td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                En los últimos 5 años, su pareja o esposa le ha comentado que ronca al dormir
+            </td>
+            <td>
+                @if (Model.Su_esposa_comento_que_ronca)
+                {<input type="radio" name="Su_esposa_comento_que_ronca" value="true" checked />}
+                else
+                {<input type="radio" name="Su_esposa_comento_que_ronca" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Su_esposa_comento_que_ronca)
+                {<input type="radio" name="Su_esposa_comento_que_ronca" value="false" checked />}
+                else
+                {<input type="radio" name="Su_esposa_comento_que_ronca" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                En los últimos 5 años, su pareja o esposa le ha comentado que hacer ruidos al respirar mientras duerme
+            </td>
+            <td>
+                @if (Model.Su_esposa_comento_que_hace_ruidos)
+                {<input type="radio" name="Su_esposa_comento_que_hace_ruidos" value="true" checked />}
+                else
+                {<input type="radio" name="Su_esposa_comento_que_hace_ruidos" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Su_esposa_comento_que_hace_ruidos)
+                {<input type="radio" name="Su_esposa_comento_que_hace_ruidos" value="false" checked />}
+                else
+                {<input type="radio" name="Su_esposa_comento_que_hace_ruidos" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                En los últimos 5 años, su pareja o esposa le ha comentado que deja de respirar cuando duerme (pausa respiratoria)
+            </td>
+            <td>
+                @if (Model.Su_esposa_comento_que_deja_de_respirar)
+                {<input type="radio" name="Su_esposa_comento_que_deja_de_respirar" value="true" checked />}
+                else
+                {<input type="radio" name="Su_esposa_comento_que_deja_de_respirar" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Su_esposa_comento_que_deja_de_respirar)
+                {<input type="radio" name="Su_esposa_comento_que_deja_de_respirar" value="false" checked />}
+                else
+                {<input type="radio" name="Su_esposa_comento_que_deja_de_respirar" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Comparado con sus compañeros, usted siente que tiene más sueño o cansancio que ellos mientras trabaja
+            </td>
+            <td>
+                @if (Model.Siente_mas_que_tiene_mas_sueno)
+                {<input type="radio" name="Siente_mas_que_tiene_mas_sueno" value="true" checked />}
+                else
+                {<input type="radio" name="Siente_mas_que_tiene_mas_sueno" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Siente_mas_que_tiene_mas_sueno)
+                {<input type="radio" name="Siente_mas_que_tiene_mas_sueno" value="false" checked />}
+                else
+                {<input type="radio" name="Siente_mas_que_tiene_mas_sueno" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                ¿Tiene usted un familiar con Apnea del sueño?
+            </td>
+            <td>
+                @if (Model.Tiene_familiar_con_apnea)
+                {<input type="radio" name="Tiene_familiar_con_apnea" value="true" checked />}
+                else
+                {<input type="radio" name="Tiene_familiar_con_apnea" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Tiene_familiar_con_apnea)
+                {<input type="radio" name="Tiene_familiar_con_apnea" value="false" checked />}
+                else
+                {<input type="radio" name="Tiene_familiar_con_apnea" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Ha tenido algún accidente o incidente vehicular considerado “por falla humana”
+            </td>
+            <td>
+                @if (Model.Accidente_por_falla_humana)
+                {<input type="radio" name="Accidente_por_falla_humana" value="true" checked />}
+                else
+                {<input type="radio" name="Accidente_por_falla_humana" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Accidente_por_falla_humana)
+                {<input type="radio" name="Accidente_por_falla_humana" value="false" checked />}
+                else
+                {<input type="radio" name="Accidente_por_falla_humana" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Está recibiendo tratamiento para Ápnea del sueño con CPAP
+            </td>
+            <td>
+                @if (Model.Recibe_tratamiento_para_apnea)
+                {<input type="radio" name="Recibe_tratamiento_para_apnea" value="true" checked />}
+                else
+                {<input type="radio" name="Recibe_tratamiento_para_apnea" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Recibe_tratamiento_para_apnea)
+                {<input type="radio" name="Recibe_tratamiento_para_apnea" value="false" checked />}
+                else
+                {<input type="radio" name="Recibe_tratamiento_para_apnea" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td class="label-form"></td>
+            <td>
+                Se le ha realizado una PSG durante el sueño para descartarle un trastorno del sueño
+            </td>
+            <td>
+                @if (Model.Se_le_ha_relizado_una_PSG)
+                {<input type="radio" name="Se_le_ha_relizado_una_PSG" value="true" checked />}
+                else
+                {<input type="radio" name="Se_le_ha_relizado_una_PSG" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Se_le_ha_relizado_una_PSG)
+                {<input type="radio" name="Se_le_ha_relizado_una_PSG" value="false" checked />}
+                else
+                {<input type="radio" name="Se_le_ha_relizado_una_PSG" value="false" />}
+            </td>
+        </tr>
+    </table>
+    <br />
+    <h4>PUNTUACIÓN DE LA ESCALA DE EPWORTH (ESS) </h4>
+    <h5>(Nunca=0, poca=1, moderada=2, alta=3) </h5>
+
+    <div class="form-group">
+        @Html.Label("Total puntos (sumatoria) >10** : "+ epw.TotalPuntos, htmlAttributes: new { @class = "control-label col-md-4" })
+        
+           
+          
+    </div>
+    <br />
+    <br />
+    <h4>4. EXÁMEN FÍSICO: </h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Peso, "Peso (kg):", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Peso, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Peso, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Talla, "Talla (mts):", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Talla, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Talla, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IMC, "IMC (Kg/m2):", htmlAttributes: new { @class = "control-label col-md-3" })
+
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.IMC, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.IMC, "", new { @class = "text-danger" })
+                    <span>(> 35 es de alto riesgo)</span>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Circunferencia_de_cuello, "Circunferencia de cuello:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-7">
+
+                    @Html.EditorFor(model => model.Circunferencia_de_cuello, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Circunferencia_de_cuello, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Varon_normal, "Varón Normal:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-7">
+
+                    <div class="checkbox">
+                        <span>
+                            Si
+                            @if (Model.Varon_normal)
+                            {<input type="radio" name="Varon_normal" value="true" checked />}
+                            else
+                            {<input type="radio" name="Varon_normal" value="true" />}
+                        </span>
+                        <span>
+                            No
+                            @if (!Model.Varon_normal)
+                            {<input type="radio" name="Varon_normal" value="false" checked />}
+                            else
+                            {<input type="radio" name="Varon_normal" value="false" />}
+                        </span>
+                    </div>
+                    <span>(menor de 43,2 cm, es normal)</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mujer_normal, "Mujer Normal:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-7">
+
+                    <div class="checkbox">
+                        <span>
+                            Si
+                            @if (Model.Mujer_normal)
+                            {<input type="radio" name="Mujer_normal" value="true" checked />}
+                            else
+                            {<input type="radio" name="Mujer_normal" value="true" />}
+                        </span>
+                        <span>
+                            No
+                            @if (!Model.Mujer_normal)
+                            {<input type="radio" name="Mujer_normal" value="false" checked />}
+                            else
+                            {<input type="radio" name="Mujer_normal" value="false" />}
+                        </span>
+                    </div>
+                    <span>(menor de 40.6 cm, es normal)</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sistolica, "P. Sistólica:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Sistolica, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sistolica, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Diastolica, "P. Diastólica:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.Diastolica, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Diastolica, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.HTA_nueva, "HTA nueva:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-7">
+                    <div class="checkbox">
+                        <span>
+                            Si
+                            @if (Model.HTA_nueva)
+                            {<input type="radio" name="HTA_nueva" value="true" checked />}
+                            else
+                            {<input type="radio" name="HTA_nueva" value="true" />}
+                        </span>
+                        <span>
+                            No
+                            @if (!Model.Mujer_normal)
+                            {<input type="radio" name="HTA_nueva" value="false" checked />}
+                            else
+                            {<input type="radio" name="HTA_nueva" value="false" />}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4>Evaluación de vía aérea superior MALLAMPATI (marque con una X) </h4>
+    <br />
+    <table cellpadding="20">
+        <tr>
+            <td width="50"></td>
+            <td><img id="grado1" src="../../Images/grado1.png" width="150" onclick="singImage('grado1')"></td>
+            <td><img id="grado2" src="../../Images/grado2.png" width="150" onclick="singImage('grado2')"></td>
+            <td><img id="grado3" src="../../Images/grado3.png" width="150" onclick="singImage('grado3')"></td>
+            <td><img id="grado4" src="../../Images/grado4.png" width="150" onclick="singImage('grado4')"></td>
+            <td width="50"></td>
+        </tr>
+        <tr>
+            <td width="50"></td>
+            <td align="center">Grado I</td>
+            <td align="center">Grado II</td>
+            <td align="center">Grado III</td>
+            <td align="center">Grado IV</td>
+            <td width="50"></td>
+        </tr>
+        <tr>
+            <td width="50"></td>
+            <td align="center"></td>
+            <td align="center" colspan="2"><a onclick="clearSigImage()" style="cursor:pointer">Cancelar Seleccion</a></td>
+            <td align="center"></td>
+            <td width="50"></td>
+        </tr>
+    </table>
+    <input type="hidden" name="Grado" id="grado" value="@Model.Grado" />
+    <br />
+    <h4>5. CONCLUSIÓN DE LA EVALUACIÓN</h4>
+    <hr />
+    <table width="100%">
+        <tr>
+            <td colspan="3">*Ampliación: oximetría, polisomnografía, seguimiento tratamiento, interconsulta</td>
+            <td align="center"><strong>SI</strong></td>
+            <td align="center"><strong>NO</strong></td>
+        </tr>
+        <tr>
+            <td width="200" colspan="2"><h4>RIESGO ALTO:</h4></td>
+            <td>(criterio A o B positivo)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td width="75"></td>
+            <td><strong>Criterio A:</strong></td>
+            <td>
+                Excesiva somnolencia (Epworth > 15 o cabeceo presenciado durante espera), incidente por somnolencia o con alta sospecha (último año)
+            </td>
+            <td>
+                @if (Model.Excesiva_somnolencia)
+                {<input type="radio" name="Excesiva_somnolencia" value="true" checked />}
+                else
+                {<input type="radio" name="Excesiva_somnolencia" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Excesiva_somnolencia)
+                {<input type="radio" name="Excesiva_somnolencia" value="false" checked />}
+                else
+                {<input type="radio" name="Excesiva_somnolencia" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Criterio B:</strong></td>
+            <td>
+                Antecedente de SAS sin control reciente o sin cumplimiento de tratamiento (con CPAP o cirugía)
+            </td>
+            <td>
+                @if (Model.Antecendente_de_SAS)
+                {<input type="radio" name="Antecendente_de_SAS" value="true" checked />}
+                else
+                {<input type="radio" name="Antecendente_de_SAS" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Antecendente_de_SAS)
+                {<input type="radio" name="Antecendente_de_SAS" value="false" checked />}
+                else
+                {<input type="radio" name="Antecendente_de_SAS" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color:lightgrey">
+                <strong><u>Acción requerida:</u></strong> en <strong>RIESGO ALTO</strong>, el paciente requiere pruebas ampliatorias (oximetría, PSG o certificación de cumplimiento de tratamiento de apnea del sueño)
+            </td>
+        </tr>
+
+        <tr>
+            <td width="150" colspan="2"><h4>RIESGO MEDIO:</h4></td>
+            <td>(Criterio C, D o E positivo)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Criterio C:</strong></td>
+            <td>
+                Historia de higiene de sueño sugiere SAS (ronquidos + pausas respiratorias + Epworth >10)
+            </td>
+            <td>
+                @if (Model.Historia_de_higiene)
+                {<input type="radio" name="Historia_de_higiene" value="true" checked />}
+                else
+                {<input type="radio" name="Historia_de_higiene" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Historia_de_higiene)
+                {<input type="radio" name="Historia_de_higiene" value="false" checked />}
+                else
+                {<input type="radio" name="Historia_de_higiene" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Criterio D:</strong></td>
+            <td>
+                Cumple con 2 o más de los siguientes: IMC mayor o igual a <span style="color:red">30</span> Hipertensión Arterial (nueva o no controlada con una sola medicación) Circunferencia del cuello anormal Puntuación de Epworth mayor de 10 y menor de 16 Antecedente de trastorno del sueño (diagnosticado) sin seguimiento Índice de ápnea-hipopnea (AHI) mayor de 5 y menor de 30
+            </td>
+            <td>
+                @if (Model.Cumple_con_dos_o_mas)
+                {<input type="radio" name="Cumple_con_dos_o_mas" value="true" checked />}
+                else
+                {<input type="radio" name="Cumple_con_dos_o_mas" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Historia_de_higiene)
+                {<input type="radio" name="Cumple_con_dos_o_mas" value="false" checked />}
+                else
+                {<input type="radio" name="Cumple_con_dos_o_mas" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><strong>Criterio E:</strong></td>
+            <td>
+                Evaluación de vía aérea superior patológico*(Mallampati III o IV)
+            </td>
+            <td>
+                @if (Model.Evaluacion_via_aerea)
+                {<input type="radio" name="Evaluacion_via_aerea" value="true" checked />}
+                else
+                {<input type="radio" name="Evaluacion_via_aerea" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Evaluacion_via_aerea)
+                {<input type="radio" name="Evaluacion_via_aerea" value="false" checked />}
+                else
+                {<input type="radio" name="Evaluacion_via_aerea" value="false" />}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" style="background-color:lightgrey">
+                <strong><u>Acción requerida:</u></strong> en <strong>RIESGO MEDIO</strong>, el paciente TIENE 3 MESES de aptitud TEMPORAL. Requiere pruebas ampliatorias (oximetría, PSG o certificación de cumplimiento de tratamiento de apnea del sueño) antes de emitir aptitud por 12 meses
+            </td>
+        </tr>
+        <tr>
+            <td width="150" colspan="2"><h4>RIESGO BAJO:</h4></td>
+            <td><strong>Apto para conducir vehículos (ningún criterio positivo</strong></td>
+            <td>
+                @if (Model.Apto_para_conducir_vehiculos)
+                {<input type="radio" name="Apto_para_conducir_vehiculos" value="true" checked />}
+                else
+                {<input type="radio" name="Apto_para_conducir_vehiculos" value="true" />}
+            </td>
+            <td>
+                @if (!Model.Apto_para_conducir_vehiculos)
+                {<input type="radio" name="Apto_para_conducir_vehiculos" value="false" checked />}
+                else
+                {<input type="radio" name="Apto_para_conducir_vehiculos" value="false" />}
+            </td>
+        </tr>
+    </table>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firma,"Firma Especialista:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @{
+                try
+                {
+                    var base64 = Convert.ToBase64String(Model.Firma);
+                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                    <img src="@imgSrc" />
+                }
+                catch
+                {
+
+                }
+            }
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Estado,"Estado:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firmar, "Firmar?", htmlAttributes: new { @class = "control-label" })
+
+        @Html.EditorFor(model => model.Firmar, new { htmlAttributes = new { @class = "form-control", @type = "checkbox" } })
+        @Html.ValidationMessageFor(model => model.Firmar, "", new { @class = "text-danger" })
+        <p style="font-size:12px">La opción de firmar solo funciona en el estado 'Finalizada'.</p>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Guardar" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+    }
+
+<div>
+    @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
+</div>
+</body>
+</html>
+<script>
+    var grade = '@Model.Grado'
+    function singImage(img) {
+        clearSigImage();
+        image = document.getElementById(img);
+        switch (img) {
+            case "grado1":
+                image.src = '../../Images/grado1-marked.png'; document.getElementById("grado").value = 1
+                break;
+            case "grado2":
+                image.src = '../../Images/grado2-marked.png'; document.getElementById("grado").value = 2
+                break;
+            case "grado3":
+                image.src = '../../Images/grado3-marked.png'; document.getElementById("grado").value = 3
+                break;
+            case "grado4":
+                image.src = '../../Images/grado4-marked.png'; document.getElementById("grado").value = 4
+                break;
+
+        }
+        
+    }
+    function clearSigImage() {
+        document.getElementById("grado1").src = '../../Images/grado1.png'
+        document.getElementById("grado2").src = '../../Images/grado2.png'
+        document.getElementById("grado3").src = '../../Images/grado3.png'
+        document.getElementById("grado4").src = '../../Images/grado4.png'
+        document.getElementById("grado").value = ''
+    }
+    function setGradeSelected(grade) {
+        switch (grade) {
+            case '1': document.getElementById("grado1").src = '../../Images/grado1-marked.png'
+                break;
+            case '2': document.getElementById("grado2").src = '../../Images/grado2-marked.png'
+                break;
+            case '3': document.getElementById("grado3").src = '../../Images/grado3-marked.png'
+                break;
+            case '4': document.getElementById("grado4").src = '../../Images/grado4-marked.png'
+                break;
+        }
+    }
+    setGradeSelected(grade)
+</script>

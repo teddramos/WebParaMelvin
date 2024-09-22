@@ -9,6 +9,68 @@
     <Property Name="Fecha_modificacion" Type="datetime" />
     <Property Name="descripcion" Type="nvarchar" MaxLength="160" />
   </EntityType>
+  <EntityType Name="Apnea">
+    <Key>
+      <PropertyRef Name="Id_Apnea" />
+    </Key>
+    <Property Name="Id_Apnea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo_licencia" Type="nvarchar" MaxLength="30" />
+    <Property Name="Trabaja_de_noche" Type="bit" Nullable="false" />
+    <Property Name="Dias_trabajo" Type="int" />
+    <Property Name="Dias_descanso" Type="int" />
+    <Property Name="Apnea_del_sueno" Type="bit" Nullable="false" />
+    <Property Name="Ultimo_control" Type="datetime" />
+    <Property Name="HTA" Type="bit" Nullable="false" />
+    <Property Name="Medicacion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Polisomnografía_PSG" Type="bit" Nullable="false" />
+    <Property Name="Fecha_ultima_PSG" Type="datetime" />
+    <Property Name="En_mina" Type="bit" Nullable="false" />
+    <Property Name="Fuera_de_mina" Type="bit" Nullable="false" />
+    <Property Name="Se_cabeceo" Type="bit" Nullable="false" />
+    <Property Name="Accidente_en_ultimas_5_horas" Type="bit" Nullable="false" />
+    <Property Name="Ausencia_de_evidencia_de_maniobra" Type="bit" Nullable="false" />
+    <Property Name="Colision_frontal_del_vehiculo" Type="bit" Nullable="false" />
+    <Property Name="Vehiculo_que_invadio" Type="bit" Nullable="false" />
+    <Property Name="El_conductor_no_recuerda" Type="bit" Nullable="false" />
+    <Property Name="El_conductor_tomo_una_medicacion" Type="bit" Nullable="false" />
+    <Property Name="El_conductor_se_encontraba_en_horas_extras" Type="bit" Nullable="false" />
+    <Property Name="Accidente_por_somnolencia" Type="bit" Nullable="false" />
+    <Property Name="Accidente_con_alta_sospecha" Type="bit" Nullable="false" />
+    <Property Name="Accidente_con_escasa_evidencia" Type="bit" Nullable="false" />
+    <Property Name="No_se_dispone_de_datos_suficientes" Type="bit" Nullable="false" />
+    <Property Name="Accidente_no_debido_a_somnolencia" Type="bit" Nullable="false" />
+    <Property Name="Su_esposa_comento_que_ronca" Type="bit" Nullable="false" />
+    <Property Name="Su_esposa_comento_que_hace_ruidos" Type="bit" Nullable="false" />
+    <Property Name="Su_esposa_comento_que_deja_de_respirar" Type="bit" Nullable="false" />
+    <Property Name="Siente_mas_que_tiene_mas_sueno" Type="bit" Nullable="false" />
+    <Property Name="Tiene_familiar_con_apnea" Type="bit" Nullable="false" />
+    <Property Name="Accidente_por_falla_humana" Type="bit" Nullable="false" />
+    <Property Name="Recibe_tratamiento_para_apnea" Type="bit" Nullable="false" />
+    <Property Name="Se_le_ha_relizado_una_PSG" Type="bit" Nullable="false" />
+    <Property Name="Puntuacion_epwhorth" Type="int" />
+    <Property Name="Peso" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Talla" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="IMC" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Varon_normal" Type="bit" Nullable="false" />
+    <Property Name="Mujer_normal" Type="bit" Nullable="false" />
+    <Property Name="Sistolica" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Diastolica" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="HTA_nueva" Type="bit" Nullable="false" />
+    <Property Name="Grado" Type="int" />
+    <Property Name="Excesiva_somnolencia" Type="bit" Nullable="false" />
+    <Property Name="Antecendente_de_SAS" Type="bit" Nullable="false" />
+    <Property Name="Historia_de_higiene" Type="bit" Nullable="false" />
+    <Property Name="Cumple_con_dos_o_mas" Type="bit" Nullable="false" />
+    <Property Name="Evaluacion_via_aerea" Type="bit" Nullable="false" />
+    <Property Name="Apto_para_conducir_vehiculos" Type="bit" Nullable="false" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Modificado" Type="bit" Nullable="false" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Circunferencia_de_cuello" Type="decimal" Precision="9" Scale="2" />
+  </EntityType>
   <EntityType Name="ArchivosExtras">
     <Key>
       <PropertyRef Name="Id_ArchivoExtra" />
@@ -126,6 +188,68 @@
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Deteccion_SAS">
+    <Key>
+      <PropertyRef Name="Id_deteccion_SAS" />
+    </Key>
+    <Property Name="Id_deteccion_SAS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo_Licensia" Type="nvarchar" MaxLength="50" />
+    <Property Name="Trabaja_de_noche" Type="bit" />
+    <Property Name="Dias_trabajo" Type="int" />
+    <Property Name="Dias_descanso" Type="int" />
+    <Property Name="Anos_trabajando_en_horario" Type="int" />
+    <Property Name="Apnea_del_sueno" Type="bit" />
+    <Property Name="Ultimo_control" Type="datetime" />
+    <Property Name="HTA" Type="bit" />
+    <Property Name="Medicacion" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="Polisomnografia" Type="bit" />
+    <Property Name="Ultima_fecha_PSG" Type="datetime" />
+    <Property Name="En_Mina" Type="bit" />
+    <Property Name="Fuera_de_mina" Type="bit" />
+    <Property Name="Se_cabeceo" Type="bit" />
+    <Property Name="Accidente_en_ultimas_5_horas_turno_nocturno_entre_14_17_pm" Type="bit" />
+    <Property Name="Ausencia_de_evidencia_maniobra_para_evitar_colicion" Type="bit" />
+    <Property Name="Colicion_frontal_cayo_precipicio_rio_poste_puente_estructura_sin_motivo" Type="bit" />
+    <Property Name="Invadio_otro_carril_se_desvio_sin_causa_aparente" Type="bit" />
+    <Property Name="Condutor_no_recuerda_10_segudos_antes_impacto" Type="bit" />
+    <Property Name="Conductor_tomo_medicacion_termino_tratamiendo_que_causa_somnolencia" Type="bit" />
+    <Property Name="Conductor_se_encontraba_en_hora_extra" Type="bit" />
+    <Property Name="Confirmado_somnolencia" Type="bit" />
+    <Property Name="Alta_sospecha_somnolencia" Type="bit" />
+    <Property Name="Escasa_evidencia_somnolencia" Type="bit" />
+    <Property Name="No_se_dispone_de_datos_suficientes" Type="bit" />
+    <Property Name="Accidente_no_debido_a_somnolencia" Type="bit" />
+    <Property Name="En_ultimos_5_anos_su_pareja_comenta_que_ronca" Type="bit" />
+    <Property Name="En_ultimos_5_anos_su_pareja_comenta_que_hace_ruidos_al_dormir" Type="bit" />
+    <Property Name="En_ultimos_5_anos_su_pareja_comenta_que_deja_de_respirar_al_dormir" Type="bit" />
+    <Property Name="Siente_que_tiene_mas_sueno_o_cansancio_que_companeros_de_trabajo" Type="bit" />
+    <Property Name="Tiene_algun_familiar_con_apnea_del_sueno" Type="bit" />
+    <Property Name="Algun_accidente_considerado_falla_humana" Type="bit" />
+    <Property Name="Recibe_tratamiento_para_Apnea_con_CPAP" Type="bit" />
+    <Property Name="Se_le_ha_realizado_una_PSG_durante_el_sueno" Type="bit" />
+    <Property Name="Puntuacion_Epworth" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="Total_puntos" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="Peso" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="Talla" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="IMC" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="Circunferencia_cuello" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="Varon_normal" Type="bit" />
+    <Property Name="Mujer_normal" Type="bit" />
+    <Property Name="P_Sistolica" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="P_Diastolica" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="HTA_nueva" Type="bit" />
+    <Property Name="MALLAMPATI" Type="nvarchar" MaxLength="50" />
+    <Property Name="Riesgo_alto" Type="bit" />
+    <Property Name="Riesgo_medio" Type="bit" />
+    <Property Name="Riesgo_bajo" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="Firma_candidato" Type="image" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+  </EntityType>
   <EntityType Name="EKG">
     <Key>
       <PropertyRef Name="Id_EKG" />
@@ -153,6 +277,27 @@
     <Property Name="Id_Usuario" Type="int" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+  </EntityType>
+  <EntityType Name="EpWorth">
+    <Key>
+      <PropertyRef Name="Id_EpWorth" />
+    </Key>
+    <Property Name="Id_EpWorth" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sentado_y_leyendo" Type="int" />
+    <Property Name="viendo_la_television" Type="int" />
+    <Property Name="sentado_inactivo_lugar_publico" Type="int" />
+    <Property Name="sentado_una_hora_pasajero" Type="int" />
+    <Property Name="tumbado_de_tarde_para_descansar" Type="int" />
+    <Property Name="sentado_hablando_con_otro" Type="int" />
+    <Property Name="sentado_tranquilo_despues_de_comida" Type="int" />
+    <Property Name="sentado_en_coche_por_unos_minutos_por_atasco" Type="int" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Firma" Type="image" />
+    <Property Name="firma_candidato" Type="image" />
   </EntityType>
   <EntityType Name="Espirometria">
     <Key>
@@ -265,6 +410,8 @@
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Confrima_asistencia" Type="bit" Nullable="false" />
+    <Property Name="Confrima_pruebas_completadas" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Hemograma">
     <Key>
@@ -576,20 +723,22 @@
     <Property Name="Id_Formulario_S_O" Type="int" />
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
-    <Property Name="Pre_espirometria" Type="bit" />
-    <Property Name="Espirometria" Type="bit" />
-    <Property Name="Audiometria" Type="bit" />
-    <Property Name="Capacidad_fisica" Type="bit" />
-    <Property Name="Laboratorio" Type="bit" />
-    <Property Name="Radiografia" Type="bit" />
-    <Property Name="Hemografia" Type="bit" />
-    <Property Name="EKG" Type="bit" />
-    <Property Name="Examen_visual" Type="bit" />
-    <Property Name="Bateria_de_un_mes" Type="bit" />
-    <Property Name="Bateria_Completa" Type="bit" />
-    <Property Name="Historia_clinica_y_examen_fisico" Type="bit" />
+    <Property Name="Pre_espirometria" Type="bit" Nullable="false" />
+    <Property Name="Espirometria" Type="bit" Nullable="false" />
+    <Property Name="Audiometria" Type="bit" Nullable="false" />
+    <Property Name="Capacidad_fisica" Type="bit" Nullable="false" />
+    <Property Name="Laboratorio" Type="bit" Nullable="false" />
+    <Property Name="Radiografia" Type="bit" Nullable="false" />
+    <Property Name="Hemografia" Type="bit" Nullable="false" />
+    <Property Name="EKG" Type="bit" Nullable="false" />
+    <Property Name="Examen_visual" Type="bit" Nullable="false" />
+    <Property Name="Bateria_de_un_mes" Type="bit" Nullable="false" />
+    <Property Name="Bateria_Completa" Type="bit" Nullable="false" />
+    <Property Name="Historia_clinica_y_examen_fisico" Type="bit" Nullable="false" />
     <Property Name="Consentimiento_informado" Type="bit" Nullable="false" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="EpWorth" Type="bit" Nullable="false" />
+    <Property Name="Apnea" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Laboratorio">
     <Key>
@@ -888,6 +1037,32 @@
     <Property Name="Id_Rol" Type="int" />
     <Property Name="Id_Usuario" Type="int" />
   </EntityType>
+  <Association Name="FK__Apnea__Id_Formul__035179CE">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Apnea" Type="Self.Apnea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Apnea">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Deteccion__Id_Fo__731B1205">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1" />
+    <End Role="Deteccion_SAS" Type="Self.Deteccion_SAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Deteccion_SAS">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Actividades_1_Usuarios_1">
     <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
     <End Role="Actividades" Type="Self.Actividades" Multiplicity="*" />
@@ -1190,14 +1365,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="orders_customer_id_fkey">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EpWorth" Type="Self.EpWorth" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="EpWorth">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ceisamco_form_s_oModelStoreContainer">
     <EntitySet Name="Actividades" EntityType="Self.Actividades" Schema="cisam_ceisamco_cisam" store:Type="Tables" />
+    <EntitySet Name="Apnea" EntityType="Self.Apnea" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ArchivosExtras" EntityType="Self.ArchivosExtras" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Audiometria" EntityType="Self.Audiometria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Consentimiento_Informado" EntityType="Self.Consentimiento_Informado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CSO" EntityType="Self.CSO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deteccion_SAS" EntityType="Self.Deteccion_SAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EKG" EntityType="Self.EKG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EpWorth" EntityType="Self.EpWorth" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Espirometria" EntityType="Self.Espirometria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Examen_Visual" EntityType="Self.Examen_Visual" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Formulario_S_O" EntityType="Self.Formulario_S_O" Schema="dbo" store:Type="Tables" />
@@ -1213,6 +1405,14 @@
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario_Empresa" EntityType="Self.Usuario_Empresa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario_Rol" EntityType="Self.Usuario_Rol" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Apnea__Id_Formul__035179CE" Association="Self.FK__Apnea__Id_Formul__035179CE">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Apnea" EntitySet="Apnea" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Deteccion__Id_Fo__731B1205" Association="Self.FK__Deteccion__Id_Fo__731B1205">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Deteccion_SAS" EntitySet="Deteccion_SAS" />
+    </AssociationSet>
     <AssociationSet Name="FK_Actividades_1_Usuarios_1" Association="Self.FK_Actividades_1_Usuarios_1">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Actividades" EntitySet="Actividades" />
@@ -1304,6 +1504,10 @@
     <AssociationSet Name="FK_Usuario_Rol_Usuario" Association="Self.FK_Usuario_Rol_Usuario">
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Usuario_Rol" EntitySet="Usuario_Rol" />
+    </AssociationSet>
+    <AssociationSet Name="orders_customer_id_fkey" Association="Self.orders_customer_id_fkey">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="EpWorth" EntitySet="EpWorth" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -1,7 +1,7 @@
 ﻿@model WebParaMelvin.Models.EpWorth
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
 
     var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
@@ -120,398 +120,528 @@
     @Html.HiddenFor(model => model.Id_Formulario_S_O)
     @Html.HiddenFor(model => model.Firma)
     @Html.HiddenFor(model => model.firma_candidato)
+  
+    <div class="row">
+        <div class="col-md-6">
 
-    <div class="form-group">
-        <table>
-            <tr>
-                <td colspan="3" style="color:navy">Sentado y leyendo</td>
-            </tr>
-            <tr>
-                <td width="30"></td>
-                <td width="20">
-                    @if (Model.sentado_y_leyendo == 0 || Model.sentado_y_leyendo == null)
-                    {<input type="radio" name="sentado_y_leyendo" value="0" checked />}
-                    else
-                    {<input type="radio" name="sentado_y_leyendo" value="0" />}
-                </td>
-                <td>Sin posibilidad de adormecerse (0 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_y_leyendo == 1)
-                    {<input type="radio" name="sentado_y_leyendo" value="1" checked />}
-                    else
-                    {<input type="radio" name="sentado_y_leyendo" value="1" />}
-                </td>
-                <td>Ligera posibilidad de adormecerse (1 punto)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_y_leyendo == 2)
-                    {<input type="radio" name="sentado_y_leyendo" value="2" checked />}
-                    else
-                    {<input type="radio" name="sentado_y_leyendo" value="2" />}
-                </td>
-                <td>Posibilidad moderada de adormecerse (2 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_y_leyendo == 3)
-                    {<input type="radio" name="sentado_y_leyendo" value="3" checked />}
-                    else
-                    {<input type="radio" name="sentado_y_leyendo" value="3" />}
-                </td>
-                <td>Posibilidad alta de adormecerse (3 puntos)</td>
-            </tr>
-        </table>
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td colspan="3" style="color:navy">Sentado y leyendo</td>
+                    </tr>
+                    <tr>
+                        <td width="30"></td>
+                        <td width="20">
+                            @if (Model.sentado_y_leyendo == 0 || Model.sentado_y_leyendo == null)
+                            {<input type="radio" name="sentado_y_leyendo" value="0" checked onclick="sumarPuntos(this,1)" />}
+                            else
+                            {<input type="radio" name="sentado_y_leyendo" value="0" onclick="sumarPuntos(this,1)" />}
+                        </td>
+                        <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_y_leyendo == 1)
+                            {<input type="radio" name="sentado_y_leyendo" value="1" checked onclick="sumarPuntos(this,1)"/>}
+                            else
+                            {<input type="radio" name="sentado_y_leyendo" value="1" onclick="sumarPuntos(this,1)"/>}
+                        </td>
+                        <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_y_leyendo == 2)
+                            {<input type="radio" name="sentado_y_leyendo" value="2" checked onclick="sumarPuntos(this,1)"/>}
+                            else
+                            {<input type="radio" name="sentado_y_leyendo" value="2" onclick="sumarPuntos(this,1)"/>}
+                        </td>
+                        <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_y_leyendo == 3)
+                            {<input type="radio" name="sentado_y_leyendo" value="3" checked onclick="sumarPuntos(this,1)"/>}
+                            else
+                            {<input type="radio" name="sentado_y_leyendo" value="3" onclick="sumarPuntos(this,1)"/>}
+                        </td>
+                        <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                    </tr>
+                </table>
 
+            </div>
+
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td colspan="3" style="color:navy">Viendo la televisión</td>
+                    </tr>
+                    <tr>
+                        <td width="30"></td>
+                        <td width="20">
+                            @if (Model.viendo_la_television == 0 || Model.viendo_la_television == null)
+                            {<input type="radio" name="viendo_la_television" value="0" checked onclick="sumarPuntos(this,2)"/>}
+                            else
+                            {<input type="radio" name="viendo_la_television" value="0" onclick="sumarPuntos(this,2)"/>}
+                        </td>
+                        <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.viendo_la_television == 1)
+                            {<input type="radio" name="viendo_la_television" value="1" checked onclick="sumarPuntos(this,2)"/>}
+                            else
+                            {<input type="radio" name="viendo_la_television" value="1" onclick="sumarPuntos(this,2)"/>}
+                        </td>
+                        <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.viendo_la_television == 2)
+                            {<input type="radio" name="viendo_la_television" value="2" checked onclick="sumarPuntos(this,2)"/>}
+                            else
+                            {<input type="radio" name="viendo_la_television" value="2" onclick="sumarPuntos(this,2)"/>}
+                        </td>
+                        <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.viendo_la_television == 3)
+                            {<input type="radio" name="viendo_la_television" value="3" checked onclick="sumarPuntos(this,2)"/>}
+                            else
+                            {<input type="radio" name="viendo_la_television" value="3" onclick="sumarPuntos(this,2)"/>}
+                        </td>
+                        <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td colspan="3" style="color:navy">Sentado inactivo en un lugar público</td>
+                    </tr>
+                    <tr>
+                        <td width="30"></td>
+                        <td width="20">
+                            @if (Model.sentado_inactivo_lugar_publico == 0 || Model.sentado_inactivo_lugar_publico == null)
+                            {<input type="radio" name="sentado_inactivo_lugar_publico" value="0" checked onclick="sumarPuntos(this,3)"/>}
+                            else
+                            {<input type="radio" name="sentado_inactivo_lugar_publico" value="0" onclick="sumarPuntos(this,3)"/>}
+                        </td>
+                        <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_inactivo_lugar_publico == 1)
+                            {<input type="radio" name="sentado_inactivo_lugar_publico" value="1" checked onclick="sumarPuntos(this,3)"/>}
+                            else
+                            {<input type="radio" name="sentado_inactivo_lugar_publico" value="1" onclick="sumarPuntos(this,3)"/>}
+                        </td>
+                        <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_inactivo_lugar_publico == 2)
+                            {<input type="radio" name="sentado_inactivo_lugar_publico" value="2" checked onclick="sumarPuntos(this,3)"/>}
+                            else
+                            {<input type="radio" name="sentado_inactivo_lugar_publico" value="2" onclick="sumarPuntos(this,3)"/>}
+                        </td>
+                        <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_inactivo_lugar_publico == 3)
+                            {<input type="radio" name="sentado_inactivo_lugar_publico" value="3" checked onclick="sumarPuntos(this,3)"/>}
+                            else
+                            {<input type="radio" name="sentado_inactivo_lugar_publico" value="3" onclick="sumarPuntos(this,3)"/>}
+                        </td>
+                        <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td colspan="3" style="color:navy">Sentado durante una hora como pasajero en un coche</td>
+                    </tr>
+                    <tr>
+                        <td width="30"></td>
+                        <td width="20">
+                            @if (Model.sentado_una_hora_pasajero == 0 || Model.sentado_una_hora_pasajero == null)
+                            {<input type="radio" name="sentado_una_hora_pasajero" value="0" checked onclick="sumarPuntos(this,4)"/>}
+                            else
+                            {<input type="radio" name="sentado_una_hora_pasajero" value="0" onclick="sumarPuntos(this,4)"/>}
+                        </td>
+                        <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_una_hora_pasajero == 1)
+                            {<input type="radio" name="sentado_una_hora_pasajero" value="1" checked onclick="sumarPuntos(this,4)"/>}
+                            else
+                            {<input type="radio" name="sentado_una_hora_pasajero" value="1" onclick="sumarPuntos(this,4)"/>}
+                        </td>
+                        <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_una_hora_pasajero == 2)
+                            {<input type="radio" name="sentado_una_hora_pasajero" value="2" checked onclick="sumarPuntos(this,4)"/>}
+                            else
+                            {<input type="radio" name="sentado_una_hora_pasajero" value="2" onclick="sumarPuntos(this,4)"/>}
+                        </td>
+                        <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_una_hora_pasajero == 3)
+                            {<input type="radio" name="sentado_una_hora_pasajero" value="3" checked onclick="sumarPuntos(this,4)"/>}
+                            else
+                            {<input type="radio" name="sentado_una_hora_pasajero" value="3" onclick="sumarPuntos(this,4)"/>}
+                        </td>
+                        <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td colspan="3" style="color:navy">Tumbado por la tarde para descansar</td>
+                    </tr>
+                    <tr>
+                        <td width="30"></td>
+                        <td width="20">
+                            @if (Model.tumbado_de_tarde_para_descansar == 0 || Model.tumbado_de_tarde_para_descansar == null)
+                            {<input type="radio" name="tumbado_de_tarde_para_descansar" value="0" checked onclick="sumarPuntos(this,5)"/>}
+                            else
+                            {<input type="radio" name="tumbado_de_tarde_para_descansar" value="0" onclick="sumarPuntos(this,5)"/>}
+                        </td>
+                        <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.tumbado_de_tarde_para_descansar == 1)
+                            {<input type="radio" name="tumbado_de_tarde_para_descansar" value="1" checked onclick="sumarPuntos(this,5)"/>}
+                            else
+                            {<input type="radio" name="tumbado_de_tarde_para_descansar" value="1" onclick="sumarPuntos(this,5)"/>}
+                        </td>
+                        <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.tumbado_de_tarde_para_descansar == 2)
+                            {<input type="radio" name="tumbado_de_tarde_para_descansar" value="2" checked onclick="sumarPuntos(this,5)"/>}
+                            else
+                            {<input type="radio" name="tumbado_de_tarde_para_descansar" value="2" onclick="sumarPuntos(this,5)"/>}
+                        </td>
+                        <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.tumbado_de_tarde_para_descansar == 3)
+                            {<input type="radio" name="tumbado_de_tarde_para_descansar" value="3" checked onclick="sumarPuntos(this,5)"/>}
+                            else
+                            {<input type="radio" name="tumbado_de_tarde_para_descansar" value="3" onclick="sumarPuntos(this,5)"/>}
+                        </td>
+                        <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                    </tr>
+                </table>
+
+
+            </div>
+
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td colspan="3" style="color:navy">Sentado y hablando con otra persona</td>
+                    </tr>
+                    <tr>
+                        <td width="30"></td>
+                        <td width="20">
+                            @if (Model.sentado_hablando_con_otro == 0 || Model.sentado_hablando_con_otro == null)
+                            {<input type="radio" name="sentado_hablando_con_otro" value="0" checked onclick="sumarPuntos(this,6)"/>}
+                            else
+                            {<input type="radio" name="sentado_hablando_con_otro" value="0" onclick="sumarPuntos(this,6)"/>}
+                        </td>
+                        <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_hablando_con_otro == 1)
+                            {<input type="radio" name="sentado_hablando_con_otro" value="1" checked onclick="sumarPuntos(this,6)"/>}
+                            else
+                            {<input type="radio" name="sentado_hablando_con_otro" value="1" onclick="sumarPuntos(this,6)"/>}
+                        </td>
+                        <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_hablando_con_otro == 2)
+                            {<input type="radio" name="sentado_hablando_con_otro" value="2" checked onclick="sumarPuntos(this,6)"/>}
+                            else
+                            {<input type="radio" name="sentado_hablando_con_otro" value="2" onclick="sumarPuntos(this,6)"/>}
+                        </td>
+                        <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_hablando_con_otro == 3)
+                            {<input type="radio" name="sentado_hablando_con_otro" value="3" checked onclick="sumarPuntos(this,6)"/>}
+                            else
+                            {<input type="radio" name="sentado_hablando_con_otro" value="3" onclick="sumarPuntos(this,6)"/>}
+                        </td>
+                        <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td colspan="3" style="color:navy">Sentado tranquilamente después de una comida (sin consumo de alcohol en la comida)</td>
+                    </tr>
+                    <tr>
+                        <td width="30"></td>
+                        <td width="20">
+                            @if (Model.sentado_tranquilo_despues_de_comida == 0 || Model.sentado_tranquilo_despues_de_comida == null)
+                            {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="0" checked onclick="sumarPuntos(this,7)"/>}
+                            else
+                            {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="0" onclick="sumarPuntos(this,7)"/>}
+                        </td>
+                        <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_tranquilo_despues_de_comida == 1)
+                            {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="1" checked onclick="sumarPuntos(this,7)"/>}
+                            else
+                            {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="1" onclick="sumarPuntos(this,7)"/>}
+                        </td>
+                        <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_tranquilo_despues_de_comida == 2)
+                            {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="2" checked onclick="sumarPuntos(this,7)"/>}
+                            else
+                            {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="2" onclick="sumarPuntos(this,7)"/>}
+                        </td>
+                        <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_tranquilo_despues_de_comida == 3)
+                            {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="3" checked onclick="sumarPuntos(this,7)"/>}
+                            else
+                            {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="3" onclick="sumarPuntos(this,7)"/>}
+                        </td>
+                        <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td colspan="3" style="color:navy">Sentado en un coche, detenido durante unos pocos minutos por un atasco</td>
+                    </tr>
+                    <tr>
+                        <td width="30"></td>
+                        <td width="20">
+                            @if (Model.sentado_en_coche_por_unos_minutos_por_atasco == 0 || Model.sentado_en_coche_por_unos_minutos_por_atasco == null)
+                            {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="0" checked onclick="sumarPuntos(this,8)"/>}
+                            else
+                            {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="0" onclick="sumarPuntos(this,8)"/>}
+                        </td>
+                        <td>Sin posibilidad de adormecerse (0 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_en_coche_por_unos_minutos_por_atasco == 1)
+                            {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="1" checked onclick="sumarPuntos(this,8)"/>}
+                            else
+                            {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="1" onclick="sumarPuntos(this,8)"/>}
+                        </td>
+                        <td>Ligera posibilidad de adormecerse (1 punto)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_en_coche_por_unos_minutos_por_atasco == 2)
+                            {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="2" checked onclick="sumarPuntos(this,8)"/>}
+                            else
+                            {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="2" onclick="sumarPuntos(this,8)"/>}
+                        </td>
+                        <td>Posibilidad moderada de adormecerse (2 puntos)</td>
+                    </tr>
+                    <tr>
+                        <td width="10"></td>
+                        <td>
+                            @if (Model.sentado_en_coche_por_unos_minutos_por_atasco == 3)
+                            {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="3" checked onclick="sumarPuntos(this,8)"/>}
+                            else
+                            {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="3" onclick="sumarPuntos(this,8)"/>}
+                        </td>
+                        <td>Posibilidad alta de adormecerse (3 puntos)</td>
+                    </tr>
+                </table>
+
+            </div>
+
+
+        </div>
+
+        <div class="col-md-6">
+            <table border="1" width="100%">
+                <tr>
+                    <td style="font-weight:bold;text-align:right">1 - 6 puntos: </td>
+                    <td style="font-weight:normal">Sueño normal</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold;text-align:right">7 - 8 puntos: </td>
+                    <td style="font-weight:normal">Somnolencia media </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold;text-align:right">9 - 24 puntos: </td>
+                    <td style="font-weight:normal">Somnolencia anómala (posiblemente patológica) </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <table width="100%" border="1" style="font-weight:normal" align="center">
+                <tr>
+                    <td align="center">ESS</td>
+                    <td style="font-weight:normal" align="center">RANGO</td>
+                    <td style="font-weight:normal" align="center">DIAGNÓSTICO</td>
+                    <td style="font-weight:normal" align="center">EDAD</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">5.9 ± 2.2 </td>
+                    <td style="font-weight:normal" align="center">2 - 10 </td>
+                    <td style="font-weight:normal" align="center">NORMALES</td>
+                    <td style="font-weight:normal" align="center">30 ± 9 </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">6.5 ± 3.0  </td>
+                    <td style="font-weight:normal" align="center">0 - 11 </td>
+                    <td style="font-weight:normal" align="center">RONQUIDO</td>
+                    <td style="font-weight:normal" align="center">45.7 ± 10</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">11.7 ± 4.6 </td>
+                    <td style="font-weight:normal" align="center">4 - 23</td>
+                    <td style="font-weight:normal" align="center">SAOS</td>
+                    <td style="font-weight:normal" align="center">48.4 ± 10</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center"> 17.5 ± 3.5 </td>
+                    <td style="font-weight:normal" align="center">13 - 23</td>
+                    <td style="font-weight:normal" align="center">NARCOLEPSIA</td>
+                    <td style="font-weight:normal" align="center">46.6 ± 12</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">17.9 ± 3.1 </td>
+                    <td style="font-weight:normal" align="center">12 - 24</td>
+                    <td style="font-weight:normal" align="center">HIPERSOMNIA</td>
+                    <td style="font-weight:normal" align="center">41.4 ± 14</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">2.2 ± 2.0</td>
+                    <td style="font-weight:normal" align="center">0 - 6</td>
+                    <td style="font-weight:normal" align="center">INSOMNIO</td>
+                    <td style="font-weight:normal" align="center">40.3 ± 14.6</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">9.2 ± 4.0</td>
+                    <td style="font-weight:normal" align="center">2 - 16</td>
+                    <td style="font-weight:normal" align="center">SPI + MPPS</td>
+                    <td style="font-weight:normal" align="center">52.5 ± 10.3</td>
+                </tr>
+            </table>
+
+            <br />
+            <br />
+            <table width="100%" border="1" style="font-weight:normal" align="center">
+                <tr>
+                    <td align="center" colspan="5">PUNTUACIONES DEL ESS EN EL SAOS </td>
+
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">Grado de SAOS</td>
+                    <td style="font-weight:normal" align="center">
+                        Media
+                        IHA ± DS
+                    </td>
+                    <td style="font-weight:normal" align="center">
+                        Sujetos
+                        M/F
+                    </td>
+                    <td style="font-weight:normal" align="center">
+                        Puntuación
+                        media ± DS
+                    </td>
+                    <td style="font-weight:normal" align="center">Rango</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">SAOS leve</td>
+                    <td style="font-weight:normal" align="center">8.8 ± 2.3</td>
+                    <td style="font-weight:normal" align="center">22 (22/1) </td>
+                    <td style="font-weight:normal" align="center">9.5 ± 3.3</td>
+                    <td style="font-weight:normal" align="center">4 - 16</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">SAOS mod.</td>
+                    <td style="font-weight:normal" align="center">21.1 ± 4.0</td>
+                    <td style="font-weight:normal" align="center">20 (20/0)</td>
+                    <td style="font-weight:normal" align="center">11.5 ± 4.2</td>
+                    <td style="font-weight:normal" align="center">5 - 20</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal" align="center">SAOS severo</td>
+                    <td style="font-weight:normal" align="center">49.5 ± 9.6</td>
+                    <td style="font-weight:normal" align="center">13 (21/1)</td>
+                    <td style="font-weight:normal" align="center">16.0 ± 4.4</td>
+                    <td style="font-weight:normal" align="center">8 - 23</td>
+                </tr>
+
+
+            </table>
+        </div>
+    </div>
+    <div>
+        <p style="text-align:center;font-size:16px;font-weight:bold">
+            TOTAL DE PUNTOS <input name="TotalPuntos" id="total-puntos" style="border:none;width:25px;font-weight:bold" value="@Model.TotalPuntos" readonly/>
+        </p>
     </div>
 
-    <div class="form-group">
-        <table>
-            <tr>
-                <td colspan="3" style="color:navy">Viendo la televisión</td>
-            </tr>
-            <tr>
-                <td width="30"></td>
-                <td width="20">
-                    @if (Model.viendo_la_television == 0 || Model.viendo_la_television == null)
-                    {<input type="radio" name="viendo_la_television" value="0" checked />}
-                    else
-                    {<input type="radio" name="viendo_la_television" value="0" />}
-                </td>
-                <td>Sin posibilidad de adormecerse (0 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.viendo_la_television == 1)
-                    {<input type="radio" name="viendo_la_television" value="1" checked />}
-                    else
-                    {<input type="radio" name="viendo_la_television" value="1" />}
-                </td>
-                <td>Ligera posibilidad de adormecerse (1 punto)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.viendo_la_television == 2)
-                    {<input type="radio" name="viendo_la_television" value="2" checked />}
-                    else
-                    {<input type="radio" name="viendo_la_television" value="2" />}
-                </td>
-                <td>Posibilidad moderada de adormecerse (2 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.viendo_la_television == 3)
-                    {<input type="radio" name="viendo_la_television" value="3" checked />}
-                    else
-                    {<input type="radio" name="viendo_la_television" value="3" />}
-                </td>
-                <td>Posibilidad alta de adormecerse (3 puntos)</td>
-            </tr>
-        </table>
-
-    </div>
-
-    <div class="form-group">
-        <table>
-            <tr>
-                <td colspan="3" style="color:navy">Sentado inactivo en un lugar público</td>
-            </tr>
-            <tr>
-                <td width="30"></td>
-                <td width="20">
-                    @if (Model.sentado_inactivo_lugar_publico == 0 || Model.sentado_inactivo_lugar_publico == null)
-                    {<input type="radio" name="sentado_inactivo_lugar_publico" value="0" checked />}
-                    else
-                    {<input type="radio" name="sentado_inactivo_lugar_publico" value="0" />}
-                </td>
-                <td>Sin posibilidad de adormecerse (0 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_inactivo_lugar_publico == 1)
-                    {<input type="radio" name="sentado_inactivo_lugar_publico" value="1" checked />}
-                    else
-                    {<input type="radio" name="sentado_inactivo_lugar_publico" value="1" />}
-                </td>
-                <td>Ligera posibilidad de adormecerse (1 punto)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_inactivo_lugar_publico == 2)
-                    {<input type="radio" name="sentado_inactivo_lugar_publico" value="2" checked />}
-                    else
-                    {<input type="radio" name="sentado_inactivo_lugar_publico" value="2" />}
-                </td>
-                <td>Posibilidad moderada de adormecerse (2 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_inactivo_lugar_publico == 3)
-                    {<input type="radio" name="sentado_inactivo_lugar_publico" value="3" checked />}
-                    else
-                    {<input type="radio" name="sentado_inactivo_lugar_publico" value="3" />}
-                </td>
-                <td>Posibilidad alta de adormecerse (3 puntos)</td>
-            </tr>
-        </table>
-
-    </div>
-
-    <div class="form-group">
-        <table>
-            <tr>
-                <td colspan="3" style="color:navy">Sentado durante una hora como pasajero en un coche</td>
-            </tr>
-            <tr>
-                <td width="30"></td>
-                <td width="20">
-                    @if (Model.sentado_una_hora_pasajero == 0 || Model.sentado_una_hora_pasajero == null)
-                    {<input type="radio" name="sentado_una_hora_pasajero" value="0" checked />}
-                    else
-                    {<input type="radio" name="sentado_una_hora_pasajero" value="0" />}
-                </td>
-                <td>Sin posibilidad de adormecerse (0 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_una_hora_pasajero == 1)
-                    {<input type="radio" name="sentado_una_hora_pasajero" value="1" checked />}
-                    else
-                    {<input type="radio" name="sentado_una_hora_pasajero" value="1" />}
-                </td>
-                <td>Ligera posibilidad de adormecerse (1 punto)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_una_hora_pasajero == 2)
-                    {<input type="radio" name="sentado_una_hora_pasajero" value="2" checked />}
-                    else
-                    {<input type="radio" name="sentado_una_hora_pasajero" value="2" />}
-                </td>
-                <td>Posibilidad moderada de adormecerse (2 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_una_hora_pasajero == 3)
-                    {<input type="radio" name="sentado_una_hora_pasajero" value="3" checked />}
-                    else
-                    {<input type="radio" name="sentado_una_hora_pasajero" value="3" />}
-                </td>
-                <td>Posibilidad alta de adormecerse (3 puntos)</td>
-            </tr>
-        </table>
-
-    </div>
-
-    <div class="form-group">
-        <table>
-            <tr>
-                <td colspan="3" style="color:navy">Tumbado por la tarde para descansar</td>
-            </tr>
-            <tr>
-                <td width="30"></td>
-                <td width="20">
-                    @if (Model.tumbado_de_tarde_para_descansar == 0 || Model.tumbado_de_tarde_para_descansar == null)
-                    {<input type="radio" name="tumbado_de_tarde_para_descansar" value="0" checked />}
-                    else
-                    {<input type="radio" name="tumbado_de_tarde_para_descansar" value="0" />}
-                </td>
-                <td>Sin posibilidad de adormecerse (0 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.tumbado_de_tarde_para_descansar == 1)
-                    {<input type="radio" name="tumbado_de_tarde_para_descansar" value="1" checked />}
-                    else
-                    {<input type="radio" name="tumbado_de_tarde_para_descansar" value="1" />}
-                </td>
-                <td>Ligera posibilidad de adormecerse (1 punto)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.tumbado_de_tarde_para_descansar == 2)
-                    {<input type="radio" name="tumbado_de_tarde_para_descansar" value="2" checked />}
-                    else
-                    {<input type="radio" name="tumbado_de_tarde_para_descansar" value="2" />}
-                </td>
-                <td>Posibilidad moderada de adormecerse (2 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.tumbado_de_tarde_para_descansar == 3)
-                    {<input type="radio" name="tumbado_de_tarde_para_descansar" value="3" checked />}
-                    else
-                    {<input type="radio" name="tumbado_de_tarde_para_descansar" value="3" />}
-                </td>
-                <td>Posibilidad alta de adormecerse (3 puntos)</td>
-            </tr>
-        </table>
-
-
-    </div>
-
-    <div class="form-group">
-        <table>
-            <tr>
-                <td colspan="3" style="color:navy">Sentado y hablando con otra persona</td>
-            </tr>
-            <tr>
-                <td width="30"></td>
-                <td width="20">
-                    @if (Model.sentado_hablando_con_otro == 0 || Model.sentado_hablando_con_otro == null)
-                    {<input type="radio" name="sentado_hablando_con_otro" value="0" checked />}
-                    else
-                    {<input type="radio" name="sentado_hablando_con_otro" value="0" />}
-                </td>
-                <td>Sin posibilidad de adormecerse (0 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_hablando_con_otro == 1)
-                    {<input type="radio" name="sentado_hablando_con_otro" value="1" checked />}
-                    else
-                    {<input type="radio" name="sentado_hablando_con_otro" value="1" />}
-                </td>
-                <td>Ligera posibilidad de adormecerse (1 punto)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_hablando_con_otro == 2)
-                    {<input type="radio" name="sentado_hablando_con_otro" value="2" checked />}
-                    else
-                    {<input type="radio" name="sentado_hablando_con_otro" value="2" />}
-                </td>
-                <td>Posibilidad moderada de adormecerse (2 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_hablando_con_otro == 3)
-                    {<input type="radio" name="sentado_hablando_con_otro" value="3" checked />}
-                    else
-                    {<input type="radio" name="sentado_hablando_con_otro" value="3" />}
-                </td>
-                <td>Posibilidad alta de adormecerse (3 puntos)</td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="form-group">
-        <table>
-            <tr>
-                <td colspan="3" style="color:navy">Sentado tranquilamente después de una comida (sin consumo de alcohol en la comida)</td>
-            </tr>
-            <tr>
-                <td width="30"></td>
-                <td width="20">
-                    @if (Model.sentado_tranquilo_despues_de_comida == 0 || Model.sentado_tranquilo_despues_de_comida == null)
-                    {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="0" checked />}
-                    else
-                    {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="0" />}
-                </td>
-                <td>Sin posibilidad de adormecerse (0 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_tranquilo_despues_de_comida == 1)
-                    {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="1" checked />}
-                    else
-                    {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="1" />}
-                </td>
-                <td>Ligera posibilidad de adormecerse (1 punto)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_tranquilo_despues_de_comida == 2)
-                    {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="2" checked />}
-                    else
-                    {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="2" />}
-                </td>
-                <td>Posibilidad moderada de adormecerse (2 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_tranquilo_despues_de_comida == 3)
-                    {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="3" checked />}
-                    else
-                    {<input type="radio" name="sentado_tranquilo_despues_de_comida" value="3" />}
-                </td>
-                <td>Posibilidad alta de adormecerse (3 puntos)</td>
-            </tr>
-        </table>
-
-    </div>
-
-    <div class="form-group">
-        <table>
-            <tr>
-                <td colspan="3" style="color:navy">Sentado en un coche, detenido durante unos pocos minutos por un atasco</td>
-            </tr>
-            <tr>
-                <td width="30"></td>
-                <td width="20">
-                    @if (Model.sentado_en_coche_por_unos_minutos_por_atasco == 0 || Model.sentado_en_coche_por_unos_minutos_por_atasco == null)
-                    {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="0" checked />}
-                    else
-                    {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="0" />}
-                </td>
-                <td>Sin posibilidad de adormecerse (0 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_en_coche_por_unos_minutos_por_atasco == 1)
-                    {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="1" checked />}
-                    else
-                    {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="1" />}
-                </td>
-                <td>Ligera posibilidad de adormecerse (1 punto)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_en_coche_por_unos_minutos_por_atasco == 2)
-                    {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="2" checked />}
-                    else
-                    {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="2" />}
-                </td>
-                <td>Posibilidad moderada de adormecerse (2 puntos)</td>
-            </tr>
-            <tr>
-                <td width="10"></td>
-                <td>
-                    @if (Model.sentado_en_coche_por_unos_minutos_por_atasco == 3)
-                    {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="3" checked />}
-                    else
-                    {<input type="radio" name="sentado_en_coche_por_unos_minutos_por_atasco" value="3" />}
-                </td>
-                <td>Posibilidad alta de adormecerse (3 puntos)</td>
-            </tr>
-        </table>
-
-    </div>
     <div class="form-group">
         @Html.Label("Firma Especialista:", htmlAttributes: new { @class = "control-label" })
 
@@ -530,14 +660,13 @@
 
     </div>
 
-
     <div class="form-group">
         @Html.Label("Firma Cantidato:", htmlAttributes: new { @class = "control-label" })
 
         @{
             try
             {
-                var base64 = Convert.ToBase64String( Model.firma_candidato);
+                var base64 = Convert.ToBase64String(Model.firma_candidato);
                 var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
                 <img src="@imgSrc" height="150" width="300" />
             }
@@ -548,8 +677,8 @@
         }
 
     </div>
-   
-    
+
+
     <div class="form-group">
         @Html.Label("Firma Candidato", htmlAttributes: new { @class = "control-label col-md-2" })
 
@@ -614,14 +743,61 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Guardar" class="btn btn-default" />
         </div>
     </div>
 </div>
     }
 
-<div>
-    @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
-</div>
+    <div>
+        @Html.ActionLink("Cancelar", "Details/" + Model.Id_Formulario_S_O, "Formulario_S_O")
+    </div>
+    <script>
+        var valor1 = "@Model.sentado_y_leyendo" == "" ? 0 : eval("@Model.sentado_y_leyendo"),
+            valor2 = "@Model.viendo_la_television" == "" ? 0 : eval("@Model.viendo_la_television"),
+            valor3 = "@Model.sentado_inactivo_lugar_publico" == "" ? 0 : eval("@Model.sentado_inactivo_lugar_publico"),
+            valor4 = "@Model.sentado_una_hora_pasajero" == "" ? 0 : eval("@Model.sentado_una_hora_pasajero"),
+            valor5 = "@Model.tumbado_de_tarde_para_descansar" == "" ? 0 : eval("@Model.tumbado_de_tarde_para_descansar"),
+            valor6 = "@Model.sentado_hablando_con_otro" == "" ? 0 : eval("@Model.sentado_hablando_con_otro"),
+            valor7 = "@Model.sentado_tranquilo_despues_de_comida" == "" ? 0 : eval("@Model.sentado_tranquilo_despues_de_comida"),
+            valor8 = "@Model.sentado_en_coche_por_unos_minutos_por_atasco" == "" ? 0 : eval("@Model.sentado_en_coche_por_unos_minutos_por_atasco");
+        if ("@Model.TotalPuntos" === "")
+            var total = 0;
+        else
+            var total = eval("@Model.TotalPuntos");
+
+        function sumarPuntos(radio, rubro) {
+            switch (rubro) {
+                case 1:
+                    valor1 = eval(radio.value)
+                    break;
+                case 2:
+                    valor2 = eval(radio.value)
+                    break;
+                case 3:
+                    valor3 = eval(radio.value)
+                    break;
+                case 4:
+                    valor4 = eval(radio.value)
+                    break;
+                case 5:
+                    valor5 = eval(radio.value)
+                    break;
+                case 6:
+                    valor6 = eval(radio.value)
+                    break;
+                case 7:
+                    valor7 = eval(radio.value)
+                    break;
+                case 8:
+                    valor8= eval(radio.value)
+                    break;
+
+            }
+            total = eval(valor1) + eval(valor2) + eval(valor3) + eval(valor4) + eval(valor5) + eval(valor6) + eval(valor7) + eval(valor8)
+            $("#total-puntos").val(total)
+        }
+        
+    </script>
 </body>
 </html>

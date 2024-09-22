@@ -85,6 +85,7 @@
     <Property Name="Confrima_pruebas_completadas" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Deteccion_SAS" Relationship="ceisamco_form_s_oModel.FK__Deteccion__Id_Fo__731B1205" FromRole="Formulario_S_O" ToRole="Deteccion_SAS" />
     <NavigationProperty Name="EpWorths" Relationship="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" FromRole="Formulario_S_O" ToRole="EpWorth" />
+    <NavigationProperty Name="Apneas" Relationship="ceisamco_form_s_oModel.FK__Apnea__Id_Formul__035179CE" FromRole="Formulario_S_O" ToRole="Apnea" />
   </EntityType>
   <EntityType Name="Rol">
     <Key>
@@ -343,6 +344,11 @@
     <AssociationSet Name="FK__EpWorth__Id_Form__6D6238AF" Association="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF">
       <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
       <End Role="EpWorth" EntitySet="EpWorths" />
+    </AssociationSet>
+    <EntitySet Name="Apneas" EntityType="ceisamco_form_s_oModel.Apnea" />
+    <AssociationSet Name="FK__Apnea__Id_Formul__035179CE" Association="ceisamco_form_s_oModel.FK__Apnea__Id_Formul__035179CE">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Apnea" EntitySet="Apneas" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ArchivosExtra">
@@ -1315,6 +1321,7 @@
     <Property Name="Consentimiento_informado" Type="Boolean" Nullable="false" />
     <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="EpWorth" Type="Boolean" Nullable="false" />
+    <Property Name="Apnea" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="FK_Info_general_To_Formulario_S_O">
     <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1">
@@ -1463,6 +1470,7 @@
     <Property Name="Firma" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="firma_candidato" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" FromRole="EpWorth" ToRole="Formulario_S_O" />
+    <Property Name="TotalPuntos" Type="Int32" />
   </EntityType>
   <Association Name="FK__EpWorth__Id_Form__6D6238AF">
     <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1" />
@@ -1472,6 +1480,81 @@
         <PropertyRef Name="Id_Formulario_S_O" />
       </Principal>
       <Dependent Role="EpWorth">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Apnea">
+    <Key>
+      <PropertyRef Name="Id_Apnea" />
+    </Key>
+    <Property Name="Id_Apnea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo_licencia" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Trabaja_de_noche" Type="Boolean" Nullable="false" />
+    <Property Name="Dias_trabajo" Type="Int32" />
+    <Property Name="Dias_descanso" Type="Int32" />
+    <Property Name="Apnea_del_sueno" Type="Boolean" Nullable="false" />
+    <Property Name="Ultimo_control" Type="DateTime" Precision="3" />
+    <Property Name="HTA" Type="Boolean" Nullable="false" />
+    <Property Name="Medicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Polisomnografía_PSG" Type="Boolean" Nullable="false" />
+    <Property Name="Fecha_ultima_PSG" Type="DateTime" Precision="3" />
+    <Property Name="En_mina" Type="Boolean" Nullable="false" />
+    <Property Name="Fuera_de_mina" Type="Boolean" Nullable="false" />
+    <Property Name="Se_cabeceo" Type="Boolean" Nullable="false" />
+    <Property Name="Accidente_en_ultimas_5_horas" Type="Boolean" Nullable="false" />
+    <Property Name="Ausencia_de_evidencia_de_maniobra" Type="Boolean" Nullable="false" />
+    <Property Name="Colision_frontal_del_vehiculo" Type="Boolean" Nullable="false" />
+    <Property Name="Vehiculo_que_invadio" Type="Boolean" Nullable="false" />
+    <Property Name="El_conductor_no_recuerda" Type="Boolean" Nullable="false" />
+    <Property Name="El_conductor_tomo_una_medicacion" Type="Boolean" Nullable="false" />
+    <Property Name="El_conductor_se_encontraba_en_horas_extras" Type="Boolean" Nullable="false" />
+    <Property Name="Accidente_por_somnolencia" Type="Boolean" Nullable="false" />
+    <Property Name="Accidente_con_alta_sospecha" Type="Boolean" Nullable="false" />
+    <Property Name="Accidente_con_escasa_evidencia" Type="Boolean" Nullable="false" />
+    <Property Name="No_se_dispone_de_datos_suficientes" Type="Boolean" Nullable="false" />
+    <Property Name="Accidente_no_debido_a_somnolencia" Type="Boolean" Nullable="false" />
+    <Property Name="Su_esposa_comento_que_ronca" Type="Boolean" Nullable="false" />
+    <Property Name="Su_esposa_comento_que_hace_ruidos" Type="Boolean" Nullable="false" />
+    <Property Name="Su_esposa_comento_que_deja_de_respirar" Type="Boolean" Nullable="false" />
+    <Property Name="Siente_mas_que_tiene_mas_sueno" Type="Boolean" Nullable="false" />
+    <Property Name="Tiene_familiar_con_apnea" Type="Boolean" Nullable="false" />
+    <Property Name="Accidente_por_falla_humana" Type="Boolean" Nullable="false" />
+    <Property Name="Recibe_tratamiento_para_apnea" Type="Boolean" Nullable="false" />
+    <Property Name="Se_le_ha_relizado_una_PSG" Type="Boolean" Nullable="false" />
+    <Property Name="Puntuacion_epwhorth" Type="Int32" />
+    <Property Name="Peso" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Talla" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="IMC" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Varon_normal" Type="Boolean" Nullable="false" />
+    <Property Name="Mujer_normal" Type="Boolean" Nullable="false" />
+    <Property Name="Sistolica" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Diastolica" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="HTA_nueva" Type="Boolean" Nullable="false" />
+    <Property Name="Grado" Type="Int32" />
+    <Property Name="Excesiva_somnolencia" Type="Boolean" Nullable="false" />
+    <Property Name="Antecendente_de_SAS" Type="Boolean" Nullable="false" />
+    <Property Name="Historia_de_higiene" Type="Boolean" Nullable="false" />
+    <Property Name="Cumple_con_dos_o_mas" Type="Boolean" Nullable="false" />
+    <Property Name="Evaluacion_via_aerea" Type="Boolean" Nullable="false" />
+    <Property Name="Apto_para_conducir_vehiculos" Type="Boolean" Nullable="false" />
+    <Property Name="Firma" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Id_Formulario_S_O" Type="Int32" />
+    <Property Name="Modificado" Type="Boolean" Nullable="false" />
+    <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
+    <Property Name="Usuario_que_modifico" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK__Apnea__Id_Formul__035179CE" FromRole="Apnea" ToRole="Formulario_S_O" />
+    <Property Name="Circunferencia_de_cuello" Type="Decimal" Precision="9" Scale="2" />
+  </EntityType>
+  <Association Name="FK__Apnea__Id_Formul__035179CE">
+    <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1" />
+    <End Type="ceisamco_form_s_oModel.Apnea" Role="Apnea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Apnea">
         <PropertyRef Name="Id_Formulario_S_O" />
       </Dependent>
     </ReferentialConstraint>

@@ -117,10 +117,10 @@ namespace WebParaMelvin.Controllers
                     epWorth.firma_candidato = Convert.FromBase64String( epWorth.sigImageData);
                   
                 }
-                if (epWorth.Firmar)
-                {
-                    epWorth.Firma = user.Firma;
-                }
+                //if (epWorth.Firmar)
+                //{
+                //    epWorth.Firma = user.Firma;
+                //}
 
                 db.Entry(epWorth).State = EntityState.Modified;
                 db.SaveChanges();

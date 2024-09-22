@@ -868,6 +868,7 @@
     <EntitySetMapping Name="Info_general">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Info_general">
         <MappingFragment StoreEntitySet="Info_general">
+          <ScalarProperty Name="Apnea" ColumnName="Apnea" />
           <ScalarProperty Name="EpWorth" ColumnName="EpWorth" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Consentimiento_informado" ColumnName="Consentimiento_informado" />
@@ -980,6 +981,7 @@
     <EntitySetMapping Name="EpWorths">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.EpWorth">
         <MappingFragment StoreEntitySet="EpWorth">
+          <ScalarProperty Name="TotalPuntos" ColumnName="TotalPuntos" />
           <ScalarProperty Name="firma_candidato" ColumnName="firma_candidato" />
           <ScalarProperty Name="Firma" ColumnName="Firma" />
           <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
@@ -996,6 +998,69 @@
           <ScalarProperty Name="viendo_la_television" ColumnName="viendo_la_television" />
           <ScalarProperty Name="sentado_y_leyendo" ColumnName="sentado_y_leyendo" />
           <ScalarProperty Name="Id_EpWorth" ColumnName="Id_EpWorth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Apneas">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Apnea">
+        <MappingFragment StoreEntitySet="Apnea">
+          <ScalarProperty Name="Circunferencia_de_cuello" ColumnName="Circunferencia_de_cuello" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Apto_para_conducir_vehiculos" ColumnName="Apto_para_conducir_vehiculos" />
+          <ScalarProperty Name="Evaluacion_via_aerea" ColumnName="Evaluacion_via_aerea" />
+          <ScalarProperty Name="Cumple_con_dos_o_mas" ColumnName="Cumple_con_dos_o_mas" />
+          <ScalarProperty Name="Historia_de_higiene" ColumnName="Historia_de_higiene" />
+          <ScalarProperty Name="Antecendente_de_SAS" ColumnName="Antecendente_de_SAS" />
+          <ScalarProperty Name="Excesiva_somnolencia" ColumnName="Excesiva_somnolencia" />
+          <ScalarProperty Name="Grado" ColumnName="Grado" />
+          <ScalarProperty Name="HTA_nueva" ColumnName="HTA_nueva" />
+          <ScalarProperty Name="Diastolica" ColumnName="Diastolica" />
+          <ScalarProperty Name="Sistolica" ColumnName="Sistolica" />
+          <ScalarProperty Name="Mujer_normal" ColumnName="Mujer_normal" />
+          <ScalarProperty Name="Varon_normal" ColumnName="Varon_normal" />
+          <ScalarProperty Name="IMC" ColumnName="IMC" />
+          <ScalarProperty Name="Talla" ColumnName="Talla" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Puntuacion_epwhorth" ColumnName="Puntuacion_epwhorth" />
+          <ScalarProperty Name="Se_le_ha_relizado_una_PSG" ColumnName="Se_le_ha_relizado_una_PSG" />
+          <ScalarProperty Name="Recibe_tratamiento_para_apnea" ColumnName="Recibe_tratamiento_para_apnea" />
+          <ScalarProperty Name="Accidente_por_falla_humana" ColumnName="Accidente_por_falla_humana" />
+          <ScalarProperty Name="Tiene_familiar_con_apnea" ColumnName="Tiene_familiar_con_apnea" />
+          <ScalarProperty Name="Siente_mas_que_tiene_mas_sueno" ColumnName="Siente_mas_que_tiene_mas_sueno" />
+          <ScalarProperty Name="Su_esposa_comento_que_deja_de_respirar" ColumnName="Su_esposa_comento_que_deja_de_respirar" />
+          <ScalarProperty Name="Su_esposa_comento_que_hace_ruidos" ColumnName="Su_esposa_comento_que_hace_ruidos" />
+          <ScalarProperty Name="Su_esposa_comento_que_ronca" ColumnName="Su_esposa_comento_que_ronca" />
+          <ScalarProperty Name="Accidente_no_debido_a_somnolencia" ColumnName="Accidente_no_debido_a_somnolencia" />
+          <ScalarProperty Name="No_se_dispone_de_datos_suficientes" ColumnName="No_se_dispone_de_datos_suficientes" />
+          <ScalarProperty Name="Accidente_con_escasa_evidencia" ColumnName="Accidente_con_escasa_evidencia" />
+          <ScalarProperty Name="Accidente_con_alta_sospecha" ColumnName="Accidente_con_alta_sospecha" />
+          <ScalarProperty Name="Accidente_por_somnolencia" ColumnName="Accidente_por_somnolencia" />
+          <ScalarProperty Name="El_conductor_se_encontraba_en_horas_extras" ColumnName="El_conductor_se_encontraba_en_horas_extras" />
+          <ScalarProperty Name="El_conductor_tomo_una_medicacion" ColumnName="El_conductor_tomo_una_medicacion" />
+          <ScalarProperty Name="El_conductor_no_recuerda" ColumnName="El_conductor_no_recuerda" />
+          <ScalarProperty Name="Vehiculo_que_invadio" ColumnName="Vehiculo_que_invadio" />
+          <ScalarProperty Name="Colision_frontal_del_vehiculo" ColumnName="Colision_frontal_del_vehiculo" />
+          <ScalarProperty Name="Ausencia_de_evidencia_de_maniobra" ColumnName="Ausencia_de_evidencia_de_maniobra" />
+          <ScalarProperty Name="Accidente_en_ultimas_5_horas" ColumnName="Accidente_en_ultimas_5_horas" />
+          <ScalarProperty Name="Se_cabeceo" ColumnName="Se_cabeceo" />
+          <ScalarProperty Name="Fuera_de_mina" ColumnName="Fuera_de_mina" />
+          <ScalarProperty Name="En_mina" ColumnName="En_mina" />
+          <ScalarProperty Name="Fecha_ultima_PSG" ColumnName="Fecha_ultima_PSG" />
+          <ScalarProperty Name="Polisomnografía_PSG" ColumnName="Polisomnografía_PSG" />
+          <ScalarProperty Name="Medicacion" ColumnName="Medicacion" />
+          <ScalarProperty Name="HTA" ColumnName="HTA" />
+          <ScalarProperty Name="Ultimo_control" ColumnName="Ultimo_control" />
+          <ScalarProperty Name="Apnea_del_sueno" ColumnName="Apnea_del_sueno" />
+          <ScalarProperty Name="Dias_descanso" ColumnName="Dias_descanso" />
+          <ScalarProperty Name="Dias_trabajo" ColumnName="Dias_trabajo" />
+          <ScalarProperty Name="Trabaja_de_noche" ColumnName="Trabaja_de_noche" />
+          <ScalarProperty Name="Tipo_licencia" ColumnName="Tipo_licencia" />
+          <ScalarProperty Name="Id_Apnea" ColumnName="Id_Apnea" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

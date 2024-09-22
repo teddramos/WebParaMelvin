@@ -54,6 +54,8 @@
         <AssociationConnector Association="ceisamco_form_s_oModel.FK__Deteccion__Id_Fo__731B1205" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.EpWorth" Width="1.5" PointX="7.5" PointY="0.875" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Apnea" Width="1.5" PointX="7.5" PointY="184.125" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK__Apnea__Id_Formul__035179CE" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,365 @@
+﻿@model IEnumerable<WebParaMelvin.Models.Apnea>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo_licencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trabaja_de_noche)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dias_trabajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dias_descanso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apnea_del_sueno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ultimo_control)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HTA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Polisomnografía_PSG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_ultima_PSG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.En_mina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fuera_de_mina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Se_cabeceo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accidente_en_ultimas_5_horas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ausencia_de_evidencia_de_maniobra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colision_frontal_del_vehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculo_que_invadio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.El_conductor_no_recuerda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.El_conductor_tomo_una_medicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.El_conductor_se_encontraba_en_horas_extras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accidente_por_somnolencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accidente_con_alta_sospecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accidente_con_escasa_evidencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.No_se_dispone_de_datos_suficientes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accidente_no_debido_a_somnolencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Su_esposa_comento_que_ronca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Su_esposa_comento_que_hace_ruidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Su_esposa_comento_que_deja_de_respirar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Siente_mas_que_tiene_mas_sueno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tiene_familiar_con_apnea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accidente_por_falla_humana)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recibe_tratamiento_para_apnea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Se_le_ha_relizado_una_PSG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puntuacion_epwhorth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Talla)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IMC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Varon_normal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mujer_normal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sistolica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diastolica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HTA_nueva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Excesiva_somnolencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Antecendente_de_SAS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Historia_de_higiene)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cumple_con_dos_o_mas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evaluacion_via_aerea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apto_para_conducir_vehiculos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Firma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modificado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ultima_modificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario_que_modifico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Formulario_S_O.Estado)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo_licencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trabaja_de_noche)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dias_trabajo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dias_descanso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apnea_del_sueno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ultimo_control)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HTA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Polisomnografía_PSG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_ultima_PSG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.En_mina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fuera_de_mina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Se_cabeceo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accidente_en_ultimas_5_horas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ausencia_de_evidencia_de_maniobra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colision_frontal_del_vehiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehiculo_que_invadio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.El_conductor_no_recuerda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.El_conductor_tomo_una_medicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.El_conductor_se_encontraba_en_horas_extras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accidente_por_somnolencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accidente_con_alta_sospecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accidente_con_escasa_evidencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_se_dispone_de_datos_suficientes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accidente_no_debido_a_somnolencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Su_esposa_comento_que_ronca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Su_esposa_comento_que_hace_ruidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Su_esposa_comento_que_deja_de_respirar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Siente_mas_que_tiene_mas_sueno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tiene_familiar_con_apnea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accidente_por_falla_humana)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recibe_tratamiento_para_apnea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Se_le_ha_relizado_una_PSG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntuacion_epwhorth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Peso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Talla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IMC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Varon_normal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mujer_normal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sistolica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diastolica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HTA_nueva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Excesiva_somnolencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Antecendente_de_SAS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Historia_de_higiene)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cumple_con_dos_o_mas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Evaluacion_via_aerea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apto_para_conducir_vehiculos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modificado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ultima_modificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario_que_modifico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formulario_S_O.Estado)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id_Apnea }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id_Apnea }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id_Apnea })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
