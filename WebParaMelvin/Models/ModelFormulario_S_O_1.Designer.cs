@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\webParaMelvin\WebParaMelvin\WebParaMelvin\Models\ModelFormulario_S_O_1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\tedd\WebParaMelvin\WebParaMelvin\WebParaMelvin\Models\ModelFormulario_S_O_1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

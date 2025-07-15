@@ -69,6 +69,7 @@
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Circunferencia_de_cuello" Type="decimal" Precision="9" Scale="2" />
   </EntityType>
   <EntityType Name="ArchivosExtras">
     <Key>
@@ -297,6 +298,7 @@
     <Property Name="Id_Formulario_S_O" Type="int" />
     <Property Name="Firma" Type="image" />
     <Property Name="firma_candidato" Type="image" />
+    <Property Name="TotalPuntos" Type="int" />
   </EntityType>
   <EntityType Name="Espirometria">
     <Key>

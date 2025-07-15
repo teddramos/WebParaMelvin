@@ -82,15 +82,29 @@ namespace WebParaMelvin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id_Apnea,Tipo_licencia,Trabaja_de_noche,Dias_trabajo,Dias_descanso,Apnea_del_sueno,Ultimo_control,HTA,Medicacion,Polisomnografía_PSG,Fecha_ultima_PSG,En_mina,Fuera_de_mina,Se_cabeceo,Accidente_en_ultimas_5_horas,Ausencia_de_evidencia_de_maniobra,Colision_frontal_del_vehiculo,Vehiculo_que_invadio,El_conductor_no_recuerda,El_conductor_tomo_una_medicacion,El_conductor_se_encontraba_en_horas_extras,Accidente_por_somnolencia,Accidente_con_alta_sospecha,Accidente_con_escasa_evidencia,No_se_dispone_de_datos_suficientes,Accidente_no_debido_a_somnolencia,Su_esposa_comento_que_ronca,Su_esposa_comento_que_hace_ruidos,Su_esposa_comento_que_deja_de_respirar,Siente_mas_que_tiene_mas_sueno,Tiene_familiar_con_apnea,Accidente_por_falla_humana,Recibe_tratamiento_para_apnea,Se_le_ha_relizado_una_PSG,Puntuacion_epwhorth,Peso,Talla,IMC,Varon_normal,Mujer_normal,Sistolica,Diastolica,HTA_nueva,Grado,Excesiva_somnolencia,Antecendente_de_SAS,Historia_de_higiene,Cumple_con_dos_o_mas,Evaluacion_via_aerea,Apto_para_conducir_vehiculos,Firma,Id_Formulario_S_O,Modificado,Ultima_modificacion,Usuario_que_modifico,Estado")] Apnea apnea)
+        public ActionResult Edit(Apnea apnea)
         {
+            var user = Session["User"] as Usuario;
+            if (user == null)
+            {
+                return RedirectToAction("Create", "Usuarios");
+            }
             if (ModelState.IsValid)
             {
+                apnea.Modificado = true;
+
+                apnea.Usuario_que_modifico = user.Id_usuario;
+                apnea.Ultima_modificacion = DateTime.Now;
+
+                if (apnea.Estado == "Finalizada" && apnea.Firmar)
+                {
+                    apnea.Firma = user.Firma;
+                }
                 db.Entry(apnea).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details/" + apnea.Id_Formulario_S_O, "Formulario_S_O");
             }
-            ViewBag.Id_Formulario_S_O = new SelectList(db.Formulario_S_O, "Id_Formulario_S_O", "Estado", apnea.Id_Formulario_S_O);
+           
             return View(apnea);
         }
 
