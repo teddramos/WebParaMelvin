@@ -9,6 +9,14 @@ namespace WebParaMelvin.Models
     public partial class Hemograma
     {
        public HttpPostedFileBase Data { get; set; }
+        
+        
+    }
+    public partial class Examen_Visual_2
+    {
+        public HttpPostedFileBase Data { get; set; }
+        public bool Firmar { get; set; }
+        public string sigImageData { get; set; }
     }
     public partial class Espirometria
     {

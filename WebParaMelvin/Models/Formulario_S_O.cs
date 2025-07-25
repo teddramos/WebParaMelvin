@@ -34,6 +34,7 @@ namespace WebParaMelvin.Models
             this.Deteccion_SAS = new HashSet<Deteccion_SAS>();
             this.EpWorths = new HashSet<EpWorth>();
             this.Apneas = new HashSet<Apnea>();
+            this.Examen_Visual_2 = new HashSet<Examen_Visual_2>();
         }
     
         public int Id_Formulario_S_O { get; set; }
@@ -80,5 +81,7 @@ namespace WebParaMelvin.Models
         public virtual ICollection<EpWorth> EpWorths { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Apnea> Apneas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Examen_Visual_2> Examen_Visual_2 { get; set; }
     }
 }

@@ -275,7 +275,13 @@
                 @Html.ValidationMessageFor(model => model.Apnea, "", new { @class = "text-danger" })
             </div>
         </div>
-       
+        <div class="form-group">
+            @Html.LabelFor(model => model.Examen_Visual_2, "Nuevo Examen Visual", htmlAttributes: new { @class = "control-label col-md-2", @style = "width:100%" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Examen_Visual_2, new { htmlAttributes = new { @class = "form-control ex-vi-2", @type = "checkbox" } })
+                @Html.ValidationMessageFor(model => model.Examen_Visual_2, "", new { @class = "text-danger" })
+            </div>
+        </div>
     </div>
 
 
@@ -322,6 +328,7 @@
             $('.lab').prop('checked', 'checked')
             $('.con-inf').prop('checked', 'checked')
             $('.ex-vi').prop('checked', 'checked')
+            $('.ex-vi-2').prop('checked', 'checked')
             $('.bat-un-mes').prop('checked', 'checked')
 
         }
@@ -338,6 +345,7 @@
             $('.lab').prop('checked', 'checked')
             $('.con-inf').prop('checked', 'checked')
             $('.ex-vi').prop('checked', 'checked')
+            $('.ex-vi-2').prop('checked', 'checked')
             $('.pre-esp').prop('checked', 'checked')
             $('._esp').prop('checked', 'checked')
             $('.cap-fisc').prop('checked', 'checked')

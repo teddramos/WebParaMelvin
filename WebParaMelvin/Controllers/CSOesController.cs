@@ -112,6 +112,10 @@ namespace WebParaMelvin.Controllers
                 {
                     Id_Formulario_S_O = cSO.Id_Formulario_S_O
                 });
+                db.Examen_Visual_2.Add(new Examen_Visual_2()
+                {
+                    Id_Formulario_S_O = cSO.Id_Formulario_S_O
+                });
                 cSO.Usuario_que_modifico =(Session["User"] as Usuario).Id_usuario;
                 db.SaveChanges();
                 return RedirectToAction("Create", "Formulario_S_O");

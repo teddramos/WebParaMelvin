@@ -868,6 +868,7 @@
     <EntitySetMapping Name="Info_general">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Info_general">
         <MappingFragment StoreEntitySet="Info_general">
+          <ScalarProperty Name="Examen_Visual_2" ColumnName="Examen_Visual_2" />
           <ScalarProperty Name="Apnea" ColumnName="Apnea" />
           <ScalarProperty Name="EpWorth" ColumnName="EpWorth" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -1061,6 +1062,20 @@
           <ScalarProperty Name="Trabaja_de_noche" ColumnName="Trabaja_de_noche" />
           <ScalarProperty Name="Tipo_licencia" ColumnName="Tipo_licencia" />
           <ScalarProperty Name="Id_Apnea" ColumnName="Id_Apnea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examen_Visual_2">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Examen_Visual_2">
+        <MappingFragment StoreEntitySet="Examen_Visual_2">
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Id_Examen_Visual_2" ColumnName="Id_Examen_Visual_2" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

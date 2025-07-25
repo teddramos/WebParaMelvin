@@ -11,6 +11,7 @@
     var pre_esp = db.Pre_espirometria.FirstOrDefault(p => p.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var audio = db.Audiometrias.FirstOrDefault(a => a.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var visual = db.Examen_Visual.FirstOrDefault(v => v.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var visual_n = db.Examen_Visual_2.FirstOrDefault(v => v.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var manero = db.Mareos.FirstOrDefault(m => m.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var hemo = db.Hemogramas.FirstOrDefault(h => h.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var lab = db.Laboratorios.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
@@ -3715,6 +3716,117 @@ Apto)
 
                 <p style="page-break-before: always;">&nbsp;</p>
             }
+
+        }
+        @{if (info.Examen_Visual_2)
+            {
+                <div id="Espirometria">
+                    <table style="width:100%;border-collapse:collapse">
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="cisam logo" style="border:1px solid white;" src="../../Images/logo%20cisam.jpg" width="150" height="55" />
+                            </td>
+                            <td align="center" class="field" style="font-size:18px">CENTRO INTEGRAL DE SALUD MAIMÓN</td>
+                            <td class="field" style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Examen Visual</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                    <table style="width:100%;border-collapse:collapse">
+                        <tr>
+                            <td colspan="5">&nbsp;</td>
+                            <td class="fields">Expediente No.</td>
+                            <td class="content-fields">@fso.Id_Formulario_S_O</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Empresa:</td>
+                            <td class="content-fields" colspan="4">@empresa.Nombre</td>
+                            <td class="fields">Fecha:</td>
+                            <td class="content-fields">@info.Fecha.Value.ToShortDateString()</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Departamento:</td>
+                            <td class="content-fields">@info.Departamento</td>
+                            <td class="fields">Posición:</td>
+                            <td class="content-fields" colspan="4">@info.Posicion</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Tipo evaluación:</td>
+                            <td class="content-fields" colspan="6">@info.Tipo_de_evaluacion</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" style="border-bottom:1px solid">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="fields" colspan="7" align="center">Datos Generales</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Nombre:</td>
+                            <td class="content-fields" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+                            <td class="fields">Sexo:</td>
+                            <td class="content-fields">@info.Sexo</td>
+                            <td class="fields">Cédula:</td>
+                            <td class="content-fields">@info.Cedula</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Fecha de Nacimiento</td>
+                            <td class="content-fields">@info.Fecha_de_nacimiento.Value.ToShortDateString()</td>
+                            <td class="fields">Edad:</td>
+                            <td class="content-fields">@info.Edad</td>
+                            <td class="fields">Id Empleado</td>
+                            <td class="content-fields" colspan="2">@info.Id_Empleado</td>
+                        </tr>
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <p class="field">&nbsp;Examen visual:</p>
+                    <br />
+                    <p align="center">
+                        @{
+                            try
+                            {
+                                var base64 = Convert.ToBase64String(visual_n.Archivo);
+                                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                                <img src="@imgSrc" width="800"/>
+                            }
+                            catch
+                            {
+                                <img src="" width="1000" height="0" />
+                            }
+                        }
+                    </p>
+                    <br />
+
+
+                    <p align="center">
+                        @{
+                            try
+                            {
+                                var base64 = Convert.ToBase64String(visual_n.Firma);
+                                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                                <img src="@imgSrc" width="280" height="110" />
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                    </p>
+                    <p align="center">_____________________________________</p>
+                    <p align="center">Firma</p>
+
+                </div>
+
+                <p style="page-break-before: always;">&nbsp;</p>
+            }
+
         }
 
         @{ if (info.Capacidad_fisica)
@@ -5740,9 +5852,9 @@ Apto)
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
-                            
+
                             <td align="center" style="font-size:16px;font-weight:bold" width="400" colspan="3">TOTAL DEL PUNTOS @epw.TotalPuntos</td>
-                            
+
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -6743,7 +6855,7 @@ Apto)
                         setGradeSelected(grade)
                     </script>
                 </div>
-                }
             }
-            </body>
+        }
+    </body>
 </html>

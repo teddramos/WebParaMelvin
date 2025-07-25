@@ -56,6 +56,8 @@
         <AssociationConnector Association="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Apnea" Width="1.5" PointX="7.5" PointY="184.125" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK__Apnea__Id_Formul__035179CE" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Examen_Visual_2" Width="1.5" PointX="7.5" PointY="40" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Examen_Visual_2_To_Formulario_S_O" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

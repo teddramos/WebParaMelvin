@@ -215,6 +215,7 @@
     <Compile Include="Controllers\EpWorthsController.cs" />
     <Compile Include="Controllers\EspirometriasController.cs" />
     <Compile Include="Controllers\Examen_VisualController.cs" />
+    <Compile Include="Controllers\Examen_Visual_2Controller.cs" />
     <Compile Include="Controllers\Formulario_S_OController.cs" />
     <Compile Include="Controllers\HemogramasController.cs" />
     <Compile Include="Controllers\Historia_clinicaController.cs" />
@@ -263,6 +264,9 @@
       <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Examen_Visual.cs">
+      <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Examen_Visual_2.cs">
       <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Formulario_S_O.cs">
@@ -740,6 +744,11 @@
     <Content Include="Views\Apneas\Details.cshtml" />
     <Content Include="Views\Apneas\Edit.cshtml" />
     <Content Include="Views\Apneas\Index.cshtml" />
+    <Content Include="Views\Examen_Visual_2\Create.cshtml" />
+    <Content Include="Views\Examen_Visual_2\Delete.cshtml" />
+    <Content Include="Views\Examen_Visual_2\Details.cshtml" />
+    <Content Include="Views\Examen_Visual_2\Edit.cshtml" />
+    <Content Include="Views\Examen_Visual_2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

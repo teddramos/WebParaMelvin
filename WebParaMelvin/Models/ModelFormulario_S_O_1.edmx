@@ -406,6 +406,19 @@
           <Property Name="Usuario_que_modifico" Type="int" />
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Examen_Visual_2">
+          <Key>
+            <PropertyRef Name="Id_Examen_Visual_2" />
+          </Key>
+          <Property Name="Id_Examen_Visual_2" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Archivo" Type="image" />
+          <Property Name="Id_Formulario_S_O" Type="int" />
+          <Property Name="Modificado" Type="bit" />
+          <Property Name="Ultima_modificacion" Type="datetime" />
+          <Property Name="Usuario_que_modifico" Type="int" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firma" Type="image" />
+        </EntityType>
         <EntityType Name="Formulario_S_O">
           <Key>
             <PropertyRef Name="Id_Formulario_S_O" />
@@ -745,6 +758,7 @@
           <Property Name="Estado" Type="nvarchar" MaxLength="50" />
           <Property Name="EpWorth" Type="bit" Nullable="false" />
           <Property Name="Apnea" Type="bit" Nullable="false" />
+          <Property Name="Examen_Visual_2" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Laboratorio">
           <Key>
@@ -1175,6 +1189,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Examen_Visual_2_To_Formulario_S_O">
+          <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Examen_Visual_2" Type="Self.Examen_Visual_2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formulario_S_O">
+              <PropertyRef Name="Id_Formulario_S_O" />
+            </Principal>
+            <Dependent Role="Examen_Visual_2">
+              <PropertyRef Name="Id_Formulario_S_O" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Examen_Visual_Formulario_S_O">
           <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1398,6 +1426,7 @@
           <EntitySet Name="EpWorth" EntityType="Self.EpWorth" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Espirometria" EntityType="Self.Espirometria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Examen_Visual" EntityType="Self.Examen_Visual" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Examen_Visual_2" EntityType="Self.Examen_Visual_2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Formulario_S_O" EntityType="Self.Formulario_S_O" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hemograma" EntityType="Self.Hemograma" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Historia_Clinica" EntityType="Self.Historia_Clinica" Schema="dbo" store:Type="Tables" />
@@ -1450,6 +1479,10 @@
           <AssociationSet Name="FK_Espirometria_To_Formulario_S_O" Association="Self.FK_Espirometria_To_Formulario_S_O">
             <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
             <End Role="Espirometria" EntitySet="Espirometria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Examen_Visual_2_To_Formulario_S_O" Association="Self.FK_Examen_Visual_2_To_Formulario_S_O">
+            <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+            <End Role="Examen_Visual_2" EntitySet="Examen_Visual_2" />
           </AssociationSet>
           <AssociationSet Name="FK_Examen_Visual_Formulario_S_O" Association="Self.FK_Examen_Visual_Formulario_S_O">
             <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
@@ -1606,6 +1639,7 @@
           <NavigationProperty Name="Deteccion_SAS" Relationship="ceisamco_form_s_oModel.FK__Deteccion__Id_Fo__731B1205" FromRole="Formulario_S_O" ToRole="Deteccion_SAS" />
           <NavigationProperty Name="EpWorths" Relationship="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" FromRole="Formulario_S_O" ToRole="EpWorth" />
           <NavigationProperty Name="Apneas" Relationship="ceisamco_form_s_oModel.FK__Apnea__Id_Formul__035179CE" FromRole="Formulario_S_O" ToRole="Apnea" />
+          <NavigationProperty Name="Examen_Visual_2" Relationship="ceisamco_form_s_oModel.FK_Examen_Visual_2_To_Formulario_S_O" FromRole="Formulario_S_O" ToRole="Examen_Visual_2" />
           </EntityType>
         <EntityType Name="Rol">
           <Key>
@@ -1869,6 +1903,11 @@
           <AssociationSet Name="FK__Apnea__Id_Formul__035179CE" Association="ceisamco_form_s_oModel.FK__Apnea__Id_Formul__035179CE">
             <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
             <End Role="Apnea" EntitySet="Apneas" />
+          </AssociationSet>
+          <EntitySet Name="Examen_Visual_2" EntityType="ceisamco_form_s_oModel.Examen_Visual_2" />
+          <AssociationSet Name="FK_Examen_Visual_2_To_Formulario_S_O" Association="ceisamco_form_s_oModel.FK_Examen_Visual_2_To_Formulario_S_O">
+            <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+            <End Role="Examen_Visual_2" EntitySet="Examen_Visual_2" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="ArchivosExtra">
@@ -2842,6 +2881,7 @@
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EpWorth" Type="Boolean" Nullable="false" />
           <Property Name="Apnea" Type="Boolean" Nullable="false" />
+          <Property Name="Examen_Visual_2" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Info_general_To_Formulario_S_O">
           <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1">
@@ -3075,6 +3115,34 @@
               <PropertyRef Name="Id_Formulario_S_O" />
             </Principal>
             <Dependent Role="Apnea">
+              <PropertyRef Name="Id_Formulario_S_O" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Examen_Visual_2">
+          <Key>
+            <PropertyRef Name="Id_Examen_Visual_2" />
+          </Key>
+          <Property Name="Id_Examen_Visual_2" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Archivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Id_Formulario_S_O" Type="Int32" />
+          <Property Name="Modificado" Type="Boolean" />
+          <Property Name="Ultima_modificacion" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_que_modifico" Type="Int32" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Formulario_S_O" Relationship="ceisamco_form_s_oModel.FK_Examen_Visual_2_To_Formulario_S_O" FromRole="Examen_Visual_2" ToRole="Formulario_S_O" />
+          <Property Name="Firma" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Examen_Visual_2_To_Formulario_S_O">
+          <End Type="ceisamco_form_s_oModel.Formulario_S_O" Role="Formulario_S_O" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ceisamco_form_s_oModel.Examen_Visual_2" Role="Examen_Visual_2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formulario_S_O">
+              <PropertyRef Name="Id_Formulario_S_O" />
+            </Principal>
+            <Dependent Role="Examen_Visual_2">
               <PropertyRef Name="Id_Formulario_S_O" />
             </Dependent>
           </ReferentialConstraint>
@@ -3952,6 +4020,7 @@
           <EntitySetMapping Name="Info_general">
             <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Info_general">
               <MappingFragment StoreEntitySet="Info_general">
+                <ScalarProperty Name="Examen_Visual_2" ColumnName="Examen_Visual_2" />
                 <ScalarProperty Name="Apnea" ColumnName="Apnea" />
                 <ScalarProperty Name="EpWorth" ColumnName="EpWorth" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -4145,6 +4214,20 @@
                 <ScalarProperty Name="Trabaja_de_noche" ColumnName="Trabaja_de_noche" />
                 <ScalarProperty Name="Tipo_licencia" ColumnName="Tipo_licencia" />
                 <ScalarProperty Name="Id_Apnea" ColumnName="Id_Apnea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Examen_Visual_2">
+            <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Examen_Visual_2">
+              <MappingFragment StoreEntitySet="Examen_Visual_2">
+                <ScalarProperty Name="Firma" ColumnName="Firma" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+                <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+                <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+                <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+                <ScalarProperty Name="Id_Examen_Visual_2" ColumnName="Id_Examen_Visual_2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

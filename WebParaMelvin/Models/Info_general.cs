@@ -46,6 +46,7 @@ namespace WebParaMelvin.Models
         public string Estado { get; set; }
         public bool EpWorth { get; set; }
         public bool Apnea { get; set; }
+        public bool Examen_Visual_2 { get; set; }
     
         public virtual Formulario_S_O Formulario_S_O { get; set; }
     }

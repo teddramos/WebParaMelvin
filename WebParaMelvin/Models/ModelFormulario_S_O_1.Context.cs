@@ -50,5 +50,6 @@ namespace WebParaMelvin.Models
         public virtual DbSet<Deteccion_SAS> Deteccion_SAS { get; set; }
         public virtual DbSet<EpWorth> EpWorths { get; set; }
         public virtual DbSet<Apnea> Apneas { get; set; }
+        public virtual DbSet<Examen_Visual_2> Examen_Visual_2 { get; set; }
     }
 }

@@ -20,6 +20,7 @@
     var ekg = db.EKGs.FirstOrDefault(g => g.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var epw = db.EpWorths.FirstOrDefault(e => e.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var apn = db.Apneas.FirstOrDefault(a => a.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var visual2 = db.Examen_Visual_2.FirstOrDefault(v => v.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var user = Session["User"] as WebParaMelvin.Models.Usuario;
 }
 
@@ -403,6 +404,52 @@ if (displayMensaje === "true") {
                             @{
                                 {
                                     var email = db.Usuarios.Find(visual.Usuario_que_modifico) != null ? db.Usuarios.Find(visual.Usuario_que_modifico).Nombre_completo : "N/A";
+                                    <span>@email</span>
+                                } }
+                        </td>
+                    </tr>
+                }
+                if (info.Examen_Visual_2)
+                {
+                    <tr>
+                        <td style="font-weight:bold">
+                            @Html.ActionLink("Examen Visual Nuevo", "Edit", "Examen_Visual_2", new { id = visual2.Id_Examen_Visual_2 }, htmlAttributes: new { })
+                        </td>
+                        @{
+
+                            if (visual2.Estado == "Aplicada")
+                            {
+
+                                <td class="statusbox"><span class="finalizado">&nbsp;Aplicada &check;</span></td>
+                                <td class="statusbox"><span>&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span>&nbsp;Finalizada</span></td>
+                            }
+                            else if (visual2.Estado == "En proceso")
+                            {
+
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;En proceso &check;</span></td>
+                                <td class="statusbox"><div>&nbsp;Finalizada</div></td>
+                            }
+                            else if (visual2.Estado == "Finalizada")
+
+                            {
+                                <td class="statusbox"><span class="passed">&nbsp;Aplicada</span></td>
+                                <td class="statusbox"><span class="passed">&nbsp;En proceso</span></td>
+                                <td class="statusbox"><span class="finalizado">&nbsp;Finalizada &check;</span></td>
+                            }
+                            else
+                            {
+                                <td class="statusbox">&nbsp;Aplicada</td>
+                                <td class="statusbox">&nbsp;En proceso</td>
+                                <td class="statusbox">&nbsp;Finalizada</td>
+
+                            }
+                        }
+                        <td class="statusbox">
+                            @{
+                                {
+                                    var email = db.Usuarios.Find(visual2.Usuario_que_modifico) != null ? db.Usuarios.Find(visual2.Usuario_que_modifico).Nombre_completo : "N/A";
                                     <span>@email</span>
                                 } }
                         </td>
