@@ -132,6 +132,9 @@
                 </th>
             }
             <th>
+                Identificación
+            </th>
+            <th>
                 Persona
             </th>
             <th>
@@ -162,64 +165,73 @@
                 if (item != null)
                 {
 
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Id_Formulario_S_O)
-                        </td>
-                        <td>
-                            @if (user.id_rol != 3)
-                            {
-                                @Html.DisplayFor(modelItem => item.Empresa.Nombre)
-                            }
-                            else
-                            {
-                                var tipo = db.Info_general.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Tipo_de_evaluacion;
-                                <span>@tipo</span>
-                            }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Formulario_S_O)
+            </td>
+            <td>
+                @if (user.id_rol != 3)
+                {
+                    @Html.DisplayFor(modelItem => item.Empresa.Nombre)
+                }
+                else
+                {
+                    var tipo = db.Info_general.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Tipo_de_evaluacion;
+                    <span>@tipo</span>
+                }
 
-                        </td>
-                        <td>
-                            @{
+            </td>
+            <td>
+                @{
+                    var inf = db.Info_general.FirstOrDefault(a => a.Id_Formulario_S_O == item.Id_Formulario_S_O);
+                    if (inf != null)
+                    { <span>@inf.Cedula</span> }
+
+                }
+
+            </td>
+            <td>
+                @{
 
 
-                                var inf = db.Info_general.FirstOrDefault(a => a.Id_Formulario_S_O == item.Id_Formulario_S_O);
-                                if (inf != null)
-                                {
-                                    <span>@inf.Nombre @inf.Apellido</span>
+                    
+                    if (inf != null)
+                    {
+                        <span>@inf.Nombre @inf.Apellido</span>
 
-                                }
-                            }
-                        </td>
-                        <td>
-                            @{
-                                if (inf != null)
-                                { <span>@inf.Fecha.Value.ToShortDateString()</span> }
+                    }
+                }
+            </td>
+            <td>
+                @{
+                    if (inf != null)
+                    { <span>@inf.Fecha.Value.ToShortDateString()</span> }
 
-                            }
+                }
 
-                        </td>
-                        <td>
-                            @if (user.id_rol != 3)
-                            {
-                                @Html.DisplayFor(modelItem => item.Estado)
-                            }
-                            else
-                            {
-                                var tipo = db.Historia_Clinica.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Pais_de_nacimiento;
-                                <span>@tipo</span>
-                            }
-                        </td>
-                        <td>
-                            @{ if (user.id_rol != 3)
-                                { <span>@Html.ActionLink("Completar/Editar", "Details", new { id = item.Id_Formulario_S_O })</span> } }|
-                            @Html.ActionLink("Imprimir", "PrintPreview", new { id = item.Id_Formulario_S_O }, htmlAttributes: new { @target = "_blank" }) |
-                            @{if (user.id_rol == 3)
-                                {@Html.ActionLink("Archivos Extras", "Index", "ArchivosExtras", new { id = item.Id_Formulario_S_O }, htmlAttributes: new { @target = "_blank" }) } }
+            </td>
+            <td>
+                @if (user.id_rol != 3)
+                {
+                    @Html.DisplayFor(modelItem => item.Estado)
+                }
+                else
+                {
+                    var tipo = db.Historia_Clinica.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Pais_de_nacimiento;
+                    <span>@tipo</span>
+                }
+            </td>
+            <td>
+                @{ if (user.id_rol != 3)
+                    { <span>@Html.ActionLink("Completar/Editar", "Details", new { id = item.Id_Formulario_S_O })</span> } }|
+                @Html.ActionLink("Imprimir", "PrintPreview", new { id = item.Id_Formulario_S_O }, htmlAttributes: new { @target = "_blank" }) |
+                @{if (user.id_rol == 3)
+                    {@Html.ActionLink("Archivos Extras", "Index", "ArchivosExtras", new { id = item.Id_Formulario_S_O }, htmlAttributes: new { @target = "_blank" }) } }
 
-                            @{ if (user.id_rol == 1)
-                                { <span>@Html.ActionLink("Delete", "Delete", new { id = item.Id_Formulario_S_O })</span> } }
-                        </td>
-                    </tr>
+                @{ if (user.id_rol == 1)
+                    { <span>@Html.ActionLink("Delete", "Delete", new { id = item.Id_Formulario_S_O })</span> } }
+            </td>
+        </tr>
                 }
             }
         } }

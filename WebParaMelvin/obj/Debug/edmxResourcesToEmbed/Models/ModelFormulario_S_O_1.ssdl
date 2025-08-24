@@ -86,7 +86,7 @@
     </Key>
     <Property Name="Id_AudioMetria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="trabaja_trabajado_en_areas_ruidosas" Type="bit" Nullable="false" />
-    <Property Name="tipo_de_proteccion_auditiva" Type="bit" Nullable="false" />
+    <Property Name="tipo_de_proteccion_auditiva" Type="nvarchar" MaxLength="50" />
     <Property Name="Ha_tenido_infecciones_en_los_oidos" Type="bit" Nullable="false" />
     <Property Name="Ha_tenido_zumbido_en_los_oidos" Type="bit" Nullable="false" />
     <Property Name="Ha_estado_en_la_milicia_o_el_ejercito_no" Type="bit" />
@@ -95,11 +95,9 @@
     <Property Name="Ha_tenido_infecciones_en_los_oidos_no" Type="bit" />
     <Property Name="Ha_tenido_zumbido_en_los_oidos_no" Type="bit" />
     <Property Name="Ha_estado_en_la_milicia_o_el_ejercito" Type="bit" Nullable="false" />
-    <Property Name="Escucha_musica_alta_o_usa_audifonos" Type="nvarchar" MaxLength="50" />
     <Property Name="Horas_desde_la_ultima_exposicion" Type="nvarchar" MaxLength="10" />
     <Property Name="Exposicion" Type="nvarchar" MaxLength="10" />
-    <Property Name="Entrenamiento_recibido" Type="nvarchar" MaxLength="10" />
-    <Property Name="Autoevaluacion_de_su_audicion_" Type="nvarchar" MaxLength="10" />
+    <Property Name="Autoevaluacion_de_su_audicion_" Type="nvarchar" MaxLength="50" />
     <Property Name="Otoscopia_Izquierda" Type="nvarchar" MaxLength="50" />
     <Property Name="Otoscopia_Derecha" Type="nvarchar" MaxLength="50" />
     <Property Name="Comentarios" Type="nvarchar(max)" />
@@ -138,6 +136,8 @@
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Escucha_musica_alta_o_usa_audifonos" Type="bit" />
+    <Property Name="Entrenamiento_recibido" Type="bit" />
   </EntityType>
   <EntityType Name="Consentimiento_Informado">
     <Key>
@@ -716,6 +716,8 @@
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
     <Property Name="Pais_de_nacimiento" Type="nvarchar" MaxLength="120" />
+    <Property Name="Covid_19" Type="nvarchar" MaxLength="20" />
+    <Property Name="Fecha_Dosis_inm_covid_19" Type="datetime" />
   </EntityType>
   <EntityType Name="Info_general">
     <Key>
