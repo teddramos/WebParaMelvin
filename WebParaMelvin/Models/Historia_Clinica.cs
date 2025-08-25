@@ -287,6 +287,8 @@ namespace WebParaMelvin.Models
         public Nullable<int> Usuario_que_modifico { get; set; }
         public string Estado { get; set; }
         public string Pais_de_nacimiento { get; set; }
+        public string Covid_19 { get; set; }
+        public Nullable<System.DateTime> Fecha_Dosis_inm_covid_19 { get; set; }
     
         public virtual Formulario_S_O Formulario_S_O { get; set; }
     }
