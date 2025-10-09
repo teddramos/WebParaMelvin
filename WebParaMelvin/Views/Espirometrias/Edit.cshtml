@@ -5,9 +5,10 @@
     WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
     var fso = db.Formulario_S_O.FirstOrDefault(f => f.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var info = db.Info_general.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
-    var base64 = Convert.ToBase64String(Model.Archivo);
+    var archivo = Model.Archivo ?? new byte[0];
+    var base64 = Convert.ToBase64String(archivo);
     //base 64 check 
-    var charcheck = base64.Substring(0, 10);
+    var charcheck = base64.Length > 0? base64.Substring(0, 10): "";
     bool isPdf = charcheck == "JVBERi0xLj" ? true : false;
     var imgSrc = "";
 }

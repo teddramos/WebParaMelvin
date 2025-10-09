@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\WebParaMelvin\WebParaMelvin\publish</_PublishTargetUrl>
-    <History>True|2025-08-24T14:47:44.6451375Z;True|2025-08-06T22:34:08.4355936-04:00;True|2025-07-29T09:39:20.2572917-04:00;True|2025-07-28T12:06:47.4634737-04:00;True|2025-07-28T12:04:41.8073135-04:00;True|2025-07-27T20:22:38.6749685-04:00;True|2025-07-27T15:00:38.4867749-04:00;True|2025-07-27T01:50:34.5938885-04:00;True|2025-07-26T19:35:20.4806730-04:00;True|2025-07-25T17:56:18.3318610-04:00;True|2024-09-22T17:32:41.5708698-04:00;True|2024-09-17T21:50:53.3278585-04:00;True|2024-09-17T21:43:46.7231933-04:00;True|2024-09-17T21:38:06.5252732-04:00;True|2024-08-31T22:13:13.2105073-04:00;True|2024-08-01T22:00:22.5140503-04:00;True|2024-08-01T21:56:59.2434296-04:00;True|2024-08-01T21:40:54.8670682-04:00;True|2024-08-01T21:37:00.4922300-04:00;True|2024-08-01T21:32:21.4753032-04:00;True|2024-08-01T21:30:08.6023122-04:00;True|2024-08-01T21:22:14.3258496-04:00;True|2024-08-01T21:15:41.2624613-04:00;True|2024-06-23T09:11:24.8199094-04:00;True|2024-06-23T09:03:31.4188561-04:00;True|2024-04-07T11:54:52.8399722-04:00;True|2024-04-07T11:47:12.5368310-04:00;True|2024-04-07T10:06:08.1504096-04:00;True|2024-04-07T10:01:39.6573629-04:00;True|2024-04-02T21:51:13.3598493-04:00;True|2024-04-02T21:46:17.1171467-04:00;True|2024-03-21T21:23:35.8248982-04:00;True|2024-03-09T20:46:59.8535528-04:00;True|2024-03-09T20:46:41.3502060-04:00;True|2024-03-09T20:31:25.3786515-04:00;True|2024-02-28T12:11:35.3902639-04:00;True|2024-02-27T12:28:18.6728707-04:00;True|2024-02-27T12:22:06.9672840-04:00;True|2024-02-27T11:59:13.9263725-04:00;True|2024-02-27T11:48:36.5156310-04:00;True|2024-02-27T11:41:20.4294874-04:00;True|2024-02-27T11:22:56.8275144-04:00;True|2024-02-27T11:16:54.8609346-04:00;True|2024-02-27T10:54:42.6310498-04:00;True|2024-02-27T09:26:42.7087063-04:00;True|2024-02-27T07:52:44.1098483-04:00;True|2023-11-05T19:19:15.0025390-04:00;True|2023-11-05T19:09:32.8468377-04:00;True|2023-11-02T19:04:15.6762520-04:00;True|2023-10-25T20:29:39.5223120-04:00;True|2023-10-11T21:49:56.5197144-04:00;True|2023-10-10T16:18:50.9635318-04:00;True|2023-10-10T15:54:39.1208492-04:00;True|2023-07-15T08:57:53.8337425-04:00;True|2023-07-14T16:14:26.7284085-04:00;True|2023-07-13T19:34:19.3615215-04:00;True|2023-07-09T12:12:17.5153782-04:00;True|2023-04-25T12:48:23.8385944-04:00;True|2023-04-25T00:06:16.1995322-04:00;True|2023-04-24T19:01:00.6577412-04:00;True|2023-04-24T18:48:20.2389274-04:00;True|2023-04-24T18:31:13.7585280-04:00;True|2023-04-14T20:26:52.5860470-04:00;True|2023-04-12T11:40:06.5306621-04:00;True|2023-04-11T18:39:29.9822893-04:00;True|2023-04-10T22:47:50.0088577-04:00;True|2023-04-09T16:31:54.6676675-04:00;True|2023-04-09T16:26:16.6303428-04:00;True|2023-04-07T18:16:26.7351241-04:00;True|2023-04-04T10:48:03.7055845-04:00;True|2023-04-04T09:09:52.4832379-04:00;True|2023-03-30T19:19:31.1215433-04:00;True|2023-03-30T19:05:55.3639387-04:00;True|2023-03-28T12:18:50.9013459-04:00;True|2023-03-27T23:51:55.6421468-04:00;True|2023-03-27T22:32:11.9407593-04:00;True|2023-03-27T22:11:44.5288402-04:00;True|2023-03-27T21:29:27.8327763-04:00;False|2023-03-26T22:40:58.8013262-04:00;False|2023-03-26T22:27:47.3941974-04:00;</History>
+    <_PublishTargetUrl>C:\WebParaMelvin\WebParaMelvin\new\publish</_PublishTargetUrl>
+    <History>True|2025-08-29T16:26:32.3464538Z;True|2025-08-27T11:23:35.2444292-04:00;True|2025-08-27T11:15:05.8088829-04:00;True|2025-08-26T17:57:04.1050269-04:00;True|2025-08-26T16:54:11.3696617-04:00;True|2025-08-26T10:50:56.6034285-04:00;True|2025-08-26T09:41:01.6617989-04:00;True|2025-08-26T09:37:42.3129827-04:00;True|2025-08-26T09:36:04.5578507-04:00;True|2025-08-25T09:53:30.0029089-04:00;True|2025-08-25T02:51:38.3730619-04:00;True|2025-08-25T02:50:40.1618836-04:00;True|2025-08-24T10:47:44.6451375-04:00;True|2025-08-06T22:34:08.4355936-04:00;True|2025-07-29T09:39:20.2572917-04:00;True|2025-07-28T12:06:47.4634737-04:00;True|2025-07-28T12:04:41.8073135-04:00;True|2025-07-27T20:22:38.6749685-04:00;True|2025-07-27T15:00:38.4867749-04:00;True|2025-07-27T01:50:34.5938885-04:00;True|2025-07-26T19:35:20.4806730-04:00;True|2025-07-25T17:56:18.3318610-04:00;True|2024-09-22T17:32:41.5708698-04:00;True|2024-09-17T21:50:53.3278585-04:00;True|2024-09-17T21:43:46.7231933-04:00;True|2024-09-17T21:38:06.5252732-04:00;True|2024-08-31T22:13:13.2105073-04:00;True|2024-08-01T22:00:22.5140503-04:00;True|2024-08-01T21:56:59.2434296-04:00;True|2024-08-01T21:40:54.8670682-04:00;True|2024-08-01T21:37:00.4922300-04:00;True|2024-08-01T21:32:21.4753032-04:00;True|2024-08-01T21:30:08.6023122-04:00;True|2024-08-01T21:22:14.3258496-04:00;True|2024-08-01T21:15:41.2624613-04:00;True|2024-06-23T09:11:24.8199094-04:00;True|2024-06-23T09:03:31.4188561-04:00;True|2024-04-07T11:54:52.8399722-04:00;True|2024-04-07T11:47:12.5368310-04:00;True|2024-04-07T10:06:08.1504096-04:00;True|2024-04-07T10:01:39.6573629-04:00;True|2024-04-02T21:51:13.3598493-04:00;True|2024-04-02T21:46:17.1171467-04:00;True|2024-03-21T21:23:35.8248982-04:00;True|2024-03-09T20:46:59.8535528-04:00;True|2024-03-09T20:46:41.3502060-04:00;True|2024-03-09T20:31:25.3786515-04:00;True|2024-02-28T12:11:35.3902639-04:00;True|2024-02-27T12:28:18.6728707-04:00;True|2024-02-27T12:22:06.9672840-04:00;True|2024-02-27T11:59:13.9263725-04:00;True|2024-02-27T11:48:36.5156310-04:00;True|2024-02-27T11:41:20.4294874-04:00;True|2024-02-27T11:22:56.8275144-04:00;True|2024-02-27T11:16:54.8609346-04:00;True|2024-02-27T10:54:42.6310498-04:00;True|2024-02-27T09:26:42.7087063-04:00;True|2024-02-27T07:52:44.1098483-04:00;True|2023-11-05T19:19:15.0025390-04:00;True|2023-11-05T19:09:32.8468377-04:00;True|2023-11-02T19:04:15.6762520-04:00;True|2023-10-25T20:29:39.5223120-04:00;True|2023-10-11T21:49:56.5197144-04:00;True|2023-10-10T16:18:50.9635318-04:00;True|2023-10-10T15:54:39.1208492-04:00;True|2023-07-15T08:57:53.8337425-04:00;True|2023-07-14T16:14:26.7284085-04:00;True|2023-07-13T19:34:19.3615215-04:00;True|2023-07-09T12:12:17.5153782-04:00;True|2023-04-25T12:48:23.8385944-04:00;True|2023-04-25T00:06:16.1995322-04:00;True|2023-04-24T19:01:00.6577412-04:00;True|2023-04-24T18:48:20.2389274-04:00;True|2023-04-24T18:31:13.7585280-04:00;True|2023-04-14T20:26:52.5860470-04:00;True|2023-04-12T11:40:06.5306621-04:00;True|2023-04-11T18:39:29.9822893-04:00;True|2023-04-10T22:47:50.0088577-04:00;True|2023-04-09T16:31:54.6676675-04:00;True|2023-04-09T16:26:16.6303428-04:00;True|2023-04-07T18:16:26.7351241-04:00;True|2023-04-04T10:48:03.7055845-04:00;True|2023-04-04T09:09:52.4832379-04:00;True|2023-03-30T19:19:31.1215433-04:00;True|2023-03-30T19:05:55.3639387-04:00;True|2023-03-28T12:18:50.9013459-04:00;True|2023-03-27T23:51:55.6421468-04:00;True|2023-03-27T22:32:11.9407593-04:00;True|2023-03-27T22:11:44.5288402-04:00;True|2023-03-27T21:29:27.8327763-04:00;False|2023-03-26T22:40:58.8013262-04:00;False|2023-03-26T22:27:47.3941974-04:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -33,41 +33,122 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/App_global.asax.dll">
       <publishTime>03/26/2023 22:40:54</publishTime>
     </File>
+    <File Include="bin/Azure.Core.dll">
+      <publishTime>10/28/2020 17:37:16</publishTime>
+    </File>
+    <File Include="bin/Azure.Identity.dll">
+      <publishTime>11/13/2020 01:31:54</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:30</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/18/2024 14:25:30</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
       <publishTime>07/18/2024 14:25:30</publishTime>
     </File>
+    <File Include="bin/EnvDTE.dll">
+      <publishTime>01/11/2024 11:02:28</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:46</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
     <File Include="bin/es/System.Net.Http.Formatting.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>01/28/2015 00:02:48</publishTime>
     </File>
     <File Include="bin/es/System.Web.Helpers.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>01/28/2015 00:04:36</publishTime>
     </File>
     <File Include="bin/es/System.Web.Http.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>01/28/2015 00:02:58</publishTime>
     </File>
     <File Include="bin/es/System.Web.Http.WebHost.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>01/28/2015 00:03:50</publishTime>
     </File>
     <File Include="bin/es/System.Web.Mvc.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>01/28/2015 00:02:24</publishTime>
     </File>
     <File Include="bin/es/System.Web.Optimization.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>02/11/2014 11:28:40</publishTime>
     </File>
     <File Include="bin/es/System.Web.Razor.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>01/28/2015 00:02:36</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.Deployment.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>01/28/2015 00:04:36</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.Razor.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>01/28/2015 00:04:36</publishTime>
     </File>
     <File Include="bin/es/System.Web.WebPages.resources.dll">
-      <publishTime>07/18/2024 14:25:30</publishTime>
+      <publishTime>01/28/2015 00:04:36</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:28</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:46</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:30</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:46</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>07/18/2024 14:25:30</publishTime>
@@ -102,14 +183,80 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/Microsoft.AspNetCore.Routing.Abstractions.dll">
       <publishTime>07/18/2024 14:25:30</publishTime>
     </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>09/12/2019 22:28:52</publishTime>
+    </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>07/18/2024 14:25:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.SqlClient.dll">
+      <publishTime>09/13/2022 19:02:28</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.SqlClient.pdb">
+      <publishTime>09/13/2022 18:49:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.SqlClient.SNI.x64.dll">
+      <publishTime>09/02/2022 13:27:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.SqlClient.SNI.x64.pdb">
+      <publishTime>09/02/2022 13:24:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.SqlClient.SNI.x86.dll">
+      <publishTime>09/02/2022 13:27:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.SqlClient.SNI.x86.pdb">
+      <publishTime>09/02/2022 13:24:46</publishTime>
     </File>
     <File Include="bin/Microsoft.Extensions.Primitives.dll">
       <publishTime>07/18/2024 14:25:30</publishTime>
     </File>
+    <File Include="bin/Microsoft.Identity.Client.dll">
+      <publishTime>10/22/2020 13:45:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Identity.Client.Extensions.Msal.dll">
+      <publishTime>10/29/2020 11:40:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>10/12/2020 20:21:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Logging.dll">
+      <publishTime>10/12/2020 20:23:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Protocols.dll">
+      <publishTime>10/12/2020 20:24:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <publishTime>10/12/2020 20:31:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>10/12/2020 20:28:08</publishTime>
+    </File>
     <File Include="bin/Microsoft.Net.Http.Headers.dll">
       <publishTime>07/18/2024 14:25:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.Common.dll">
+      <publishTime>02/11/2014 21:17:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.DataVisualization.dll">
+      <publishTime>02/11/2014 21:17:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.Design.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.ProcessingObjectModel.dll">
+      <publishTime>02/11/2014 21:17:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.WebDesign.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.WebForms.dll">
+      <publishTime>02/11/2014 21:18:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.WinForms.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.SqlServer.Types.dll">
+      <publishTime>12/10/2016 11:26:34</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/18/2024 14:25:31</publishTime>
@@ -122,6 +269,18 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>07/18/2024 14:25:31</publishTime>
+    </File>
+    <File Include="bin/pt-BR/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:28</publishTime>
+    </File>
+    <File Include="bin/pt/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/pt/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/pt/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>07/18/2024 14:25:31</publishTime>
@@ -270,11 +429,38 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/Rotativa.dll">
       <publishTime>07/18/2024 14:25:32</publishTime>
     </File>
+    <File Include="bin/ru/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:28</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/SqlServerTypes/x64/msvcr120.dll">
+      <publishTime>08/24/2025 11:41:12</publishTime>
+    </File>
+    <File Include="bin/SqlServerTypes/x64/SqlServerSpatial140.dll">
+      <publishTime>08/24/2025 11:41:12</publishTime>
+    </File>
+    <File Include="bin/SqlServerTypes/x86/msvcr120.dll">
+      <publishTime>08/24/2025 11:41:12</publishTime>
+    </File>
+    <File Include="bin/SqlServerTypes/x86/SqlServerSpatial140.dll">
+      <publishTime>08/24/2025 11:41:12</publishTime>
+    </File>
+    <File Include="bin/stdole.dll">
+      <publishTime>05/06/2021 15:41:24</publishTime>
+    </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
     <File Include="bin/System.Buffers.dll">
-      <publishTime>07/18/2024 14:25:32</publishTime>
+      <publishTime>02/19/2020 06:05:18</publishTime>
     </File>
     <File Include="bin/System.Collections.Concurrent.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
@@ -300,6 +486,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/System.ComponentModel.TypeConverter.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
+    <File Include="bin/System.Configuration.ConfigurationManager.dll">
+      <publishTime>10/19/2020 14:48:46</publishTime>
+    </File>
     <File Include="bin/System.Console.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
@@ -311,6 +500,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/System.Diagnostics.Debug.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
+    </File>
+    <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>09/12/2019 22:41:32</publishTime>
     </File>
     <File Include="bin/System.Diagnostics.FileVersionInfo.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
@@ -347,6 +539,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/System.Globalization.Extensions.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>10/12/2020 20:20:12</publishTime>
     </File>
     <File Include="bin/System.IO.Compression.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
@@ -394,7 +589,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
     <File Include="bin/System.Memory.dll">
-      <publishTime>07/18/2024 14:25:32</publishTime>
+      <publishTime>02/19/2020 06:05:18</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
@@ -433,7 +628,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
     <File Include="bin/System.Numerics.Vectors.dll">
-      <publishTime>07/18/2024 14:25:32</publishTime>
+      <publishTime>05/15/2018 09:29:44</publishTime>
     </File>
     <File Include="bin/System.ObjectModel.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
@@ -457,7 +652,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
     <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
-      <publishTime>07/18/2024 14:25:32</publishTime>
+      <publishTime>09/12/2019 22:28:42</publishTime>
     </File>
     <File Include="bin/System.Runtime.CompilerServices.VisualC.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
@@ -492,6 +687,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/System.Runtime.Serialization.Xml.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
+    <File Include="bin/System.Security.AccessControl.dll">
+      <publishTime>10/19/2020 14:44:38</publishTime>
+    </File>
     <File Include="bin/System.Security.Claims.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
@@ -507,11 +705,20 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/System.Security.Cryptography.Primitives.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
+    <File Include="bin/System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>05/15/2018 09:29:44</publishTime>
+    </File>
     <File Include="bin/System.Security.Cryptography.X509Certificates.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
+    <File Include="bin/System.Security.Permissions.dll">
+      <publishTime>10/19/2020 14:52:06</publishTime>
+    </File>
     <File Include="bin/System.Security.Principal.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
+    </File>
+    <File Include="bin/System.Security.Principal.Windows.dll">
+      <publishTime>10/19/2020 14:46:28</publishTime>
     </File>
     <File Include="bin/System.Security.SecureString.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
@@ -523,7 +730,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
     <File Include="bin/System.Text.Encodings.Web.dll">
-      <publishTime>07/18/2024 14:25:32</publishTime>
+      <publishTime>02/16/2021 15:13:28</publishTime>
+    </File>
+    <File Include="bin/System.Text.Json.dll">
+      <publishTime>09/12/2019 22:29:04</publishTime>
     </File>
     <File Include="bin/System.Text.RegularExpressions.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
@@ -536,6 +746,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/System.Threading.Tasks.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>11/29/2018 11:39:20</publishTime>
     </File>
     <File Include="bin/System.Threading.Tasks.Parallel.dll">
       <publishTime>03/21/2024 00:14:33</publishTime>
@@ -550,7 +763,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/21/2024 00:14:33</publishTime>
     </File>
     <File Include="bin/System.ValueTuple.dll">
-      <publishTime>03/21/2024 00:14:33</publishTime>
+      <publishTime>05/15/2018 09:29:52</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>07/18/2024 14:25:30</publishTime>
@@ -601,10 +814,34 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/18/2024 14:25:32</publishTime>
     </File>
     <File Include="bin/WebParaMelvin.dll">
-      <publishTime>08/19/2025 10:06:42</publishTime>
+      <publishTime>08/29/2025 12:19:22</publishTime>
     </File>
     <File Include="bin/WebParaMelvin.pdb">
-      <publishTime>08/19/2025 10:06:42</publishTime>
+      <publishTime>08/29/2025 12:19:22</publishTime>
+    </File>
+    <File Include="bin/zh-CHS/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/zh-CHS/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/zh-CHS/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/zh-CHT/Microsoft.ReportViewer.Design.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/zh-CHT/Microsoft.ReportViewer.WebDesign.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/zh-CHT/Microsoft.ReportViewer.WinForms.resources.dll">
+      <publishTime>06/01/2024 16:18:50</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:46</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.SqlClient.resources.dll">
+      <publishTime>09/13/2022 19:02:46</publishTime>
     </File>
     <File Include="bin/__browserCapabilitiesCompiler.compiled">
       <publishTime>03/26/2023 22:40:55</publishTime>
@@ -1392,6 +1629,18 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="PrecompiledApp.config">
       <publishTime>03/26/2023 22:40:46</publishTime>
     </File>
+    <File Include="Reportes/DataSet1.xsc">
+      <publishTime>08/25/2025 01:09:10</publishTime>
+    </File>
+    <File Include="Reportes/DataSet1.xss">
+      <publishTime>08/25/2025 01:09:10</publishTime>
+    </File>
+    <File Include="Reportes/ReportViewer.aspx">
+      <publishTime>08/24/2025 16:29:41</publishTime>
+    </File>
+    <File Include="Reportes/ResumenAudiometria.aspx">
+      <publishTime>08/25/2025 02:16:48</publishTime>
+    </File>
     <File Include="Rotativa/help-wkhtmltoimage.txt">
       <publishTime>07/18/2024 14:25:26</publishTime>
     </File>
@@ -1449,10 +1698,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/SigWebTablet.js">
       <publishTime>07/18/2024 14:25:26</publishTime>
     </File>
+    <File Include="SqlServerTypes/readme.htm">
+      <publishTime>08/24/2025 11:41:11</publishTime>
+    </File>
+    <File Include="SqlServerTypes/x64/msvcr120.dll">
+      <publishTime>08/24/2025 11:41:12</publishTime>
+    </File>
+    <File Include="SqlServerTypes/x64/SqlServerSpatial140.dll">
+      <publishTime>08/24/2025 11:41:12</publishTime>
+    </File>
+    <File Include="SqlServerTypes/x86/msvcr120.dll">
+      <publishTime>08/24/2025 11:41:12</publishTime>
+    </File>
+    <File Include="SqlServerTypes/x86/SqlServerSpatial140.dll">
+      <publishTime>08/24/2025 11:41:12</publishTime>
+    </File>
     <File Include="templateforCameEmail.html">
       <publishTime>07/18/2024 14:25:30</publishTime>
     </File>
     <File Include="templateforGoneEmail.html">
+      <publishTime>07/18/2024 14:25:30</publishTime>
+    </File>
+    <File Include="teplateforemail.html">
       <publishTime>07/18/2024 14:25:30</publishTime>
     </File>
     <File Include="Views/Apneas/Create.cshtml">
@@ -1597,7 +1864,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/18/2024 14:25:26</publishTime>
     </File>
     <File Include="Views/Espirometrias/Edit.cshtml">
-      <publishTime>08/24/2025 10:45:30</publishTime>
+      <publishTime>08/27/2025 09:57:15</publishTime>
     </File>
     <File Include="Views/Espirometrias/Index.cshtml">
       <publishTime>07/18/2024 14:25:26</publishTime>
@@ -1645,10 +1912,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/18/2024 14:25:27</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/FormulariosAVencer.cshtml">
-      <publishTime>07/18/2024 14:25:27</publishTime>
+      <publishTime>08/26/2025 00:32:46</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/Index.cshtml">
-      <publishTime>08/06/2025 22:30:20</publishTime>
+      <publishTime>08/26/2025 00:26:04</publishTime>
     </File>
     <File Include="Views/Formulario_S_O/logo cisam.jpg">
       <publishTime>07/18/2024 14:25:27</publishTime>
@@ -1777,7 +2044,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/18/2024 14:25:27</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/18/2024 14:25:27</publishTime>
+      <publishTime>08/26/2025 00:28:00</publishTime>
     </File>
     <File Include="Views/Usuarios/ContatctoEmpresa.cshtml">
       <publishTime>07/18/2024 14:25:27</publishTime>
@@ -1813,7 +2080,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/18/2024 14:25:27</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/25/2025 17:56:14</publishTime>
+      <publishTime>08/27/2025 09:38:51</publishTime>
     </File>
   </ItemGroup>
 </Project>

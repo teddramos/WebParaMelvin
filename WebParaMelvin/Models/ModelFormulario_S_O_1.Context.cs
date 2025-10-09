@@ -12,6 +12,8 @@ namespace WebParaMelvin.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ceisamco_form_s_oEntities : DbContext
     {
@@ -51,5 +53,7 @@ namespace WebParaMelvin.Models
         public virtual DbSet<Apnea> Apneas { get; set; }
         public virtual DbSet<Examen_Visual_2> Examen_Visual_2 { get; set; }
         public virtual DbSet<Audiometria> Audiometrias { get; set; }
+    
+       
     }
 }

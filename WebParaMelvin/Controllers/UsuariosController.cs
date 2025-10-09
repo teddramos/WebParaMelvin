@@ -67,7 +67,7 @@ namespace WebParaMelvin.Controllers
             try
             {
                 Session.Clear();
-
+                Session.Timeout = 1440;
                 var user = functions.login(usuario);
                 if (user.id_rol == 1)
                 {
