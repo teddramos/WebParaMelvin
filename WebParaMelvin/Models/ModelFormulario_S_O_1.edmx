@@ -1911,6 +1911,7 @@
             <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
             <End Role="Audiometria" EntitySet="Audiometrias" />
           </AssociationSet>
+          <FunctionImport Name="ResumenAudiometria" ReturnType="Collection(ceisamco_form_s_oModel.ResumenAudiometria_Result)" />
           </EntityContainer>
         <EntityType Name="ArchivosExtra">
           <Key>
@@ -3151,6 +3152,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="ResumenAudiometria_Result">
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Id_Empleado" Nullable="true" />
+          <Property Type="String" Name="Cedula" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="Fecha_de_nacimiento" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Edad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Empresa" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Puesto" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Otoscopia_Izquierda" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Otoscopia_Izquierda1" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Oiz_500" Nullable="true" />
+          <Property Type="Int32" Name="Oiz_1K" Nullable="true" />
+          <Property Type="Int32" Name="Oiz_2K" Nullable="true" />
+          <Property Type="Int32" Name="Oiz_3K" Nullable="true" />
+          <Property Type="Int32" Name="Oiz_4K" Nullable="true" />
+          <Property Type="Int32" Name="Oiz_6K" Nullable="true" />
+          <Property Type="Int32" Name="Oiz_8K" Nullable="true" />
+          <Property Type="Int32" Name="Ode_500" Nullable="true" />
+          <Property Type="Int32" Name="Ode_1K" Nullable="true" />
+          <Property Type="Int32" Name="Ode_2K" Nullable="true" />
+          <Property Type="Int32" Name="Ode_3K" Nullable="true" />
+          <Property Type="Int32" Name="Ode_4K" Nullable="true" />
+          <Property Type="Int32" Name="Ode_6K" Nullable="true" />
+          <Property Type="Int32" Name="Ode_8K" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

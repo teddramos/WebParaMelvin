@@ -386,6 +386,7 @@
     <Compile Include="Models\Historia_Clinica.cs">
       <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IndexFSOData.cs" />
     <Compile Include="Models\Info_general.cs">
       <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
     </Compile>
@@ -419,6 +420,7 @@
     <Compile Include="Models\RayosX.cs">
       <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResumenAudiometria.cs" />
     <Compile Include="Models\Rol.cs">
       <DependentUpon>ModelFormulario_S_O_1.tt</DependentUpon>
     </Compile>
@@ -443,6 +445,13 @@
     </Compile>
     <Compile Include="Reportes\ReportViewer.aspx.designer.cs">
       <DependentUpon>ReportViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ResumenAudiometria.aspx.cs">
+      <DependentUpon>ResumenAudiometria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\ResumenAudiometria.aspx.designer.cs">
+      <DependentUpon>ResumenAudiometria.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
@@ -585,6 +594,7 @@
       <LastGenOutput>ModelFormulario_S_O_1.cs</LastGenOutput>
     </Content>
     <Content Include="Reportes\ReportViewer.aspx" />
+    <Content Include="Reportes\ResumenAudiometria.aspx" />
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
     <Content Include="Rotativa\wkhtmltoimage.exe" />
@@ -623,6 +633,7 @@
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
+    <None Include="Properties\PublishProfiles\appreports - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Reportes\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -664,6 +675,7 @@
     </Content>
     <Content Include="templateforCameEmail.html" />
     <Content Include="templateforGoneEmail.html" />
+    <Content Include="teplateforemail.html" />
     <Content Include="Views\EpWorths\Topaz SigWeb\clientScripts.js" />
     <Content Include="Views\Formulario_S_O\logo cisam.jpg" />
     <Content Include="loginFiles\css\main.css" />
@@ -916,6 +928,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\Report1.rdlc" />
+    <EmbeddedResource Include="Reportes\ResumenAudiometria.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
