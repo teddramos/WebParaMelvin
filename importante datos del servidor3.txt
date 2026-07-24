@@ -1,0 +1,6 @@
+Host: server165.negox.com
+Database name: cisam_form_s_o 
+User name:
+cisam_sqlserv 
+Password: 
+nY6j%i0KrKaj%h5p

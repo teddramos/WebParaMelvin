@@ -252,7 +252,7 @@
                 <td><span style="writing-mode:tb-rl;">Mecanico</span></td>
                 <td><span style="writing-mode:tb-rl;">Electrico</span></td>
                 <td><span style="writing-mode:tb-rl;">Locativo</span></td>
-                <td>Epp</td>
+                <td width="300">Epp</td>
             </tr>
             <tr>
                 <td>@Html.EditorFor(model => model.H_empresa, new { htmlAttributes = new { @class = "form-control" } })</td>
@@ -266,7 +266,7 @@
                 <td> @Html.EditorFor(model => model.Ex_mecanico)</td>
                 <td>@Html.EditorFor(model => model.Ex_Electrico)</td>
                 <td>@Html.EditorFor(model => model.Ex_Locativo)</td>
-                <td>@Html.EditorFor(model => model.Epp, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.TextAreaFor(model => model.Epp, htmlAttributes: new { @class = "form-control", @style = "max-width : 300px;height :37px" })</td>
             </tr>
             <tr>
                 <td>@Html.EditorFor(model => model.H_empresa1, new { htmlAttributes = new { @class = "form-control" } })</td>
@@ -280,7 +280,7 @@
                 <td> @Html.EditorFor(model => model.Ex_mecanico1)</td>
                 <td>@Html.EditorFor(model => model.Ex_Electrico1)</td>
                 <td>@Html.EditorFor(model => model.Ex_Locativo1)</td>
-                <td>@Html.EditorFor(model => model.Epp1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.TextAreaFor(model => model.Epp1, htmlAttributes: new { @class = "form-control", @style = "max-width : 300px;height :37px" })</td>
             </tr>
             <tr>
                 <td>@Html.EditorFor(model => model.H_empresa2, new { htmlAttributes = new { @class = "form-control" } })</td>
@@ -294,7 +294,7 @@
                 <td> @Html.EditorFor(model => model.Ex_mecanico2)</td>
                 <td>@Html.EditorFor(model => model.Ex_Electrico2)</td>
                 <td>@Html.EditorFor(model => model.Ex_Locativo2)</td>
-                <td>@Html.EditorFor(model => model.Epp2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.TextAreaFor(model => model.Epp2, htmlAttributes: new { @class = "form-control", @style = "max-width : 300px;height :37px" })</td>
             </tr>
             <tr>
                 <td>@Html.EditorFor(model => model.H_empresa3, new { htmlAttributes = new { @class = "form-control" } })</td>
@@ -308,7 +308,7 @@
                 <td> @Html.EditorFor(model => model.Ex_mecanico3)</td>
                 <td>@Html.EditorFor(model => model.Ex_Electrico3)</td>
                 <td>@Html.EditorFor(model => model.Ex_Locativo3)</td>
-                <td>@Html.EditorFor(model => model.Epp3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.TextAreaFor(model => model.Epp3, htmlAttributes: new { @class = "form-control", @style = "max-width : 300px;height :37px" })</td>
             </tr>
             <tr>
                 <td>@Html.EditorFor(model => model.H_empresa4, new { htmlAttributes = new { @class = "form-control" } })</td>
@@ -322,7 +322,7 @@
                 <td> @Html.EditorFor(model => model.Ex_mecanico4)</td>
                 <td>@Html.EditorFor(model => model.Ex_Electrico4)</td>
                 <td>@Html.EditorFor(model => model.Ex_Locativo4)</td>
-                <td>@Html.EditorFor(model => model.Epp4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.TextAreaFor(model => model.Epp4, htmlAttributes: new { @class = "form-control", @style = "max-width : 300px;height :37px" })</td>
             </tr>
             <tr>
                 <td>@Html.EditorFor(model => model.H_empresa5, new { htmlAttributes = new { @class = "form-control" } })</td>
@@ -336,7 +336,7 @@
                 <td> @Html.EditorFor(model => model.Ex_mecanico5)</td>
                 <td>@Html.EditorFor(model => model.Ex_Electrico5)</td>
                 <td>@Html.EditorFor(model => model.Ex_Locativo5)</td>
-                <td>@Html.EditorFor(model => model.Epp5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>@Html.TextAreaFor(model => model.Epp5, htmlAttributes: new { @class = "form-control", @style = "max-width : 300px;height :37px" })</td>
             </tr>
         </table>
         <h4>Antecendentes Ocupacionales</h4>
@@ -689,6 +689,59 @@
 
 
             </tr>
+            <tr>
+
+
+                <td>Covid 19</td>
+
+
+                <td>
+                    <select name="Covid_19" class="form-control">
+                        @{if (Model.Covid_19 != null)
+                            {
+                                switch (Model.Covid_19.Trim())
+                                {
+                                    case "SI":
+                                        {
+                                            <option selected>SI</option>
+                                            <option>NO</option>
+                                        }
+                                        break;
+                                    case "NO":
+                                        {
+                                            <option>SI</option>
+                                            <option selected>NO</option>
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                <option>SI</option>
+                                <option>NO</option>
+                            }
+                        }
+                    </select>
+                </td>
+
+
+                <td><input type="date" value="@String.Format("{0:yyyy-MM-dd}",Model.Fecha_Dosis_inm_covid_19)" name="Fecha_Dosis_inm_covid_19" class="form-control" /></td>
+
+
+                <td></td>
+
+
+                <td>
+                    
+                </td>
+
+
+                <td>
+                    
+                </td>
+
+
+            </tr>
 
 
         </table>
@@ -971,106 +1024,106 @@
             <td>Piel</td>
             <td> @Html.EditorFor(model => model.Piel)</td>
             <td> @Html.EditorFor(model => model.PielA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_Piel, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_Piel, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Cabello</td>
             <td> @Html.EditorFor(model => model.Cabello)</td>
             <td> @Html.EditorFor(model => model.CabelloA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_Cabellos, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_Cabellos, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Ojos</td>
             <td> @Html.EditorFor(model => model.Ojos)</td>
             <td> @Html.EditorFor(model => model.OjosA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_ojos, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_ojos, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Oidos</td>
             <td> @Html.EditorFor(model => model.Oidos)</td>
             <td> @Html.EditorFor(model => model.OidosA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_oidos, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_oidos, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Nariz</td>
             <td> @Html.EditorFor(model => model.Nariz)</td>
             <td> @Html.EditorFor(model => model.NarizA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_nariz, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_nariz, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Boca</td>
             <td> @Html.EditorFor(model => model.Boca)</td>
             <td> @Html.EditorFor(model => model.BocaA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_boca, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_boca, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Faringe</td>
             <td> @Html.EditorFor(model => model.Faringe)</td>
             <td> @Html.EditorFor(model => model.FaringeA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_faringe, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_faringe, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td colspan="2">Cuello</td>
             <td> @Html.EditorFor(model => model.Cuello)</td>
             <td> @Html.EditorFor(model => model.CuelloA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_cuello, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_cuello, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td rowspan="6"><span style="writing-mode:vertical-lr;">Torax</span></td>
             <td>Pulmon</td>
             <td> @Html.EditorFor(model => model.Pulmon)</td>
             <td> @Html.EditorFor(model => model.PulmonA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_pulmon, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_pulmon, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Corazon</td>
             <td> @Html.EditorFor(model => model.Corzaon)</td>
             <td> @Html.EditorFor(model => model.CorzaonA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_Corazon, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_Corazon, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Abdomen</td>
             <td> @Html.EditorFor(model => model.Abdomen)</td>
             <td> @Html.EditorFor(model => model.AbdomenA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_abdomen, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_abdomen, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Genitales</td>
             <td> @Html.EditorFor(model => model.Genitales)</td>
             <td> @Html.EditorFor(model => model.GenitalesA)</td>
-            <td>@Html.EditorFor(model => model.descripcion_Genitales, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.descripcion_Genitales, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Aparato Locomotor</td>
             <td> @Html.EditorFor(model => model.Aparato_Locomotor)</td>
             <td> @Html.EditorFor(model => model.Aparato_LocomotorA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_aparato_Locomotor, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_aparato_Locomotor, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Marcha</td>
             <td> @Html.EditorFor(model => model.Marcha)</td>
             <td> @Html.EditorFor(model => model.MarchaA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_Marcha, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_Marcha, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td rowspan="3"><span style="writing-mode:vertical-lr;">Soma</span></td>
             <td>Columna</td>
             <td> @Html.EditorFor(model => model.Columna)</td>
             <td> @Html.EditorFor(model => model.ColumnaA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_Columna, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_Columna, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Miembros superiores</td>
             <td> @Html.EditorFor(model => model.Miembros_superiores)</td>
             <td> @Html.EditorFor(model => model.Miembros_superioresA)</td>
-            <td>@Html.EditorFor(model => model.Descripcion_Miembros_superiores, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td>@Html.TextAreaFor(model => model.Descripcion_Miembros_superiores, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
         </tr>
         <tr>
             <td>Miembros inferiores</td>
             <td> @Html.EditorFor(model => model.Miembros_inferiores)</td>
             <td> @Html.EditorFor(model => model.Miembros_inferioresA)</td>
             <td>
-                @Html.EditorFor(model => model.Descripcion_Miembros_Inferiores, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Descripcion_Miembros_Inferiores, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })
 
             </td>
         </tr>
@@ -1082,64 +1135,64 @@
             <td>
                 @*@Html.EditorFor(model => model.Descripcion_Sistema_Nervioso, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.Editor("Descripcion_Sistema_Nervioso", new { htmlAttributes = new { @class = "form-control" } })*@
-                <input type="text" name="Descripcion_Sistema_Nervioso" class="form-control" />
+                <textarea type="text" name="Descripcion_Sistema_Nervioso" class="form-control" style="max-width:550px;"></textarea>
             </td>
         </tr>
     </table>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Comentarios, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextAreaFor(model => model.Comentarios, htmlAttributes: new { @class = "form-control", @type = "text-area" })
-            @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comentarios, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Comentarios, htmlAttributes: new { @class = "form-control", @type = "text-area", @style = "max-width : 550px" })
+                @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
-    @*<div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.Firma, htmlAttributes: new { @class = "control-label col-md-2" })
 
             @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file" })
             @Html.ValidationMessageFor(model => model.Firma, "", new { @class = "text-danger" })
 
         </div>*@
-    <div class="form-group">
-        @Html.Label("Firma:", htmlAttributes: new { @class = "control-label  col-md-2" })
+        <div class="form-group">
+            @Html.Label("Firma:", htmlAttributes: new { @class = "control-label  col-md-2" })
 
-        @{
-            try
-            {
-                var base64 = Convert.ToBase64String(Model.Firma);
-                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-                <img src="@imgSrc" width="200" />
+            @{
+                try
+                {
+                    var base64 = Convert.ToBase64String(Model.Firma);
+                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                    <img src="@imgSrc" width="200" />
+                }
+                catch
+                {
+
+                }
             }
-            catch
-            {
 
-            }
-        }
+        </div>
+        <div class="form-group">
+            @Html.Label("Estado", htmlAttributes: new { @class = "control-label col-md-2" })
 
-    </div>
-    <div class="form-group">
-        @Html.Label("Estado", htmlAttributes: new { @class = "control-label col-md-2" })
-        
             @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
-           
+
         </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Firmar, "Firmar?", htmlAttributes: new { @class = "control-label col-md-2" })
-      
+        <div class="form-group">
+            @Html.LabelFor(model => model.Firmar, "Firmar?", htmlAttributes: new { @class = "control-label col-md-2" })
+
             @Html.EditorFor(model => model.Firmar, new { htmlAttributes = new { @class = "form-control", @type = "checkbox" } })
             @Html.ValidationMessageFor(model => model.Firmar, "", new { @class = "text-danger" })
             <p style="font-size:12px">La opción de firmar solo funciona en el estado 'Finalizada'.</p>
-            
+
         </div>
-    
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Guardar" class="btn btn-default" />
             </div>
         </div>
-
+    </div>
 
         }
 

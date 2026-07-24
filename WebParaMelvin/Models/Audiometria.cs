@@ -16,7 +16,7 @@ namespace WebParaMelvin.Models
     {
         public int Id_AudioMetria { get; set; }
         public bool trabaja_trabajado_en_areas_ruidosas { get; set; }
-        public bool tipo_de_proteccion_auditiva { get; set; }
+        public string tipo_de_proteccion_auditiva { get; set; }
         public bool Ha_tenido_infecciones_en_los_oidos { get; set; }
         public bool Ha_tenido_zumbido_en_los_oidos { get; set; }
         public Nullable<bool> Ha_estado_en_la_milicia_o_el_ejercito_no { get; set; }
@@ -25,10 +25,8 @@ namespace WebParaMelvin.Models
         public Nullable<bool> Ha_tenido_infecciones_en_los_oidos_no { get; set; }
         public Nullable<bool> Ha_tenido_zumbido_en_los_oidos_no { get; set; }
         public bool Ha_estado_en_la_milicia_o_el_ejercito { get; set; }
-        public string Escucha_musica_alta_o_usa_audifonos { get; set; }
         public string Horas_desde_la_ultima_exposicion { get; set; }
         public string Exposicion { get; set; }
-        public string Entrenamiento_recibido { get; set; }
         public string Autoevaluacion_de_su_audicion_ { get; set; }
         public string Otoscopia_Izquierda { get; set; }
         public string Otoscopia_Derecha { get; set; }
@@ -68,6 +66,8 @@ namespace WebParaMelvin.Models
         public Nullable<System.DateTime> Ultima_modificacion { get; set; }
         public Nullable<int> Usuario_que_modifico { get; set; }
         public string Estado { get; set; }
+        public Nullable<bool> Escucha_musica_alta_o_usa_audifonos { get; set; }
+        public Nullable<bool> Entrenamiento_recibido { get; set; }
     
         public virtual Formulario_S_O Formulario_S_O { get; set; }
     }

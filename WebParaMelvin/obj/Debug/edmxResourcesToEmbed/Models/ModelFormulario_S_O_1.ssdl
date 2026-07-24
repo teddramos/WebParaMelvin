@@ -86,7 +86,7 @@
     </Key>
     <Property Name="Id_AudioMetria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="trabaja_trabajado_en_areas_ruidosas" Type="bit" Nullable="false" />
-    <Property Name="tipo_de_proteccion_auditiva" Type="bit" Nullable="false" />
+    <Property Name="tipo_de_proteccion_auditiva" Type="nvarchar" MaxLength="50" />
     <Property Name="Ha_tenido_infecciones_en_los_oidos" Type="bit" Nullable="false" />
     <Property Name="Ha_tenido_zumbido_en_los_oidos" Type="bit" Nullable="false" />
     <Property Name="Ha_estado_en_la_milicia_o_el_ejercito_no" Type="bit" />
@@ -95,11 +95,9 @@
     <Property Name="Ha_tenido_infecciones_en_los_oidos_no" Type="bit" />
     <Property Name="Ha_tenido_zumbido_en_los_oidos_no" Type="bit" />
     <Property Name="Ha_estado_en_la_milicia_o_el_ejercito" Type="bit" Nullable="false" />
-    <Property Name="Escucha_musica_alta_o_usa_audifonos" Type="nvarchar" MaxLength="50" />
     <Property Name="Horas_desde_la_ultima_exposicion" Type="nvarchar" MaxLength="10" />
     <Property Name="Exposicion" Type="nvarchar" MaxLength="10" />
-    <Property Name="Entrenamiento_recibido" Type="nvarchar" MaxLength="10" />
-    <Property Name="Autoevaluacion_de_su_audicion_" Type="nvarchar" MaxLength="10" />
+    <Property Name="Autoevaluacion_de_su_audicion_" Type="nvarchar" MaxLength="50" />
     <Property Name="Otoscopia_Izquierda" Type="nvarchar" MaxLength="50" />
     <Property Name="Otoscopia_Derecha" Type="nvarchar" MaxLength="50" />
     <Property Name="Comentarios" Type="nvarchar(max)" />
@@ -138,6 +136,8 @@
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Escucha_musica_alta_o_usa_audifonos" Type="bit" />
+    <Property Name="Entrenamiento_recibido" Type="bit" />
   </EntityType>
   <EntityType Name="Consentimiento_Informado">
     <Key>
@@ -400,6 +400,19 @@
     <Property Name="Ultima_modificacion" Type="datetime" />
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Examen_Visual_2">
+    <Key>
+      <PropertyRef Name="Id_Examen_Visual_2" />
+    </Key>
+    <Property Name="Id_Examen_Visual_2" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Archivo" Type="image" />
+    <Property Name="Id_Formulario_S_O" Type="int" />
+    <Property Name="Modificado" Type="bit" />
+    <Property Name="Ultima_modificacion" Type="datetime" />
+    <Property Name="Usuario_que_modifico" Type="int" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+    <Property Name="Firma" Type="image" />
   </EntityType>
   <EntityType Name="Formulario_S_O">
     <Key>
@@ -703,6 +716,8 @@
     <Property Name="Usuario_que_modifico" Type="int" />
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
     <Property Name="Pais_de_nacimiento" Type="nvarchar" MaxLength="120" />
+    <Property Name="Covid_19" Type="nvarchar" MaxLength="20" />
+    <Property Name="Fecha_Dosis_inm_covid_19" Type="datetime" />
   </EntityType>
   <EntityType Name="Info_general">
     <Key>
@@ -740,6 +755,7 @@
     <Property Name="Estado" Type="nvarchar" MaxLength="50" />
     <Property Name="EpWorth" Type="bit" Nullable="false" />
     <Property Name="Apnea" Type="bit" Nullable="false" />
+    <Property Name="Examen_Visual_2" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Laboratorio">
     <Key>
@@ -1170,6 +1186,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Examen_Visual_2_To_Formulario_S_O">
+    <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Examen_Visual_2" Type="Self.Examen_Visual_2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Formulario_S_O">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Principal>
+      <Dependent Role="Examen_Visual_2">
+        <PropertyRef Name="Id_Formulario_S_O" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Examen_Visual_Formulario_S_O">
     <End Role="Formulario_S_O" Type="Self.Formulario_S_O" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -1393,6 +1423,7 @@
     <EntitySet Name="EpWorth" EntityType="Self.EpWorth" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Espirometria" EntityType="Self.Espirometria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Examen_Visual" EntityType="Self.Examen_Visual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Examen_Visual_2" EntityType="Self.Examen_Visual_2" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Formulario_S_O" EntityType="Self.Formulario_S_O" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Hemograma" EntityType="Self.Hemograma" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Historia_Clinica" EntityType="Self.Historia_Clinica" Schema="dbo" store:Type="Tables" />
@@ -1445,6 +1476,10 @@
     <AssociationSet Name="FK_Espirometria_To_Formulario_S_O" Association="Self.FK_Espirometria_To_Formulario_S_O">
       <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
       <End Role="Espirometria" EntitySet="Espirometria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examen_Visual_2_To_Formulario_S_O" Association="Self.FK_Examen_Visual_2_To_Formulario_S_O">
+      <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />
+      <End Role="Examen_Visual_2" EntitySet="Examen_Visual_2" />
     </AssociationSet>
     <AssociationSet Name="FK_Examen_Visual_Formulario_S_O" Association="Self.FK_Examen_Visual_Formulario_S_O">
       <End Role="Formulario_S_O" EntitySet="Formulario_S_O" />

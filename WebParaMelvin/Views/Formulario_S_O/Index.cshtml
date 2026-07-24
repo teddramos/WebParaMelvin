@@ -1,11 +1,13 @@
 ﻿
 
-@model IEnumerable<WebParaMelvin.Models.Formulario_S_O>
+@*@model IEnumerable<WebParaMelvin.Models.Formulario_S_O>*@
+
+@model IEnumerable<WebParaMelvin.Models.IndexFSOData>
 
 @{
     ViewBag.Title = "Formularios Disponibles";
     var user = Session["User"] as WebParaMelvin.Models.Usuario;
-    WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
+   // WebParaMelvin.Models.ceisamco_form_s_oEntities db = new WebParaMelvin.Models.ceisamco_form_s_oEntities();
 }
 
 <p>
@@ -26,73 +28,73 @@
                 <input type="text" class="form-control" id="data" name="data" placeholder="@placeHolder" style="width: 600px;">
             </td>
 
-<td>Buscar Por:</td>
+            <td>Buscar Por:</td>
 
-<td>
+            <td>
 
-    <select class="form-control" onchange="pasarEnfermedad(this)">
-        <option>Seleccionar...</option>
-        <optgroup label="Antecedentes Patológicos">
-            <option>ACV</option>
-            <option>Asma</option>
-            <option>Cancer</option>
-            <option>Cervicalgia</option>
-            <option>Chikungunya</option>
-            <option>Dengue</option>
-            <option>Diabetes</option>
-            <option value="ETS">E.T.S</option>
-            <option value="enf_auditiva">Enf. Auditiva</option>
-            <option value="Enf_Autoinmune">Enf. Autoinmune</option>
-            <option value="Enf_Cardiaca">Enf. Cardiaca</option>
-            <option value="Enf_Congenita">Enf. Congenita</option>
-            <option value="Enf_Gastrica">Enf. Gastrica</option>
-            <option value="Enf_Mental">Enf. Mental</option>
-            <option value="Enf_Neurologica">Enf. Neurologica</option>
-            <option value="Enf_Osteomuscular">Enf. Osteomuscular</option>
-            <option value="Enf_Renal">Enf. Renal</option>
-            <option value="Enf_Respiratoria">Enf. Respiratoria</option>
-            <option value="Enf_Visual">Enf. Visual</option>
-            <option>Epilepsia</option>
-            <option>Gastritis</option>
-            <option>Hepatitis</option>
-            <option value="Hernia_Abd_">Hernia Abd.</option>
-            <option value="Hernia_discal">Hernia Discal</option>
-            <option>Hipertension</option>
-            <option value="Infarto_Cartdiaco">Infarto Cardiaco</option>
-            <option>Intoxicaciones</option>
-            <option>Leptospirosis</option>
-            <option>Lumbalgia</option>
-            <option>Malaria</option>
-            <option>Neumonia</option>
-            <option>Tifoidea</option>
-            <option>Tuberculosis</option>
-            <option>Ulcera</option>
-            <option>Vertigo</option>
-            <option>Zika</option>
-        </optgroup>
-        <optgroup label="Audiometría">
-            <option value="A Audición normal">Audición normal</option>
-            <option value="A Hipoacusia leve">Hipoacusia leve</option>
-            <option value="A Hipoacusia moderada">Hipoacusia moderada</option>
-            <option value="A Hipoacusia severa">Hipoacusia severa</option>
-            <option value="A Hipoacusia profunda">Hipoacusia profunda</option>
-        </optgroup>
-        <optgroup label="Examen Visual">
-            <option value="V Normal">Normal</option>
-            <option value="V Daltonico">Daltonico</option>
-        </optgroup>
-        <optgroup label="Espirometría">
-            <option value="E patron normal">patron normal</option>
-            <option value="E patron restrictivo">patron restrictivo</option>
-            <option value="E patron obstructivo">patron obstructivo</option>
-        </optgroup>
-        <optgroup label="Conclusión">
-            <option value="APTO">APTO</option>
-            <option value="APTO CON RESTRICIÓN">APTO CON RESTRICIÓN</option>
-            <option value="NO APTO">NO APTO</option>
-            <option value="APLAZADO">APLAZADO</option>
-        </optgroup>
-    </select>
+                <select class="form-control" onchange="pasarEnfermedad(this)">
+                    <option>Seleccionar...</option>
+                    <optgroup label="Antecedentes Patológicos">
+                        <option>ACV</option>
+                        <option>Asma</option>
+                        <option>Cancer</option>
+                        <option>Cervicalgia</option>
+                        <option>Chikungunya</option>
+                        <option>Dengue</option>
+                        <option>Diabetes</option>
+                        <option value="ETS">E.T.S</option>
+                        <option value="enf_auditiva">Enf. Auditiva</option>
+                        <option value="Enf_Autoinmune">Enf. Autoinmune</option>
+                        <option value="Enf_Cardiaca">Enf. Cardiaca</option>
+                        <option value="Enf_Congenita">Enf. Congenita</option>
+                        <option value="Enf_Gastrica">Enf. Gastrica</option>
+                        <option value="Enf_Mental">Enf. Mental</option>
+                        <option value="Enf_Neurologica">Enf. Neurologica</option>
+                        <option value="Enf_Osteomuscular">Enf. Osteomuscular</option>
+                        <option value="Enf_Renal">Enf. Renal</option>
+                        <option value="Enf_Respiratoria">Enf. Respiratoria</option>
+                        <option value="Enf_Visual">Enf. Visual</option>
+                        <option>Epilepsia</option>
+                        <option>Gastritis</option>
+                        <option>Hepatitis</option>
+                        <option value="Hernia_Abd_">Hernia Abd.</option>
+                        <option value="Hernia_discal">Hernia Discal</option>
+                        <option>Hipertension</option>
+                        <option value="Infarto_Cartdiaco">Infarto Cardiaco</option>
+                        <option>Intoxicaciones</option>
+                        <option>Leptospirosis</option>
+                        <option>Lumbalgia</option>
+                        <option>Malaria</option>
+                        <option>Neumonia</option>
+                        <option>Tifoidea</option>
+                        <option>Tuberculosis</option>
+                        <option>Ulcera</option>
+                        <option>Vertigo</option>
+                        <option>Zika</option>
+                    </optgroup>
+                    <optgroup label="Audiometría">
+                        <option value="A Audición normal">Audición normal</option>
+                        <option value="A Hipoacusia leve">Hipoacusia leve</option>
+                        <option value="A Hipoacusia moderada">Hipoacusia moderada</option>
+                        <option value="A Hipoacusia severa">Hipoacusia severa</option>
+                        <option value="A Hipoacusia profunda">Hipoacusia profunda</option>
+                    </optgroup>
+                    <optgroup label="Examen Visual">
+                        <option value="V Normal">Normal</option>
+                        <option value="V Daltonico">Daltonico</option>
+                    </optgroup>
+                    <optgroup label="Espirometría">
+                        <option value="E patron normal">patron normal</option>
+                        <option value="E patron restrictivo">patron restrictivo</option>
+                        <option value="E patron obstructivo">patron obstructivo</option>
+                    </optgroup>
+                    <optgroup label="Conclusión">
+                        <option value="APTO">APTO</option>
+                        <option value="APTO CON RESTRICIÓN">APTO CON RESTRICIÓN</option>
+                        <option value="NO APTO">NO APTO</option>
+                        <option value="APLAZADO">APLAZADO</option>
+                    </optgroup>
+                </select>
             </td>
             <td><input type="submit" class="form-control" value="Buscar" /></td>
             <td>&nbsp;</td>
@@ -107,54 +109,58 @@
     {
         <div style="background-image: url('../../Images/logo cisam2.jpeg'); background-size:cover; width:auto; height:400px;">
         </div>
-        }
     }
+}
 
 <table class="table" style="background-color:white;">
 
     @{ if (Model != null)
         {
-        <tr>
-            <th>
-                No. Expediente
-            </th>
-            @if (user.id_rol != 3)
-            {
+            <tr>
+                <th>
+                    No. Expediente
+                </th>
+                @if (user.id_rol != 3)
+                {
 
+                    <th>
+                        Empresa
+                    </th>
+                }
+                else
+                {
+                    <th>
+                        Tipo de Evaluación
+                    </th>
+                }
                 <th>
-                    Empresa
+                    Identificación
                 </th>
-            }
-            else
-            {
                 <th>
-                    Tipo de Evaluación
+                    Persona
                 </th>
-            }
-            <th>
-                Persona
-            </th>
-            <th>
-                Fecha de Evaluación
-            </th>
-            @if (user.id_rol != 3)
-            {
+                <th>
+                    Fecha de Evaluación
+                </th>
+                @if (user.id_rol != 3)
+                {
 
+                    <th>
+                        Estado
+                    </th>
+                }
+                else
+                {
+                    <th>
+                        País de origen
+                    </th>
+                }
                 <th>
-                    Estado
-                </th>
-            }
-            else
-            {
-                <th>
-                    País de origen
-                </th>
-            }
-            <th>
 
-            </th>
-        </tr>}
-        }
+                </th>
+            </tr>
+}
+    }
     @{ if (Model != null)
         {
             foreach (var item in Model)
@@ -169,12 +175,24 @@
                         <td>
                             @if (user.id_rol != 3)
                             {
-                                @Html.DisplayFor(modelItem => item.Empresa.Nombre)
+                                @Html.DisplayFor(modelItem => item.Empresa)
                             }
                             else
                             {
-                                var tipo = db.Info_general.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Tipo_de_evaluacion;
-                                <span>@tipo</span>
+                                //var tipo = db.Info_general.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Tipo_de_evaluacion;
+                            
+                                <span>@item.Tipo_de_evaluacion</span>
+                            }
+
+                        </td>
+                        <td>
+                            @{
+                                //var inf = db.Info_general.FirstOrDefault(a => a.Id_Formulario_S_O == item.Id_Formulario_S_O);
+                               
+                                @*if (inf != null)
+                                { <span>@inf.Cedula</span> }*@
+                                <span>@item.Cedula</span>
+
                             }
 
                         </td>
@@ -182,18 +200,18 @@
                             @{
 
 
-                                var inf = db.Info_general.FirstOrDefault(a => a.Id_Formulario_S_O == item.Id_Formulario_S_O);
-                                if (inf != null)
+
+                                if (item != null)
                                 {
-                                    <span>@inf.Nombre @inf.Apellido</span>
+                                    <span>@item.Nombre @item.Apellido</span>
 
                                 }
                             }
                         </td>
                         <td>
                             @{
-                                if (inf != null)
-                                { <span>@inf.Fecha.Value.ToShortDateString()</span> }
+                                if (item != null)
+                                { <span>@item.Fecha.Value.ToShortDateString()</span> }
 
                             }
 
@@ -205,7 +223,8 @@
                             }
                             else
                             {
-                                var tipo = db.Historia_Clinica.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Pais_de_nacimiento;
+                                //var tipo = db.Historia_Clinica.FirstOrDefault(x => x.Id_Formulario_S_O == item.Id_Formulario_S_O).Pais_de_nacimiento;
+                                var tipo = item.Pais_de_nacimiento;
                                 <span>@tipo</span>
                             }
                         </td>

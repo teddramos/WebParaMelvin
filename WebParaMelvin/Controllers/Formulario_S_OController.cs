@@ -41,10 +41,26 @@ namespace WebParaMelvin.Controllers
                     try
                     {
                         var idempresa = db.Empresas.FirstOrDefault(a => a.Id_Usuario == user.Id_usuario).Id_Empresa;
-                        var formulario_S_O = db.Formulario_S_O.Where(a => a.Id_Empresa == idempresa && a.Estado == "Visible");
-                        return View(formulario_S_O.OrderByDescending(a => a.Id_Formulario_S_O).ToList());
+                        //var formulario_S_O = db.Formulario_S_O.Where(a => a.Id_Empresa == idempresa && a.Estado == "Visible");
+                        var formulario_S_O = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                      x => new IndexFSOData()
+                      {
+                          Id_Formulario_S_O = x.Id_Formulario_S_O,
+                          Empresa = x.Empresa.Nombre,
+                          Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                          Cedula = x.Info_general.FirstOrDefault().Cedula,
+                          Nombre = x.Info_general.FirstOrDefault().Nombre,
+                          Apellido = x.Info_general.FirstOrDefault().Apellido,
+                          Fecha = x.Info_general.FirstOrDefault().Fecha,
+                          Estado = x.Estado,
+                          Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                          Id_Empresa = (int)x.Id_Empresa
+                      }
+
+                      ).Where(x => x.Id_Empresa == idempresa && x.Estado == "Visible").OrderByDescending(a => a.Id_Formulario_S_O).ToList();
+                        return View(formulario_S_O);
                     }
-                    catch
+                    catch(Exception ex)
                     {
 
                     }
@@ -53,9 +69,23 @@ namespace WebParaMelvin.Controllers
                 }
                 else
                 {
-                    return View(db.Formulario_S_O.Include(x => x.Info_general).Where(x => x.Info_general.FirstOrDefault(b => b.Id_Formulario_S_O == x.Id_Formulario_S_O).Fecha > new DateTime(2021,12,31)).OrderByDescending(a =>a.Id_Formulario_S_O).ToList());
+                   //return View(db.Formulario_S_O.Include(x => x.Info_general).Where(x => x.Info_general.FirstOrDefault(b => b.Id_Formulario_S_O == x.Id_Formulario_S_O).Fecha > new DateTime(2021,12,31)).OrderByDescending(a =>a.Id_Formulario_S_O).ToList());
 
-                   //return View(db.Formulario_S_O.Include(x => x.Info_general).Where(x => x.Info_general.FirstOrDefault(b => b.Id_Formulario_S_O == x.Id_Formulario_S_O).Fecha > new DateTime(2020,12,31)).OrderByDescending(a =>a.Id_Formulario_S_O).Take(30).ToList());
+                  return View(db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                      x => new IndexFSOData()
+                      {
+                          Id_Formulario_S_O = x.Id_Formulario_S_O,
+                          Empresa = x.Empresa.Nombre,
+                          Tipo_de_evaluacion= x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                          Cedula = x.Info_general.FirstOrDefault().Cedula,
+                          Nombre = x.Info_general.FirstOrDefault().Nombre,
+                          Apellido = x.Info_general.FirstOrDefault().Apellido,
+                          Fecha = x.Info_general.FirstOrDefault().Fecha,
+                          Estado = x.Estado,
+                          Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento
+                      }
+                      
+                      ).Where(x => x.Fecha > new DateTime(2021,12,31)).OrderByDescending(a =>a.Id_Formulario_S_O).ToList());
                 }
             }
             return View();
@@ -79,23 +109,27 @@ namespace WebParaMelvin.Controllers
                 {
                     try
                     {
-                        List<Info_general> listInf = db.Info_general.ToList();
-                        List<Info_general> listInfGG = new List<Info_general>();
-                        foreach (var inf in listInf.ToList())
-                        {
-                            if (inf.Nombre.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Apellido.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Cedula.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()))
-                            {
-                                listInfGG.Add(inf);
-                            }
-                        }
-                        List<Formulario_S_O> lista = new List<Formulario_S_O>();
-                        foreach (var info in listInfGG)
-                        {
-                            var idempresa = db.Empresas.FirstOrDefault(a => a.Id_Usuario == user.Id_usuario).Id_Empresa;
-                            var formulario_S_O = db.Formulario_S_O.Where(a => a.Id_Empresa == idempresa && a.Estado == "Visible");
-                            var fsoGet = formulario_S_O.FirstOrDefault(a => a.Id_Formulario_S_O == info.Id_Formulario_S_O);
-                            lista.Add(fsoGet);
-                        }
+                        var idEmpresa = db.Empresas.FirstOrDefault(x => x.Id_Usuario == user.Id_usuario).Id_Empresa;
+                        var exp = vs[0].Trim().ToUpper();
+
+
+                        List<IndexFSOData> lista = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                           x => new IndexFSOData()
+                           {
+                               Id_Formulario_S_O = x.Id_Formulario_S_O,
+                               Empresa = x.Empresa.Nombre,
+                               Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                               Cedula = x.Info_general.FirstOrDefault().Cedula,
+                               Nombre = x.Info_general.FirstOrDefault().Nombre,
+                               Apellido = x.Info_general.FirstOrDefault().Apellido,
+                               Fecha = x.Info_general.FirstOrDefault().Fecha,
+                               Estado = x.Estado,
+                               Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                               Id_Empresa = x.Empresa.Id_Empresa
+                           }
+
+                           ).Where(x => (x.Nombre.Trim().ToUpper().Contains(exp) || x.Apellido.Trim().ToUpper().Contains(exp) || x.Cedula.Trim().ToUpper().Contains(exp)) && x.Estado == "Visible" && x.Id_Empresa == idEmpresa).ToList();
+
 
                         if (lista.Count <= 0)
                         {
@@ -123,45 +157,64 @@ namespace WebParaMelvin.Controllers
                 }
                 else
                 {
+
+                    //List<Info_general> listInf  = db.Info_general.ToList();
+                    //List<Info_general> listInfGG = new List<Info_general>();
+                    //foreach (var inf in listInf)
+                    //{
+                    //    if(inf.Nombre != null && inf.Apellido !=null && inf.Cedula != null && inf.Formulario_S_O != null)
+                    //    {
+                    //      if (inf.Nombre.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Apellido.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Cedula.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Formulario_S_O.Empresa.Nombre.Trim().ToUpper().Contains(vs[0].ToUpper()) || inf.Formulario_S_O.Estado.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()))
+                    //                            {
+                    //                                listInfGG.Add(inf);
+                    //                            }
+                    //    }
+
+                    //}
+                    var exp = vs[0].Trim().ToUpper();
+                    var datos = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                           x => new IndexFSOData()
+                           {
+                               Id_Formulario_S_O = x.Id_Formulario_S_O,
+                               Empresa = x.Empresa.Nombre,
+                               Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                               Cedula = x.Info_general.FirstOrDefault().Cedula,
+                               Nombre = x.Info_general.FirstOrDefault().Nombre,
+                               Apellido = x.Info_general.FirstOrDefault().Apellido,
+                               Fecha = x.Info_general.FirstOrDefault().Fecha,
+                               Estado = x.Estado,
+                               Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                               Id_Empresa = x.Empresa.Id_Empresa
+                           }
+
+                           ).Where(x => x.Nombre.Trim().ToUpper().Contains(exp) || x.Apellido.Trim().ToUpper().Contains(exp) || x.Cedula.Trim().ToUpper().Contains(exp) || x.Nombre.Trim().ToUpper().Contains(exp) || x.Estado.Trim().ToUpper().Contains(exp));
                    
-                    List<Info_general> listInf  = db.Info_general.ToList();
-                    List<Info_general> listInfGG = new List<Info_general>();
-                    foreach (var inf in listInf.ToList())
+
+                    List<IndexFSOData> lista = new List<IndexFSOData>();
+                    foreach (var dat in datos)
                     {
-                        if(inf.Nombre != null && inf.Apellido !=null && inf.Cedula != null && inf.Formulario_S_O != null)
-                        {
-                          if (inf.Nombre.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Apellido.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Cedula.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()) || inf.Formulario_S_O.Empresa.Nombre.Trim().ToUpper().Contains(vs[0].ToUpper()) || inf.Formulario_S_O.Estado.Trim().ToUpper().Contains(vs[0].Trim().ToUpper()))
-                                                {
-                                                    listInfGG.Add(inf);
-                                                }
-                        }
-                      
-                    }
-                    List<Formulario_S_O> lista = new List<Formulario_S_O>();
-                   
-                    foreach (var info in listInfGG)
-                    {
-                        var fsoGet = db.Formulario_S_O.FirstOrDefault(a => a.Id_Formulario_S_O == info.Id_Formulario_S_O);
-                        lista.Add(fsoGet);
+                        lista.Add(dat);
                     }
 
-                    if(lista.Count < 1)
+
+                    if (datos.ToList().Count < 1)
                     {
-                        if(buscarPorEnfermedad(vs[0],0).Count > 0)
-                        { 
-                        return View(buscarPorEnfermedad(vs[0],0));
+                        if (buscarPorEnfermedad(vs[0], 0).Count > 0)
+                        {
+                            return View(buscarPorEnfermedad(vs[0], 0));
                         }
-                        else if(buscarPorResultado(vs[0], 0).Count > 0)
+                        else if (buscarPorResultado(vs[0], 0).Count > 0)
                         {
                             return View(buscarPorResultado(vs[0], 0));
                         }
-                        else if(buscarPorConclucion(vs[0],0).Count > 0)
+                        else if (buscarPorConclucion(vs[0], 0).Count > 0)
                         {
                             return View(buscarPorConclucion(vs[0], 0));
                         }
                     }
-                    
-                    return View(lista.OrderByDescending(a => a.Id_Formulario_S_O).ToList());
+
+                    return View(lista.OrderByDescending(x => x.Id_Formulario_S_O).ToList());
+                
                 }
             }
 
@@ -171,9 +224,9 @@ namespace WebParaMelvin.Controllers
         List<Audiometria> audioMetrias;
         List<Examen_Visual> exVisual;
         
-        private List<Formulario_S_O> buscarPorResultado(string resultado,int userRol)
+        private List<IndexFSOData> buscarPorResultado(string resultado,int userRol)
         {
-            List<Formulario_S_O> lista = new List<Formulario_S_O>();
+            List<IndexFSOData> lista = new List<IndexFSOData>();
            
             List<Audiometria> listAudio = new List<Audiometria>();
            
@@ -187,18 +240,33 @@ namespace WebParaMelvin.Controllers
             {
                 case "A":
                     {
-                        audioMetrias = db.Audiometrias.ToList();
+                       
                         string busqueda = rtype[1] + " " + rtype[2];
+                        audioMetrias = db.Audiometrias.Where(x => x.Resultado == busqueda).ToList();
                         foreach (var audioM in audioMetrias)
                         {
-                            if(audioM.Resultado == busqueda)
-                            {
+                            
                                 listAudio.Add(audioM);
-                            }
+                            
                         }
                         foreach(var audio in listAudio)
                         {
-                            var fsoGet = db.Formulario_S_O.FirstOrDefault(a => a.Id_Formulario_S_O == audio.Id_Formulario_S_O);
+                            var fsoGet = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                           x => new IndexFSOData()
+                           {
+                               Id_Formulario_S_O = x.Id_Formulario_S_O,
+                               Empresa = x.Empresa.Nombre,
+                               Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                               Cedula = x.Info_general.FirstOrDefault().Cedula,
+                               Nombre = x.Info_general.FirstOrDefault().Nombre,
+                               Apellido = x.Info_general.FirstOrDefault().Apellido,
+                               Fecha = x.Info_general.FirstOrDefault().Fecha,
+                               Estado = x.Estado,
+                               Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                               Id_Empresa = x.Empresa.Id_Empresa
+                           }
+
+                           ).FirstOrDefault(x => x.Id_Formulario_S_O == audio.Id_Formulario_S_O);
                             lista.Add(fsoGet);
                         }
                     }
@@ -206,18 +274,33 @@ namespace WebParaMelvin.Controllers
                 case "V":
                     {
                         
-                        exVisual = db.Examen_Visual.ToList();
+                        
                         string busqueda = rtype[1];
+                        exVisual = db.Examen_Visual.Where(x => x.Resultado == busqueda).ToList();
                         foreach (var exV in exVisual)
                         {
-                            if (exV.Resultado == busqueda)
-                            {
+                           
                                 listVisual.Add(exV);
-                            }
+                            
                         }
                         foreach (var visual in listVisual)
                         {
-                            var fsoGet = db.Formulario_S_O.FirstOrDefault(a => a.Id_Formulario_S_O == visual.Id_Formulario_S_O);
+                            var fsoGet = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                           x => new IndexFSOData()
+                           {
+                               Id_Formulario_S_O = x.Id_Formulario_S_O,
+                               Empresa = x.Empresa.Nombre,
+                               Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                               Cedula = x.Info_general.FirstOrDefault().Cedula,
+                               Nombre = x.Info_general.FirstOrDefault().Nombre,
+                               Apellido = x.Info_general.FirstOrDefault().Apellido,
+                               Fecha = x.Info_general.FirstOrDefault().Fecha,
+                               Estado = x.Estado,
+                               Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                               Id_Empresa = x.Empresa.Id_Empresa
+                           }
+
+                           ).FirstOrDefault(x => x.Id_Formulario_S_O == visual.Id_Formulario_S_O);
                             lista.Add(fsoGet);
                         }
                     }
@@ -247,7 +330,22 @@ namespace WebParaMelvin.Controllers
                         }
                         foreach (var espiro in listEspiro)
                         {
-                            var fsoGet = db.Formulario_S_O.FirstOrDefault(a => a.Id_Formulario_S_O == espiro.Id_Formulario_S_O);
+                            var fsoGet = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                           x => new IndexFSOData()
+                           {
+                               Id_Formulario_S_O = x.Id_Formulario_S_O,
+                               Empresa = x.Empresa.Nombre,
+                               Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                               Cedula = x.Info_general.FirstOrDefault().Cedula,
+                               Nombre = x.Info_general.FirstOrDefault().Nombre,
+                               Apellido = x.Info_general.FirstOrDefault().Apellido,
+                               Fecha = x.Info_general.FirstOrDefault().Fecha,
+                               Estado = x.Estado,
+                               Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                               Id_Empresa = x.Empresa.Id_Empresa
+                           }
+
+                           ).FirstOrDefault(x => x.Id_Formulario_S_O == espiro.Id_Formulario_S_O);
                             lista.Add(fsoGet);
                         }
                     }
@@ -268,12 +366,12 @@ namespace WebParaMelvin.Controllers
 
             return lista.OrderByDescending(a => a.Id_Formulario_S_O).ToList();
         }
-        private List<Formulario_S_O> buscarPorEnfermedad(string enfermedad, int userRol)
+        private List<IndexFSOData> buscarPorEnfermedad(string enfermedad, int userRol)
         {
             
             var histClinicas = db.Historia_Clinica.ToList();
             List<Historia_Clinica> listHist = new List<Historia_Clinica>();
-            List<Formulario_S_O> lista = new List<Formulario_S_O>();
+            List<IndexFSOData> lista = new List<IndexFSOData>();
            
             foreach(var histo in histClinicas) { 
             var metahistCli = histo.GetType().GetProperties();
@@ -299,7 +397,22 @@ namespace WebParaMelvin.Controllers
 
                 foreach (var info in listHist)
             {
-                var fsoGet = db.Formulario_S_O.FirstOrDefault(a => a.Id_Formulario_S_O == info.Id_Formulario_S_O);
+                var fsoGet = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                           x => new IndexFSOData()
+                           {
+                               Id_Formulario_S_O = x.Id_Formulario_S_O,
+                               Empresa = x.Empresa.Nombre,
+                               Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                               Cedula = x.Info_general.FirstOrDefault().Cedula,
+                               Nombre = x.Info_general.FirstOrDefault().Nombre,
+                               Apellido = x.Info_general.FirstOrDefault().Apellido,
+                               Fecha = x.Info_general.FirstOrDefault().Fecha,
+                               Estado = x.Estado,
+                               Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                               Id_Empresa = x.Empresa.Id_Empresa
+                           }
+
+                           ).FirstOrDefault(x => x.Id_Formulario_S_O == info.Id_Formulario_S_O);
                 lista.Add(fsoGet);
             }
             if (userRol == 3)
@@ -319,7 +432,7 @@ namespace WebParaMelvin.Controllers
             
 
         }
-        private List<Formulario_S_O> buscarPorConclucion(string conclucion, int userRol)
+        private List<IndexFSOData> buscarPorConclucion(string conclucion, int userRol)
         {
             var csoList = db.CSOes.ToList();
             List<CSO> csoEncontrados = new List<CSO>();
@@ -371,10 +484,28 @@ namespace WebParaMelvin.Controllers
                     }
                     break;
             }
-            List<Formulario_S_O> fsos = new List<Formulario_S_O>();
-            foreach(var cso in csoEncontrados)
+            List<IndexFSOData> fsos = new List<IndexFSOData>();
+            foreach (var cso in csoEncontrados)
             {
-                var fso = db.Formulario_S_O.Find(cso.Id_Formulario_S_O);
+                //    var fso = db.Formulario_S_O.Find(cso.Id_Formulario_S_O);
+                //    fsos.Add(fso);
+                //}
+                var fso = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                           x => new IndexFSOData()
+                           {
+                               Id_Formulario_S_O = x.Id_Formulario_S_O,
+                               Empresa = x.Empresa.Nombre,
+                               Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                               Cedula = x.Info_general.FirstOrDefault().Cedula,
+                               Nombre = x.Info_general.FirstOrDefault().Nombre,
+                               Apellido = x.Info_general.FirstOrDefault().Apellido,
+                               Fecha = x.Info_general.FirstOrDefault().Fecha,
+                               Estado = x.Estado,
+                               Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                               Id_Empresa = x.Empresa.Id_Empresa
+                           }
+
+                           ).FirstOrDefault(x => x.Id_Formulario_S_O == cso.Id_Formulario_S_O);
                 fsos.Add(fso);
             }
 
@@ -450,35 +581,53 @@ namespace WebParaMelvin.Controllers
                 return RedirectToAction("Create", "Usuarios");
             }
             var fechavence = DateTime.Now.AddMonths(-10);
-            List<Formulario_S_O> formularios = new List<Formulario_S_O>();
-            List<Formulario_S_O> formulariosEmpresa = new List<Formulario_S_O>();
+            List<IndexFSOData> formularios = new List<IndexFSOData>();
+            List<IndexFSOData> formulariosEmpresa = new List<IndexFSOData>();
             List<Info_general> infgereal = new List<Info_general>();
             var empresa = db.Empresas.FirstOrDefault(a => a.Id_Usuario == user.Id_usuario);
 
             if (user.id_rol == 3)
             {
+                formulariosEmpresa = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                      x => new IndexFSOData()
+                      {
+                          Id_Formulario_S_O = x.Id_Formulario_S_O,
+                          Empresa = x.Empresa.Nombre,
+                          Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                          Cedula = x.Info_general.FirstOrDefault().Cedula,
+                          Nombre = x.Info_general.FirstOrDefault().Nombre,
+                          Apellido = x.Info_general.FirstOrDefault().Apellido,
+                          Fecha = x.Info_general.FirstOrDefault().Fecha,
+                          Estado = x.Estado,
+                          Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                          Id_Empresa = x.Empresa.Id_Empresa
+                      }
 
-                infgereal = db.Info_general.Where(a => a.Fecha <= fechavence && a.Formulario_S_O.Empresa.Id_Usuario == user.Id_usuario).ToList();
-
+                      ).Where(x => x.Id_Empresa == empresa.Id_Empresa && x.Fecha <= fechavence).OrderByDescending(a => a.Id_Formulario_S_O).ToList();
+                return View(formulariosEmpresa);
             }
             else
             {
-                infgereal = db.Info_general.Where(a => a.Fecha <= fechavence).ToList();
-            }
-            foreach (var inf in infgereal)
-            {
-                formularios.Add(db.Formulario_S_O.Find(inf.Id_Formulario_S_O));
-            }
-            if (user.id_rol == 3)
-            {
+                formularios = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                     x => new IndexFSOData()
+                     {
+                         Id_Formulario_S_O = x.Id_Formulario_S_O,
+                         Empresa = x.Empresa.Nombre,
+                         Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                         Cedula = x.Info_general.FirstOrDefault().Cedula,
+                         Nombre = x.Info_general.FirstOrDefault().Nombre,
+                         Apellido = x.Info_general.FirstOrDefault().Apellido,
+                         Fecha = x.Info_general.FirstOrDefault().Fecha,
+                         Estado = x.Estado,
+                         Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                         Id_Empresa = x.Empresa.Id_Empresa
+                     }
 
-                formulariosEmpresa = formularios.Where(a => a.Estado == "Visible").ToList();
-
-                return View(formulariosEmpresa.OrderByDescending(a => a.Id_Formulario_S_O).ToList());
-                
+                     ).Where(x => x.Fecha <= fechavence).OrderByDescending(a => a.Id_Formulario_S_O).ToList();
+                return View(formularios);
             }
+            
 
-                return View(formularios.OrderByDescending(a => a.Id_Formulario_S_O).ToList());
         }
         //POST:Formulario_S_O/FormulariosAVencer 
         [HttpPost, ActionName("FormulariosAVencer")]
@@ -492,15 +641,33 @@ namespace WebParaMelvin.Controllers
             } 
 
             var fechavence = DateTime.Now.AddMonths(-10);
-            List<Formulario_S_O> formularios = new List<Formulario_S_O>();
-            List<Info_general> infgereal = new List<Info_general>() ;
+            List<IndexFSOData> formularios = new List<IndexFSOData>();
+           // List<Info_general> infgereal = new List<Info_general>() ;
             
             if (user.Id_usuario == 3)
             { DateTime fechaini;
 
-               DateTime.TryParse(collection["fecha"].ToString(), out fechaini);
+              DateTime.TryParse(collection["fecha"].ToString(), out fechaini);
 
-             infgereal = db.Info_general.Where(a => a.Fecha <= fechavence && a.Formulario_S_O.Empresa.Id_Usuario == user.Id_usuario && a.Fecha >= fechaini).ToList();
+                //infgereal = db.Info_general.Where(a => a.Fecha <= fechavence && a.Formulario_S_O.Empresa.Id_Usuario == user.Id_usuario && a.Fecha >= fechaini).ToList();
+                formularios = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                        x => new IndexFSOData()
+                        {
+                            Id_Formulario_S_O = x.Id_Formulario_S_O,
+                            Empresa = x.Empresa.Nombre,
+                            Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                            Cedula = x.Info_general.FirstOrDefault().Cedula,
+                            Nombre = x.Info_general.FirstOrDefault().Nombre,
+                            Apellido = x.Info_general.FirstOrDefault().Apellido,
+                            Fecha = x.Info_general.FirstOrDefault().Fecha,
+                            Estado = x.Estado,
+                            Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                            Id_Empresa = x.Empresa.Id_Empresa,
+                            Id_Usuario = x.Empresa.Id_Usuario
+                        }
+
+                        ).Where(x => x.Fecha <= fechavence && x.Fecha >= fechaini && x.Id_Usuario == user.Id_usuario).OrderByDescending(a => a.Id_Formulario_S_O).ToList();
+                return View(formularios);
             }
             else
             {
@@ -513,16 +680,34 @@ namespace WebParaMelvin.Controllers
                     string emp = collection["data"].ToString();
                     if (emp != "")
                     {
-                        infgereal = db.Info_general.Where(a => a.Fecha <= fechavence).ToList();
-                        foreach (var inf in infgereal)
-                        {
-                            List<Formulario_S_O> forms = db.Formulario_S_O.Where(a => a.Id_Formulario_S_O == inf.Id_Formulario_S_O && a.Empresa.Nombre.Contains(emp)).ToList();
-                            foreach (var frm in forms)
-                            {
-                                formularios.Add(frm);
-                            }
+                        //infgereal = db.Info_general.Where(a => a.Fecha <= fechavence).ToList();
+                        //foreach (var inf in infgereal)
+                        //{
+                        //    List<Formulario_S_O> forms = db.Formulario_S_O.Where(a => a.Id_Formulario_S_O == inf.Id_Formulario_S_O && a.Empresa.Nombre.Contains(emp)).ToList();
+                        //    foreach (var frm in forms)
+                        //    {
+                        //        formularios.Add(frm);
+                        //    }
 
-                        }
+                        //}
+                        formularios = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                       x => new IndexFSOData()
+                       {
+                           Id_Formulario_S_O = x.Id_Formulario_S_O,
+                           Empresa = x.Empresa.Nombre,
+                           Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                           Cedula = x.Info_general.FirstOrDefault().Cedula,
+                           Nombre = x.Info_general.FirstOrDefault().Nombre,
+                           Apellido = x.Info_general.FirstOrDefault().Apellido,
+                           Fecha = x.Info_general.FirstOrDefault().Fecha,
+                           Estado = x.Estado,
+                           Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                           Id_Empresa = x.Empresa.Id_Empresa,
+                           Id_Usuario = x.Empresa.Id_Usuario
+                       }
+
+                       ).Where(x => x.Fecha <= fechavence ).OrderByDescending(a => a.Id_Formulario_S_O).ToList();
+                        return View(formularios);
                     }
                   
                       
@@ -531,18 +716,49 @@ namespace WebParaMelvin.Controllers
                 }
                 else 
                 {
-                    infgereal = db.Info_general.Where(a => a.Fecha <= fechavence && a.Fecha >= fechaini).ToList();
-                    foreach (var inf in infgereal)
-                    {
-                        formularios.Add(db.Formulario_S_O.Find(inf.Id_Formulario_S_O));
-                    }
+                    //infgereal = db.Info_general.Where(a => a.Fecha <= fechavence && a.Fecha >= fechaini).ToList();
+                    //foreach (var inf in infgereal)
+                    //{
+                    //    formularios.Add(db.Formulario_S_O.Find(inf.Id_Formulario_S_O));
+                    //}
+                    formularios = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                       x => new IndexFSOData()
+                       {
+                           Id_Formulario_S_O = x.Id_Formulario_S_O,
+                           Empresa = x.Empresa.Nombre,
+                           Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                           Cedula = x.Info_general.FirstOrDefault().Cedula,
+                           Nombre = x.Info_general.FirstOrDefault().Nombre,
+                           Apellido = x.Info_general.FirstOrDefault().Apellido,
+                           Fecha = x.Info_general.FirstOrDefault().Fecha,
+                           Estado = x.Estado,
+                           Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                           Id_Empresa = x.Empresa.Id_Empresa,
+                           Id_Usuario = x.Empresa.Id_Usuario
+                       }
+
+                       ).Where(x => x.Fecha <= fechavence && x.Fecha >= fechaini ).OrderByDescending(a => a.Id_Formulario_S_O).ToList();
+                    return View(formularios);
                 } 
             }
-                
-           
-          
-            
-            return View(formularios.OrderByDescending(a => a.Id_Formulario_S_O).ToList());
+
+            formularios = db.Formulario_S_O.Include(x => x.Info_general).Include(x => x.Historia_Clinica).Select(
+                      x => new IndexFSOData()
+                      {
+                          Id_Formulario_S_O = x.Id_Formulario_S_O,
+                          Empresa = x.Empresa.Nombre,
+                          Tipo_de_evaluacion = x.Info_general.FirstOrDefault().Tipo_de_evaluacion,
+                          Cedula = x.Info_general.FirstOrDefault().Cedula,
+                          Nombre = x.Info_general.FirstOrDefault().Nombre,
+                          Apellido = x.Info_general.FirstOrDefault().Apellido,
+                          Fecha = x.Info_general.FirstOrDefault().Fecha,
+                          Estado = x.Estado,
+                          Pais_de_nacimiento = x.Historia_Clinica.FirstOrDefault().Pais_de_nacimiento,
+                          Id_Empresa = x.Empresa.Id_Empresa
+                      }
+
+                      ).Where(x => x.Fecha <= fechavence).OrderByDescending(a => a.Id_Formulario_S_O).ToList();
+            return View(formularios);
         }
 
         // GET: Formulario_S_O/Create

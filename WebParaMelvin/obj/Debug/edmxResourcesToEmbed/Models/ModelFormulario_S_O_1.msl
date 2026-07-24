@@ -119,66 +119,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Audiometrias">
-      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Audiometria">
-        <MappingFragment StoreEntitySet="Audiometria">
-          <ScalarProperty Name="Estado" ColumnName="Estado" />
-          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
-          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
-          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
-          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
-          <ScalarProperty Name="Firma" ColumnName="Firma" />
-          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
-          <ScalarProperty Name="Ode_8K2" ColumnName="Ode_8K2" />
-          <ScalarProperty Name="Ode_6K2" ColumnName="Ode_6K2" />
-          <ScalarProperty Name="Ode_4K2" ColumnName="Ode_4K2" />
-          <ScalarProperty Name="Ode_3K2" ColumnName="Ode_3K2" />
-          <ScalarProperty Name="Ode_2K2" ColumnName="Ode_2K2" />
-          <ScalarProperty Name="Ode_1K2" ColumnName="Ode_1K2" />
-          <ScalarProperty Name="Ode_5002" ColumnName="Ode_5002" />
-          <ScalarProperty Name="Ode_8K" ColumnName="Ode_8K" />
-          <ScalarProperty Name="Ode_6K" ColumnName="Ode_6K" />
-          <ScalarProperty Name="Ode_4K" ColumnName="Ode_4K" />
-          <ScalarProperty Name="Ode_3K" ColumnName="Ode_3K" />
-          <ScalarProperty Name="Ode_2K" ColumnName="Ode_2K" />
-          <ScalarProperty Name="Ode_1K" ColumnName="Ode_1K" />
-          <ScalarProperty Name="Ode_500" ColumnName="Ode_500" />
-          <ScalarProperty Name="Oiz_8K2" ColumnName="Oiz_8K2" />
-          <ScalarProperty Name="Oiz_6K2" ColumnName="Oiz_6K2" />
-          <ScalarProperty Name="Oiz_4K2" ColumnName="Oiz_4K2" />
-          <ScalarProperty Name="Oiz_3K2" ColumnName="Oiz_3K2" />
-          <ScalarProperty Name="Oiz_2K2" ColumnName="Oiz_2K2" />
-          <ScalarProperty Name="Oiz_1K2" ColumnName="Oiz_1K2" />
-          <ScalarProperty Name="Oiz_5002" ColumnName="Oiz_5002" />
-          <ScalarProperty Name="Oiz_8K" ColumnName="Oiz_8K" />
-          <ScalarProperty Name="Oiz_6K" ColumnName="Oiz_6K" />
-          <ScalarProperty Name="Oiz_4K" ColumnName="Oiz_4K" />
-          <ScalarProperty Name="Oiz_3K" ColumnName="Oiz_3K" />
-          <ScalarProperty Name="Oiz_2K" ColumnName="Oiz_2K" />
-          <ScalarProperty Name="Oiz_1K" ColumnName="Oiz_1K" />
-          <ScalarProperty Name="Oiz_500" ColumnName="Oiz_500" />
-          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
-          <ScalarProperty Name="Otoscopia_Derecha" ColumnName="Otoscopia_Derecha" />
-          <ScalarProperty Name="Otoscopia_Izquierda" ColumnName="Otoscopia_Izquierda" />
-          <ScalarProperty Name="Autoevaluacion_de_su_audicion_" ColumnName="Autoevaluacion_de_su_audicion_" />
-          <ScalarProperty Name="Entrenamiento_recibido" ColumnName="Entrenamiento_recibido" />
-          <ScalarProperty Name="Exposicion" ColumnName="Exposicion" />
-          <ScalarProperty Name="Horas_desde_la_ultima_exposicion" ColumnName="Horas_desde_la_ultima_exposicion" />
-          <ScalarProperty Name="Escucha_musica_alta_o_usa_audifonos" ColumnName="Escucha_musica_alta_o_usa_audifonos" />
-          <ScalarProperty Name="Ha_estado_en_la_milicia_o_el_ejercito" ColumnName="Ha_estado_en_la_milicia_o_el_ejercito" />
-          <ScalarProperty Name="Ha_tenido_zumbido_en_los_oidos_no" ColumnName="Ha_tenido_zumbido_en_los_oidos_no" />
-          <ScalarProperty Name="Ha_tenido_infecciones_en_los_oidos_no" ColumnName="Ha_tenido_infecciones_en_los_oidos_no" />
-          <ScalarProperty Name="tipo_de_proteccion_auditiva_no" ColumnName="tipo_de_proteccion_auditiva_no" />
-          <ScalarProperty Name="trabaja_trabajado_en_areas_ruidosas_no" ColumnName="trabaja_trabajado_en_areas_ruidosas_no" />
-          <ScalarProperty Name="Ha_estado_en_la_milicia_o_el_ejercito_no" ColumnName="Ha_estado_en_la_milicia_o_el_ejercito_no" />
-          <ScalarProperty Name="Ha_tenido_zumbido_en_los_oidos" ColumnName="Ha_tenido_zumbido_en_los_oidos" />
-          <ScalarProperty Name="Ha_tenido_infecciones_en_los_oidos" ColumnName="Ha_tenido_infecciones_en_los_oidos" />
-          <ScalarProperty Name="tipo_de_proteccion_auditiva" ColumnName="tipo_de_proteccion_auditiva" />
-          <ScalarProperty Name="trabaja_trabajado_en_areas_ruidosas" ColumnName="trabaja_trabajado_en_areas_ruidosas" />
-          <ScalarProperty Name="Id_AudioMetria" ColumnName="Id_AudioMetria" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Consentimiento_Informado">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Consentimiento_Informado">
         <MappingFragment StoreEntitySet="Consentimiento_Informado">
@@ -325,6 +265,8 @@
     <EntitySetMapping Name="Historia_Clinica">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Historia_Clinica">
         <MappingFragment StoreEntitySet="Historia_Clinica">
+          <ScalarProperty Name="Fecha_Dosis_inm_covid_19" ColumnName="Fecha_Dosis_inm_covid_19" />
+          <ScalarProperty Name="Covid_19" ColumnName="Covid_19" />
           <ScalarProperty Name="Pais_de_nacimiento" ColumnName="Pais_de_nacimiento" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
@@ -868,6 +810,7 @@
     <EntitySetMapping Name="Info_general">
       <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Info_general">
         <MappingFragment StoreEntitySet="Info_general">
+          <ScalarProperty Name="Examen_Visual_2" ColumnName="Examen_Visual_2" />
           <ScalarProperty Name="Apnea" ColumnName="Apnea" />
           <ScalarProperty Name="EpWorth" ColumnName="EpWorth" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
@@ -1061,6 +1004,80 @@
           <ScalarProperty Name="Trabaja_de_noche" ColumnName="Trabaja_de_noche" />
           <ScalarProperty Name="Tipo_licencia" ColumnName="Tipo_licencia" />
           <ScalarProperty Name="Id_Apnea" ColumnName="Id_Apnea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examen_Visual_2">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Examen_Visual_2">
+        <MappingFragment StoreEntitySet="Examen_Visual_2">
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Id_Examen_Visual_2" ColumnName="Id_Examen_Visual_2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Audiometrias">
+      <EntityTypeMapping TypeName="ceisamco_form_s_oModel.Audiometria">
+        <MappingFragment StoreEntitySet="Audiometria">
+          <ScalarProperty Name="Entrenamiento_recibido" ColumnName="Entrenamiento_recibido" />
+          <ScalarProperty Name="Escucha_musica_alta_o_usa_audifonos" ColumnName="Escucha_musica_alta_o_usa_audifonos" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Usuario_que_modifico" ColumnName="Usuario_que_modifico" />
+          <ScalarProperty Name="Ultima_modificacion" ColumnName="Ultima_modificacion" />
+          <ScalarProperty Name="Modificado" ColumnName="Modificado" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Firma" ColumnName="Firma" />
+          <ScalarProperty Name="Id_Formulario_S_O" ColumnName="Id_Formulario_S_O" />
+          <ScalarProperty Name="Ode_8K2" ColumnName="Ode_8K2" />
+          <ScalarProperty Name="Ode_6K2" ColumnName="Ode_6K2" />
+          <ScalarProperty Name="Ode_4K2" ColumnName="Ode_4K2" />
+          <ScalarProperty Name="Ode_3K2" ColumnName="Ode_3K2" />
+          <ScalarProperty Name="Ode_2K2" ColumnName="Ode_2K2" />
+          <ScalarProperty Name="Ode_1K2" ColumnName="Ode_1K2" />
+          <ScalarProperty Name="Ode_5002" ColumnName="Ode_5002" />
+          <ScalarProperty Name="Ode_8K" ColumnName="Ode_8K" />
+          <ScalarProperty Name="Ode_6K" ColumnName="Ode_6K" />
+          <ScalarProperty Name="Ode_4K" ColumnName="Ode_4K" />
+          <ScalarProperty Name="Ode_3K" ColumnName="Ode_3K" />
+          <ScalarProperty Name="Ode_2K" ColumnName="Ode_2K" />
+          <ScalarProperty Name="Ode_1K" ColumnName="Ode_1K" />
+          <ScalarProperty Name="Ode_500" ColumnName="Ode_500" />
+          <ScalarProperty Name="Oiz_8K2" ColumnName="Oiz_8K2" />
+          <ScalarProperty Name="Oiz_6K2" ColumnName="Oiz_6K2" />
+          <ScalarProperty Name="Oiz_4K2" ColumnName="Oiz_4K2" />
+          <ScalarProperty Name="Oiz_3K2" ColumnName="Oiz_3K2" />
+          <ScalarProperty Name="Oiz_2K2" ColumnName="Oiz_2K2" />
+          <ScalarProperty Name="Oiz_1K2" ColumnName="Oiz_1K2" />
+          <ScalarProperty Name="Oiz_5002" ColumnName="Oiz_5002" />
+          <ScalarProperty Name="Oiz_8K" ColumnName="Oiz_8K" />
+          <ScalarProperty Name="Oiz_6K" ColumnName="Oiz_6K" />
+          <ScalarProperty Name="Oiz_4K" ColumnName="Oiz_4K" />
+          <ScalarProperty Name="Oiz_3K" ColumnName="Oiz_3K" />
+          <ScalarProperty Name="Oiz_2K" ColumnName="Oiz_2K" />
+          <ScalarProperty Name="Oiz_1K" ColumnName="Oiz_1K" />
+          <ScalarProperty Name="Oiz_500" ColumnName="Oiz_500" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="Otoscopia_Derecha" ColumnName="Otoscopia_Derecha" />
+          <ScalarProperty Name="Otoscopia_Izquierda" ColumnName="Otoscopia_Izquierda" />
+          <ScalarProperty Name="Autoevaluacion_de_su_audicion_" ColumnName="Autoevaluacion_de_su_audicion_" />
+          <ScalarProperty Name="Exposicion" ColumnName="Exposicion" />
+          <ScalarProperty Name="Horas_desde_la_ultima_exposicion" ColumnName="Horas_desde_la_ultima_exposicion" />
+          <ScalarProperty Name="Ha_estado_en_la_milicia_o_el_ejercito" ColumnName="Ha_estado_en_la_milicia_o_el_ejercito" />
+          <ScalarProperty Name="Ha_tenido_zumbido_en_los_oidos_no" ColumnName="Ha_tenido_zumbido_en_los_oidos_no" />
+          <ScalarProperty Name="Ha_tenido_infecciones_en_los_oidos_no" ColumnName="Ha_tenido_infecciones_en_los_oidos_no" />
+          <ScalarProperty Name="tipo_de_proteccion_auditiva_no" ColumnName="tipo_de_proteccion_auditiva_no" />
+          <ScalarProperty Name="trabaja_trabajado_en_areas_ruidosas_no" ColumnName="trabaja_trabajado_en_areas_ruidosas_no" />
+          <ScalarProperty Name="Ha_estado_en_la_milicia_o_el_ejercito_no" ColumnName="Ha_estado_en_la_milicia_o_el_ejercito_no" />
+          <ScalarProperty Name="Ha_tenido_zumbido_en_los_oidos" ColumnName="Ha_tenido_zumbido_en_los_oidos" />
+          <ScalarProperty Name="Ha_tenido_infecciones_en_los_oidos" ColumnName="Ha_tenido_infecciones_en_los_oidos" />
+          <ScalarProperty Name="tipo_de_proteccion_auditiva" ColumnName="tipo_de_proteccion_auditiva" />
+          <ScalarProperty Name="trabaja_trabajado_en_areas_ruidosas" ColumnName="trabaja_trabajado_en_areas_ruidosas" />
+          <ScalarProperty Name="Id_AudioMetria" ColumnName="Id_AudioMetria" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

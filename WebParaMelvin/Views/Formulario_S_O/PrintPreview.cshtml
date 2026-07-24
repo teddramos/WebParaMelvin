@@ -11,6 +11,7 @@
     var pre_esp = db.Pre_espirometria.FirstOrDefault(p => p.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var audio = db.Audiometrias.FirstOrDefault(a => a.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var visual = db.Examen_Visual.FirstOrDefault(v => v.Id_Formulario_S_O == Model.Id_Formulario_S_O);
+    var visual_n = db.Examen_Visual_2.FirstOrDefault(v => v.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var manero = db.Mareos.FirstOrDefault(m => m.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var hemo = db.Hemogramas.FirstOrDefault(h => h.Id_Formulario_S_O == Model.Id_Formulario_S_O);
     var lab = db.Laboratorios.FirstOrDefault(l => l.Id_Formulario_S_O == Model.Id_Formulario_S_O);
@@ -1525,6 +1526,18 @@ Apto)
                             </td>
                             <td class="content-fields">@historia.Fecha_Dosis_Imn_Tetanos</td>
                         </tr>
+                        <tr>
+                            <td class="fields">Covid-19</td>
+                            <td class="content-fields">
+                                @historia.Covid_19
+                            </td>
+                            <td class="content-fields">@historia.Fecha_Dosis_inm_covid_19</td>
+                            <td class="fields"></td>
+                            <td class="content-fields">
+                               
+                            </td>
+                            <td class="content-fields"></td>
+                        </tr>
                     </table>
 
                     @*<p style="page-break-before: always;">&nbsp;</p>*@
@@ -2685,21 +2698,46 @@ Apto)
                                     {<input type="checkbox" checked /> }
                                     else
                                     { <input type="checkbox" />}
-                                }
+
+
+}
                             </td>
 
                             <td class="content-field-bold" colspan="1">Escucha música alta o usa audífonos</td>
-                            <td class="content-fields" colspan="3">@audio.Escucha_musica_alta_o_usa_audifonos</td>
+                            <td class="content-fields" colspan="3">
+                                @if (audio.Escucha_musica_alta_o_usa_audifonos != null)
+                                {
+                                    if (audio.Escucha_musica_alta_o_usa_audifonos.Value)
+                                    {
+
+
+                                        <input type="checkbox" checked />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" />
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    <input type="checkbox" />
+                                }
+
+                            </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td colspan="3" class="content-field-bold">Tipo de protección auditiva</td>
-                            <td class="content-field-bold">
-                                @{if (audio.tipo_de_proteccion_auditiva)
+                            <td class="content-fields">
+                                @*@{if (audio.tipo_de_proteccion_auditiva)
                                     {<input type="checkbox" checked /> }
                                     else
                                     { <input type="checkbox" />}
-                                }
+                                }*@
+                                @audio.tipo_de_proteccion_auditiva
+
                             </td>
                             <td class="content-field-bold">
                                 @{if (Convert.ToBoolean(audio.tipo_de_proteccion_auditiva_no))
@@ -2751,8 +2789,17 @@ Apto)
                                 }
                             </td>
 
-                            <td class="content-field-bold">Entrenamiento recibido</td>
-                            <td class="content-fields" colspan="3">@audio.Entrenamiento_recibido</td>
+                            <td class="content-field-bold">Recibio Entrenamiento</td>
+                            <td class="content-fields" colspan="3">
+                                @if (audio.Entrenamiento_recibido != null)
+                                { if (audio.Entrenamiento_recibido.Value) {<input type="checkbox" checked /> }
+                                else {
+                            <input type="checkbox" />
+                                    }
+                                }
+                                else
+                                { <input type="checkbox" />}
+                                                    </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
@@ -2883,19 +2930,22 @@ Apto)
 
                     <table style="width:100%;border-collapse:collapse">
                         <tr>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
+                            <td>&nbsp;</td>
                             <td>Audiograma Izquierdo</td>
                             <td>&nbsp;</td>
                             <td>Audiograma Derecho</td>
                         </tr>
                         <tr>
-                            <td><canvas id="chart-area5" width="500" height="330"></canvas></td>
                             <td>&nbsp;</td>
-                            <td><canvas id="chart-area4" width="500" height="330"></canvas></td>
+                            <td><canvas id="chart-area5" width="400" height="430"></canvas></td>
+                            <td>&nbsp;&nbsp;</td>
+                            <td><canvas id="chart-area4" width="400" height="430"></canvas></td>
                         </tr>
                         <tr><td>&nbsp;</td></tr>
 
@@ -2934,35 +2984,36 @@ Apto)
                     </table>
                     <script src="~/Scripts/Chart.js"></script>
                     <script>
-               function DoGraphics() {
-                   var oiz_500 = "@audio.Oiz_500"
-                   var Oiz_1K = "@audio.Oiz_1K"
-                   var Oiz_2K = "@audio.Oiz_2K"
-                   var Oiz_3K = "@audio.Oiz_3K"
-                   var Oiz_4K = "@audio.Oiz_4K"
-                   var Oiz_6K = "@audio.Oiz_6K"
-                   var Oiz_8K = "@audio.Oiz_8K"
-                   var oiz_5002 = "@audio.Oiz_5002"
-                   var Oiz_1K2 = "@audio.Oiz_1K2"
-                   var Oiz_2K2 = "@audio.Oiz_2K2"
-                   var Oiz_3K2 = "@audio.Oiz_3K2"
-                   var Oiz_4K2 = "@audio.Oiz_4K2"
-                   var Oiz_6K2 = "@audio.Oiz_6K2"
-                   var Oiz_8K2 = "@audio.Oiz_8K2"
-                   var Ode_500 = "@audio.Ode_500"
-                   var Ode_1K = "@audio.Ode_1K"
-                   var Ode_2K = "@audio.Ode_2K"
-                   var Ode_3K = "@audio.Ode_3K"
-                   var Ode_4K = "@audio.Ode_4K"
-                   var Ode_6K = "@audio.Ode_6K"
-                   var Ode_8K = "@audio.Ode_8K"
-                   var Ode_5002 ="@audio.Ode_5002"
-                   var Ode_1K2 = "@audio.Ode_1K2"
-                   var Ode_2K2 = "@audio.Ode_2K2"
-                   var Ode_3K2 = "@audio.Ode_3K2"
-                   var Ode_4K2 = "@audio.Ode_4K2"
-                   var Ode_6K2 = "@audio.Ode_6K2"
-                   var Ode_8K2 ="@audio.Ode_8K2"
+                        var oiz_500 = "@audio.Oiz_500"
+                        var Oiz_1K = "@audio.Oiz_1K"
+                        var Oiz_2K = "@audio.Oiz_2K"
+                        var Oiz_3K = "@audio.Oiz_3K"
+                        var Oiz_4K = "@audio.Oiz_4K"
+                        var Oiz_6K = "@audio.Oiz_6K"
+                        var Oiz_8K = "@audio.Oiz_8K"
+                        var oiz_5002 = "@audio.Oiz_5002"
+                        var Oiz_1K2 = "@audio.Oiz_1K2"
+                        var Oiz_2K2 = "@audio.Oiz_2K2"
+                        var Oiz_3K2 = "@audio.Oiz_3K2"
+                        var Oiz_4K2 = "@audio.Oiz_4K2"
+                        var Oiz_6K2 = "@audio.Oiz_6K2"
+                        var Oiz_8K2 = "@audio.Oiz_8K2"
+                        var Ode_500 = "@audio.Ode_500"
+                        var Ode_1K = "@audio.Ode_1K"
+                        var Ode_2K = "@audio.Ode_2K"
+                        var Ode_3K = "@audio.Ode_3K"
+                        var Ode_4K = "@audio.Ode_4K"
+                        var Ode_6K = "@audio.Ode_6K"
+                        var Ode_8K = "@audio.Ode_8K"
+                        var Ode_5002 ="@audio.Ode_5002"
+                        var Ode_1K2 = "@audio.Ode_1K2"
+                        var Ode_2K2 = "@audio.Ode_2K2"
+                        var Ode_3K2 = "@audio.Ode_3K2"
+                        var Ode_4K2 = "@audio.Ode_4K2"
+                        var Ode_6K2 = "@audio.Ode_6K2"
+                        var Ode_8K2 ="@audio.Ode_8K2"
+                 function DoGraphics() {
+
                var lineChartData1 = {
                    labels: ["500", "1K", "2K", "3K", "4K", "6K", "8K"],
                    datasets: [
@@ -2974,7 +3025,7 @@ Apto)
                            pointStrokeColor: "#fff",
                            pointHighlightFill: "#fff",
                            pointHighlightStroke: "rgba(220,220,220,1)",
-                           data: [@audio.Ode_500*1.8 , @audio.Ode_1K*1.8 ,@audio.Ode_2K*1.8, @audio.Ode_3K*1.8, @audio.Ode_4K*1.8, @audio.Ode_6K*1.8,@audio.Ode_8K*1.8]
+                           data: [@audio.Ode_500* 1.8 - 70, @audio.Ode_1K* 1.8 - 70,@audio.Ode_2K* 1.8 - 70, @audio.Ode_3K* 1.8 - 70, @audio.Ode_4K* 1.8 - 70, @audio.Ode_6K* 1.8 - 70,@audio.Ode_8K* 1.8 - 70]
                        },
                        {
                            label: "Prueba Actual",
@@ -2984,7 +3035,7 @@ Apto)
                            pointStrokeColor: "#fff",
                            pointHighlightFill: "#fff",
                            pointHighlightStroke: "rgba(151,187,205,1)",
-                           data:  [@audio.Ode_5002*1.8, @audio.Ode_1K2*1.8,@audio.Ode_2K2*1.8, @audio.Ode_3K2*1.8, @audio.Ode_4K2*1.8, @audio.Ode_6K2*1.8,@audio.Ode_8K2*1.8]
+                           data: [@audio.Ode_5002* 1.8 - 70, @audio.Ode_1K2* 1.8 - 70,@audio.Ode_2K2* 1.8 - 70, @audio.Ode_3K2* 1.8 - 70, @audio.Ode_4K2* 1.8 - 70, @audio.Ode_6K2* 1.8 - 70,@audio.Ode_8K2* 1.8 - 70]
                        }
                    ]
 
@@ -3000,7 +3051,7 @@ Apto)
                            pointStrokeColor: "#fff",
                            pointHighlightFill: "#fff",
                            pointHighlightStroke: "rgba(220,220,220,1)",
-                           data: [@audio.Oiz_500*1.8,@audio.Oiz_1K*1.8,@audio.Oiz_2K*1.8,@audio.Oiz_3K*1.8 , @audio.Oiz_4K*1.8 ,@audio.Oiz_6K*1.8 ,@audio.Oiz_8K*1.8 ]
+                           data: [@audio.Oiz_500* 1.8 - 70,@audio.Oiz_1K* 1.8 - 70,@audio.Oiz_2K* 1.8 - 70,@audio.Oiz_3K* 1.8 - 70, @audio.Oiz_4K* 1.8 - 70,@audio.Oiz_6K* 1.8 - 70,@audio.Oiz_8K* 1.8 - 70 ]
                        },
                        {
                            label: "Prueba Actual",
@@ -3010,25 +3061,27 @@ Apto)
                            pointStrokeColor: "#fff",
                            pointHighlightFill: "#fff",
                            pointHighlightStroke: "rgba(151,187,205,1)",
-                           data:  [@audio.Oiz_5002 *1.8,@audio.Oiz_1K2*1.8,@audio.Oiz_2K2*1.8,@audio.Oiz_3K2*1.8, @audio.Oiz_4K2*1.8,@audio.Oiz_6K2*1.8,@audio.Oiz_8K2*1.8]
+                           data: [@audio.Oiz_5002* 1.8 - 70,@audio.Oiz_1K2* 1.8 - 70,@audio.Oiz_2K2* 1.8 - 70,@audio.Oiz_3K2* 1.8 - 70, @audio.Oiz_4K2* 1.8 - 70,@audio.Oiz_6K2* 1.8 - 70,@audio.Oiz_8K2* 1.8 - 70]
                        }
                    ]
 
                }
                var ctx4 = document.getElementById("chart-area4").getContext("2d");
                window.myPie = new Chart(ctx4).Line(lineChartData1, {
-                   //responsive: true,
+                   responsive: true,
                    scaleOverride: true,
-                   scaleSteps: 10,
-                   scaleStepWidth: 10,
-                   scaleStartValue: 0 });
+                   scaleSteps: 11,
+                   scaleStepWidth: -10,
+                   scaleStartValue: 100,
+                   bezierCurve: false, });
                var ctx5 = document.getElementById("chart-area5").getContext("2d");
                window.myPie = new Chart(ctx5).Line(lineChartData2, {
-                  // responsive: true,
+                   responsive: true,
                    scaleOverride: true,
-                   scaleSteps: 10,
-                   scaleStepWidth: 10,
-                   scaleStartValue: 0  });
+                   scaleSteps: 11,
+                   scaleStepWidth: -10,
+                   scaleStartValue: 100,
+                   bezierCurve: false, });
            }
            DoGraphics();
 
@@ -3715,6 +3768,117 @@ Apto)
 
                 <p style="page-break-before: always;">&nbsp;</p>
             }
+
+        }
+        @{if (info.Examen_Visual_2)
+            {
+                <div id="Espirometria">
+                    <table style="width:100%;border-collapse:collapse">
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="cisam logo" style="border:1px solid white;" src="../../Images/logo%20cisam.jpg" width="150" height="55" />
+                            </td>
+                            <td align="center" class="field" style="font-size:18px">CENTRO INTEGRAL DE SALUD MAIMÓN</td>
+                            <td class="field" style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Examen Visual</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                    <table style="width:100%;border-collapse:collapse">
+                        <tr>
+                            <td colspan="5">&nbsp;</td>
+                            <td class="fields">Expediente No.</td>
+                            <td class="content-fields">@fso.Id_Formulario_S_O</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Empresa:</td>
+                            <td class="content-fields" colspan="4">@empresa.Nombre</td>
+                            <td class="fields">Fecha:</td>
+                            <td class="content-fields">@info.Fecha.Value.ToShortDateString()</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Departamento:</td>
+                            <td class="content-fields">@info.Departamento</td>
+                            <td class="fields">Posición:</td>
+                            <td class="content-fields" colspan="4">@info.Posicion</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Tipo evaluación:</td>
+                            <td class="content-fields" colspan="6">@info.Tipo_de_evaluacion</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" style="border-bottom:1px solid">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="fields" colspan="7" align="center">Datos Generales</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Nombre:</td>
+                            <td class="content-fields" colspan="2">@info.Nombre&nbsp;&nbsp;@info.Apellido</td>
+                            <td class="fields">Sexo:</td>
+                            <td class="content-fields">@info.Sexo</td>
+                            <td class="fields">Cédula:</td>
+                            <td class="content-fields">@info.Cedula</td>
+                        </tr>
+                        <tr>
+                            <td class="fields">Fecha de Nacimiento</td>
+                            <td class="content-fields">@info.Fecha_de_nacimiento.Value.ToShortDateString()</td>
+                            <td class="fields">Edad:</td>
+                            <td class="content-fields">@info.Edad</td>
+                            <td class="fields">Id Empleado</td>
+                            <td class="content-fields" colspan="2">@info.Id_Empleado</td>
+                        </tr>
+                        <tr><td>&nbsp;</td></tr>
+                    </table>
+                    <p class="field">&nbsp;Examen visual:</p>
+                    <br />
+                    <p align="center">
+                        @{
+                            try
+                            {
+                                var base64 = Convert.ToBase64String(visual_n.Archivo);
+                                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                                <img src="@imgSrc" width="800"/>
+                            }
+                            catch
+                            {
+                                <img src="" width="1000" height="0" />
+                            }
+                        }
+                    </p>
+                    <br />
+
+
+                    <p align="center">
+                        @{
+                            try
+                            {
+                                var base64 = Convert.ToBase64String(visual_n.Firma);
+                                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                                <img src="@imgSrc" width="280" height="110" />
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                    </p>
+                    <p align="center">_____________________________________</p>
+                    <p align="center">Firma</p>
+
+                </div>
+
+                <p style="page-break-before: always;">&nbsp;</p>
+            }
+
         }
 
         @{ if (info.Capacidad_fisica)
@@ -5740,9 +5904,9 @@ Apto)
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
-                            
+
                             <td align="center" style="font-size:16px;font-weight:bold" width="400" colspan="3">TOTAL DEL PUNTOS @epw.TotalPuntos</td>
-                            
+
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
@@ -6743,7 +6907,7 @@ Apto)
                         setGradeSelected(grade)
                     </script>
                 </div>
-                }
             }
-            </body>
+        }
+    </body>
 </html>

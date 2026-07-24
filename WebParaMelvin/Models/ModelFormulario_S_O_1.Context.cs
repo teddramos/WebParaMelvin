@@ -12,6 +12,8 @@ namespace WebParaMelvin.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ceisamco_form_s_oEntities : DbContext
     {
@@ -33,7 +35,6 @@ namespace WebParaMelvin.Models
         public virtual DbSet<Usuario_Rol> Usuario_Rol { get; set; }
         public virtual DbSet<Usuario_Empresa> Usuario_Empresa { get; set; }
         public virtual DbSet<ArchivosExtra> ArchivosExtras { get; set; }
-        public virtual DbSet<Audiometria> Audiometrias { get; set; }
         public virtual DbSet<Consentimiento_Informado> Consentimiento_Informado { get; set; }
         public virtual DbSet<EKG> EKGs { get; set; }
         public virtual DbSet<Espirometria> Espirometrias { get; set; }
@@ -50,5 +51,9 @@ namespace WebParaMelvin.Models
         public virtual DbSet<Deteccion_SAS> Deteccion_SAS { get; set; }
         public virtual DbSet<EpWorth> EpWorths { get; set; }
         public virtual DbSet<Apnea> Apneas { get; set; }
+        public virtual DbSet<Examen_Visual_2> Examen_Visual_2 { get; set; }
+        public virtual DbSet<Audiometria> Audiometrias { get; set; }
+    
+       
     }
 }

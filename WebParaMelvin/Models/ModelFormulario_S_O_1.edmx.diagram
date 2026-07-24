@@ -21,7 +21,6 @@
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Usuario_Rol_Usuario" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.ArchivosExtra" Width="1.5" PointX="7.5" PointY="75.5" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_ArchivosExtras_ToFormulario_S_O" />
-        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Audiometria" Width="1.5" PointX="7.5" PointY="44.125" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Consentimiento_Informado" Width="1.5" PointX="7.5" PointY="19" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.EKG" Width="1.5" PointX="7.5" PointY="6.75" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Espirometria" Width="1.5" PointX="7.5" PointY="9.25" />
@@ -32,7 +31,6 @@
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Mareo" Width="1.5" PointX="7.5" PointY="78.875" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Pre_espirometria" Width="1.5" PointX="7.5" PointY="12" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.RayosX" Width="1.5" PointX="7.5" PointY="34.25" />
-        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Audiometria_To_Formulario_S_O" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Consentimiento_Informado_To_Formulario_S_O" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_EKG_To_Formulario_S_O" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK_Espirometria_To_Formulario_S_O" />
@@ -56,6 +54,10 @@
         <AssociationConnector Association="ceisamco_form_s_oModel.FK__EpWorth__Id_Form__6D6238AF" />
         <EntityTypeShape EntityType="ceisamco_form_s_oModel.Apnea" Width="1.5" PointX="7.5" PointY="184.125" />
         <AssociationConnector Association="ceisamco_form_s_oModel.FK__Apnea__Id_Formul__035179CE" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Examen_Visual_2" Width="1.5" PointX="7.5" PointY="40" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Examen_Visual_2_To_Formulario_S_O" />
+        <EntityTypeShape EntityType="ceisamco_form_s_oModel.Audiometria" Width="1.5" PointX="7.5" PointY="197.375" />
+        <AssociationConnector Association="ceisamco_form_s_oModel.FK_Audiometria_To_Formulario_S_O" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

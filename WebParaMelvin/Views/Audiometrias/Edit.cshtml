@@ -13,7 +13,7 @@
 <script>
     function isNumberKey(evt) {
         var charCode = (evt.which) ? evt.which : event.keyCode
-        //if (charCode == 45) { return true; }
+        if (charCode == 45) { return true; }
         if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
             return false;
         return true;
@@ -122,16 +122,20 @@
                 <td> @Html.CheckBox("Trabaja_trabajado_en_areas_ruidosas_no")</td>
                 <td>&nbsp;</td>
                 <td>Escucha musica alta o usa audifonos</td>
-                <td> @Html.EditorFor(model => model.Escucha_musica_alta_o_usa_audifonos, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>
+                    @*@Html.EditorFor(model => model.Escucha_musica_alta_o_usa_audifonos, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.CheckBox("Escucha_musica_alta_o_usa_audifonos", htmlAttributes: new { @class = "form-control" })
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td colspan="3">Tipo de proteccion auditiva</td>
-                <td>@Html.EditorFor(model => model.tipo_de_proteccion_auditiva)</td>
+                @*<td>@Html.EditorFor(model => model.tipo_de_proteccion_auditiva)</td>*@
+            <td>@Html.DropDownList("tipo_de_proteccion_auditiva", new SelectList(new List<string>() { "Ninguna","Tapón", "Orejera", "Tapón y Orejera" }), htmlAttributes: new { @class = "form-control" })</td>
                 <td>@Html.CheckBox("tipo_de_proteccion_auditiva_no")</td>
                 <td>&nbsp;</td>
                 <td>Horas desde la ultima exposicion</td>
-                <td> @Html.EditorFor(model => model.Horas_desde_la_ultima_exposicion, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td> @Html.EditorFor(model => model.Horas_desde_la_ultima_exposicion, new { htmlAttributes = new { @class = "form-control",@type = "number" } })</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -139,8 +143,8 @@
                 <td>@Html.EditorFor(model => model.Ha_tenido_infecciones_en_los_oidos)</td>
                 <td>@Html.CheckBox("Ha_tenido_infecciones_en_los_oidos_no")</td>
                 <td>&nbsp;</td>
-                <td>Exposicion</td>
-                <td> @Html.EditorFor(model => model.Exposicion, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>Exposicion (dba)</td>
+                <td> @Html.EditorFor(model => model.Exposicion, new { htmlAttributes = new { @class = "form-control", @type = "number" } })</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -148,8 +152,11 @@
                 <td>@Html.EditorFor(model => model.Ha_tenido_zumbido_en_los_oidos)</td>
                 <td>@Html.CheckBox("Ha_tenido_zumbido_en_los_oidos_no")</td>
                 <td>&nbsp;</td>
-                <td>Entrenamiento recibido</td>
-                <td> @Html.EditorFor(model => model.Entrenamiento_recibido, new { htmlAttributes = new { @class = "form-control" } })</td>
+                <td>Recibio entrenamiento</td>
+                <td>
+                    @*@Html.EditorFor(model => model.Entrenamiento_recibido, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.CheckBox("Entrenamiento_recibido", htmlAttributes: new { @class = "form-control"})
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
@@ -388,7 +395,7 @@
             </tr>
             <tr>
                 <td>Comentarios</td>
-                <td colspan="7">@Html.TextAreaFor(model => model.Comentarios, htmlAttributes: new { @class = "form-control" })</td>
+                <td colspan="7">@Html.TextAreaFor(model => model.Comentarios, htmlAttributes: new { @class = "form-control", @style = "max-width : 550px" })</td>
             </tr>
         </table>
         <h4>Audiometria</h4>
@@ -476,131 +483,134 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 col-lg-5 col-sm-12" style="padding-right:5px">
                 <div><p align="center" style="font-weight:bold">Audiograma Izquierdo</p></div>
-                <canvas id="chart-area4" width="20" height="10"></canvas>
+                <canvas id="chart-area4" width="8" height="10"></canvas>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 col-lg-5 col-sm-12">
                 <div><p align="center" style="font-weight:bold">Audiograma Derecho</p></div>
-                <canvas id="chart-area5" width="20" height="10"></canvas>
+                <canvas id="chart-area5" width="8" height="10"></canvas>
             </div>
 
         </div>
     </div>
-    <div class="col-md-4">
-        <label class="control-label">Resultado:</label>
-        <select name="Resultado" class="form-control">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label">Resultado:</label>
+            <select name="Resultado" class="form-control">
 
-            @{
-                if (Model.Resultado != null)
-                {
-                    switch (Model.Resultado.Trim())
+                @{
+                    if (Model.Resultado != null)
                     {
-                        case "Audición normal":
-                            {
-                                <option selected>Audición normal</option>
-                                <option>Hipoacusia leve</option>
-                                <option>Hipoacusia moderada</option>
-                                <option>Hipoacusia severa</option>
-                                <option>Hipoacusia profunda</option>
-                            }
-                            break;
-                        case "Hipoacusia leve":
-                            {
-                                <option>Audición normal</option>
-                                <option selected>Hipoacusia leve</option>
-                                <option>Hipoacusia moderada</option>
-                                <option>Hipoacusia severa</option>
-                                <option>Hipoacusia profunda</option>
-                            }
-                            break;
-                        case "Hipoacusia moderada":
-                            {
-                                <option>Audición normal</option>
-                                <option>Hipoacusia leve</option>
-                                <option selected>Hipoacusia moderada</option>
-                                <option>Hipoacusia severa</option>
-                                <option>Hipoacusia profunda</option>
-                            }
-                            break;
-                        case "Hipoacusia severa":
-                            {
-                                <option>Audición normal</option>
-                                <option>Hipoacusia leve</option>
-                                <option>Hipoacusia moderada</option>
-                                <option selected>Hipoacusia severa</option>
-                                <option>Hipoacusia profunda</option>
-                            }
-                            break;
-                        case "Hipoacusia profunda":
-                            {
-                                <option>Audición normal</option>
-                                <option>Hipoacusia leve</option>
-                                <option>Hipoacusia moderada</option>
-                                <option>Hipoacusia severa</option>
-                                <option selected>Hipoacusia profunda</option>
-                            }
-                            break;
+                        switch (Model.Resultado.Trim())
+                        {
+                            case "Audición normal":
+                                {
+                                    <option selected>Audición normal</option>
+                                    <option>Hipoacusia leve</option>
+                                    <option>Hipoacusia moderada</option>
+                                    <option>Hipoacusia severa</option>
+                                    <option>Hipoacusia profunda</option>
+                                }
+                                break;
+                            case "Hipoacusia leve":
+                                {
+                                    <option>Audición normal</option>
+                                    <option selected>Hipoacusia leve</option>
+                                    <option>Hipoacusia moderada</option>
+                                    <option>Hipoacusia severa</option>
+                                    <option>Hipoacusia profunda</option>
+                                }
+                                break;
+                            case "Hipoacusia moderada":
+                                {
+                                    <option>Audición normal</option>
+                                    <option>Hipoacusia leve</option>
+                                    <option selected>Hipoacusia moderada</option>
+                                    <option>Hipoacusia severa</option>
+                                    <option>Hipoacusia profunda</option>
+                                }
+                                break;
+                            case "Hipoacusia severa":
+                                {
+                                    <option>Audición normal</option>
+                                    <option>Hipoacusia leve</option>
+                                    <option>Hipoacusia moderada</option>
+                                    <option selected>Hipoacusia severa</option>
+                                    <option>Hipoacusia profunda</option>
+                                }
+                                break;
+                            case "Hipoacusia profunda":
+                                {
+                                    <option>Audición normal</option>
+                                    <option>Hipoacusia leve</option>
+                                    <option>Hipoacusia moderada</option>
+                                    <option>Hipoacusia severa</option>
+                                    <option selected>Hipoacusia profunda</option>
+                                }
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        <option>Audición normal</option>
+                        <option>Hipoacusia leve</option>
+                        <option>Hipoacusia moderada</option>
+                        <option>Hipoacusia severa</option>
+                        <option>Hipoacusia profunda</option>
                     }
                 }
-                else
-                {
-                    <option>Audición normal</option>
-                    <option>Hipoacusia leve</option>
-                    <option>Hipoacusia moderada</option>
-                    <option>Hipoacusia severa</option>
-                    <option>Hipoacusia profunda</option>
-                }
-            }
-        </select>
-    </div>
-    @*<div>
+            </select>
+        </div>
+        @*<div>
+                @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
+
+                @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file",@style = "display:none" })
+                @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
+
+            </div>*@
+
+        <div class="form-group">
             @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
 
-            @Html.TextBoxFor(model => model.Archivo, htmlAttributes: new { @class = "form-control", @type = "file",@style = "display:none" })
-            @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
+            @{
+                try
+                {
+                    var base64 = Convert.ToBase64String(Model.Firma);
+                    var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
+                    <img src="@imgSrc" width="500"  />
+                }
+                catch
+                {
 
-        </div>*@
-
-    <div>
-        @Html.Label("Firma:", htmlAttributes: new { @class = "control-label" })
-
-        @{
-            try
-            {
-                var base64 = Convert.ToBase64String(Model.Firma);
-                var imgSrc = String.Format("data:image/jpeg;base64,{0}", base64);
-                <img src="@imgSrc" />
+                }
             }
-            catch
-            {
 
-            }
-        }
+        </div>
+        <div class="form-group">
+            @Html.Label("Estado:", htmlAttributes: new { @class = "control-label" })
 
-    </div>
-    <div class="form-group">
-        @Html.Label("Estado:", htmlAttributes: new { @class = "control-label" })
+            @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
 
-        @Html.DropDownList("Estado", new SelectList(new List<string>() { "Aplicada", "En proceso", "Finalizada" }), htmlAttributes: new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Firmar, "Firmar?", htmlAttributes: new { @class = "control-label" })
 
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Firmar, "Firmar?", htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.Firmar, new { htmlAttributes = new { @class = "form-control", @type = "checkbox" } })
+            @Html.ValidationMessageFor(model => model.Firmar, "", new { @class = "text-danger" })
+            <p style="font-size:12px">La opción de firmar solo funciona en el estado 'Finalizada'.</p>
 
-        @Html.EditorFor(model => model.Firmar, new { htmlAttributes = new { @class = "form-control", @type = "checkbox" } })
-        @Html.ValidationMessageFor(model => model.Firmar, "", new { @class = "text-danger" })
-        <p style="font-size:12px">La opción de firmar solo funciona en el estado 'Finalizada'.</p>
+        </div>
 
-    </div>
-
-    <div class="form-group" style="color:#ff0000">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Guardar" class="btn btn-default" />
+        <div class="form-group" style="color:#ff0000">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
         </div>
     </div>
-
 }
 
 <div>
@@ -661,7 +671,8 @@
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: [oiz_5002.value, Oiz_1K2.value, Oiz_2K2.value, Oiz_3K2.value, Oiz_4K2.value, Oiz_6K2.value, Oiz_8K2.value]
+                    data: [oiz_5002.value, Oiz_1K2.value, Oiz_2K2.value, Oiz_3K2.value, Oiz_4K2.value, Oiz_6K2.value, Oiz_8K2.value],
+                    
                 }
             ]
 
@@ -696,18 +707,22 @@
         window.myPie = new Chart(ctx4).Line(lineChartData1, {
             responsive: true,
             scaleOverride: true,
-            scaleSteps: 10,
-            scaleStepWidth: 10,
-            scaleStartValue: 0
+            scaleSteps: 11,
+            scaleStepWidth: -10,
+            scaleStartValue: 100,
+            bezierCurve: false,
+            
+
         });
         var ctx5 = document.getElementById("chart-area5").getContext("2d");
         window.myPie = new Chart(ctx5).Line(lineChartData2, {
-
+            
             responsive: true,
             scaleOverride: true,
-            scaleSteps: 10,
-            scaleStepWidth: 10,
-            scaleStartValue: 0,
+            scaleSteps: 11,
+            scaleStepWidth:-10,
+            scaleStartValue: 100,
+            bezierCurve:false,
 
         });
     }

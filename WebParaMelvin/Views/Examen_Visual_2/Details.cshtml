@@ -1,0 +1,74 @@
+﻿@model WebParaMelvin.Models.Examen_Visual_2
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Examen_Visual_2</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Archivo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Archivo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Modificado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Modificado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Ultima_modificacion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Ultima_modificacion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Usuario_que_modifico)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Usuario_que_modifico)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Formulario_S_O.Estado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Formulario_S_O.Estado)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Examen_Visual_2 }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
